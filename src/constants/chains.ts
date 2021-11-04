@@ -14,6 +14,9 @@ export enum SupportedChainId {
   ARBITRUM_RINKEBY = 421611,
   OPTIMISM = 10,
   OPTIMISTIC_KOVAN = 69,
+
+  TOMOCHAIN_TESNET = 89,
+  POLYGON_TESTNET = 80001,
 }
 
 export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = [
@@ -27,6 +30,9 @@ export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = [
   SupportedChainId.ARBITRUM_RINKEBY,
   SupportedChainId.OPTIMISM,
   SupportedChainId.OPTIMISTIC_KOVAN,
+
+  SupportedChainId.TOMOCHAIN_TESNET,
+  SupportedChainId.POLYGON_TESTNET,
 ]
 
 export const L1_CHAIN_IDS = [
@@ -35,6 +41,8 @@ export const L1_CHAIN_IDS = [
   SupportedChainId.RINKEBY,
   SupportedChainId.GOERLI,
   SupportedChainId.KOVAN,
+  SupportedChainId.TOMOCHAIN_TESNET,
+  SupportedChainId.POLYGON_TESTNET,
 ] as const
 
 export type SupportedL1ChainId = typeof L1_CHAIN_IDS[number]
@@ -155,6 +163,22 @@ export const CHAIN_INFO: ChainInfo = {
     logoUrl: optimismLogoUrl,
     nativeCurrency: { name: 'Optimistic kovETH', symbol: 'kovOpETH', decimals: 18 },
     statusPage: 'https://optimism.io/status',
+  },
+  [SupportedChainId.TOMOCHAIN_TESNET]: {
+    docs: 'https://docs.uniswap.org/',
+    explorer: 'https://scan.testnet.tomochain.com/',
+    infoLink: 'https://info.uniswap.org/#/',
+    label: 'Tomo',
+    nativeCurrency: { name: 'TOMO', symbol: 'TOMO', decimals: 18 },
+    rpcUrls: ['https://rpc.testnet.tomochain.com'],
+  },
+  [SupportedChainId.POLYGON_TESTNET]: {
+    docs: 'https://docs.uniswap.org/',
+    explorer: 'https://mumbai.polygonscan.com/',
+    infoLink: 'https://info.uniswap.org/#/',
+    label: 'Polygon',
+    nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
+    rpcUrls: ['https://rpc-mumbai.maticvigil.com'],
   },
 }
 
