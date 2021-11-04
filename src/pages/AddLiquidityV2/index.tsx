@@ -179,6 +179,7 @@ export default function AddLiquidity({
       value = null
     }
 
+    console.log('Add Liquidity Args', args)
     setAttemptingTxn(true)
     await estimate(...args, value ? { value } : {})
       .then((estimatedGasLimit) =>
@@ -187,7 +188,7 @@ export default function AddLiquidity({
           gasLimit: calculateGasMargin(chainId, estimatedGasLimit),
         }).then((response) => {
           setAttemptingTxn(false)
-
+          console.log('Add liquidty', response)
           addTransaction(response, {
             type: TransactionType.ADD_LIQUIDITY_V2_POOL,
             baseCurrencyId: currencyId(currencyA),

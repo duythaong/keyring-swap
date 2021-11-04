@@ -174,6 +174,20 @@ export const WETH9_EXTENDED: { [chainId: number]: Token } = {
     'WETH',
     'Wrapped Ether'
   ),
+  [SupportedChainId.POLYGON_TESTNET]: new Token(
+    SupportedChainId.POLYGON_TESTNET,
+    '0x9274dAC997ca1b6D82a57388cca05749EeaD4581',
+    18,
+    'WMATIC',
+    'Wrapped Matic'
+  ),
+  [SupportedChainId.TOMOCHAIN_TESNET]: new Token(
+    SupportedChainId.TOMOCHAIN_TESNET,
+    '0xB47e6A5f8b33b3F17603C83a0535A9dcD7E32681',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
 }
 
 export class ExtendedEther extends Ether {

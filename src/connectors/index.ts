@@ -29,7 +29,7 @@ const NETWORK_URLS: { [key in SupportedChainId]: string } = {
   [SupportedChainId.OPTIMISTIC_KOVAN]: `https://optimism-kovan.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_ONE]: `https://arbitrum-mainnet.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_RINKEBY]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
-  [SupportedChainId.POLYGON_TESTNET]: `https://rpc-mumbai.maticvigil.com/`,
+  [SupportedChainId.POLYGON_TESTNET]: `https://rpc-mumbai.maticvigil.com`,
   [SupportedChainId.TOMOCHAIN_TESNET]: `https://rpc.testnet.tomochain.com`,
 }
 
