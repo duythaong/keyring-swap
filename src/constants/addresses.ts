@@ -1,4 +1,4 @@
-// import { FACTORY_ADDRESS as V2_FACTORY_ADDRESS } from '@uniswap/v2-sdk'
+import { FACTORY_ADDRESS as V2_FACTORY_ADDRESS } from '@uniswap/v2-sdk'
 import { FACTORY_ADDRESS as V3_FACTORY_ADDRESS } from '@uniswap/v3-sdk'
 
 import { constructSameAddressMap } from '../utils/constructSameAddressMap'
@@ -15,7 +15,7 @@ export const MULTICALL_ADDRESS: AddressMap = {
   [SupportedChainId.POLYGON_TESTNET]: '0x7aFd4508B74302E15f182032038EE7c827Cf7aDd',
   [SupportedChainId.TOMOCHAIN_TESNET]: '0x7aFd4508B74302E15f182032038EE7c827Cf7aDd',
 }
-export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap('0x27868a4D48b04D13c91653c03F4F50Da57335751')
+export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_FACTORY_ADDRESS)
 export const V2_ROUTER_ADDRESS: AddressMap = constructSameAddressMap('0xdc4a6fc750d0B0B016a867751e06603179007494')
 
 /**
