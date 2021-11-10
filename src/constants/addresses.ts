@@ -1,4 +1,4 @@
-import { FACTORY_ADDRESS as V2_FACTORY_ADDRESS } from '@uniswap/v2-sdk'
+import { FACTORY_ADDRESS as V2_FACTORY_ADDRESS } from '@duythao_bacoor/v2-sdk'
 import { FACTORY_ADDRESS as V3_FACTORY_ADDRESS } from '@uniswap/v3-sdk'
 
 import { constructSameAddressMap } from '../utils/constructSameAddressMap'
@@ -16,7 +16,7 @@ export const MULTICALL_ADDRESS: AddressMap = {
   [SupportedChainId.TOMOCHAIN_TESNET]: '0x7aFd4508B74302E15f182032038EE7c827Cf7aDd',
 }
 export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_FACTORY_ADDRESS)
-export const V2_ROUTER_ADDRESS: AddressMap = constructSameAddressMap('0xdc4a6fc750d0B0B016a867751e06603179007494')
+export const V2_ROUTER_ADDRESS: AddressMap = constructSameAddressMap('0xA3b4864a6E47b706dF76bc6a26Bc057F10bfB676')
 
 /**
  * The oldest V0 governance address

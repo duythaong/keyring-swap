@@ -12,6 +12,7 @@
   "private": true,
   "devDependencies": {
     "@davatar/react": "1.8.1",
+    "@duythao_bacoor/v2-sdk": "^3.0.4",
     "@ethersproject/experimental": "^5.4.0",
     "@gnosis.pm/safe-apps-web3-react": "^0.6.0",
     "@graphql-codegen/cli": "1.21.5",
@@ -171,6 +172,5 @@
       "last 1 safari version"
     ]
   },
-  "license": "GPL-3.0-or-later",
-  "dependencies": {}
+  "license": "GPL-3.0-or-later"
 }

@@ -1,5 +1,5 @@
+import { computePairAddress, Pair } from '@duythao_bacoor/v2-sdk'
 import { Percent, Token } from '@uniswap/sdk-core'
-import { computePairAddress, Pair } from '@uniswap/v2-sdk'
 import { L2_CHAIN_IDS, SupportedChainId } from 'constants/chains'
 import { SupportedLocale } from 'constants/locales'
 import { L2_DEADLINE_FROM_NOW } from 'constants/misc'

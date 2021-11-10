@@ -1,7 +1,7 @@
+import { Trade as V2Trade } from '@duythao_bacoor/v2-sdk'
 import { parseUnits } from '@ethersproject/units'
 import { Trans } from '@lingui/macro'
 import { Currency, CurrencyAmount, Percent, TradeType } from '@uniswap/sdk-core'
-import { Trade as V2Trade } from '@uniswap/v2-sdk'
 import { Trade as V3Trade } from '@uniswap/v3-sdk'
 import { TWO_PERCENT } from 'constants/misc'
 import { useBestV2Trade } from 'hooks/useBestV2Trade'
