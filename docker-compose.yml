@@ -4,7 +4,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     environment:
       - REACT_APP_INFURA_KEY=099fc58e0de9451d80b18d7c74caa7c1
       - REACT_APP_PORTIS_ID=c0e2bf01-4b08-4fd5-ac7b-8e26b58cd236

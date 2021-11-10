@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:13.12.0-alpine as build
 
 RUN apt-get install yarn
 
@@ -7,13 +7,12 @@ WORKDIR /app/bacoor-swap
 COPY package.json ./
 COPY yarn.lock ./
 
-RUN yarn install
+RUN yarn
+RUN yarn build
 
 COPY . /app/bacoor-swap
 
-CMD ["npm", "start"]
-
 # nginx server hosting simple static content
-FROM nginx
+FROM nginx:stable-alpine
 EXPOSE 80
-COPY --from=builder /app/bacoor-swap/build /usr/share/nginx/html 
+COPY --from=builder /app/bacoor-swap/build /usr/share/nginx/html
