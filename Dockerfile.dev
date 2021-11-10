@@ -1,0 +1,19 @@
+FROM node:14
+
+RUN apt-get install yarn
+
+WORKDIR /app/bacoor-swap
+
+COPY package.json ./
+COPY yarn.lock ./
+
+RUN yarn install
+
+COPY . /app/bacoor-swap
+
+CMD ["npm", "start"]
+
+# nginx server hosting simple static content
+FROM nginx
+EXPOSE 80
+COPY --from=builder /app/build /usr/share/nginx/html 
