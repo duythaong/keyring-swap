@@ -16,4 +16,4 @@ CMD ["npm", "start"]
 # nginx server hosting simple static content
 FROM nginx
 EXPOSE 80
-COPY --from=builder /app/build /usr/share/nginx/html 
+COPY --from=builder /app/bacoor-swap/build /usr/share/nginx/html 
