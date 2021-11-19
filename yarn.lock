@@ -1534,6 +1534,17 @@
     mersenne-twister "^1.1.0"
     react-blockies "^1.4.1"
 
+"@duythao_bacoor/thaoswap-sdk@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@duythao_bacoor/thaoswap-sdk/-/thaoswap-sdk-1.0.0.tgz#f6ee6f95c28af025c4ff2332a7a50d97424fa1e9"
+  integrity sha512-Nnlz7D2nn7wIK9GxC/GbfWQmLeQ3qRpyi0D22m0a52uCEVR9LJrm44qCdpIhzNb/69dNomeVHkNCCwsIj3HWyQ==
+  dependencies:
+    "@ethersproject/address" "^5.0.0"
+    "@ethersproject/solidity" "^5.0.0"
+    "@uniswap/sdk-core" "^3.0.0-alpha.3"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+
 "@duythao_bacoor/v2-sdk@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@duythao_bacoor/v2-sdk/-/v2-sdk-3.0.4.tgz#9dd06573a3f4e25bd7f5e10cc0c14e13c607c06f"
