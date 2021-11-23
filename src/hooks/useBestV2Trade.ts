@@ -11,6 +11,7 @@ function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
   const allCurrencyCombinations = useAllCurrencyCombinations(currencyA, currencyB)
 
   const allPairs = useV2Pairs(allCurrencyCombinations)
+  console.log('allPairs', allPairs)
 
   return useMemo(
     () =>

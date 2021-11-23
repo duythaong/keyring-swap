@@ -1,10 +1,11 @@
+import { FACTORY_ADDRESS as V2_UNI_FACTORY_ADDRESS } from '@duythao_bacoor/thaoswap-sdk'
 import { FACTORY_ADDRESS as V2_FACTORY_ADDRESS } from '@duythao_bacoor/v2-sdk'
 import { FACTORY_ADDRESS as V3_FACTORY_ADDRESS } from '@uniswap/v3-sdk'
 
 import { constructSameAddressMap } from '../utils/constructSameAddressMap'
 import { SupportedChainId } from './chains'
 
-type AddressMap = { [chainId: number]: string }
+export type AddressMap = { [chainId: number]: string }
 
 export const UNI_ADDRESS: AddressMap = constructSameAddressMap('0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984')
 export const MULTICALL_ADDRESS: AddressMap = {
@@ -15,8 +16,11 @@ export const MULTICALL_ADDRESS: AddressMap = {
   [SupportedChainId.POLYGON_TESTNET]: '0x7aFd4508B74302E15f182032038EE7c827Cf7aDd',
   [SupportedChainId.TOMOCHAIN_TESNET]: '0x7aFd4508B74302E15f182032038EE7c827Cf7aDd',
 }
+
 export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_FACTORY_ADDRESS)
 export const V2_ROUTER_ADDRESS: AddressMap = constructSameAddressMap('0xA3b4864a6E47b706dF76bc6a26Bc057F10bfB676')
+export const V2_UNI_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_UNI_FACTORY_ADDRESS)
+export const V2_UNI_ROUTER_ADDRESS: AddressMap = constructSameAddressMap('0x7D6361273b4D0d06b149B9639a983d88aBb56eD8')
 
 /**
  * The oldest V0 governance address
