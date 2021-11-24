@@ -17,6 +17,7 @@ import FullPositionCard from '../../components/PositionCard'
 import { RowBetween, RowFixed } from '../../components/Row'
 import { Dots } from '../../components/swap/styleds'
 import { SwitchLocaleLink } from '../../components/SwitchLocaleLink'
+import { BACOOR_SWAP } from '../../constants/addresses'
 import { BIG_INT_ZERO } from '../../constants/misc'
 import { useV2Pairs } from '../../hooks/useV2Pairs'
 import { useActiveWeb3React } from '../../hooks/web3'
@@ -110,7 +111,10 @@ export default function Pool() {
     [tokenPairsWithLiquidityTokens, v2PairsBalances]
   )
 
-  const v2Pairs = useV2Pairs(liquidityTokensWithBalances.map(({ tokens }) => tokens))
+  const v2Pairs = useV2Pairs(
+    BACOOR_SWAP,
+    liquidityTokensWithBalances.map(({ tokens }) => tokens)
+  )
   const v2IsLoading =
     fetchingV2PairBalances || v2Pairs?.length < liquidityTokensWithBalances.length || v2Pairs?.some((V2Pair) => !V2Pair)
 
@@ -121,7 +125,10 @@ export default function Pool() {
   const stakingInfosWithBalance = stakingInfo?.filter((pool) =>
     JSBI.greaterThan(pool.stakedAmount.quotient, BIG_INT_ZERO)
   )
-  const stakingPairs = useV2Pairs(stakingInfosWithBalance?.map((stakingInfo) => stakingInfo.tokens))
+  const stakingPairs = useV2Pairs(
+    BACOOR_SWAP,
+    stakingInfosWithBalance?.map((stakingInfo) => stakingInfo.tokens)
+  )
 
   // remove any pairs that also are included in pairs with stake in mining pool
   const v2PairsWithoutStakedAmount = allV2PairsWithLiquidity.filter((v2Pair) => {

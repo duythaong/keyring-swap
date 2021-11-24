@@ -1,18 +1,16 @@
 import { Pair, Trade } from '@duythao_bacoor/v2-sdk'
 import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
-import { useContext, useMemo } from 'react'
+import { useMemo } from 'react'
 import { isTradeBetter } from 'utils/isTradeBetter'
 
-import { UNI_SWAP } from '../constants/addresses'
 import { BETTER_TRADE_LESS_HOPS_THRESHOLD } from '../constants/misc'
-import { SwapContext } from '../swap'
 import { useAllCurrencyCombinations } from './useAllCurrencyCombinations'
 import { PairState, useV2Pairs } from './useV2Pairs'
 
-function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
+function useAllCommonPairs(name: string, currencyA?: Currency, currencyB?: Currency): Pair[] {
   const allCurrencyCombinations = useAllCurrencyCombinations(currencyA, currencyB)
 
-  const allPairs = useV2Pairs(allCurrencyCombinations)
+  const allPairs = useV2Pairs(name, allCurrencyCombinations)
   return useMemo(
     () =>
       Object.values(
@@ -34,6 +32,7 @@ const MAX_HOPS = 3
  * @param otherCurrency the desired output/payment currency
  */
 export function useBestV2Trade(
+  name: string,
   tradeType: TradeType.EXACT_INPUT | TradeType.EXACT_OUTPUT,
   amountSpecified?: CurrencyAmount<Currency>,
   otherCurrency?: Currency,
@@ -46,13 +45,8 @@ export function useBestV2Trade(
         : [otherCurrency, amountSpecified?.currency],
     [tradeType, amountSpecified, otherCurrency]
   )
-  const { setName } = useContext(SwapContext)
 
-  let allowedPairs: Pair[] = useAllCommonPairs(currencyIn, currencyOut)
-  console.log('allowedPairs', allowedPairs)
-
-  allowedPairs.length === 0 && setName && setName(UNI_SWAP)
-  allowedPairs = useAllCommonPairs(currencyIn, currencyOut)
+  const allowedPairs: Pair[] = useAllCommonPairs(name, currencyIn, currencyOut)
 
   console.log('allowedPairs', allowedPairs)
 

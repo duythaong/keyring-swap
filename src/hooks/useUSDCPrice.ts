@@ -1,6 +1,7 @@
 import { Currency, CurrencyAmount, Price, Token, TradeType } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
 
+import { BACOOR_SWAP } from '../constants/addresses'
 import { SupportedChainId } from '../constants/chains'
 import { DAI_OPTIMISM, USDC, USDC_ARBITRUM } from '../constants/tokens'
 import { useBestV2Trade } from './useBestV2Trade'
@@ -25,7 +26,7 @@ export default function useUSDCPrice(currency?: Currency): Price<Currency, Token
   const amountOut = chainId ? STABLECOIN_AMOUNT_OUT[chainId] : undefined
   const stablecoin = amountOut?.currency
 
-  const v2USDCTrade = useBestV2Trade(TradeType.EXACT_OUTPUT, amountOut, currency, {
+  const v2USDCTrade = useBestV2Trade(BACOOR_SWAP, TradeType.EXACT_OUTPUT, amountOut, currency, {
     maxHops: 2,
   })
   const v3USDCTrade = useClientSideV3Trade(TradeType.EXACT_OUTPUT, amountOut, currency)

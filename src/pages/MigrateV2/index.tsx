@@ -16,7 +16,7 @@ import { AutoColumn } from '../../components/Column'
 import QuestionHelper from '../../components/QuestionHelper'
 import { AutoRow } from '../../components/Row'
 import { Dots } from '../../components/swap/styleds'
-import { V2_FACTORY_ADDRESSES } from '../../constants/addresses'
+import { BACOOR_SWAP, V2_FACTORY_ADDRESSES } from '../../constants/addresses'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { toV2LiquidityToken, useTrackedTokenPairs } from '../../state/user/hooks'
 import { useTokenBalancesWithLoadingIndicator } from '../../state/wallet/hooks'
@@ -108,7 +108,7 @@ export default function MigrateV2() {
     )
   }, [fetchingPairBalances, tokenPairsWithLiquidityTokens, pairBalances])
 
-  const v2Pairs = useV2Pairs(tokenPairsWithV2Balance)
+  const v2Pairs = useV2Pairs(BACOOR_SWAP, tokenPairsWithV2Balance)
   const v2IsLoading = fetchingPairBalances || v2Pairs.some(([pairState]) => pairState === PairState.LOADING)
 
   return (

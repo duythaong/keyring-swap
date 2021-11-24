@@ -117,7 +117,10 @@ function involvesAddress(
 }
 
 // from the current swap inputs, compute the best trade and return it.
-export function useDerivedSwapInfo(toggledVersion: Version | undefined): {
+export function useDerivedSwapInfo(
+  name: string,
+  toggledVersion: Version | undefined
+): {
   currencies: { [field in Field]?: Currency | null }
   currencyBalances: { [field in Field]?: CurrencyAmount<Currency> }
   parsedAmount: CurrencyAmount<Currency> | undefined
@@ -159,10 +162,12 @@ export function useDerivedSwapInfo(toggledVersion: Version | undefined): {
   // get v2 and v3 quotes
   // skip if other version is toggled
   const v2Trade = useBestV2Trade(
+    name,
     isExactIn ? TradeType.EXACT_INPUT : TradeType.EXACT_OUTPUT,
     toggledVersion !== Version.v3 ? parsedAmount : undefined,
     (isExactIn ? outputCurrency : inputCurrency) ?? undefined
   )
+
   const v3Trade = useBestV3Trade(
     isExactIn ? TradeType.EXACT_INPUT : TradeType.EXACT_OUTPUT,
     toggledVersion !== Version.v2 ? parsedAmount : undefined,
