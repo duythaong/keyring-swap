@@ -27,16 +27,17 @@ import {
   MULTICALL_ADDRESS,
   NONFUNGIBLE_POSITION_MANAGER_ADDRESSES,
   QUOTER_ADDRESSES,
-  V2_ROUTER_ADDRESS,
+  SWAP_MAP,
   V3_MIGRATOR_ADDRESSES,
 } from 'constants/addresses'
-import { useMemo } from 'react'
+import { useContext, useMemo } from 'react'
 import { NonfungiblePositionManager, Quoter, UniswapInterfaceMulticall } from 'types/v3'
 import { V3Migrator } from 'types/v3/V3Migrator'
 import { getContract } from 'utils'
 
 import { ArgentWalletDetector, EnsPublicResolver, EnsRegistrar, Erc20, Weth } from '../abis/types'
 import { UNI, WETH9_EXTENDED } from '../constants/tokens'
+import { SwapContext } from '../swap'
 import { useActiveWeb3React } from './web3'
 
 // returns null on errors
@@ -100,7 +101,8 @@ export function usePairContract(pairAddress?: string, withSignerIfPossible?: boo
 }
 
 export function useV2RouterContract(): Contract | null {
-  return useContract(V2_ROUTER_ADDRESS, IUniswapV2Router02ABI, true)
+  const { name } = useContext(SwapContext)
+  return useContract(SWAP_MAP[name].routerAddress, IUniswapV2Router02ABI, true)
 }
 
 export function useMulticall2Contract() {

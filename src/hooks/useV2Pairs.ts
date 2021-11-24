@@ -1,11 +1,12 @@
-import { computePairAddress, Pair } from '@duythao_bacoor/v2-sdk'
+import { Pair } from '@duythao_bacoor/v2-sdk'
 import { Interface } from '@ethersproject/abi'
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
-import { useMemo } from 'react'
+import { useContext, useMemo } from 'react'
 
-import { AddressMap, V2_FACTORY_ADDRESSES } from '../constants/addresses'
+import { SWAP_MAP } from '../constants/addresses'
 import { useMultipleContractSingleData } from '../state/multicall/hooks'
+import { SwapContext } from '../swap'
 
 const PAIR_INTERFACE = new Interface(IUniswapV2PairABI)
 
@@ -16,14 +17,13 @@ export enum PairState {
   INVALID,
 }
 
-export function useV2Pairs(
-  currencies: [Currency | undefined, Currency | undefined][],
-  factoryAddresses: AddressMap = V2_FACTORY_ADDRESSES
-): [PairState, Pair | null][] {
+export function useV2Pairs(currencies: [Currency | undefined, Currency | undefined][]): [PairState, Pair | null][] {
   const tokens = useMemo(
     () => currencies.map(([currencyA, currencyB]) => [currencyA?.wrapped, currencyB?.wrapped]),
     [currencies]
   )
+
+  const { name } = useContext(SwapContext)
 
   const pairAddresses = useMemo(
     () =>
@@ -32,11 +32,15 @@ export function useV2Pairs(
           tokenB &&
           tokenA.chainId === tokenB.chainId &&
           !tokenA.equals(tokenB) &&
-          factoryAddresses[tokenA.chainId]
-          ? computePairAddress({ factoryAddress: factoryAddresses[tokenA.chainId], tokenA, tokenB })
+          SWAP_MAP[name].factoryAddresses[tokenA.chainId]
+          ? SWAP_MAP[name].computePairAddress({
+              factoryAddress: SWAP_MAP[name].factoryAddresses[tokenA.chainId],
+              tokenA,
+              tokenB,
+            })
           : undefined
       }),
-    [factoryAddresses, tokens]
+    [name, tokens]
   )
 
   const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
@@ -66,5 +70,5 @@ export function useV2Pairs(
 
 export function useV2Pair(tokenA?: Currency, tokenB?: Currency): [PairState, Pair | null] {
   const inputs: [[Currency | undefined, Currency | undefined]] = useMemo(() => [[tokenA, tokenB]], [tokenA, tokenB])
-  return useV2Pairs(inputs, V2_FACTORY_ADDRESSES)[0]
+  return useV2Pairs(inputs)[0]
 }

@@ -1,11 +1,29 @@
 import { FACTORY_ADDRESS as V2_UNI_FACTORY_ADDRESS } from '@duythao_bacoor/thaoswap-sdk'
+import { computePairAddress as computePairAddressUni } from '@duythao_bacoor/thaoswap-sdk'
 import { FACTORY_ADDRESS as V2_FACTORY_ADDRESS } from '@duythao_bacoor/v2-sdk'
+import { computePairAddress as computePairAddressBacoor } from '@duythao_bacoor/v2-sdk'
+import { Token } from '@uniswap/sdk-core'
 import { FACTORY_ADDRESS as V3_FACTORY_ADDRESS } from '@uniswap/v3-sdk'
 
 import { constructSameAddressMap } from '../utils/constructSameAddressMap'
 import { SupportedChainId } from './chains'
 
 export type AddressMap = { [chainId: number]: string }
+export interface SwapInfo {
+  readonly factoryAddresses: AddressMap
+  readonly routerAddress: AddressMap
+  readonly computePairAddress: ({
+    factoryAddress,
+    tokenA,
+    tokenB,
+  }: {
+    factoryAddress: string
+    tokenA: Token
+    tokenB: Token
+  }) => string
+}
+
+export type SwapMap = { [name: string]: SwapInfo }
 
 export const UNI_ADDRESS: AddressMap = constructSameAddressMap('0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984')
 export const MULTICALL_ADDRESS: AddressMap = {
@@ -17,10 +35,24 @@ export const MULTICALL_ADDRESS: AddressMap = {
   [SupportedChainId.TOMOCHAIN_TESNET]: '0x7aFd4508B74302E15f182032038EE7c827Cf7aDd',
 }
 
+export const BACOOR_SWAP = 'Bacoorswap'
+export const UNI_SWAP = 'Uniswap'
 export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_FACTORY_ADDRESS)
 export const V2_ROUTER_ADDRESS: AddressMap = constructSameAddressMap('0xA3b4864a6E47b706dF76bc6a26Bc057F10bfB676')
 export const V2_UNI_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_UNI_FACTORY_ADDRESS)
 export const V2_UNI_ROUTER_ADDRESS: AddressMap = constructSameAddressMap('0x7D6361273b4D0d06b149B9639a983d88aBb56eD8')
+export const SWAP_MAP: SwapMap = {
+  [BACOOR_SWAP]: {
+    factoryAddresses: V2_FACTORY_ADDRESSES,
+    routerAddress: V2_ROUTER_ADDRESS,
+    computePairAddress: computePairAddressBacoor,
+  },
+  [UNI_SWAP]: {
+    factoryAddresses: V2_UNI_FACTORY_ADDRESSES,
+    routerAddress: V2_UNI_ROUTER_ADDRESS,
+    computePairAddress: computePairAddressUni,
+  },
+}
 
 /**
  * The oldest V0 governance address

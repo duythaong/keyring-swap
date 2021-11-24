@@ -3,6 +3,7 @@ import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
 import { isTradeBetter } from 'utils/isTradeBetter'
 
+import { AddressMap, V2_UNI_FACTORY_ADDRESSES } from '../constants/addresses'
 import { BETTER_TRADE_LESS_HOPS_THRESHOLD } from '../constants/misc'
 import { useAllCurrencyCombinations } from './useAllCurrencyCombinations'
 import { PairState, useV2Pairs } from './useV2Pairs'
@@ -11,8 +12,6 @@ function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
   const allCurrencyCombinations = useAllCurrencyCombinations(currencyA, currencyB)
 
   const allPairs = useV2Pairs(allCurrencyCombinations)
-  console.log('allPairs', allPairs)
-
   return useMemo(
     () =>
       Object.values(
@@ -46,7 +45,7 @@ export function useBestV2Trade(
         : [otherCurrency, amountSpecified?.currency],
     [tradeType, amountSpecified, otherCurrency]
   )
-  const allowedPairs = useAllCommonPairs(currencyIn, currencyOut)
+  const allowedPairs: Pair[] = useAllCommonPairs(currencyIn, currencyOut)
 
   return useMemo(() => {
     if (amountSpecified && currencyIn && currencyOut && allowedPairs.length > 0) {
