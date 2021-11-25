@@ -568,7 +568,7 @@ export default function Swap({ history }: RouteComponentProps) {
               ) : routeNotFound && userHasSpecifiedInputOutput ? (
                 <GreyCard style={{ textAlign: 'center' }}>
                   <TYPE.main mb="4px">
-                    <Trans>Insufficient liquidity in Bacoorswap.</Trans>
+                    <Trans>Insufficient liquidity.</Trans>
                   </TYPE.main>
                 </GreyCard>
               ) : showApproveFlow ? (
