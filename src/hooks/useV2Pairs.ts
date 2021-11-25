@@ -35,6 +35,7 @@ export function useV2Pairs(
           SWAP_MAP[name].factoryAddresses[tokenA.chainId]
           ? SWAP_MAP[name].computePairAddress({
               factoryAddress: SWAP_MAP[name].factoryAddresses[tokenA.chainId],
+              initCodeHash: SWAP_MAP[name].initCodeHash,
               tokenA,
               tokenB,
             })
@@ -42,7 +43,6 @@ export function useV2Pairs(
       }),
     [name, tokens]
   )
-
   const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
 
   return useMemo(() => {
@@ -57,15 +57,18 @@ export function useV2Pairs(
 
       const { reserve0, reserve1 } = reserves
       const [token0, token1] = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA]
+
       return [
         PairState.EXISTS,
         new Pair(
+          SWAP_MAP[name].factoryAddresses[tokenA.chainId],
+          SWAP_MAP[name].initCodeHash,
           CurrencyAmount.fromRawAmount(token0, reserve0.toString()),
           CurrencyAmount.fromRawAmount(token1, reserve1.toString())
         ),
       ]
     })
-  }, [results, tokens])
+  }, [name, results, tokens])
 }
 
 export function useV2Pair(tokenA?: Currency, tokenB?: Currency): [PairState, Pair | null] {

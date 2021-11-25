@@ -1,4 +1,4 @@
-import { computePairAddress, Pair } from '@duythao_bacoor/v2-sdk'
+import { computePairAddress, INIT_CODE_HASH, Pair } from '@duythao_bacoor/v2-sdk'
 import { Percent, Token } from '@uniswap/sdk-core'
 import { L2_CHAIN_IDS, SupportedChainId } from 'constants/chains'
 import { SupportedLocale } from 'constants/locales'
@@ -272,7 +272,12 @@ export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
 
   return new Token(
     tokenA.chainId,
-    computePairAddress({ factoryAddress: V2_FACTORY_ADDRESSES[tokenA.chainId], tokenA, tokenB }),
+    computePairAddress({
+      factoryAddress: V2_FACTORY_ADDRESSES[tokenA.chainId],
+      initCodeHash: INIT_CODE_HASH,
+      tokenA,
+      tokenB,
+    }),
     18,
     'UNI-V2',
     'Uniswap V2'

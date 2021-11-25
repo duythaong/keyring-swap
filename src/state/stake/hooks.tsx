@@ -7,6 +7,7 @@ import useCurrentBlockTimestamp from 'hooks/useCurrentBlockTimestamp'
 import JSBI from 'jsbi'
 import { ReactNode, useMemo } from 'react'
 
+import { BACOOR_SWAP, SWAP_MAP } from '.../../constants/addresses'
 import { DAI, UNI, USDC, USDT, WBTC, WETH9_EXTENDED } from '../../constants/tokens'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { NEVER_RELOAD, useMultipleContractSingleData } from '../multicall/hooks'
@@ -160,6 +161,8 @@ export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
         // get the LP token
         const tokens = info[index].tokens
         const dummyPair = new Pair(
+          SWAP_MAP[BACOOR_SWAP].factoryAddresses[1],
+          SWAP_MAP[BACOOR_SWAP].initCodeHash,
           CurrencyAmount.fromRawAmount(tokens[0], '0'),
           CurrencyAmount.fromRawAmount(tokens[1], '0')
         )

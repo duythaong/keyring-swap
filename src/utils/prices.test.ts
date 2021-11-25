@@ -2,6 +2,7 @@ import { Pair, Route, Trade } from '@duythao_bacoor/v2-sdk'
 import { CurrencyAmount, Percent, Token, TradeType } from '@uniswap/sdk-core'
 import JSBI from 'jsbi'
 
+import { BACOOR_SWAP, SWAP_MAP } from '../constants/addresses'
 import { computeRealizedLPFeeAmount, warningSeverity } from './prices'
 
 describe('prices', () => {
@@ -10,10 +11,14 @@ describe('prices', () => {
   const token3 = new Token(1, '0x0000000000000000000000000000000000000003', 18)
 
   const pair12 = new Pair(
+    SWAP_MAP[BACOOR_SWAP].factoryAddresses[1],
+    SWAP_MAP[BACOOR_SWAP].initCodeHash,
     CurrencyAmount.fromRawAmount(token1, JSBI.BigInt(10000)),
     CurrencyAmount.fromRawAmount(token2, JSBI.BigInt(20000))
   )
   const pair23 = new Pair(
+    SWAP_MAP[BACOOR_SWAP].factoryAddresses[1],
+    SWAP_MAP[BACOOR_SWAP].initCodeHash,
     CurrencyAmount.fromRawAmount(token2, JSBI.BigInt(20000)),
     CurrencyAmount.fromRawAmount(token3, JSBI.BigInt(30000))
   )

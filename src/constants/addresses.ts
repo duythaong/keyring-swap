@@ -1,7 +1,12 @@
-import { FACTORY_ADDRESS as V2_UNI_FACTORY_ADDRESS } from '@duythao_bacoor/thaoswap-sdk'
-import { computePairAddress as computePairAddressUni } from '@duythao_bacoor/thaoswap-sdk'
-import { FACTORY_ADDRESS as V2_FACTORY_ADDRESS } from '@duythao_bacoor/v2-sdk'
-import { computePairAddress as computePairAddressBacoor } from '@duythao_bacoor/v2-sdk'
+import {
+  FACTORY_ADDRESS as V2_UNI_FACTORY_ADDRESS,
+  INIT_CODE_HASH as INIT_CODE_HASH_UNI,
+} from '@duythao_bacoor/thaoswap-sdk'
+import {
+  computePairAddress,
+  FACTORY_ADDRESS as V2_FACTORY_ADDRESS,
+  INIT_CODE_HASH as INIT_CONDE_HASH_BACOOR,
+} from '@duythao_bacoor/v2-sdk'
 import { Token } from '@uniswap/sdk-core'
 import { FACTORY_ADDRESS as V3_FACTORY_ADDRESS } from '@uniswap/v3-sdk'
 
@@ -11,13 +16,16 @@ import { SupportedChainId } from './chains'
 export type AddressMap = { [chainId: number]: string }
 export interface SwapInfo {
   readonly factoryAddresses: AddressMap
+  readonly initCodeHash: string
   readonly routerAddress: AddressMap
   readonly computePairAddress: ({
     factoryAddress,
+    initCodeHash,
     tokenA,
     tokenB,
   }: {
     factoryAddress: string
+    initCodeHash: string
     tokenA: Token
     tokenB: Token
   }) => string
@@ -44,13 +52,15 @@ export const V2_UNI_ROUTER_ADDRESS: AddressMap = constructSameAddressMap('0x7D63
 export const SWAP_MAP: SwapMap = {
   [BACOOR_SWAP]: {
     factoryAddresses: V2_FACTORY_ADDRESSES,
+    initCodeHash: INIT_CONDE_HASH_BACOOR,
     routerAddress: V2_ROUTER_ADDRESS,
-    computePairAddress: computePairAddressBacoor,
+    computePairAddress,
   },
   [UNI_SWAP]: {
     factoryAddresses: V2_UNI_FACTORY_ADDRESSES,
+    initCodeHash: INIT_CODE_HASH_UNI,
     routerAddress: V2_UNI_ROUTER_ADDRESS,
-    computePairAddress: computePairAddressUni,
+    computePairAddress,
   },
 }
 

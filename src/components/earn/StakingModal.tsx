@@ -5,6 +5,7 @@ import { CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { useCallback, useState } from 'react'
 import styled from 'styled-components/macro'
 
+import { BACOOR_SWAP, SWAP_MAP } from '../../constants/addresses'
 import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallback'
 import { usePairContract, useStakingContract, useV2RouterContract } from '../../hooks/useContract'
 import { useV2LiquidityTokenPermit } from '../../hooks/useERC20Permit'
@@ -78,6 +79,8 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
 
   // pair contract for this token to be staked
   const dummyPair = new Pair(
+    SWAP_MAP[BACOOR_SWAP].factoryAddresses[1],
+    SWAP_MAP[BACOOR_SWAP].initCodeHash,
     CurrencyAmount.fromRawAmount(stakingInfo.tokens[0], '0'),
     CurrencyAmount.fromRawAmount(stakingInfo.tokens[1], '0')
   )
