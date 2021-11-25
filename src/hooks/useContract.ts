@@ -19,6 +19,7 @@ import GOVERNOR_BRAVO_ABI from 'abis/governor-bravo.json'
 import WETH_ABI from 'abis/weth.json'
 import {
   ARGENT_WALLET_DETECTOR_ADDRESS,
+  BACOOR_SWAP,
   ENS_REGISTRAR_ADDRESSES,
   GOVERNANCE_ALPHA_V0_ADDRESSES,
   GOVERNANCE_ALPHA_V1_ADDRESSES,
@@ -30,14 +31,13 @@ import {
   SWAP_MAP,
   V3_MIGRATOR_ADDRESSES,
 } from 'constants/addresses'
-import { useContext, useMemo } from 'react'
+import { useMemo } from 'react'
 import { NonfungiblePositionManager, Quoter, UniswapInterfaceMulticall } from 'types/v3'
 import { V3Migrator } from 'types/v3/V3Migrator'
 import { getContract } from 'utils'
 
 import { ArgentWalletDetector, EnsPublicResolver, EnsRegistrar, Erc20, Weth } from '../abis/types'
 import { UNI, WETH9_EXTENDED } from '../constants/tokens'
-import { SwapContext } from '../swap'
 import { useActiveWeb3React } from './web3'
 
 // returns null on errors
@@ -100,8 +100,7 @@ export function usePairContract(pairAddress?: string, withSignerIfPossible?: boo
   return useContract(pairAddress, IUniswapV2PairABI, withSignerIfPossible)
 }
 
-export function useV2RouterContract(): Contract | null {
-  const { name } = useContext(SwapContext)
+export function useV2RouterContract(name: string = BACOOR_SWAP): Contract | null {
   return useContract(SWAP_MAP[name].routerAddress, IUniswapV2Router02ABI, true)
 }
 

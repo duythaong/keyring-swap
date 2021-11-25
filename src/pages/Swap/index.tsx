@@ -291,6 +291,7 @@ export default function Swap({ history }: RouteComponentProps) {
 
   // the callback to execute the swap
   const { callback: swapCallback, error: swapCallbackError } = useSwapCallback(
+    name,
     trade,
     allowedSlippage,
     recipient,
@@ -394,7 +395,6 @@ export default function Swap({ history }: RouteComponentProps) {
   const swapIsUnsupported = useIsSwapUnsupported(currencies[Field.INPUT], currencies[Field.OUTPUT])
 
   const priceImpactTooHigh = priceImpactSeverity > 3 && !isExpertMode
-  console.log(trade, tradeToConfirm, allowedSlippage, swapErrorMessage)
   return (
     <>
       <TokenWarningModal

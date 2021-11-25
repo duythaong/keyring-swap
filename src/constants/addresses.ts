@@ -18,7 +18,7 @@ export interface SwapInfo {
   readonly factoryAddresses: AddressMap
   readonly initCodeHash: string
   readonly routerAddress: AddressMap
-  readonly computePairAddress: ({
+  computePairAddress: ({
     factoryAddress,
     initCodeHash,
     tokenA,
