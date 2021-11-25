@@ -181,7 +181,6 @@ export default function Swap({ history }: RouteComponentProps) {
   const currencies = tradeBacoor ? currenciesBacoor : currenciesUni
   const swapInputError = tradeBacoor ? swapInputErrorBacoor : swapInputErrorUni
   const name = tradeBacoor ? BACOOR_SWAP : UNI_SWAP
-  console.log('tradeeee2', trade)
 
   const {
     wrapType,
@@ -395,7 +394,7 @@ export default function Swap({ history }: RouteComponentProps) {
   const swapIsUnsupported = useIsSwapUnsupported(currencies[Field.INPUT], currencies[Field.OUTPUT])
 
   const priceImpactTooHigh = priceImpactSeverity > 3 && !isExpertMode
-
+  console.log(trade, tradeToConfirm, allowedSlippage, swapErrorMessage)
   return (
     <>
       <TokenWarningModal
