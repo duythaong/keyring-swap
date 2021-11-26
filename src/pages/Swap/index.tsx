@@ -173,14 +173,16 @@ export default function Swap({ history }: RouteComponentProps) {
     inputError: swapInputErrorUni,
   } = useDerivedSwapInfo(UNI_SWAP, toggledVersion)
 
-  const trade = tradeBacoor ?? tradeUni
-  const v3TradeState = tradeBacoor ? v3TradeStateBacoor : v3TradeStateUni
-  const allowedSlippage = tradeBacoor ? allowedSlippageBacoor : allowedSlippageUni
-  const currencyBalances = tradeBacoor ? currencyBalancesBacoor : currencyBalancesUni
-  const parsedAmount = tradeBacoor ? parsedAmountBacoor : parsedAmountUni
-  const currencies = tradeBacoor ? currenciesBacoor : currenciesUni
-  const swapInputError = tradeBacoor ? swapInputErrorBacoor : swapInputErrorUni
-  const name = tradeBacoor ? BACOOR_SWAP : UNI_SWAP
+  const [selectedSwap, setSelectedSwap] = useState(BACOOR_SWAP)
+
+  const trade = selectedSwap === BACOOR_SWAP ? tradeBacoor : tradeUni
+  const v3TradeState = selectedSwap === BACOOR_SWAP ? v3TradeStateBacoor : v3TradeStateUni
+  const allowedSlippage = selectedSwap === BACOOR_SWAP ? allowedSlippageBacoor : allowedSlippageUni
+  const currencyBalances = selectedSwap === BACOOR_SWAP ? currencyBalancesBacoor : currencyBalancesUni
+  const parsedAmount = selectedSwap === BACOOR_SWAP ? parsedAmountBacoor : parsedAmountUni
+  const currencies = selectedSwap === BACOOR_SWAP ? currenciesBacoor : currenciesUni
+  const swapInputError = selectedSwap === BACOOR_SWAP ? swapInputErrorBacoor : swapInputErrorUni
+  const name = selectedSwap === BACOOR_SWAP ? BACOOR_SWAP : UNI_SWAP
 
   const {
     wrapType,
@@ -242,6 +244,8 @@ export default function Swap({ history }: RouteComponentProps) {
       ? parsedAmounts[independentField]?.toExact() ?? ''
       : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
   }
+
+  console.log('formattedAmounts', formattedAmounts)
 
   const userHasSpecifiedInputOutput = Boolean(
     currencies[Field.INPUT] && currencies[Field.OUTPUT] && parsedAmounts[independentField]?.greaterThan(JSBI.BigInt(0))
@@ -657,36 +661,41 @@ export default function Swap({ history }: RouteComponentProps) {
                   </AutoColumn>
                 </AutoRow>
               ) : (
-                <ButtonError
-                  onClick={() => {
-                    if (isExpertMode) {
-                      handleSwap()
-                    } else {
-                      setSwapState({
-                        tradeToConfirm: trade,
-                        attemptingTxn: false,
-                        swapErrorMessage: undefined,
-                        showConfirm: true,
-                        txHash: undefined,
-                      })
-                    }
-                  }}
-                  id="swap-button"
-                  disabled={!isValid || priceImpactTooHigh || !!swapCallbackError}
-                  error={isValid && priceImpactSeverity > 2 && !swapCallbackError}
-                >
-                  <Text fontSize={20} fontWeight={500}>
-                    {swapInputError ? (
-                      swapInputError
-                    ) : priceImpactTooHigh ? (
-                      <Trans>Price Impact Too High</Trans>
-                    ) : priceImpactSeverity > 2 ? (
-                      <Trans>Swap Anyway</Trans>
-                    ) : (
-                      <Trans>Swap</Trans>
-                    )}
-                  </Text>
-                </ButtonError>
+                <>
+                  <ButtonError
+                    onClick={() => {
+                      if (isExpertMode) {
+                        handleSwap()
+                      } else {
+                        setSwapState({
+                          tradeToConfirm: trade,
+                          attemptingTxn: false,
+                          swapErrorMessage: undefined,
+                          showConfirm: true,
+                          txHash: undefined,
+                        })
+                      }
+                    }}
+                    id="swap-button"
+                    disabled={!isValid || priceImpactTooHigh || !!swapCallbackError}
+                    error={isValid && priceImpactSeverity > 2 && !swapCallbackError}
+                  >
+                    <Text fontSize={20} fontWeight={500}>
+                      {swapInputError ? (
+                        swapInputError
+                      ) : priceImpactTooHigh ? (
+                        <Trans>Price Impact Too High</Trans>
+                      ) : priceImpactSeverity > 2 ? (
+                        <Trans>Swap Anyway</Trans>
+                      ) : (
+                        <Trans>Swap</Trans>
+                      )}
+                    </Text>
+                  </ButtonError>
+                  <ButtonLight onClick={() => setSelectedSwap(UNI_SWAP)}>
+                    <Trans>Switch Swap</Trans>
+                  </ButtonLight>
+                </>
               )}
               {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
             </div>
