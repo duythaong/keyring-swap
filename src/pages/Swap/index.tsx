@@ -463,6 +463,7 @@ export default function Swap({ history }: RouteComponentProps) {
                 showCommonBases={true}
                 id="swap-currency-output"
                 loading={independentField === Field.INPUT && routeIsSyncing}
+                disabled={true}
               />
             </div>
 

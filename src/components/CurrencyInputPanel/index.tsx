@@ -173,6 +173,7 @@ interface CurrencyInputPanelProps {
   renderBalance?: (amount: CurrencyAmount<Currency>) => ReactNode
   locked?: boolean
   loading?: boolean
+  disabled?: boolean
 }
 
 export default function CurrencyInputPanel({
@@ -195,6 +196,7 @@ export default function CurrencyInputPanel({
   hideInput = false,
   locked = false,
   loading = false,
+  disabled = false,
   ...rest
 }: CurrencyInputPanelProps) {
   const [modalOpen, setModalOpen] = useState(false)
@@ -263,6 +265,7 @@ export default function CurrencyInputPanel({
               value={value}
               onUserInput={onUserInput}
               $loading={loading}
+              disabled={disabled}
             />
           )}
         </InputRow>

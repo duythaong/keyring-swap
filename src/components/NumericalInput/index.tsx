@@ -43,6 +43,7 @@ const inputRegex = RegExp(`^\\d*(?:\\\\[.])?\\d*$`) // match escaped "." charact
 
 export const Input = React.memo(function InnerInput({
   value,
+  disabled,
   onUserInput,
   placeholder,
   prependSymbol,
@@ -91,6 +92,7 @@ export const Input = React.memo(function InnerInput({
       minLength={1}
       maxLength={79}
       spellCheck="false"
+      disabled={disabled}
     />
   )
 })
