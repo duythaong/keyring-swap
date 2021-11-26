@@ -1,6 +1,6 @@
 import { Trade as V2Trade } from '@duythao_bacoor/v2-sdk'
 import { Trans } from '@lingui/macro'
-import { Currency, CurrencyAmount, Token, TradeType } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount, Percent, Token, TradeType } from '@uniswap/sdk-core'
 import { Trade as V3Trade } from '@uniswap/v3-sdk'
 import { LoadingOpacityContainer } from 'components/Loader/styled'
 import { NetworkAlert } from 'components/NetworkAlert/NetworkAlert'
@@ -11,7 +11,7 @@ import TradePrice from 'components/swap/TradePrice'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
 import { MouseoverTooltip, MouseoverTooltipContent } from 'components/Tooltip'
 import JSBI from 'jsbi'
-import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown, CheckCircle, HelpCircle, Info } from 'react-feather'
 import ReactGA from 'react-ga'
 import { RouteComponentProps } from 'react-router-dom'
@@ -76,6 +76,18 @@ const StyledInfo = styled(Info)`
     color: ${({ theme }) => theme.text1};
   }
 `
+type TradeMap = {
+  [name: string]: {
+    trade: V2Trade<Currency, Currency, TradeType> | V3Trade<Currency, Currency, TradeType> | undefined
+    v3TradeState: V3TradeState
+    allowedSlippage: Percent
+    currencyBalances: { [field in Field]?: CurrencyAmount<Currency> }
+    parsedAmount: CurrencyAmount<Currency> | undefined
+    currencies: { [field in Field]?: Currency | null }
+    swapInputError: ReactNode
+    name: string
+  }
+}
 
 const useParsedAmounts = (
   independentField: Field,
@@ -175,14 +187,37 @@ export default function Swap({ history }: RouteComponentProps) {
 
   const [selectedSwap, setSelectedSwap] = useState(BACOOR_SWAP)
 
-  const trade = selectedSwap === BACOOR_SWAP ? tradeBacoor : tradeUni
-  const v3TradeState = selectedSwap === BACOOR_SWAP ? v3TradeStateBacoor : v3TradeStateUni
-  const allowedSlippage = selectedSwap === BACOOR_SWAP ? allowedSlippageBacoor : allowedSlippageUni
-  const currencyBalances = selectedSwap === BACOOR_SWAP ? currencyBalancesBacoor : currencyBalancesUni
-  const parsedAmount = selectedSwap === BACOOR_SWAP ? parsedAmountBacoor : parsedAmountUni
-  const currencies = selectedSwap === BACOOR_SWAP ? currenciesBacoor : currenciesUni
-  const swapInputError = selectedSwap === BACOOR_SWAP ? swapInputErrorBacoor : swapInputErrorUni
-  const name = selectedSwap === BACOOR_SWAP ? BACOOR_SWAP : UNI_SWAP
+  const tradeMap: TradeMap = {
+    [BACOOR_SWAP]: {
+      trade: tradeBacoor,
+      v3TradeState: v3TradeStateBacoor,
+      allowedSlippage: allowedSlippageBacoor,
+      currencyBalances: currencyBalancesBacoor,
+      parsedAmount: parsedAmountBacoor,
+      currencies: currenciesBacoor,
+      swapInputError: swapInputErrorBacoor,
+      name: BACOOR_SWAP,
+    },
+    [UNI_SWAP]: {
+      trade: tradeUni,
+      v3TradeState: v3TradeStateUni,
+      allowedSlippage: allowedSlippageUni,
+      currencyBalances: currencyBalancesUni,
+      parsedAmount: parsedAmountUni,
+      currencies: currenciesUni,
+      swapInputError: swapInputErrorUni,
+      name: UNI_SWAP,
+    },
+  }
+
+  const trade = tradeMap[selectedSwap].trade
+  const v3TradeState = tradeMap[selectedSwap].v3TradeState
+  const allowedSlippage = tradeMap[selectedSwap].allowedSlippage
+  const currencyBalances = tradeMap[selectedSwap].currencyBalances
+  const parsedAmount = tradeMap[selectedSwap].parsedAmount
+  const currencies = tradeMap[selectedSwap].currencies
+  const swapInputError = tradeMap[selectedSwap].swapInputError
+  const name = tradeMap[selectedSwap].name
 
   const {
     wrapType,
@@ -193,6 +228,8 @@ export default function Swap({ history }: RouteComponentProps) {
   const { address: recipientAddress } = useENSAddress(recipient)
 
   const parsedAmounts = useParsedAmounts(independentField, parsedAmount, showWrap, trade)
+
+  // tradeMap[name].outputAmount = Number(parsedAmounts[dependentField]?.toSignificant(6))
 
   const [routeNotFound, routeIsLoading, routeIsSyncing] = useRouting(trade, v3TradeState)
 
@@ -245,7 +282,11 @@ export default function Swap({ history }: RouteComponentProps) {
       : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
   }
 
-  console.log('formattedAmounts', formattedAmounts)
+  console.log(
+    'formattedAmounts',
+    Number(formattedAmounts[dependentField]),
+    typeof Number(formattedAmounts[dependentField])
+  )
 
   const userHasSpecifiedInputOutput = Boolean(
     currencies[Field.INPUT] && currencies[Field.OUTPUT] && parsedAmounts[independentField]?.greaterThan(JSBI.BigInt(0))
@@ -579,6 +620,12 @@ export default function Swap({ history }: RouteComponentProps) {
               ) : showApproveFlow ? (
                 <AutoRow style={{ flexWrap: 'nowrap', width: '100%' }}>
                   <AutoColumn style={{ width: '100%' }} gap="12px">
+                    <ButtonLight onClick={() => setSelectedSwap(BACOOR_SWAP)}>
+                      <Trans>Switch Bacoor</Trans>
+                    </ButtonLight>
+                    <ButtonLight onClick={() => setSelectedSwap(UNI_SWAP)}>
+                      <Trans>Switch Uni</Trans>
+                    </ButtonLight>
                     <ButtonConfirmed
                       onClick={handleApprove}
                       disabled={
@@ -662,6 +709,12 @@ export default function Swap({ history }: RouteComponentProps) {
                 </AutoRow>
               ) : (
                 <>
+                  <ButtonLight onClick={() => setSelectedSwap(BACOOR_SWAP)}>
+                    <Trans>Switch Bacoor</Trans>
+                  </ButtonLight>
+                  <ButtonLight onClick={() => setSelectedSwap(UNI_SWAP)}>
+                    <Trans>Switch Uni</Trans>
+                  </ButtonLight>
                   <ButtonError
                     onClick={() => {
                       if (isExpertMode) {
@@ -692,9 +745,6 @@ export default function Swap({ history }: RouteComponentProps) {
                       )}
                     </Text>
                   </ButtonError>
-                  <ButtonLight onClick={() => setSelectedSwap(UNI_SWAP)}>
-                    <Trans>Switch Swap</Trans>
-                  </ButtonLight>
                 </>
               )}
               {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
