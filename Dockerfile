@@ -1,18 +1,24 @@
-FROM node:13.12.0-alpine as builder
-
-RUN apt-get install yarn
+FROM node:alpine AS builder
 
 WORKDIR /app/bacoor-swap
-
-COPY package.json ./
-COPY yarn.lock ./
-
-RUN yarn
+RUN apk update && \
+    apk add git
+COPY package.json yarn.lock  ./
+RUN yarn 
+COPY . ./
 RUN yarn build
 
-COPY . /app/bacoor-swap
-
 # nginx server hosting simple static content
-FROM nginx:stable-alpine
+FROM nginx:1.12-alpine
+COPY --from=builder /app/bacoor-swap/build /var/www
+COPY ./etc/nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
-COPY --from=builder /app/bacoor-swap/build /usr/share/nginx/html
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
+
+
+
+
+
+
+
+
