@@ -6,7 +6,7 @@ import styled from 'styled-components/macro'
 
 import { RowBetween } from '../Row'
 
-type ButtonProps = Omit<ButtonPropsOriginal, 'css'>
+export type ButtonProps = Omit<ButtonPropsOriginal, 'css'>
 
 export const BaseButton = styled(RebassButton)<
   {

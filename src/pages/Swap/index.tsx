@@ -20,7 +20,14 @@ import { V3TradeState } from 'state/routing/types'
 import styled, { ThemeContext } from 'styled-components/macro'
 
 import AddressInputPanel from '../../components/AddressInputPanel'
-import { ButtonConfirmed, ButtonError, ButtonLight, ButtonOutlined, ButtonPrimary } from '../../components/Button'
+import {
+  ButtonConfirmed,
+  ButtonError,
+  ButtonLight,
+  ButtonOutlined,
+  ButtonPrimary,
+  ButtonProps,
+} from '../../components/Button'
 import { GreyCard } from '../../components/Card'
 import { AutoColumn } from '../../components/Column'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
@@ -90,13 +97,28 @@ const TextOutput = styled.div`
   font-weight: 500
 `
 
-const ActiveOutlined = styled(ButtonOutlined)`
-  &:hover {
-    border: 1px solid;
-    border-color: ${({ theme }) => theme.primary1};
-  }
+const OutlinedBottom = styled(ButtonOutlined)`
   margin-bottom: 10px;
 `
+
+const ActiveOutlinedBottom = styled(OutlinedBottom)`
+  border: 1px solid;
+  border-color: ${({ theme }) => theme.primary1};
+`
+
+const ActiveOutlinedButton = ({
+  name,
+  selectedSwap,
+  children,
+  ...rest
+}: { name: string; selectedSwap: string } & ButtonProps) => {
+  console.log('current', selectedSwap)
+  if (name === selectedSwap) {
+    return <ActiveOutlinedBottom {...rest}>{children}</ActiveOutlinedBottom>
+  } else {
+    return <OutlinedBottom {...rest}>{children}</OutlinedBottom>
+  }
+}
 
 type TradeMap = {
   [name: string]: {
@@ -303,8 +325,6 @@ export default function Swap({ history }: RouteComponentProps) {
       ? parsedAmounts[independentField]?.toExact() ?? ''
       : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
   }
-
-  console.log('formattedAmounts22', formattedAmounts[Field.OUTPUT], typeof formattedAmounts[Field.OUTPUT])
 
   const userHasSpecifiedInputOutput = Boolean(
     currencies[Field.INPUT] && currencies[Field.OUTPUT] && parsedAmounts[independentField]?.greaterThan(JSBI.BigInt(0))
@@ -529,22 +549,31 @@ export default function Swap({ history }: RouteComponentProps) {
                 disabled={true}
                 customNode={
                   <>
-                    <ActiveOutlined onClick={() => setSelectedSwap(BACOOR_SWAP)}>
+                    <ActiveOutlinedButton
+                      name={BACOOR_SWAP}
+                      selectedSwap={selectedSwap}
+                      onClick={() => setSelectedSwap(BACOOR_SWAP)}
+                    >
                       <BacoorOutput>
-                        <TextOutput>BacoorSwap</TextOutput>
+                        <TextOutput>{BACOOR_SWAP}</TextOutput>
                         <TextOutput>
                           {formattedAmounts[Field.OUTPUT] !== '' ? formattedAmounts[Field.OUTPUT] : '0.0'}
                         </TextOutput>
                       </BacoorOutput>
-                    </ActiveOutlined>
-                    <ActiveOutlined onClick={() => setSelectedSwap(UNI_SWAP)}>
+                    </ActiveOutlinedButton>
+
+                    <ActiveOutlinedButton
+                      name={UNI_SWAP}
+                      selectedSwap={selectedSwap}
+                      onClick={() => setSelectedSwap(UNI_SWAP)}
+                    >
                       <BacoorOutput>
-                        <TextOutput>Uniswap</TextOutput>
+                        <TextOutput>{UNI_SWAP}</TextOutput>
                         <TextOutput>
                           {formattedAmounts[Field.OUTPUT] !== '' ? formattedAmounts[Field.OUTPUT] : '0.0'}
                         </TextOutput>
                       </BacoorOutput>
-                    </ActiveOutlined>
+                    </ActiveOutlinedButton>
                   </>
                 }
               />
