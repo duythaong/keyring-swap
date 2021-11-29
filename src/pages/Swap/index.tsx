@@ -20,7 +20,7 @@ import { V3TradeState } from 'state/routing/types'
 import styled, { ThemeContext } from 'styled-components/macro'
 
 import AddressInputPanel from '../../components/AddressInputPanel'
-import { ButtonConfirmed, ButtonError, ButtonLight, ButtonPrimary } from '../../components/Button'
+import { ButtonConfirmed, ButtonError, ButtonLight, ButtonOutlined, ButtonPrimary } from '../../components/Button'
 import { GreyCard } from '../../components/Card'
 import { AutoColumn } from '../../components/Column'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
@@ -76,6 +76,28 @@ const StyledInfo = styled(Info)`
     color: ${({ theme }) => theme.text1};
   }
 `
+
+const BacoorOutput = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const TextOutput = styled.div`
+  font-size: 1.5rem
+  font-weight: 500
+`
+
+const ActiveOutlined = styled(ButtonOutlined)`
+  &:hover {
+    border: 1px solid;
+    border-color: ${({ theme }) => theme.primary1};
+  }
+  margin-bottom: 10px;
+`
+
 type TradeMap = {
   [name: string]: {
     trade: V2Trade<Currency, Currency, TradeType> | V3Trade<Currency, Currency, TradeType> | undefined
@@ -282,11 +304,7 @@ export default function Swap({ history }: RouteComponentProps) {
       : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
   }
 
-  console.log(
-    'formattedAmounts',
-    Number(formattedAmounts[dependentField]),
-    typeof Number(formattedAmounts[dependentField])
-  )
+  console.log('formattedAmounts22', formattedAmounts[Field.OUTPUT], typeof formattedAmounts[Field.OUTPUT])
 
   const userHasSpecifiedInputOutput = Boolean(
     currencies[Field.INPUT] && currencies[Field.OUTPUT] && parsedAmounts[independentField]?.greaterThan(JSBI.BigInt(0))
@@ -495,7 +513,7 @@ export default function Swap({ history }: RouteComponentProps) {
                 />
               </ArrowWrapper>
               <CurrencyInputPanel
-                value={formattedAmounts[Field.OUTPUT]}
+                value={' '}
                 onUserInput={handleTypeOutput}
                 label={independentField === Field.INPUT && !showWrap ? <Trans>To (at least)</Trans> : <Trans>To</Trans>}
                 showMaxButton={false}
@@ -509,6 +527,26 @@ export default function Swap({ history }: RouteComponentProps) {
                 id="swap-currency-output"
                 loading={independentField === Field.INPUT && routeIsSyncing}
                 disabled={true}
+                customNode={
+                  <>
+                    <ActiveOutlined onClick={() => setSelectedSwap(BACOOR_SWAP)}>
+                      <BacoorOutput>
+                        <TextOutput>BacoorSwap</TextOutput>
+                        <TextOutput>
+                          {formattedAmounts[Field.OUTPUT] !== '' ? formattedAmounts[Field.OUTPUT] : '0.0'}
+                        </TextOutput>
+                      </BacoorOutput>
+                    </ActiveOutlined>
+                    <ActiveOutlined onClick={() => setSelectedSwap(UNI_SWAP)}>
+                      <BacoorOutput>
+                        <TextOutput>Uniswap</TextOutput>
+                        <TextOutput>
+                          {formattedAmounts[Field.OUTPUT] !== '' ? formattedAmounts[Field.OUTPUT] : '0.0'}
+                        </TextOutput>
+                      </BacoorOutput>
+                    </ActiveOutlined>
+                  </>
+                }
               />
             </div>
 
@@ -709,12 +747,6 @@ export default function Swap({ history }: RouteComponentProps) {
                 </AutoRow>
               ) : (
                 <>
-                  <ButtonLight onClick={() => setSelectedSwap(BACOOR_SWAP)}>
-                    <Trans>Switch Bacoor</Trans>
-                  </ButtonLight>
-                  <ButtonLight onClick={() => setSelectedSwap(UNI_SWAP)}>
-                    <Trans>Switch Uni</Trans>
-                  </ButtonLight>
                   <ButtonError
                     onClick={() => {
                       if (isExpertMode) {

@@ -174,6 +174,7 @@ interface CurrencyInputPanelProps {
   locked?: boolean
   loading?: boolean
   disabled?: boolean
+  customNode?: ReactNode
 }
 
 export default function CurrencyInputPanel({
@@ -197,6 +198,7 @@ export default function CurrencyInputPanel({
   locked = false,
   loading = false,
   disabled = false,
+  customNode,
   ...rest
 }: CurrencyInputPanelProps) {
   const [modalOpen, setModalOpen] = useState(false)
@@ -306,6 +308,7 @@ export default function CurrencyInputPanel({
             </RowBetween>
           </FiatRow>
         )}
+        {customNode}
       </Container>
       {onCurrencySelect && (
         <CurrencySearchModal
