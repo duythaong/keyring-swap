@@ -112,7 +112,6 @@ const ActiveOutlinedButton = ({
   children,
   ...rest
 }: { name: string; selectedSwap: string } & ButtonProps) => {
-  console.log('current', selectedSwap)
   if (name === selectedSwap) {
     return <ActiveOutlinedBottom {...rest}>{children}</ActiveOutlinedBottom>
   } else {
@@ -229,7 +228,7 @@ export default function Swap({ history }: RouteComponentProps) {
     inputError: swapInputErrorUni,
   } = useDerivedSwapInfo(UNI_SWAP, toggledVersion)
 
-  const [selectedSwap, setSelectedSwap] = useState(BACOOR_SWAP)
+  const [selectedSwap, setSelectedSwap] = useState<string>(BACOOR_SWAP)
 
   const tradeMap: TradeMap = {
     [BACOOR_SWAP]: {
@@ -272,8 +271,12 @@ export default function Swap({ history }: RouteComponentProps) {
   const { address: recipientAddress } = useENSAddress(recipient)
 
   const parsedAmounts = useParsedAmounts(independentField, parsedAmount, showWrap, trade)
-
-  // tradeMap[name].outputAmount = Number(parsedAmounts[dependentField]?.toSignificant(6))
+  const otherParsedAmounts = useParsedAmounts(
+    independentField,
+    BACOOR_SWAP !== selectedSwap ? parsedAmountBacoor : parsedAmountUni,
+    showWrap,
+    BACOOR_SWAP !== selectedSwap ? tradeBacoor : tradeUni
+  )
 
   const [routeNotFound, routeIsLoading, routeIsSyncing] = useRouting(trade, v3TradeState)
 
@@ -325,6 +328,28 @@ export default function Swap({ history }: RouteComponentProps) {
       ? parsedAmounts[independentField]?.toExact() ?? ''
       : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
   }
+
+  const otherFormattedAmounts = {
+    [independentField]: typedValue,
+    [dependentField]: showWrap
+      ? otherParsedAmounts[independentField]?.toExact() ?? ''
+      : otherParsedAmounts[dependentField]?.toSignificant(6) ?? '',
+  }
+
+  const trades: string[] = useMemo(() => {
+    const bacoorAmount =
+      name === BACOOR_SWAP ? Number(formattedAmounts[Field.OUTPUT]) : Number(otherFormattedAmounts[Field.OUTPUT])
+    const uniAmount =
+      name === UNI_SWAP ? Number(formattedAmounts[Field.OUTPUT]) : Number(otherFormattedAmounts[Field.OUTPUT])
+    if (bacoorAmount >= uniAmount) {
+      return [BACOOR_SWAP, UNI_SWAP]
+    } else {
+      return [UNI_SWAP, BACOOR_SWAP]
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [name, parsedAmounts, otherParsedAmounts])
+
+  console.log(trades)
 
   const userHasSpecifiedInputOutput = Boolean(
     currencies[Field.INPUT] && currencies[Field.OUTPUT] && parsedAmounts[independentField]?.greaterThan(JSBI.BigInt(0))
@@ -549,31 +574,27 @@ export default function Swap({ history }: RouteComponentProps) {
                 disabled={true}
                 customNode={
                   <>
-                    <ActiveOutlinedButton
-                      name={BACOOR_SWAP}
-                      selectedSwap={selectedSwap}
-                      onClick={() => setSelectedSwap(BACOOR_SWAP)}
-                    >
-                      <BacoorOutput>
-                        <TextOutput>{BACOOR_SWAP}</TextOutput>
-                        <TextOutput>
-                          {formattedAmounts[Field.OUTPUT] !== '' ? formattedAmounts[Field.OUTPUT] : '0.0'}
-                        </TextOutput>
-                      </BacoorOutput>
-                    </ActiveOutlinedButton>
-
-                    <ActiveOutlinedButton
-                      name={UNI_SWAP}
-                      selectedSwap={selectedSwap}
-                      onClick={() => setSelectedSwap(UNI_SWAP)}
-                    >
-                      <BacoorOutput>
-                        <TextOutput>{UNI_SWAP}</TextOutput>
-                        <TextOutput>
-                          {formattedAmounts[Field.OUTPUT] !== '' ? formattedAmounts[Field.OUTPUT] : '0.0'}
-                        </TextOutput>
-                      </BacoorOutput>
-                    </ActiveOutlinedButton>
+                    {trades.map((tradeName) => (
+                      <ActiveOutlinedButton
+                        key={tradeName}
+                        name={tradeName}
+                        selectedSwap={selectedSwap}
+                        onClick={() => setSelectedSwap(tradeName)}
+                      >
+                        <BacoorOutput>
+                          <TextOutput>{tradeName}</TextOutput>
+                          <TextOutput>
+                            {tradeName === name
+                              ? formattedAmounts[Field.OUTPUT] !== ''
+                                ? formattedAmounts[Field.OUTPUT]
+                                : '0.0'
+                              : otherFormattedAmounts[Field.OUTPUT] !== ''
+                              ? otherFormattedAmounts[Field.OUTPUT]
+                              : '0.0'}
+                          </TextOutput>
+                        </BacoorOutput>
+                      </ActiveOutlinedButton>
+                    ))}
                   </>
                 }
               />
