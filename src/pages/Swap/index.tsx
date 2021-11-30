@@ -262,7 +262,16 @@ export default function Swap({ history }: RouteComponentProps) {
     currencies,
     swapInputError,
     name,
-  }: TradeMap = tradeMap[selectedSwap]
+  }: {
+    trade: V2Trade<Currency, Currency, TradeType> | V3Trade<Currency, Currency, TradeType> | undefined
+    v3TradeState: V3TradeState
+    allowedSlippage: Percent
+    currencyBalances: { [field in Field]?: CurrencyAmount<Currency> }
+    parsedAmount: CurrencyAmount<Currency> | undefined
+    currencies: { [field in Field]?: Currency | null }
+    swapInputError: ReactNode
+    name: string
+  } = tradeMap[selectedSwap]
 
   const {
     wrapType,
