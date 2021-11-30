@@ -253,14 +253,8 @@ export default function Swap({ history }: RouteComponentProps) {
     },
   }
 
-  const trade = tradeMap[selectedSwap].trade
-  const v3TradeState = tradeMap[selectedSwap].v3TradeState
-  const allowedSlippage = tradeMap[selectedSwap].allowedSlippage
-  const currencyBalances = tradeMap[selectedSwap].currencyBalances
-  const parsedAmount = tradeMap[selectedSwap].parsedAmount
-  const currencies = tradeMap[selectedSwap].currencies
-  const swapInputError = tradeMap[selectedSwap].swapInputError
-  const name = tradeMap[selectedSwap].name
+  const { trade, v3TradeState, allowedSlippage, currencyBalances, parsedAmount, currencies, swapInputError, name } =
+    tradeMap[selectedSwap].trade
 
   const {
     wrapType,
