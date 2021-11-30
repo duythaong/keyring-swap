@@ -1,12 +1,10 @@
-FROM node:alpine AS builder
+FROM node:14-alpine AS builder
 
 WORKDIR /app/bacoor-swap
 RUN apk update && \
     apk add git
-COPY package.json yarn.lock  ./
-RUN yarn 
-COPY . ./
-RUN yarn build
+COPY . .
+RUN yarn install && yarn build
 
 # nginx server hosting simple static content
 FROM nginx:1.12-alpine
