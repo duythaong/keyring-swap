@@ -11,13 +11,14 @@ import TradePrice from 'components/swap/TradePrice'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
 import { MouseoverTooltip, MouseoverTooltipContent } from 'components/Tooltip'
 import JSBI from 'jsbi'
-import { ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowDown, CheckCircle, HelpCircle, Info } from 'react-feather'
 import ReactGA from 'react-ga'
 import { RouteComponentProps } from 'react-router-dom'
 import { Text } from 'rebass'
 import { V3TradeState } from 'state/routing/types'
 import styled, { ThemeContext } from 'styled-components/macro'
+import Observer from 'utils/observer'
 
 import AddressInputPanel from '../../components/AddressInputPanel'
 import {
@@ -73,6 +74,7 @@ import { getTradeVersion } from '../../utils/getTradeVersion'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { warningSeverity } from '../../utils/prices'
 import AppBody from '../AppBody'
+import Hooks from './Hooks'
 
 const StyledInfo = styled(Info)`
   height: 16px;
@@ -167,6 +169,8 @@ const useRouting = (
   )
 }
 
+const swap_names = [BACOOR_SWAP, UNI_SWAP]
+
 export default function Swap({ history }: RouteComponentProps) {
   const { account } = useActiveWeb3React()
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -229,8 +233,9 @@ export default function Swap({ history }: RouteComponentProps) {
   } = useDerivedSwapInfo(UNI_SWAP, toggledVersion)
 
   const [selectedSwap, setSelectedSwap] = useState<string>(BACOOR_SWAP)
+  const refData = useRef<any>({})
 
-  const tradeMap: TradeMap = {
+  const tradeMapInit: TradeMap = {
     [BACOOR_SWAP]: {
       trade: tradeBacoor,
       v3TradeState: v3TradeStateBacoor,
@@ -241,17 +246,19 @@ export default function Swap({ history }: RouteComponentProps) {
       swapInputError: swapInputErrorBacoor,
       name: BACOOR_SWAP,
     },
-    [UNI_SWAP]: {
-      trade: tradeUni,
-      v3TradeState: v3TradeStateUni,
-      allowedSlippage: allowedSlippageUni,
-      currencyBalances: currencyBalancesUni,
-      parsedAmount: parsedAmountUni,
-      currencies: currenciesUni,
-      swapInputError: swapInputErrorUni,
-      name: UNI_SWAP,
-    },
   }
+
+  const [tradeMap, setTradeMap] = useState<TradeMap>(tradeMapInit)
+
+  useEffect(() => {
+    const updateData = () => {
+      setTradeMap(refData.current)
+      console.log(refData.current)
+    }
+    Observer.on('UPDATE_DATA', updateData)
+
+    return () => Observer.removeListener('UPDATE_DATA', updateData)
+  }, [])
 
   const {
     trade,
@@ -359,8 +366,6 @@ export default function Swap({ history }: RouteComponentProps) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name, parsedAmounts, otherParsedAmounts])
-
-  console.log(trades)
 
   const userHasSpecifiedInputOutput = Boolean(
     currencies[Field.INPUT] && currencies[Field.OUTPUT] && parsedAmounts[independentField]?.greaterThan(JSBI.BigInt(0))
@@ -514,8 +519,13 @@ export default function Swap({ history }: RouteComponentProps) {
   const swapIsUnsupported = useIsSwapUnsupported(currencies[Field.INPUT], currencies[Field.OUTPUT])
 
   const priceImpactTooHigh = priceImpactSeverity > 3 && !isExpertMode
+  const renderHooks = useMemo(() => {
+    return swap_names.map((item) => <Hooks key={item} name={item} refData={refData} toggledVersion={toggledVersion} />)
+  }, [swap_names])
+
   return (
     <>
+      {renderHooks}
       <TokenWarningModal
         isOpen={importTokensNotInDefault.length > 0 && !dismissTokenWarning}
         tokens={importTokensNotInDefault}
