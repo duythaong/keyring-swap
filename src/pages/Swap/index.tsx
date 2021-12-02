@@ -34,7 +34,6 @@ import { GreyCard } from '../../components/Card'
 import { AutoColumn } from '../../components/Column'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
 import CurrencyLogo from '../../components/CurrencyLogo'
-import EmptyModal from '../../components/EmptyModal'
 import Loader from '../../components/Loader'
 import Row, { AutoRow, RowFixed } from '../../components/Row'
 import confirmPriceImpactWithoutFee from '../../components/swap/confirmPriceImpactWithoutFee'
@@ -62,7 +61,7 @@ import useToggledVersion from '../../hooks/useToggledVersion'
 import { useUSDCValue } from '../../hooks/useUSDCPrice'
 import useWrapCallback, { WrapType } from '../../hooks/useWrapCallback'
 import { useActiveWeb3React } from '../../hooks/web3'
-import { useEmptyModalToggle, useWalletModalToggle } from '../../state/application/hooks'
+import { useWalletModalToggle } from '../../state/application/hooks'
 import { Field } from '../../state/swap/actions'
 import {
   useDefaultsFromURLSearch,
@@ -223,9 +222,6 @@ export default function Swap({ history }: RouteComponentProps) {
 
   // toggle wallet when disconnected
   const toggleWalletModal = useWalletModalToggle()
-
-  // toggle emtpy modal
-  const toggleEmptyModal = useEmptyModalToggle()
 
   // for expert mode
   const [isExpertMode] = useExpertModeManager()
@@ -830,9 +826,6 @@ export default function Swap({ history }: RouteComponentProps) {
                 </>
               )}
               {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
-              <ButtonLight onClick={toggleEmptyModal}>
-                <Trans>Hello A Triet</Trans>
-              </ButtonLight>
             </div>
           </AutoColumn>
         </Wrapper>
