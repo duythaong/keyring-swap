@@ -833,7 +833,6 @@ export default function Swap({ history }: RouteComponentProps) {
               <ButtonLight onClick={toggleEmptyModal}>
                 <Trans>Hello A Triet</Trans>
               </ButtonLight>
-              <EmptyModal />
             </div>
           </AutoColumn>
         </Wrapper>
