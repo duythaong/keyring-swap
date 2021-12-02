@@ -18,6 +18,7 @@ import { RouteComponentProps } from 'react-router-dom'
 import { Text } from 'rebass'
 import { V3TradeState } from 'state/routing/types'
 import styled, { ThemeContext } from 'styled-components/macro'
+import useDeepCompareEffect from 'use-deep-compare-effect'
 import Observer from 'utils/observer'
 
 import AddressInputPanel from '../../components/AddressInputPanel'
@@ -33,6 +34,7 @@ import { GreyCard } from '../../components/Card'
 import { AutoColumn } from '../../components/Column'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
 import CurrencyLogo from '../../components/CurrencyLogo'
+import EmptyModal from '../../components/EmptyModal'
 import Loader from '../../components/Loader'
 import Row, { AutoRow, RowFixed } from '../../components/Row'
 import confirmPriceImpactWithoutFee from '../../components/swap/confirmPriceImpactWithoutFee'
@@ -47,7 +49,8 @@ import {
 import SwapHeader from '../../components/swap/SwapHeader'
 import { SwitchLocaleLink } from '../../components/SwitchLocaleLink'
 import TokenWarningModal from '../../components/TokenWarningModal'
-import { BACOOR_SWAP, UNI_SWAP } from '../../constants/addresses'
+import { BACOOR_SWAP, SWAP_NAMES } from '../../constants/addresses'
+import { TRADE_MAP_UPDATE } from '../../constants/misc'
 import { useAllTokens, useCurrency } from '../../hooks/Tokens'
 import { ApprovalState, useApproveCallbackFromTrade } from '../../hooks/useApproveCallback'
 import useENSAddress from '../../hooks/useENSAddress'
@@ -59,7 +62,7 @@ import useToggledVersion from '../../hooks/useToggledVersion'
 import { useUSDCValue } from '../../hooks/useUSDCPrice'
 import useWrapCallback, { WrapType } from '../../hooks/useWrapCallback'
 import { useActiveWeb3React } from '../../hooks/web3'
-import { useWalletModalToggle } from '../../state/application/hooks'
+import { useEmptyModalToggle, useWalletModalToggle } from '../../state/application/hooks'
 import { Field } from '../../state/swap/actions'
 import {
   useDefaultsFromURLSearch,
@@ -155,6 +158,27 @@ const useParsedAmounts = (
   )
 }
 
+const useSortedTrades = (showWrap: boolean, tradeMap: TradeMap) => {
+  return useMemo(
+    () =>
+      Object.values(tradeMap)
+        .sort((a, b) => {
+          if (showWrap) {
+            return 0
+          } else {
+            const amountA = Number(a?.trade?.outputAmount?.toSignificant(6) ?? '')
+            const amountB = Number(b?.trade?.outputAmount?.toSignificant(6) ?? '')
+            return amountB - amountA
+          }
+        })
+        .map((item) => ({
+          name: item.name,
+          amountOut: item?.trade?.outputAmount?.toSignificant(6) ?? '',
+        })),
+    [showWrap, tradeMap]
+  )
+}
+
 const useRouting = (
   trade: V2Trade<Currency, Currency, TradeType> | V3Trade<Currency, Currency, TradeType> | undefined,
   v3TradeState: V3TradeState
@@ -168,8 +192,6 @@ const useRouting = (
     [trade, v3TradeState]
   )
 }
-
-const swap_names = [BACOOR_SWAP, UNI_SWAP]
 
 export default function Swap({ history }: RouteComponentProps) {
   const { account } = useActiveWeb3React()
@@ -202,6 +224,9 @@ export default function Swap({ history }: RouteComponentProps) {
   // toggle wallet when disconnected
   const toggleWalletModal = useWalletModalToggle()
 
+  // toggle emtpy modal
+  const toggleEmptyModal = useEmptyModalToggle()
+
   // for expert mode
   const [isExpertMode] = useExpertModeManager()
 
@@ -210,6 +235,9 @@ export default function Swap({ history }: RouteComponentProps) {
 
   // swap state
   const { independentField, typedValue, recipient } = useSwapState()
+
+  const [selectedSwap, setSelectedSwap] = useState<string>(BACOOR_SWAP)
+  const refData = useRef<any>({})
 
   // Bacoor
   const {
@@ -221,19 +249,6 @@ export default function Swap({ history }: RouteComponentProps) {
     currencies: currenciesBacoor,
     inputError: swapInputErrorBacoor,
   } = useDerivedSwapInfo(BACOOR_SWAP, toggledVersion)
-
-  const {
-    v3Trade: { state: v3TradeStateUni },
-    bestTrade: tradeUni,
-    allowedSlippage: allowedSlippageUni,
-    currencyBalances: currencyBalancesUni,
-    parsedAmount: parsedAmountUni,
-    currencies: currenciesUni,
-    inputError: swapInputErrorUni,
-  } = useDerivedSwapInfo(UNI_SWAP, toggledVersion)
-
-  const [selectedSwap, setSelectedSwap] = useState<string>(BACOOR_SWAP)
-  const refData = useRef<any>({})
 
   const tradeMapInit: TradeMap = {
     [BACOOR_SWAP]: {
@@ -251,13 +266,12 @@ export default function Swap({ history }: RouteComponentProps) {
   const [tradeMap, setTradeMap] = useState<TradeMap>(tradeMapInit)
 
   useEffect(() => {
-    const updateData = () => {
+    const tradeMapUpdate = () => {
       setTradeMap(refData.current)
-      console.log(refData.current)
     }
-    Observer.on('UPDATE_DATA', updateData)
+    Observer.on(TRADE_MAP_UPDATE, tradeMapUpdate)
 
-    return () => Observer.removeListener('UPDATE_DATA', updateData)
+    return () => Observer.removeListener(TRADE_MAP_UPDATE, tradeMapUpdate)
   }, [])
 
   const {
@@ -289,12 +303,6 @@ export default function Swap({ history }: RouteComponentProps) {
   const { address: recipientAddress } = useENSAddress(recipient)
 
   const parsedAmounts = useParsedAmounts(independentField, parsedAmount, showWrap, trade)
-  const otherParsedAmounts = useParsedAmounts(
-    independentField,
-    BACOOR_SWAP !== selectedSwap ? parsedAmountBacoor : parsedAmountUni,
-    showWrap,
-    BACOOR_SWAP !== selectedSwap ? tradeBacoor : tradeUni
-  )
 
   const [routeNotFound, routeIsLoading, routeIsSyncing] = useRouting(trade, v3TradeState)
 
@@ -347,25 +355,9 @@ export default function Swap({ history }: RouteComponentProps) {
       : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
   }
 
-  const otherFormattedAmounts = {
-    [independentField]: typedValue,
-    [dependentField]: showWrap
-      ? otherParsedAmounts[independentField]?.toExact() ?? ''
-      : otherParsedAmounts[dependentField]?.toSignificant(6) ?? '',
-  }
+  const sortedTrades: { name: string; amountOut: string }[] = useSortedTrades(showWrap, tradeMap)
 
-  const trades: string[] = useMemo(() => {
-    const bacoorAmount =
-      name === BACOOR_SWAP ? Number(formattedAmounts[Field.OUTPUT]) : Number(otherFormattedAmounts[Field.OUTPUT])
-    const uniAmount =
-      name === UNI_SWAP ? Number(formattedAmounts[Field.OUTPUT]) : Number(otherFormattedAmounts[Field.OUTPUT])
-    if (bacoorAmount >= uniAmount) {
-      return [BACOOR_SWAP, UNI_SWAP]
-    } else {
-      return [UNI_SWAP, BACOOR_SWAP]
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [name, parsedAmounts, otherParsedAmounts])
+  useDeepCompareEffect(() => setSelectedSwap(sortedTrades[0].name), [sortedTrades])
 
   const userHasSpecifiedInputOutput = Boolean(
     currencies[Field.INPUT] && currencies[Field.OUTPUT] && parsedAmounts[independentField]?.greaterThan(JSBI.BigInt(0))
@@ -519,9 +511,10 @@ export default function Swap({ history }: RouteComponentProps) {
   const swapIsUnsupported = useIsSwapUnsupported(currencies[Field.INPUT], currencies[Field.OUTPUT])
 
   const priceImpactTooHigh = priceImpactSeverity > 3 && !isExpertMode
+
   const renderHooks = useMemo(() => {
-    return swap_names.map((item) => <Hooks key={item} name={item} refData={refData} toggledVersion={toggledVersion} />)
-  }, [swap_names])
+    return SWAP_NAMES.map((item) => <Hooks key={item} name={item} refData={refData} toggledVersion={toggledVersion} />)
+  }, [toggledVersion])
 
   return (
     <>
@@ -595,24 +588,16 @@ export default function Swap({ history }: RouteComponentProps) {
                 disabled={true}
                 customNode={
                   <>
-                    {trades.map((tradeName) => (
+                    {sortedTrades.map(({ name, amountOut }) => (
                       <ActiveOutlinedButton
-                        key={tradeName}
-                        name={tradeName}
+                        key={name}
+                        name={name}
                         selectedSwap={selectedSwap}
-                        onClick={() => setSelectedSwap(tradeName)}
+                        onClick={() => setSelectedSwap(name)}
                       >
                         <BacoorOutput>
-                          <TextOutput>{tradeName}</TextOutput>
-                          <TextOutput>
-                            {tradeName === name
-                              ? formattedAmounts[Field.OUTPUT] !== ''
-                                ? formattedAmounts[Field.OUTPUT]
-                                : '0.0'
-                              : otherFormattedAmounts[Field.OUTPUT] !== ''
-                              ? otherFormattedAmounts[Field.OUTPUT]
-                              : '0.0'}
-                          </TextOutput>
+                          <TextOutput>{name}</TextOutput>
+                          <TextOutput>{amountOut !== '' ? amountOut : '0.0'}</TextOutput>
                         </BacoorOutput>
                       </ActiveOutlinedButton>
                     ))}
@@ -729,12 +714,6 @@ export default function Swap({ history }: RouteComponentProps) {
               ) : showApproveFlow ? (
                 <AutoRow style={{ flexWrap: 'nowrap', width: '100%' }}>
                   <AutoColumn style={{ width: '100%' }} gap="12px">
-                    <ButtonLight onClick={() => setSelectedSwap(BACOOR_SWAP)}>
-                      <Trans>Switch Bacoor</Trans>
-                    </ButtonLight>
-                    <ButtonLight onClick={() => setSelectedSwap(UNI_SWAP)}>
-                      <Trans>Switch Uni</Trans>
-                    </ButtonLight>
                     <ButtonConfirmed
                       onClick={handleApprove}
                       disabled={
@@ -759,7 +738,7 @@ export default function Swap({ history }: RouteComponentProps) {
                           {approvalState === ApprovalState.APPROVED || signatureState === UseERC20PermitState.SIGNED ? (
                             <Trans>You can now trade {currencies[Field.INPUT]?.symbol}</Trans>
                           ) : (
-                            <Trans>Allow the Uniswap Protocol to use your {currencies[Field.INPUT]?.symbol}</Trans>
+                            <Trans>{`Allow the ${name} Protocol to use your ${currencies[Field.INPUT]?.symbol}`}</Trans>
                           )}
                         </span>
                         {approvalState === ApprovalState.PENDING ? (
@@ -851,6 +830,10 @@ export default function Swap({ history }: RouteComponentProps) {
                 </>
               )}
               {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
+              <ButtonLight onClick={toggleEmptyModal}>
+                <Trans>Hello A Triet</Trans>
+              </ButtonLight>
+              <EmptyModal />
             </div>
           </AutoColumn>
         </Wrapper>
