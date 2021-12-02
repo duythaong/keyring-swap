@@ -45,6 +45,7 @@ export const MULTICALL_ADDRESS: AddressMap = {
 
 export const BACOOR_SWAP = 'Bacoorswap'
 export const UNI_SWAP = 'Uniswap'
+export const SWAP_NAMES: string[] = [BACOOR_SWAP, UNI_SWAP]
 export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_FACTORY_ADDRESS)
 export const V2_ROUTER_ADDRESS: AddressMap = constructSameAddressMap('0xA3b4864a6E47b706dF76bc6a26Bc057F10bfB676')
 export const V2_UNI_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_UNI_FACTORY_ADDRESS)

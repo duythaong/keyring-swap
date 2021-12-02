@@ -2,8 +2,10 @@
 import { useEffect } from 'react'
 import Observer from 'utils/observer'
 
+import { TRADE_MAP_UPDATE } from '../../constants/misc'
 import { Version } from '../../hooks/useToggledVersion'
 import { useDerivedSwapInfo } from '../../state/swap/hooks'
+
 const Hooks = (props: { name: string; toggledVersion: Version | undefined; refData: any }) => {
   const { name, toggledVersion, refData } = props
   const derivedSwapInfo = useDerivedSwapInfo(name, toggledVersion)
@@ -23,7 +25,7 @@ const Hooks = (props: { name: string; toggledVersion: Version | undefined; refDa
       },
     }
     refData.current = newData
-    Observer.emit('UPDATE_DATA')
+    Observer.emit(TRADE_MAP_UPDATE)
   }, [derivedSwapInfo])
 
   return <></>
