@@ -34,6 +34,7 @@ import { AutoColumn } from '../../components/Column'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
 import CurrencyLogo from '../../components/CurrencyLogo'
 import Loader from '../../components/Loader'
+import NetworkSelectorBacoorModal from '../../components/NetworkSelectorBacoorModal'
 import NetworkSelectorModal from '../../components/NetworkSelectorBacoorModal'
 import Row, { AutoRow, RowFixed } from '../../components/Row'
 import confirmPriceImpactWithoutFee from '../../components/swap/confirmPriceImpactWithoutFee'
@@ -60,7 +61,7 @@ import useToggledVersion from '../../hooks/useToggledVersion'
 import { useUSDCValue } from '../../hooks/useUSDCPrice'
 import useWrapCallback, { WrapType } from '../../hooks/useWrapCallback'
 import { useActiveWeb3React } from '../../hooks/web3'
-import { useChainModalToggle, useWalletModalToggle } from '../../state/application/hooks'
+import { useNWSModalToggle, useWalletModalToggle } from '../../state/application/hooks'
 import { Field } from '../../state/swap/actions'
 import {
   useDefaultsFromURLSearch,
@@ -205,7 +206,7 @@ export default function Swap({ history }: RouteComponentProps) {
   const toggleWalletModal = useWalletModalToggle()
 
   // bacoor select chain
-  const toggleChainModal = useChainModalToggle()
+  const toggleNWSModal = useNWSModalToggle()
 
   // for expert mode
   const [isExpertMode] = useExpertModeManager()
@@ -715,9 +716,12 @@ export default function Swap({ history }: RouteComponentProps) {
                   </TYPE.main>
                 </ButtonPrimary>
               ) : !account ? (
-                <ButtonLight onClick={toggleWalletModal}>
-                  <Trans>Connect Wallet</Trans>
-                </ButtonLight>
+                <>
+                  <ButtonLight onClick={toggleNWSModal}>
+                    <Trans>Connect Wallet</Trans>
+                  </ButtonLight>
+                  <NetworkSelectorBacoorModal />
+                </>
               ) : showWrap ? (
                 <ButtonPrimary disabled={Boolean(wrapInputError)} onClick={onWrap}>
                   {wrapInputError ??

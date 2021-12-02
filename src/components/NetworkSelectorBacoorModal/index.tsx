@@ -1,19 +1,14 @@
-import { Token } from '@uniswap/sdk-core'
-
+import { useModalOpen, useNWSModalToggle } from '../../state/application/hooks'
+import { ApplicationModal } from '../../state/application/reducer'
 import Modal from '../Modal'
 import { NetworkSelectorBacoor } from './NetworkSelectorBacoor'
 
-export default function NetworkSelectorModal({
-  isOpen,
-  onDismiss,
-}: {
-  isOpen: boolean
-  onConfirm: () => void
-  onDismiss: () => void
-}) {
+export default function NetworkSelectorBacoorModal() {
+  const nwsModalOpen = useModalOpen(ApplicationModal.NWSBACOOR)
+  const toggleEmptyModal = useNWSModalToggle()
   return (
-    <Modal isOpen={isOpen} onDismiss={onDismiss}>
-      <NetworkSelectorBacoor onDismiss={onDismiss} />
+    <Modal isOpen={nwsModalOpen} onDismiss={toggleEmptyModal}>
+      <NetworkSelectorBacoor onDismiss={toggleEmptyModal} />
     </Modal>
   )
 }
