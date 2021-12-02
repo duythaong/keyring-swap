@@ -543,11 +543,11 @@ export default function Swap({ history }: RouteComponentProps) {
         onDismiss={handleDismissTokenWarning}
       />
       <NetworkAlert />
-      <NetworkSelectorModal
+      {/* <NetworkSelectorModal
         isOpen={!dismissNetWorkSelectorBaccor}
         onDismiss={handleDismissNetworkSelectorBaccor}
         onConfirm={() => console.log('xyz')}
-      />
+      /> */}
       <AppBody>
         <SwapHeader allowedSlippage={allowedSlippage} />
         <Wrapper id="swap-page">
