@@ -166,10 +166,13 @@ const useSortedTrades = (showWrap: boolean, tradeMap: TradeMap) => {
           } else {
             const amountA = Number(a?.trade?.outputAmount?.toSignificant(6) ?? '')
             const amountB = Number(b?.trade?.outputAmount?.toSignificant(6) ?? '')
-            return amountA - amountB
+            return amountB - amountA
           }
         })
-        .map((item) => item.name),
+        .map((item) => ({
+          name: item.name,
+          amountOut: item?.trade?.outputAmount?.toSignificant(6) ?? '',
+        })),
     [showWrap, tradeMap]
   )
 }
@@ -348,7 +351,7 @@ export default function Swap({ history }: RouteComponentProps) {
       : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
   }
 
-  const trades: string[] = useSortedTrades(showWrap, tradeMap)
+  const sortedTrades: { name: string; amountOut: string }[] = useSortedTrades(showWrap, tradeMap)
 
   const userHasSpecifiedInputOutput = Boolean(
     currencies[Field.INPUT] && currencies[Field.OUTPUT] && parsedAmounts[independentField]?.greaterThan(JSBI.BigInt(0))
@@ -579,24 +582,16 @@ export default function Swap({ history }: RouteComponentProps) {
                 disabled={true}
                 customNode={
                   <>
-                    {trades.map((tradeName) => (
+                    {sortedTrades.map(({ name, amountOut }) => (
                       <ActiveOutlinedButton
-                        key={tradeName}
-                        name={tradeName}
+                        key={name}
+                        name={name}
                         selectedSwap={selectedSwap}
-                        onClick={() => setSelectedSwap(tradeName)}
+                        onClick={() => setSelectedSwap(name)}
                       >
                         <BacoorOutput>
-                          <TextOutput>{tradeName}</TextOutput>
-                          <TextOutput>
-                            {tradeName === name
-                              ? formattedAmounts[Field.OUTPUT] !== ''
-                                ? formattedAmounts[Field.OUTPUT]
-                                : '0.0'
-                              : otherFormattedAmounts[Field.OUTPUT] !== ''
-                              ? otherFormattedAmounts[Field.OUTPUT]
-                              : '0.0'}
-                          </TextOutput>
+                          <TextOutput>{name}</TextOutput>
+                          <TextOutput>{amountOut !== '' ? amountOut : '0.0'}</TextOutput>
                         </BacoorOutput>
                       </ActiveOutlinedButton>
                     ))}
