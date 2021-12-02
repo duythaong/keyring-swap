@@ -18,6 +18,7 @@ import { RouteComponentProps } from 'react-router-dom'
 import { Text } from 'rebass'
 import { V3TradeState } from 'state/routing/types'
 import styled, { ThemeContext } from 'styled-components/macro'
+import useDeepCompareEffect from 'use-deep-compare-effect'
 import Observer from 'utils/observer'
 
 import AddressInputPanel from '../../components/AddressInputPanel'
@@ -352,6 +353,8 @@ export default function Swap({ history }: RouteComponentProps) {
   }
 
   const sortedTrades: { name: string; amountOut: string }[] = useSortedTrades(showWrap, tradeMap)
+
+  useDeepCompareEffect(() => setSelectedSwap(sortedTrades[0].name), [sortedTrades])
 
   const userHasSpecifiedInputOutput = Boolean(
     currencies[Field.INPUT] && currencies[Field.OUTPUT] && parsedAmounts[independentField]?.greaterThan(JSBI.BigInt(0))
