@@ -34,6 +34,7 @@ import { AutoColumn } from '../../components/Column'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
 import CurrencyLogo from '../../components/CurrencyLogo'
 import Loader from '../../components/Loader'
+import NetworkSelectorModal from '../../components/NetworkSelectorBacoorModal'
 import Row, { AutoRow, RowFixed } from '../../components/Row'
 import confirmPriceImpactWithoutFee from '../../components/swap/confirmPriceImpactWithoutFee'
 import ConfirmSwapModal from '../../components/swap/ConfirmSwapModal'
@@ -59,7 +60,7 @@ import useToggledVersion from '../../hooks/useToggledVersion'
 import { useUSDCValue } from '../../hooks/useUSDCPrice'
 import useWrapCallback, { WrapType } from '../../hooks/useWrapCallback'
 import { useActiveWeb3React } from '../../hooks/web3'
-import { useWalletModalToggle } from '../../state/application/hooks'
+import { useChainModalToggle, useWalletModalToggle } from '../../state/application/hooks'
 import { Field } from '../../state/swap/actions'
 import {
   useDefaultsFromURLSearch,
@@ -181,6 +182,7 @@ export default function Swap({ history }: RouteComponentProps) {
     useCurrency(loadedUrlParams?.outputCurrencyId),
   ]
   const [dismissTokenWarning, setDismissTokenWarning] = useState<boolean>(false)
+  const [dismissNetWorkSelectorBaccor, setDismissNetWorkSelectorBaccor] = useState<boolean>(false)
   const urlLoadedTokens: Token[] = useMemo(
     () => [loadedInputCurrency, loadedOutputCurrency]?.filter((c): c is Token => c?.isToken ?? false) ?? [],
     [loadedInputCurrency, loadedOutputCurrency]
@@ -201,6 +203,9 @@ export default function Swap({ history }: RouteComponentProps) {
 
   // toggle wallet when disconnected
   const toggleWalletModal = useWalletModalToggle()
+
+  // bacoor select chain
+  const toggleChainModal = useChainModalToggle()
 
   // for expert mode
   const [isExpertMode] = useExpertModeManager()
@@ -322,6 +327,11 @@ export default function Swap({ history }: RouteComponentProps) {
   // reset if they close warning without tokens in params
   const handleDismissTokenWarning = useCallback(() => {
     setDismissTokenWarning(true)
+    history.push('/swap/')
+  }, [history])
+
+  const handleDismissNetworkSelectorBaccor = useCallback(() => {
+    setDismissNetWorkSelectorBaccor(true)
     history.push('/swap/')
   }, [history])
 
@@ -533,6 +543,11 @@ export default function Swap({ history }: RouteComponentProps) {
         onDismiss={handleDismissTokenWarning}
       />
       <NetworkAlert />
+      <NetworkSelectorModal
+        isOpen={!dismissNetWorkSelectorBaccor}
+        onDismiss={handleDismissNetworkSelectorBaccor}
+        onConfirm={() => console.log('xyz')}
+      />
       <AppBody>
         <SwapHeader allowedSlippage={allowedSlippage} />
         <Wrapper id="swap-page">
