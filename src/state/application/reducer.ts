@@ -19,6 +19,7 @@ export enum ApplicationModal {
   POOL_OVERVIEW_OPTIONS,
   NETWORK_SELECTOR,
   PRIVACY_POLICY,
+  EMPTY,
 }
 
 type PopupList = Array<{ key: string; show: boolean; content: PopupContent; removeAfterMs: number | null }>
