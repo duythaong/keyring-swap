@@ -708,12 +708,6 @@ export default function Swap({ history }: RouteComponentProps) {
               ) : showApproveFlow ? (
                 <AutoRow style={{ flexWrap: 'nowrap', width: '100%' }}>
                   <AutoColumn style={{ width: '100%' }} gap="12px">
-                    {/* <ButtonLight onClick={() => setSelectedSwap(BACOOR_SWAP)}>
-                      <Trans>Switch Bacoor</Trans>
-                    </ButtonLight>
-                    <ButtonLight onClick={() => setSelectedSwap(UNI_SWAP)}>
-                      <Trans>Switch Uni</Trans>
-                    </ButtonLight> */}
                     <ButtonConfirmed
                       onClick={handleApprove}
                       disabled={
@@ -738,7 +732,7 @@ export default function Swap({ history }: RouteComponentProps) {
                           {approvalState === ApprovalState.APPROVED || signatureState === UseERC20PermitState.SIGNED ? (
                             <Trans>You can now trade {currencies[Field.INPUT]?.symbol}</Trans>
                           ) : (
-                            <Trans>Allow the Uniswap Protocol to use your {currencies[Field.INPUT]?.symbol}</Trans>
+                            <Trans>{`Allow the ${name} Protocol to use your ${currencies[Field.INPUT]?.symbol}`}</Trans>
                           )}
                         </span>
                         {approvalState === ApprovalState.PENDING ? (
