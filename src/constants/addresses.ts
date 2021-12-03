@@ -1,12 +1,18 @@
 import {
   FACTORY_ADDRESS as V2_UNI_FACTORY_ADDRESS,
-  INIT_CODE_HASH as INIT_CODE_HASH_UNI,
+  INIT_CODE_HASH as UNI_INIT_CODE_HASH,
 } from '@duythao_bacoor/thaoswap-sdk'
 import {
   computePairAddress,
   FACTORY_ADDRESS as V2_FACTORY_ADDRESS,
-  INIT_CODE_HASH as INIT_CONDE_HASH_BACOOR,
+  INIT_CODE_HASH as BACOOR_INIT_CONDE_HASH,
 } from '@duythao_bacoor/v2-sdk'
+import {
+  ChainId,
+  FACTORY_ADDRESS as SUSHI_FACTORY_ADDRESS,
+  INIT_CODE_HASH as SUSHI_INIT_CODE_HASH,
+  ROUTER_ADDRESS,
+} from '@sushiswap/sdk'
 import { Token } from '@uniswap/sdk-core'
 import { FACTORY_ADDRESS as V3_FACTORY_ADDRESS } from '@uniswap/v3-sdk'
 
@@ -43,23 +49,47 @@ export const MULTICALL_ADDRESS: AddressMap = {
   [SupportedChainId.TOMOCHAIN_TESNET]: '0x7aFd4508B74302E15f182032038EE7c827Cf7aDd',
 }
 
+// Bacoor
 export const BACOOR_SWAP = 'Bacoorswap'
+export const BACOOR_ROUTER = '0xA3b4864a6E47b706dF76bc6a26Bc057F10bfB676'
+
+// Uni
 export const UNI_SWAP = 'Uniswap'
+export const UNI_ROUTER = '0x7D6361273b4D0d06b149B9639a983d88aBb56eD8'
+
+// Sushi
+export const SUSHI_SWAP = 'Sushiswap'
+export const SUSHI_ROUTER = ROUTER_ADDRESS[ChainId.MATIC_TESTNET]
+export const V2_SUSHI_FACTORY_ADDRESS = SUSHI_FACTORY_ADDRESS[ChainId.MATIC_TESTNET]
+
+export const SWAP_NAMES: string[] = [BACOOR_SWAP, UNI_SWAP, SUSHI_SWAP]
+
 export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_FACTORY_ADDRESS)
-export const V2_ROUTER_ADDRESS: AddressMap = constructSameAddressMap('0xA3b4864a6E47b706dF76bc6a26Bc057F10bfB676')
+export const V2_ROUTER_ADDRESS: AddressMap = constructSameAddressMap(BACOOR_ROUTER)
+
 export const V2_UNI_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_UNI_FACTORY_ADDRESS)
-export const V2_UNI_ROUTER_ADDRESS: AddressMap = constructSameAddressMap('0x7D6361273b4D0d06b149B9639a983d88aBb56eD8')
+export const V2_UNI_ROUTER_ADDRESS: AddressMap = constructSameAddressMap(UNI_ROUTER)
+
+export const V2_SUSHI_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_SUSHI_FACTORY_ADDRESS)
+export const V2_SUSHI_ROUTER_ADDRESS: AddressMap = constructSameAddressMap(SUSHI_ROUTER)
+
 export const SWAP_MAP: SwapMap = {
   [BACOOR_SWAP]: {
     factoryAddresses: V2_FACTORY_ADDRESSES,
-    initCodeHash: INIT_CONDE_HASH_BACOOR,
+    initCodeHash: BACOOR_INIT_CONDE_HASH,
     routerAddress: V2_ROUTER_ADDRESS,
     computePairAddress,
   },
   [UNI_SWAP]: {
     factoryAddresses: V2_UNI_FACTORY_ADDRESSES,
-    initCodeHash: INIT_CODE_HASH_UNI,
+    initCodeHash: UNI_INIT_CODE_HASH,
     routerAddress: V2_UNI_ROUTER_ADDRESS,
+    computePairAddress,
+  },
+  [SUSHI_SWAP]: {
+    factoryAddresses: V2_SUSHI_FACTORY_ADDRESSES,
+    initCodeHash: SUSHI_INIT_CODE_HASH[ChainId.MATIC_TESTNET],
+    routerAddress: V2_SUSHI_ROUTER_ADDRESS,
     computePairAddress,
   },
 }

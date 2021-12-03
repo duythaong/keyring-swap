@@ -19,6 +19,7 @@ export enum ApplicationModal {
   POOL_OVERVIEW_OPTIONS,
   NETWORK_SELECTOR,
   PRIVACY_POLICY,
+  EMPTY,
   CHAIN,
   NWSBACOOR,
 }
