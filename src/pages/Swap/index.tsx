@@ -267,8 +267,6 @@ export default function Swap({ history }: RouteComponentProps) {
 
   const [tradeMap, setTradeMap] = useState<TradeMap>(tradeMapInit)
 
-  console.log('tradeMap', tradeMap)
-
   useEffect(() => {
     const tradeMapUpdate = () => {
       setTradeMap(refData.current)
