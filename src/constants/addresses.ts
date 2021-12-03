@@ -81,15 +81,15 @@ export const SWAP_MAP: SwapMap = {
     computePairAddress,
   },
   [UNI_SWAP]: {
-    factoryAddresses: V2_SUSHI_FACTORY_ADDRESSES,
+    factoryAddresses: V2_UNI_FACTORY_ADDRESSES,
     initCodeHash: UNI_INIT_CODE_HASH,
     routerAddress: V2_UNI_ROUTER_ADDRESS,
     computePairAddress,
   },
   [SUSHI_SWAP]: {
-    factoryAddresses: V2_UNI_FACTORY_ADDRESSES,
+    factoryAddresses: V2_SUSHI_FACTORY_ADDRESSES,
     initCodeHash: SUSHI_INIT_CODE_HASH[ChainId.MATIC_TESTNET],
-    routerAddress: V2_UNI_ROUTER_ADDRESS,
+    routerAddress: V2_SUSHI_ROUTER_ADDRESS,
     computePairAddress,
   },
 }
