@@ -100,10 +100,12 @@ export function NetworkSelectorBacoor(props: ImportProps) {
   const implements3085 = useAppSelector((state) => state.application.implements3085)
 
   function NetworkElement({ targetChain }: { targetChain: number }) {
-    if (!library || !chainId || (!implements3085 && targetChain !== chainId)) {
+    // console.log('implements3085', implements3085)
+    if (!library || !chainId) {
       return null
     }
     const handleElementClick = () => {
+      console.log('handleElementClick', library, chainId)
       switchToNetwork({ library, chainId: targetChain })
     }
     const active = chainId === targetChain

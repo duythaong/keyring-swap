@@ -259,7 +259,7 @@ export default function Swap({ history }: RouteComponentProps) {
   useEffect(() => {
     const updateData = () => {
       setTradeMap(refData.current)
-      console.log(refData.current)
+      // console.log(refData.current)
     }
     Observer.on('UPDATE_DATA', updateData)
 

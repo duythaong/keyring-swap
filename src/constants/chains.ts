@@ -1,4 +1,6 @@
 import ethereumLogoUrl from 'assets/images/ethereum-logo.png'
+import polygonLogoUrl from 'assets/images/polygon.svg'
+import tomoLogoUrl from 'assets/images/tomochain.png'
 import arbitrumLogoUrl from 'assets/svg/arbitrum_logo.svg'
 import optimismLogoUrl from 'assets/svg/optimistic_ethereum.svg'
 import ms from 'ms.macro'
@@ -168,6 +170,7 @@ export const CHAIN_INFO: ChainInfo = {
     explorer: 'https://scan.testnet.tomochain.com/',
     infoLink: 'https://info.uniswap.org/#/',
     label: 'Tomo',
+    logoUrl: tomoLogoUrl,
     nativeCurrency: { name: 'TOMO', symbol: 'TOMO', decimals: 18 },
     rpcUrls: ['https://rpc.testnet.tomochain.com'],
   },
@@ -176,6 +179,7 @@ export const CHAIN_INFO: ChainInfo = {
     explorer: 'https://mumbai.polygonscan.com/',
     infoLink: 'https://info.uniswap.org/#/',
     label: 'Polygon',
+    logoUrl: polygonLogoUrl,
     nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
     rpcUrls: ['https://rpc-mumbai.maticvigil.com'],
   },

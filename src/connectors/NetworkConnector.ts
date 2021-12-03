@@ -43,6 +43,9 @@ class MiniRpcProvider implements AsyncSendable {
   constructor(chainId: number, url: string, batchWaitTimeMs?: number) {
     this.chainId = chainId
     this.url = url
+    console.log('====================================')
+    console.log('URL', this.url)
+    console.log('====================================')
     const parsed = new URL(url)
     this.host = parsed.host
     this.path = parsed.pathname
@@ -75,6 +78,9 @@ class MiniRpcProvider implements AsyncSendable {
     let json
     try {
       json = await response.json()
+      console.log('====================================')
+      console.log('json', json)
+      console.log('====================================')
     } catch (error) {
       batch.forEach(({ reject }) => reject(new Error('Failed to parse JSON response')))
       return
