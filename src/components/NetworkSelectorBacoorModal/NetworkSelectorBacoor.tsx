@@ -1,11 +1,17 @@
 import { Trans } from '@lingui/macro'
+import { AbstractConnector } from '@web3-react/abstract-connector'
+import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
+import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import doneIcon from 'assets/images/circle_done.svg'
 import { AutoColumn } from 'components/Column'
 import { AutoRow, RowBetween } from 'components/Row'
 import { PaddedColumn } from 'components/SearchModal/styleds'
 import { CHAIN_INFO, SupportedChainId } from 'constants/chains'
+import { SUPPORTED_WALLETS } from 'constants/wallet'
+import { useWalletConnectMonitoringEventCallback } from 'hooks/useMonitoringEventCallback'
 import { useActiveWeb3React } from 'hooks/web3'
 import { useState } from 'react'
+import ReactGA from 'react-ga'
 import { updateChainId } from 'state/application/reducer'
 import { useAppDispatch, useAppSelector } from 'state/hooks'
 import styled, { css } from 'styled-components/macro'
@@ -105,7 +111,7 @@ const WalletContainer = styled.div`
   // min-height: 400px;
 `
 
-const WalletItem = styled.div<{ active: boolean }>`
+const WalletItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,9 +128,12 @@ interface ImportProps {
 export function NetworkSelectorBacoor(props: ImportProps) {
   const { onDismiss } = props
   const dispatch = useAppDispatch()
-  const { chainId: chainIdWeb3, library, account } = useActiveWeb3React()
+  const { chainId: chainIdWeb3, library, account, activate } = useActiveWeb3React()
+  // const { active, account, connector, activate, error } = useWeb3React()
   const chainId = useAppSelector((state) => state.application.chainId)
-  const implements3085 = useAppSelector((state) => state.application.implements3085)
+  // const implements3085 = useAppSelector((state) => state.application.implements3085)
+
+  const logMonitoringEvent = useWalletConnectMonitoringEventCallback()
 
   const [confirmed, setConfirmed] = useState(false)
 
@@ -175,33 +184,59 @@ export function NetworkSelectorBacoor(props: ImportProps) {
     return <ElementContent />
   }
 
-  function WalletElement({ targetChain }: { targetChain: number }) {
+  function WalletElement({ wallet }: { wallet: string }) {
     // console.log('implements3085', implements3085)
     if (!library || !chainId) {
       return null
     }
     const handleElementClick = () => {
-      switchToNetwork({ library, chainId: targetChain })
+      tryActivation(SUPPORTED_WALLETS[wallet].connector)
     }
-    const active = chainId === targetChain
-    const isOptimism = targetChain === SupportedChainId.OPTIMISM
-    const networkName = `${CHAIN_INFO[targetChain].label}${isOptimism ? ' (Optimism)' : ''}`
+
     const ElementContent = () => (
-      <WalletItem onClick={handleElementClick} active={active}>
+      <WalletItem onClick={handleElementClick}>
         <NetworkImgWrap>
-          <NetworkImg src={CHAIN_INFO[targetChain].logoUrl} isConfirm={confirmed}></NetworkImg>
-          {active && (
-            <SelectedIconWrapper>
-              <SelectedIcon src={doneIcon} isConfirm={confirmed}></SelectedIcon>
-            </SelectedIconWrapper>
-          )}
+          <NetworkImg src={SUPPORTED_WALLETS[wallet].iconURL} isConfirm={confirmed}></NetworkImg>
         </NetworkImgWrap>
-        <SubText>{networkName}</SubText>
+        <SubText>{SUPPORTED_WALLETS[wallet].name}</SubText>
       </WalletItem>
     )
-
     return <ElementContent />
   }
+
+  const tryActivation = async (connector: AbstractConnector | undefined) => {
+    let name = ''
+    Object.keys(SUPPORTED_WALLETS).map((key) => {
+      if (connector === SUPPORTED_WALLETS[key].connector) {
+        return (name = SUPPORTED_WALLETS[key].name)
+      }
+      return true
+    })
+    // log selected wallet
+    ReactGA.event({
+      category: 'Wallet',
+      action: 'Change Wallet',
+      label: name,
+    })
+
+    // if the connector is walletconnect and the user has already tried to connect, manually reset the connector
+    if (connector instanceof WalletConnectConnector) {
+      connector.walletConnectProvider = undefined
+    }
+
+    connector &&
+      activate(connector, undefined, true)
+        .then(async () => {
+          const walletAddress = await connector.getAccount()
+          logMonitoringEvent({ walletAddress })
+        })
+        .catch((error) => {
+          if (error instanceof UnsupportedChainIdError) {
+            activate(connector) // a little janky...can't use setError because the connector isn't set
+          }
+        })
+  }
+
   return (
     <Wrapper>
       <PaddedColumn gap="14px" style={{ width: '100%', flex: '1 1', paddingBottom: 0 }}>
@@ -262,18 +297,8 @@ export function NetworkSelectorBacoor(props: ImportProps) {
       </AutoColumn>
       <AutoColumn gap="md" style={{ padding: '0 1rem 1rem 1rem' }}>
         <WalletContainer>
-          <WalletElement targetChain={SupportedChainId.MAINNET} />
-          <WalletElement targetChain={SupportedChainId.POLYGON_TESTNET} />
-          <WalletElement targetChain={SupportedChainId.TOMOCHAIN_TESNET} />
-          <WalletElement targetChain={SupportedChainId.MAINNET} />
-          <WalletElement targetChain={SupportedChainId.POLYGON_TESTNET} />
-          <WalletElement targetChain={SupportedChainId.TOMOCHAIN_TESNET} />
-          {/* <WalletElement targetChain={SupportedChainId.MAINNET} />
-          <WalletElement targetChain={SupportedChainId.POLYGON_TESTNET} />
-          <WalletElement targetChain={SupportedChainId.TOMOCHAIN_TESNET} />
-          <WalletElement targetChain={SupportedChainId.MAINNET} />
-          <WalletElement targetChain={SupportedChainId.POLYGON_TESTNET} />
-          <WalletElement targetChain={SupportedChainId.TOMOCHAIN_TESNET} /> */}
+          <WalletElement wallet="METAMASK" />
+          <WalletElement wallet="WALLET_CONNECT" />
         </WalletContainer>
       </AutoColumn>
     </Wrapper>
