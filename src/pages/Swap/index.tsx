@@ -579,7 +579,7 @@ export default function Swap({ history }: RouteComponentProps) {
                   onClick={() => {
                     setApprovalSubmitted(false) // reset 2 step UI for approvals
                     onSwitchTokens()
-                    handleTypeInput
+                    handleTypeInput(sortedTrades[0].amountOut)
                   }}
                   color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? theme.text1 : theme.text3}
                 />
