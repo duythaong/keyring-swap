@@ -6,9 +6,11 @@ import { PaddedColumn } from 'components/SearchModal/styleds'
 import { CHAIN_INFO, SupportedChainId } from 'constants/chains'
 import { useActiveWeb3React } from 'hooks/web3'
 import { useState } from 'react'
-import { useAppSelector } from 'state/hooks'
+import { updateChainId } from 'state/application/reducer'
+import { useAppDispatch, useAppSelector } from 'state/hooks'
 import styled, { css } from 'styled-components/macro'
 import { CloseIcon, TYPE } from 'theme'
+import { supportedChainId } from 'utils/supportedChainId'
 import { switchToNetwork } from 'utils/switchToNetwork'
 
 const Wrapper = styled.div`
@@ -119,7 +121,9 @@ interface ImportProps {
 
 export function NetworkSelectorBacoor(props: ImportProps) {
   const { onDismiss } = props
-  const { chainId, library } = useActiveWeb3React()
+  const dispatch = useAppDispatch()
+  const { chainId: chainIdWeb3, library, account } = useActiveWeb3React()
+  const chainId = useAppSelector((state) => state.application.chainId)
   const implements3085 = useAppSelector((state) => state.application.implements3085)
 
   const [confirmed, setConfirmed] = useState(false)
@@ -132,7 +136,11 @@ export function NetworkSelectorBacoor(props: ImportProps) {
     const handleElementClick = () => {
       console.log('handleElementClick', library, chainId)
       if (confirmed) {
-        switchToNetwork({ library, chainId: targetChain })
+        if (account) {
+          switchToNetwork({ library, chainId: targetChain })
+        } else {
+          dispatch(updateChainId({ chainId: targetChain ? supportedChainId(targetChain) ?? null : null }))
+        }
       }
       // addNetwork({
       //   library,
