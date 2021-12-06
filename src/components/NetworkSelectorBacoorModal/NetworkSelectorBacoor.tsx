@@ -88,9 +88,12 @@ const NetworkImg = styled.img<{ isConfirm: boolean }>`
   `}
 `
 
-const SelectedIcon = styled.img`
+const SelectedIcon = styled.img<{ isConfirm: boolean }>`
   vertical-align: middle;
   border-style: none;
+  ${(props) => css`
+    filter: ${!props.isConfirm ? 'grayscale(100%)' : ''};
+  `}
 `
 
 const WalletContainer = styled.div`
@@ -153,7 +156,7 @@ export function NetworkSelectorBacoor(props: ImportProps) {
           <NetworkImg src={CHAIN_INFO[targetChain].logoUrl} isConfirm={confirmed}></NetworkImg>
           {active && (
             <SelectedIconWrapper>
-              <SelectedIcon src={doneIcon}></SelectedIcon>
+              <SelectedIcon src={doneIcon} isConfirm={confirmed}></SelectedIcon>
             </SelectedIconWrapper>
           )}
         </NetworkImgWrap>
@@ -181,7 +184,7 @@ export function NetworkSelectorBacoor(props: ImportProps) {
           <NetworkImg src={CHAIN_INFO[targetChain].logoUrl} isConfirm={confirmed}></NetworkImg>
           {active && (
             <SelectedIconWrapper>
-              <SelectedIcon src={doneIcon}></SelectedIcon>
+              <SelectedIcon src={doneIcon} isConfirm={confirmed}></SelectedIcon>
             </SelectedIconWrapper>
           )}
         </NetworkImgWrap>
