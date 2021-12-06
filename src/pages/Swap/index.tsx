@@ -604,7 +604,7 @@ export default function Swap({ history }: RouteComponentProps) {
                     {sortedTrades.map(({ name, amountOut }) => (
                       <ActiveOutlinedButton
                         key={name}
-                        name={name}
+                        name={`${name} + 1`}
                         selectedSwap={selectedSwap}
                         onClick={() => setSelectedSwap(name)}
                       >
