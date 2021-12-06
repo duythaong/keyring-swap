@@ -1,13 +1,13 @@
 import { Trans } from '@lingui/macro'
 import doneIcon from 'assets/images/circle_done.svg'
-import ethereumLogo from 'assets/images/ethereum-logo.png'
 import { AutoColumn } from 'components/Column'
 import { AutoRow, RowBetween } from 'components/Row'
 import { PaddedColumn } from 'components/SearchModal/styleds'
 import { CHAIN_INFO, SupportedChainId } from 'constants/chains'
 import { useActiveWeb3React } from 'hooks/web3'
+import { useState } from 'react'
 import { useAppSelector } from 'state/hooks'
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
 import { CloseIcon, TYPE } from 'theme'
 import { switchToNetwork } from 'utils/switchToNetwork'
 
@@ -78,16 +78,36 @@ const NetworkImgWrap = styled.div`
   position: relative;
 `
 
-const NetworkImg = styled.img`
+const NetworkImg = styled.img<{ isConfirm: boolean }>`
   border-radius: 50%;
   margin: auto;
   width: 60px;
   height: 60px;
+  ${(props) => css`
+    filter: ${!props.isConfirm ? 'grayscale(100%)' : ''};
+  `}
 `
 
 const SelectedIcon = styled.img`
   vertical-align: middle;
   border-style: none;
+`
+
+const WalletContainer = styled.div`
+  display: grid;
+  grid-column: 1 / span 2;
+  grid-template-columns: 1fr 1fr 1fr;
+  // min-height: 400px;
+`
+
+const WalletItem = styled.div<{ active: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  border-radius: 16px;
+  cursor: pointer;
+  // max-height: 105px;
 `
 
 interface ImportProps {
@@ -99,6 +119,8 @@ export function NetworkSelectorBacoor(props: ImportProps) {
   const { chainId, library } = useActiveWeb3React()
   const implements3085 = useAppSelector((state) => state.application.implements3085)
 
+  const [confirmed, setConfirmed] = useState(false)
+
   function NetworkElement({ targetChain }: { targetChain: number }) {
     // console.log('implements3085', implements3085)
     if (!library || !chainId) {
@@ -106,7 +128,21 @@ export function NetworkSelectorBacoor(props: ImportProps) {
     }
     const handleElementClick = () => {
       console.log('handleElementClick', library, chainId)
-      switchToNetwork({ library, chainId: targetChain })
+      if (confirmed) {
+        switchToNetwork({ library, chainId: targetChain })
+      }
+      // addNetwork({
+      //   library,
+      //   chainId: targetChain,
+      //   info: {
+      //     docs: 'https://docs.uniswap.org/',
+      //     explorer: 'https://mumbai.polygonscan.com/',
+      //     infoLink: 'https://info.uniswap.org/#/',
+      //     label: 'Polygon',
+      //     nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
+      //     rpcUrls: ['https://rpc-mumbai.maticvigil.com'],
+      //   },
+      // })
     }
     const active = chainId === targetChain
     const isOptimism = targetChain === SupportedChainId.OPTIMISM
@@ -114,7 +150,7 @@ export function NetworkSelectorBacoor(props: ImportProps) {
     const ElementContent = () => (
       <NetworkItem onClick={handleElementClick} active={active}>
         <NetworkImgWrap>
-          <NetworkImg src={CHAIN_INFO[targetChain].logoUrl}></NetworkImg>
+          <NetworkImg src={CHAIN_INFO[targetChain].logoUrl} isConfirm={confirmed}></NetworkImg>
           {active && (
             <SelectedIconWrapper>
               <SelectedIcon src={doneIcon}></SelectedIcon>
@@ -123,6 +159,34 @@ export function NetworkSelectorBacoor(props: ImportProps) {
         </NetworkImgWrap>
         <SubText>{networkName}</SubText>
       </NetworkItem>
+    )
+
+    return <ElementContent />
+  }
+
+  function WalletElement({ targetChain }: { targetChain: number }) {
+    // console.log('implements3085', implements3085)
+    if (!library || !chainId) {
+      return null
+    }
+    const handleElementClick = () => {
+      switchToNetwork({ library, chainId: targetChain })
+    }
+    const active = chainId === targetChain
+    const isOptimism = targetChain === SupportedChainId.OPTIMISM
+    const networkName = `${CHAIN_INFO[targetChain].label}${isOptimism ? ' (Optimism)' : ''}`
+    const ElementContent = () => (
+      <WalletItem onClick={handleElementClick} active={active}>
+        <NetworkImgWrap>
+          <NetworkImg src={CHAIN_INFO[targetChain].logoUrl} isConfirm={confirmed}></NetworkImg>
+          {active && (
+            <SelectedIconWrapper>
+              <SelectedIcon src={doneIcon}></SelectedIcon>
+            </SelectedIconWrapper>
+          )}
+        </NetworkImgWrap>
+        <SubText>{networkName}</SubText>
+      </WalletItem>
     )
 
     return <ElementContent />
@@ -144,8 +208,17 @@ export function NetworkSelectorBacoor(props: ImportProps) {
             <Trans>
               Accept <Textblue>Terms of Service </Textblue> and <Textblue>Privacy Policy</Textblue>
             </Trans>
-            <AutoRow justify="flex-start" style={{ cursor: 'pointer', marginTop: '5px' }}>
-              <Checkbox name="confirmed" type="checkbox" />
+            <AutoRow
+              justify="flex-start"
+              style={{ cursor: 'pointer', marginTop: '5px' }}
+              onClick={() => setConfirmed(!confirmed)}
+            >
+              <Checkbox
+                name="confirmed"
+                type="checkbox"
+                checked={confirmed}
+                onChange={() => setConfirmed(!confirmed)}
+              />
               <TYPE.body ml="10px" fontSize="16px" fontWeight={500}>
                 <Trans>I read and accept</Trans>
               </TYPE.body>
@@ -168,7 +241,7 @@ export function NetworkSelectorBacoor(props: ImportProps) {
           <NetworkElement targetChain={SupportedChainId.TOMOCHAIN_TESNET} />
         </NetworkContainer>
       </AutoColumn>
-      {/* <AutoColumn gap="md" style={{ padding: '0 1rem 1rem 1rem' }}>
+      <AutoColumn gap="md" style={{ padding: '0 1rem 1rem 1rem' }}>
         <StepContainer>
           <WalletConnectStep>3</WalletConnectStep>
           <BodyText>
@@ -177,10 +250,21 @@ export function NetworkSelectorBacoor(props: ImportProps) {
         </StepContainer>
       </AutoColumn>
       <AutoColumn gap="md" style={{ padding: '0 1rem 1rem 1rem' }}>
-        <NetworkContainer>
-          
-        </NetworkContainer>
-      </AutoColumn> */}
+        <WalletContainer>
+          <WalletElement targetChain={SupportedChainId.MAINNET} />
+          <WalletElement targetChain={SupportedChainId.POLYGON_TESTNET} />
+          <WalletElement targetChain={SupportedChainId.TOMOCHAIN_TESNET} />
+          <WalletElement targetChain={SupportedChainId.MAINNET} />
+          <WalletElement targetChain={SupportedChainId.POLYGON_TESTNET} />
+          <WalletElement targetChain={SupportedChainId.TOMOCHAIN_TESNET} />
+          {/* <WalletElement targetChain={SupportedChainId.MAINNET} />
+          <WalletElement targetChain={SupportedChainId.POLYGON_TESTNET} />
+          <WalletElement targetChain={SupportedChainId.TOMOCHAIN_TESNET} />
+          <WalletElement targetChain={SupportedChainId.MAINNET} />
+          <WalletElement targetChain={SupportedChainId.POLYGON_TESTNET} />
+          <WalletElement targetChain={SupportedChainId.TOMOCHAIN_TESNET} /> */}
+        </WalletContainer>
+      </AutoColumn>
     </Wrapper>
   )
 }

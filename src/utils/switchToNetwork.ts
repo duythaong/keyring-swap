@@ -13,6 +13,9 @@ interface SwitchNetworkArguments {
 // provider.request returns Promise<any>, but wallet_switchEthereumChain must return null or throw
 // see https://github.com/rekmarks/EIPs/blob/3326-create/EIPS/eip-3326.md for more info on wallet_switchEthereumChain
 export async function switchToNetwork({ library, chainId }: SwitchNetworkArguments): Promise<null | void> {
+  console.log('====================================')
+  console.log('library', library)
+  console.log('====================================')
   if (!library?.provider?.request) {
     return
   }
@@ -25,7 +28,9 @@ export async function switchToNetwork({ library, chainId }: SwitchNetworkArgumen
       method: 'wallet_switchEthereumChain',
       params: [{ chainId: formattedChainId }],
     })
+    console.log('REQUEST OK')
   } catch (error) {
+    console.log('ERR request1', error)
     // 4902 is the error code for attempting to switch to an unrecognized chainId
     if (error.code === 4902 && chainId !== undefined) {
       const info = CHAIN_INFO[chainId]
@@ -36,6 +41,8 @@ export async function switchToNetwork({ library, chainId }: SwitchNetworkArgumen
       await addNetwork({ library, chainId, info })
       await switchToNetwork({ library, chainId })
     } else {
+      console.log('ERR request')
+
       throw error
     }
   }
