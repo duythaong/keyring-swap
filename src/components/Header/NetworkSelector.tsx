@@ -12,10 +12,11 @@ import { useActiveWeb3React } from 'hooks/web3'
 import { useCallback, useRef } from 'react'
 import { ArrowDownCircle, ChevronDown } from 'react-feather'
 import { useModalOpen, useToggleModal } from 'state/application/hooks'
-import { ApplicationModal } from 'state/application/reducer'
-import { useAppSelector } from 'state/hooks'
+import { ApplicationModal, updateChainId } from 'state/application/reducer'
+import { useAppDispatch, useAppSelector } from 'state/hooks'
 import styled from 'styled-components/macro'
 import { ExternalLink, MEDIA_WIDTHS } from 'theme'
+import { supportedChainId } from 'utils/supportedChainId'
 import { switchToNetwork } from 'utils/switchToNetwork'
 
 const ActiveRowLinkList = styled.div`
@@ -163,13 +164,14 @@ const ExplorerText = ({ chainId }: { chainId: SupportedL2ChainId }) => {
 }
 
 export default function NetworkSelector() {
-  const { chainId, library } = useActiveWeb3React()
+  const { library } = useActiveWeb3React()
+  const chainId = useAppSelector((state) => state.application.chainId)
   const node = useRef<HTMLDivElement>()
   const open = useModalOpen(ApplicationModal.NETWORK_SELECTOR)
   const toggle = useToggleModal(ApplicationModal.NETWORK_SELECTOR)
   useOnClickOutside(node, open ? toggle : undefined)
   const implements3085 = useAppSelector((state) => state.application.implements3085)
-
+  const dispatch = useAppDispatch()
   const info = chainId ? CHAIN_INFO[chainId] : undefined
 
   const isOnL2 = chainId ? L2_CHAIN_IDS.includes(chainId) : false
@@ -191,7 +193,7 @@ export default function NetworkSelector() {
       return null
     }
     const handleRowClick = () => {
-      switchToNetwork({ library, chainId: targetChain })
+      dispatch(updateChainId({ chainId: targetChain ? supportedChainId(targetChain) ?? null : null }))
       toggle()
     }
     const active = chainId === targetChain
