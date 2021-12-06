@@ -10,7 +10,7 @@ import { CHAIN_INFO, SupportedChainId } from 'constants/chains'
 import { SUPPORTED_WALLETS } from 'constants/wallet'
 import { useWalletConnectMonitoringEventCallback } from 'hooks/useMonitoringEventCallback'
 import { useActiveWeb3React } from 'hooks/web3'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import ReactGA from 'react-ga'
 import { updateChainId } from 'state/application/reducer'
 import { useAppDispatch, useAppSelector } from 'state/hooks'
@@ -124,50 +124,30 @@ const WalletItem = styled.div`
 interface ImportProps {
   onDismiss?: () => void
 }
-
-export function NetworkSelectorBacoor(props: ImportProps) {
-  const { onDismiss } = props
-  const dispatch = useAppDispatch()
+// ============================================================================================================
+function NetworkElement({ targetChain, confirmed }: { targetChain: number; confirmed: boolean }) {
   const { chainId: chainIdWeb3, library, account, activate } = useActiveWeb3React()
-  // const { active, account, connector, activate, error } = useWeb3React()
   const chainId = useAppSelector((state) => state.application.chainId)
-  // const implements3085 = useAppSelector((state) => state.application.implements3085)
+  const active = chainId === targetChain
+  const isOptimism = targetChain === SupportedChainId.OPTIMISM
+  const networkName = `${CHAIN_INFO[targetChain].label}${isOptimism ? ' (Optimism)' : ''}`
 
-  const logMonitoringEvent = useWalletConnectMonitoringEventCallback()
+  const dispatch = useAppDispatch()
 
-  const [confirmed, setConfirmed] = useState(false)
-
-  function NetworkElement({ targetChain }: { targetChain: number }) {
-    // console.log('implements3085', implements3085)
-    if (!library || !chainId) {
-      return null
-    }
-    const handleElementClick = () => {
-      console.log('handleElementClick', library, chainId)
-      if (confirmed) {
-        if (account) {
-          switchToNetwork({ library, chainId: targetChain })
-        } else {
-          dispatch(updateChainId({ chainId: targetChain ? supportedChainId(targetChain) ?? null : null }))
-        }
+  const handleElementClick = () => {
+    console.log('AAA')
+    if (confirmed) {
+      if (account && library) {
+        switchToNetwork({ library, chainId: targetChain })
+      } else {
+        console.log('BBBB')
+        dispatch(updateChainId({ chainId: targetChain ? supportedChainId(targetChain) ?? null : null }))
       }
-      // addNetwork({
-      //   library,
-      //   chainId: targetChain,
-      //   info: {
-      //     docs: 'https://docs.uniswap.org/',
-      //     explorer: 'https://mumbai.polygonscan.com/',
-      //     infoLink: 'https://info.uniswap.org/#/',
-      //     label: 'Polygon',
-      //     nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
-      //     rpcUrls: ['https://rpc-mumbai.maticvigil.com'],
-      //   },
-      // })
     }
-    const active = chainId === targetChain
-    const isOptimism = targetChain === SupportedChainId.OPTIMISM
-    const networkName = `${CHAIN_INFO[targetChain].label}${isOptimism ? ' (Optimism)' : ''}`
-    const ElementContent = () => (
+  }
+
+  const ElementContent = useCallback(
+    () => (
       <NetworkItem onClick={handleElementClick} active={active}>
         <NetworkImgWrap>
           <NetworkImg src={CHAIN_INFO[targetChain].logoUrl} isConfirm={confirmed}></NetworkImg>
@@ -179,29 +159,23 @@ export function NetworkSelectorBacoor(props: ImportProps) {
         </NetworkImgWrap>
         <SubText>{networkName}</SubText>
       </NetworkItem>
-    )
+    ),
+    [targetChain, confirmed, networkName, chainId]
+  )
 
-    return <ElementContent />
+  if (!library || !chainId) {
+    return null
   }
 
-  function WalletElement({ wallet }: { wallet: string }) {
-    // console.log('implements3085', implements3085)
-    if (!library || !chainId) {
-      return null
-    }
-    const handleElementClick = () => {
-      tryActivation(SUPPORTED_WALLETS[wallet].connector)
-    }
-
-    const ElementContent = () => (
-      <WalletItem onClick={handleElementClick}>
-        <NetworkImgWrap>
-          <NetworkImg src={SUPPORTED_WALLETS[wallet].iconURL} isConfirm={confirmed}></NetworkImg>
-        </NetworkImgWrap>
-        <SubText>{SUPPORTED_WALLETS[wallet].name}</SubText>
-      </WalletItem>
-    )
-    return <ElementContent />
+  return <ElementContent />
+}
+// ============================================================================================================
+function WalletElement({ wallet, confirmed }: { wallet: string; confirmed: boolean }) {
+  const { chainId: chainIdWeb3, library, account, activate } = useActiveWeb3React()
+  const chainId = useAppSelector((state) => state.application.chainId)
+  const logMonitoringEvent = useWalletConnectMonitoringEventCallback()
+  if (!library || !chainId) {
+    return null
   }
 
   const tryActivation = async (connector: AbstractConnector | undefined) => {
@@ -236,6 +210,27 @@ export function NetworkSelectorBacoor(props: ImportProps) {
           }
         })
   }
+
+  const handleElementClick = () => {
+    if (confirmed) {
+      tryActivation(SUPPORTED_WALLETS[wallet].connector)
+    }
+  }
+
+  const ElementContent = () => (
+    <WalletItem onClick={handleElementClick}>
+      <NetworkImgWrap>
+        <NetworkImg src={SUPPORTED_WALLETS[wallet].iconURL} isConfirm={confirmed}></NetworkImg>
+      </NetworkImgWrap>
+      <SubText>{SUPPORTED_WALLETS[wallet].name}</SubText>
+    </WalletItem>
+  )
+  return <ElementContent />
+}
+// ============================================================================================================
+export function NetworkSelectorBacoor(props: ImportProps) {
+  const { onDismiss } = props
+  const [confirmed, setConfirmed] = useState(false)
 
   return (
     <Wrapper>
@@ -282,9 +277,9 @@ export function NetworkSelectorBacoor(props: ImportProps) {
       </AutoColumn>
       <AutoColumn gap="md" style={{ padding: '0 1rem 1rem 1rem' }}>
         <NetworkContainer>
-          <NetworkElement targetChain={SupportedChainId.MAINNET} />
-          <NetworkElement targetChain={SupportedChainId.POLYGON_TESTNET} />
-          <NetworkElement targetChain={SupportedChainId.TOMOCHAIN_TESNET} />
+          <NetworkElement targetChain={SupportedChainId.MAINNET} confirmed={confirmed} />
+          <NetworkElement targetChain={SupportedChainId.POLYGON_TESTNET} confirmed={confirmed} />
+          <NetworkElement targetChain={SupportedChainId.TOMOCHAIN_TESNET} confirmed={confirmed} />
         </NetworkContainer>
       </AutoColumn>
       <AutoColumn gap="md" style={{ padding: '0 1rem 1rem 1rem' }}>
@@ -297,8 +292,8 @@ export function NetworkSelectorBacoor(props: ImportProps) {
       </AutoColumn>
       <AutoColumn gap="md" style={{ padding: '0 1rem 1rem 1rem' }}>
         <WalletContainer>
-          <WalletElement wallet="METAMASK" />
-          <WalletElement wallet="WALLET_CONNECT" />
+          <WalletElement wallet="METAMASK" confirmed={confirmed} />
+          <WalletElement wallet="WALLET_CONNECT" confirmed={confirmed} />
         </WalletContainer>
       </AutoColumn>
     </Wrapper>
