@@ -3,6 +3,7 @@ import { initializeApp } from 'firebase/app'
 import { getDatabase, push, ref } from 'firebase/database'
 import { useCallback } from 'react'
 import { TransactionInfo, TransactionType } from 'state/transactions/actions'
+import { switchToNetwork } from 'utils/switchToNetwork'
 
 import { useActiveWeb3React } from './web3'
 
@@ -21,7 +22,7 @@ const firebaseEnabled = typeof FIREBASE_API_KEY !== 'undefined'
 if (firebaseEnabled) initializeFirebase()
 
 function useMonitoringEventCallback() {
-  const { chainId } = useActiveWeb3React()
+  const { chainId, library } = useActiveWeb3React()
 
   return useCallback(
     async function log(
@@ -29,7 +30,10 @@ function useMonitoringEventCallback() {
       {
         transactionResponse,
         walletAddress,
-      }: { transactionResponse: PartialTransactionResponse; walletAddress: string | undefined }
+      }: {
+        transactionResponse: PartialTransactionResponse
+        walletAddress: string | undefined
+      }
     ) {
       if (!firebaseEnabled) return
 

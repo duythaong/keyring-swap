@@ -63,10 +63,10 @@ function useBlockWarningTimer() {
 }
 
 export default function Updater(): null {
-  const { account, chainId, library } = useActiveWeb3React()
+  const { account, library } = useActiveWeb3React()
   const dispatch = useAppDispatch()
   const windowVisible = useIsWindowVisible()
-
+  const chainId = useAppSelector((state) => state.application.chainId) || 0
   const [state, setState] = useState<{ chainId: number | undefined; blockNumber: number | null }>({
     chainId,
     blockNumber: null,
@@ -122,9 +122,14 @@ export default function Updater(): null {
     if (!account || !library?.provider?.request || !library?.provider?.isMetaMask) {
       return
     }
-    switchToNetwork({ library })
-      .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
-      .catch(() => dispatch(setImplements3085({ implements3085: false })))
+    // switchToNetwork({ library })
+    //   .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
+    //   .catch(() => dispatch(setImplements3085({ implements3085: false })))
+    if (chainId) {
+      switchToNetwork({ library, chainId: supportedChainId(chainId) })
+        .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
+        .catch(() => dispatch(setImplements3085({ implements3085: false })))
+    }
   }, [account, chainId, dispatch, library])
 
   return null
