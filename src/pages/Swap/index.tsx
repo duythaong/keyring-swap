@@ -604,12 +604,12 @@ export default function Swap({ history }: RouteComponentProps) {
                     {sortedTrades.map(({ name, amountOut }) => (
                       <ActiveOutlinedButton
                         key={name}
-                        name={`${name} + 1`}
+                        name={name}
                         selectedSwap={selectedSwap}
                         onClick={() => setSelectedSwap(name)}
                       >
                         <BacoorOutput>
-                          <TextOutput>{name}</TextOutput>
+                          <TextOutput>{`${name} + 1`}</TextOutput>
                           <TextOutput>{amountOut !== '' ? amountOut : '0.0'}</TextOutput>
                         </BacoorOutput>
                       </ActiveOutlinedButton>
