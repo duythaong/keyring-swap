@@ -21,7 +21,6 @@ import LogsUpdater from './state/logs/updater'
 import MulticallUpdater from './state/multicall/updater'
 import TransactionUpdater from './state/transactions/updater'
 import UserUpdater from './state/user/updater'
-import { SwapProvider } from './swap'
 import ThemeProvider, { ThemedGlobalStyle } from './theme'
 import RadialGradientByChainUpdater from './theme/RadialGradientByChainUpdater'
 import getLibrary from './utils/getLibrary'
@@ -56,10 +55,8 @@ ReactDOM.render(
               <Blocklist>
                 <Updaters />
                 <ThemeProvider>
-                  <SwapProvider>
-                    <ThemedGlobalStyle />
-                    <App />
-                  </SwapProvider>
+                  <ThemedGlobalStyle />
+                  <App />
                 </ThemeProvider>
               </Blocklist>
             </Web3ProviderNetwork>
