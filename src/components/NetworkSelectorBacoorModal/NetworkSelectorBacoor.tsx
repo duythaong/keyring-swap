@@ -135,14 +135,8 @@ function NetworkElement({ targetChain, confirmed }: { targetChain: number; confi
   const dispatch = useAppDispatch()
 
   const handleElementClick = () => {
-    console.log('AAA')
     if (confirmed) {
-      if (account && library) {
-        switchToNetwork({ library, chainId: targetChain })
-      } else {
-        console.log('BBBB')
-        dispatch(updateChainId({ chainId: targetChain ? supportedChainId(targetChain) ?? null : null }))
-      }
+      dispatch(updateChainId({ chainId: targetChain ? supportedChainId(targetChain) ?? null : null }))
     }
   }
 
