@@ -43,7 +43,7 @@ export const L1_CHAIN_IDS = [
   SupportedChainId.RINKEBY,
   SupportedChainId.GOERLI,
   SupportedChainId.KOVAN,
-  // SupportedChainId.TOMOCHAIN_TESNET,
+  SupportedChainId.TOMOCHAIN_TESNET,
   SupportedChainId.POLYGON_TESTNET,
 ] as const
 
