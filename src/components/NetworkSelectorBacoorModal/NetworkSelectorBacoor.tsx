@@ -168,9 +168,6 @@ function WalletElement({ wallet, confirmed }: { wallet: string; confirmed: boole
   const { chainId: chainIdWeb3, library, account, activate } = useActiveWeb3React()
   const chainId = useAppSelector((state) => state.application.chainId)
   const logMonitoringEvent = useWalletConnectMonitoringEventCallback()
-  if (!library || !chainId) {
-    return null
-  }
 
   const tryActivation = async (connector: AbstractConnector | undefined) => {
     let name = ''
@@ -211,14 +208,22 @@ function WalletElement({ wallet, confirmed }: { wallet: string; confirmed: boole
     }
   }
 
-  const ElementContent = () => (
-    <WalletItem onClick={handleElementClick}>
-      <NetworkImgWrap>
-        <NetworkImg src={SUPPORTED_WALLETS[wallet].iconURL} isConfirm={confirmed}></NetworkImg>
-      </NetworkImgWrap>
-      <SubText>{SUPPORTED_WALLETS[wallet].name}</SubText>
-    </WalletItem>
+  const ElementContent = useCallback(
+    () => (
+      <WalletItem onClick={handleElementClick}>
+        <NetworkImgWrap>
+          <NetworkImg src={SUPPORTED_WALLETS[wallet].iconURL} isConfirm={confirmed}></NetworkImg>
+        </NetworkImgWrap>
+        <SubText>{SUPPORTED_WALLETS[wallet].name}</SubText>
+      </WalletItem>
+    ),
+    [wallet, confirmed]
   )
+
+  if (!library || !chainId) {
+    return null
+  }
+
   return <ElementContent />
 }
 // ============================================================================================================
