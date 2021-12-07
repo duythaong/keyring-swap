@@ -126,6 +126,8 @@ export default function Updater(): null {
     //   .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
     //   .catch(() => dispatch(setImplements3085({ implements3085: false })))
     if (chainId) {
+      console.log('CHAINID', supportedChainId(chainId))
+
       switchToNetwork({ library, chainId: supportedChainId(chainId) })
         .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
         .catch(() => dispatch(setImplements3085({ implements3085: false })))
