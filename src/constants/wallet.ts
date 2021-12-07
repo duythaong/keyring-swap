@@ -1,4 +1,5 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
+import { SupportedChainId } from 'constants/chains'
 
 import INJECTED_ICON_URL from '../assets/images/arrow-right.svg'
 import COINBASE_ICON_URL from '../assets/images/coinbaseWalletIcon.svg'
@@ -18,6 +19,7 @@ interface WalletInfo {
   primary?: true
   mobile?: true
   mobileOnly?: true
+  chainSupport: number[]
 }
 
 export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
@@ -29,6 +31,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: null,
     color: '#010101',
     primary: true,
+    chainSupport: [SupportedChainId.MAINNET, SupportedChainId.POLYGON_TESTNET, SupportedChainId.TOMOCHAIN_TESNET],
   },
   METAMASK: {
     connector: injected,
@@ -37,6 +40,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Easy-to-use browser extension.',
     href: null,
     color: '#E8831D',
+    chainSupport: [SupportedChainId.MAINNET, SupportedChainId.POLYGON_TESTNET],
   },
   WALLET_CONNECT: {
     connector: walletconnect,
@@ -46,6 +50,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: null,
     color: '#4196FC',
     mobile: true,
+    chainSupport: [SupportedChainId.MAINNET, SupportedChainId.POLYGON_TESTNET, SupportedChainId.TOMOCHAIN_TESNET],
   },
   WALLET_LINK: {
     connector: walletlink,
@@ -54,6 +59,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Use Coinbase Wallet app on mobile device',
     href: null,
     color: '#315CF5',
+    chainSupport: [SupportedChainId.MAINNET, SupportedChainId.POLYGON_TESTNET, SupportedChainId.TOMOCHAIN_TESNET],
   },
   COINBASE_LINK: {
     name: 'Open in Coinbase Wallet',
@@ -63,6 +69,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     color: '#315CF5',
     mobile: true,
     mobileOnly: true,
+    chainSupport: [SupportedChainId.MAINNET, SupportedChainId.POLYGON_TESTNET, SupportedChainId.TOMOCHAIN_TESNET],
   },
   FORTMATIC: {
     connector: fortmatic,
@@ -72,6 +79,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: null,
     color: '#6748FF',
     mobile: true,
+    chainSupport: [SupportedChainId.MAINNET, SupportedChainId.POLYGON_TESTNET, SupportedChainId.TOMOCHAIN_TESNET],
   },
   Portis: {
     connector: portis,
@@ -81,5 +89,6 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: null,
     color: '#4A6C9B',
     mobile: true,
+    chainSupport: [SupportedChainId.MAINNET, SupportedChainId.POLYGON_TESTNET, SupportedChainId.TOMOCHAIN_TESNET],
   },
 }

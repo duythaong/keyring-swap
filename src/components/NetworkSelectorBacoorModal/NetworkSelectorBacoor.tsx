@@ -226,10 +226,21 @@ function WalletElement({ wallet, confirmed }: { wallet: string; confirmed: boole
 
   return <ElementContent />
 }
+
+function renderWalletByChain(chainId: number | null, confirmed: boolean) {
+  const arr = Object.keys(SUPPORTED_WALLETS).filter((key) => {
+    return SUPPORTED_WALLETS[key].chainSupport.includes(chainId || 1)
+  })
+
+  return arr.map((ele, index) => {
+    return <WalletElement key={index} wallet={ele.toString()} confirmed={confirmed} />
+  })
+}
 // ============================================================================================================
 export function NetworkSelectorBacoor(props: ImportProps) {
   const { onDismiss } = props
   const [confirmed, setConfirmed] = useState(false)
+  const chainId = useAppSelector((state) => state.application.chainId)
 
   return (
     <Wrapper>
@@ -290,10 +301,7 @@ export function NetworkSelectorBacoor(props: ImportProps) {
         </StepContainer>
       </AutoColumn>
       <AutoColumn gap="md" style={{ padding: '0 1rem 1rem 1rem' }}>
-        <WalletContainer>
-          <WalletElement wallet="METAMASK" confirmed={confirmed} />
-          <WalletElement wallet="WALLET_CONNECT" confirmed={confirmed} />
-        </WalletContainer>
+        <WalletContainer>{renderWalletByChain(chainId, confirmed)}</WalletContainer>
       </AutoColumn>
     </Wrapper>
   )
