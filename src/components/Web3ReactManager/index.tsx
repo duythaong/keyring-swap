@@ -1,7 +1,10 @@
 import { Trans } from '@lingui/macro'
 import { useWeb3React } from '@web3-react/core'
 import { useEffect } from 'react'
+import { updateChainId } from 'state/application/reducer'
+import { useAppDispatch } from 'state/hooks'
 import styled from 'styled-components/macro'
+import { supportedChainId } from 'utils/supportedChainId'
 
 import { network } from '../../connectors'
 import { NetworkContextName } from '../../constants/misc'
@@ -21,6 +24,7 @@ const Message = styled.h2`
 export default function Web3ReactManager({ children }: { children: JSX.Element }) {
   const { active } = useWeb3React()
   const { active: networkActive, error: networkError, activate: activateNetwork } = useWeb3React(NetworkContextName)
+  const dispatch = useAppDispatch()
 
   // try to eagerly connect to an injected provider, if it exists and has granted access already
   const triedEager = useEagerConnect()
@@ -28,7 +32,11 @@ export default function Web3ReactManager({ children }: { children: JSX.Element }
   // after eagerly trying injected, if the network connect ever isn't active or in an error state, activate itd
   useEffect(() => {
     if (triedEager && !networkActive && !networkError && !active) {
-      activateNetwork(network)
+      // activateNetwork(network)
+      ;(async () => {
+        const chainId = await network.getChainId()
+        dispatch(updateChainId({ chainId: chainId ? supportedChainId(chainId) ?? null : null }))
+      })()
     }
   }, [triedEager, networkActive, networkError, activateNetwork, active])
 
