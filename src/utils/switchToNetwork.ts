@@ -2,6 +2,7 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { hexStripZeros } from '@ethersproject/bytes'
 import { Web3Provider } from '@ethersproject/providers'
 import { CHAIN_INFO, SupportedChainId } from 'constants/chains'
+import { load, save } from 'redux-localstorage-simple'
 
 import { addNetwork } from './addNetwork'
 
@@ -33,13 +34,21 @@ export async function switchToNetwork({ library, chainId }: SwitchNetworkArgumen
     console.log('ERR request1', error)
     // 4902 is the error code for attempting to switch to an unrecognized chainId
     if (error.code === 4902 && chainId !== undefined) {
+      console.log('chainId', chainId)
+      console.log('CHAIN_INFO[chainId]', CHAIN_INFO[chainId])
       const info = CHAIN_INFO[chainId]
 
       // metamask (only known implementer) automatically switches after a network is added
       // the second call is done here because that behavior is not a part of the spec and cannot be relied upon in the future
       // metamask's behavior when switching to the current network is just to return null (a no-op)
-      await addNetwork({ library, chainId, info })
-      await switchToNetwork({ library, chainId })
+      const chainIdLocal = localStorage.getItem('ADDNETWORK_CHAINID')
+      console.log('chainIdLocal', chainIdLocal)
+
+      if (!chainIdLocal || Number(chainIdLocal) !== chainId) {
+        await addNetwork({ library, chainId, info })
+        localStorage.setItem('ADDNETWORK_CHAINID', chainId.toString())
+        await switchToNetwork({ library, chainId })
+      }
     } else {
       console.log('ERR request')
 
