@@ -5,6 +5,7 @@ import 'components/analytics'
 
 import { createWeb3ReactRoot, Web3ReactProvider } from '@web3-react/core'
 import { StrictMode } from 'react'
+import { ClearCacheProvider } from 'react-clear-cache'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
@@ -56,7 +57,9 @@ ReactDOM.render(
                 <Updaters />
                 <ThemeProvider>
                   <ThemedGlobalStyle />
-                  <App />
+                  <ClearCacheProvider duration={5000} auto={true}>
+                    <App />
+                  </ClearCacheProvider>
                 </ThemeProvider>
               </Blocklist>
             </Web3ProviderNetwork>
