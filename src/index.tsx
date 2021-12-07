@@ -5,6 +5,7 @@ import 'components/analytics'
 
 import { createWeb3ReactRoot, Web3ReactProvider } from '@web3-react/core'
 import { StrictMode } from 'react'
+import { ClearCacheProvider } from 'react-clear-cache'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
@@ -21,7 +22,6 @@ import LogsUpdater from './state/logs/updater'
 import MulticallUpdater from './state/multicall/updater'
 import TransactionUpdater from './state/transactions/updater'
 import UserUpdater from './state/user/updater'
-import { SwapProvider } from './swap'
 import ThemeProvider, { ThemedGlobalStyle } from './theme'
 import RadialGradientByChainUpdater from './theme/RadialGradientByChainUpdater'
 import getLibrary from './utils/getLibrary'
@@ -56,10 +56,10 @@ ReactDOM.render(
               <Blocklist>
                 <Updaters />
                 <ThemeProvider>
-                  <SwapProvider>
-                    <ThemedGlobalStyle />
+                  <ThemedGlobalStyle />
+                  <ClearCacheProvider duration={5000} auto={true}>
                     <App />
-                  </SwapProvider>
+                  </ClearCacheProvider>
                 </ThemeProvider>
               </Blocklist>
             </Web3ProviderNetwork>
@@ -71,6 +71,4 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-if (process.env.REACT_APP_SERVICE_WORKER !== 'false') {
-  serviceWorkerRegistration.register()
-}
+serviceWorkerRegistration.unregister()

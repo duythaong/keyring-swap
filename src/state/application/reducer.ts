@@ -20,6 +20,8 @@ export enum ApplicationModal {
   NETWORK_SELECTOR,
   PRIVACY_POLICY,
   EMPTY,
+  CHAIN,
+  NWSBACOOR,
 }
 
 type PopupList = Array<{ key: string; show: boolean; content: PopupContent; removeAfterMs: number | null }>
@@ -36,7 +38,7 @@ export interface ApplicationState {
 const initialState: ApplicationState = {
   blockNumber: {},
   chainConnectivityWarning: false,
-  chainId: null,
+  chainId: 1,
   implements3085: false,
   openModal: null,
   popupList: [],

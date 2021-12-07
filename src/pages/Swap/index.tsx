@@ -34,8 +34,9 @@ import { GreyCard } from '../../components/Card'
 import { AutoColumn } from '../../components/Column'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
 import CurrencyLogo from '../../components/CurrencyLogo'
-import EmptyModal from '../../components/EmptyModal'
 import Loader from '../../components/Loader'
+import NetworkSelectorBacoorModal from '../../components/NetworkSelectorBacoorModal'
+import NetworkSelectorModal from '../../components/NetworkSelectorBacoorModal'
 import Row, { AutoRow, RowFixed } from '../../components/Row'
 import confirmPriceImpactWithoutFee from '../../components/swap/confirmPriceImpactWithoutFee'
 import ConfirmSwapModal from '../../components/swap/ConfirmSwapModal'
@@ -62,7 +63,7 @@ import useToggledVersion from '../../hooks/useToggledVersion'
 import { useUSDCValue } from '../../hooks/useUSDCPrice'
 import useWrapCallback, { WrapType } from '../../hooks/useWrapCallback'
 import { useActiveWeb3React } from '../../hooks/web3'
-import { useEmptyModalToggle, useWalletModalToggle } from '../../state/application/hooks'
+import { useNWSModalToggle, useWalletModalToggle } from '../../state/application/hooks'
 import { Field } from '../../state/swap/actions'
 import {
   useDefaultsFromURLSearch,
@@ -203,6 +204,7 @@ export default function Swap({ history }: RouteComponentProps) {
     useCurrency(loadedUrlParams?.outputCurrencyId),
   ]
   const [dismissTokenWarning, setDismissTokenWarning] = useState<boolean>(false)
+  const [dismissNetWorkSelectorBaccor, setDismissNetWorkSelectorBaccor] = useState<boolean>(false)
   const urlLoadedTokens: Token[] = useMemo(
     () => [loadedInputCurrency, loadedOutputCurrency]?.filter((c): c is Token => c?.isToken ?? false) ?? [],
     [loadedInputCurrency, loadedOutputCurrency]
@@ -224,8 +226,8 @@ export default function Swap({ history }: RouteComponentProps) {
   // toggle wallet when disconnected
   const toggleWalletModal = useWalletModalToggle()
 
-  // toggle emtpy modal
-  const toggleEmptyModal = useEmptyModalToggle()
+  // bacoor select chain
+  const toggleNWSModal = useNWSModalToggle()
 
   // for expert mode
   const [isExpertMode] = useExpertModeManager()
@@ -330,6 +332,11 @@ export default function Swap({ history }: RouteComponentProps) {
   // reset if they close warning without tokens in params
   const handleDismissTokenWarning = useCallback(() => {
     setDismissTokenWarning(true)
+    history.push('/swap/')
+  }, [history])
+
+  const handleDismissNetworkSelectorBaccor = useCallback(() => {
+    setDismissNetWorkSelectorBaccor(true)
     history.push('/swap/')
   }, [history])
 
@@ -526,6 +533,11 @@ export default function Swap({ history }: RouteComponentProps) {
         onDismiss={handleDismissTokenWarning}
       />
       <NetworkAlert />
+      {/* <NetworkSelectorModal
+        isOpen={!dismissNetWorkSelectorBaccor}
+        onDismiss={handleDismissNetworkSelectorBaccor}
+        onConfirm={() => console.log('xyz')}
+      /> */}
       <AppBody>
         <SwapHeader allowedSlippage={allowedSlippage} />
         <Wrapper id="swap-page">
@@ -567,6 +579,7 @@ export default function Swap({ history }: RouteComponentProps) {
                   onClick={() => {
                     setApprovalSubmitted(false) // reset 2 step UI for approvals
                     onSwitchTokens()
+                    handleTypeInput(sortedTrades[0].amountOut)
                   }}
                   color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? theme.text1 : theme.text3}
                 />
@@ -596,7 +609,7 @@ export default function Swap({ history }: RouteComponentProps) {
                         onClick={() => setSelectedSwap(name)}
                       >
                         <BacoorOutput>
-                          <TextOutput>{name}</TextOutput>
+                          <TextOutput>{`${name}`}</TextOutput>
                           <TextOutput>{amountOut !== '' ? amountOut : '0.0'}</TextOutput>
                         </BacoorOutput>
                       </ActiveOutlinedButton>
@@ -685,9 +698,12 @@ export default function Swap({ history }: RouteComponentProps) {
                   </TYPE.main>
                 </ButtonPrimary>
               ) : !account ? (
-                <ButtonLight onClick={toggleWalletModal}>
-                  <Trans>Connect Wallet</Trans>
-                </ButtonLight>
+                <>
+                  <ButtonLight onClick={toggleNWSModal}>
+                    <Trans>Connect Wallet</Trans>
+                  </ButtonLight>
+                  <NetworkSelectorBacoorModal />
+                </>
               ) : showWrap ? (
                 <ButtonPrimary disabled={Boolean(wrapInputError)} onClick={onWrap}>
                   {wrapInputError ??
@@ -830,10 +846,6 @@ export default function Swap({ history }: RouteComponentProps) {
                 </>
               )}
               {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
-              <ButtonLight onClick={toggleEmptyModal}>
-                <Trans>Hello A Triet</Trans>
-              </ButtonLight>
-              <EmptyModal />
             </div>
           </AutoColumn>
         </Wrapper>

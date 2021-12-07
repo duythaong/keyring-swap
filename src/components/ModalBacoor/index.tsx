@@ -86,7 +86,7 @@ interface ModalProps {
   children?: React.ReactNode
 }
 
-export default function Modal({
+export default function ModalBacoor({
   isOpen,
   onDismiss,
   minHeight = false,

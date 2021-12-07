@@ -31,6 +31,14 @@ export function useWalletModalToggle(): () => void {
   return useToggleModal(ApplicationModal.WALLET)
 }
 
+export function useNWSModalToggle(): () => void {
+  return useToggleModal(ApplicationModal.NWSBACOOR)
+}
+
+export function useChainModalToggle(): () => void {
+  return useToggleModal(ApplicationModal.CHAIN)
+}
+
 export function useToggleSettingsMenu(): () => void {
   return useToggleModal(ApplicationModal.SETTINGS)
 }
