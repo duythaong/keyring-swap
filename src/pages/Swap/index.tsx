@@ -609,7 +609,7 @@ export default function Swap({ history }: RouteComponentProps) {
                         onClick={() => setSelectedSwap(name)}
                       >
                         <BacoorOutput>
-                          <TextOutput>{`${name} - cache`}</TextOutput>
+                          <TextOutput>{name}</TextOutput>
                           <TextOutput>{amountOut !== '' ? amountOut : '0.0'}</TextOutput>
                         </BacoorOutput>
                       </ActiveOutlinedButton>

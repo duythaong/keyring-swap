@@ -11,7 +11,7 @@ import getLibrary from '../utils/getLibrary'
 import { FortmaticConnector } from './Fortmatic'
 import { NetworkConnector } from './NetworkConnector'
 
-const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
+const INFURA_KEY = 'd1fc98bbf52c4e79b193049e6342b0bf'
 const FORMATIC_KEY = process.env.REACT_APP_FORTMATIC_KEY
 const PORTIS_ID = process.env.REACT_APP_PORTIS_ID
 

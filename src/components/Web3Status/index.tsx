@@ -15,6 +15,7 @@ import { fortmatic, injected, portis, walletconnect, walletlink } from '../../co
 import { NetworkContextName } from '../../constants/misc'
 import useENSName from '../../hooks/useENSName'
 import { useHasSocks } from '../../hooks/useSocksBalance'
+import { useActiveWeb3React } from '../../hooks/web3'
 import { useNWSModalToggle, useWalletModalToggle } from '../../state/application/hooks'
 import { isTransactionRecent, useAllTransactions } from '../../state/transactions/hooks'
 import { TransactionDetails } from '../../state/transactions/reducer'
@@ -220,7 +221,8 @@ function Web3StatusInner() {
 }
 
 export default function Web3Status() {
-  const { active, account } = useWeb3React()
+  const { active } = useWeb3React()
+  const { account } = useActiveWeb3React()
   const contextNetwork = useWeb3React(NetworkContextName)
 
   const { ENSName } = useENSName(account ?? undefined)
