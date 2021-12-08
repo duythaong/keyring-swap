@@ -1,0 +1,90 @@
+version: 2.1
+
+executors:
+  app-executor:
+    docker:
+      - image: circleci/node:lts
+    working_directory: ~/repo
+
+aliases:
+  - &show-current-branch-name
+    run:
+      name: Show current branch
+      command: echo ${CIRCLE_BRANCH}
+
+  # Restore downloaded dependencies cache
+  - &restore-cache
+    restore_cache:
+      keys:
+        - app-{{ checksum "package.json" }}
+        - app-
+
+  - &install-dependencies
+    run:
+      name: Install dependencies
+      command: npm install
+
+  - &save-cache
+    save_cache: # {key: paths}
+      paths:
+        - node_modules
+      key: app-{{ checksum "package.json" }}
+
+  - &build-project
+    run:
+      name: Build Project
+      command: |
+        npm install
+        npm run build
+        cd build
+        zip ../build.zip -r * .[^.]*
+        echo "Build successful"
+  - &install-aws-cli
+    run:
+      name: Installing AWS CLI
+      working_directory: /
+      command: |
+        sudo apt-get -y -qq update
+        sudo apt-get install -y awscli
+        sudo apt-get install -y python-pip python-dev build-essential
+  # Synchronous build directory to create AWS s3 bucket, then delete this local one.
+  - &deploy-to-s3
+    run:
+      name: Deploy to AWS S3
+      command: |
+        if [ "${CIRCLE_BRANCH}" == "polygon" ]
+        then
+          aws --region ${AWS_REGION} s3 sync ~/repo/build s3://${AWS_PRODUCTION_BUCKET} --delete
+        fi
+
+jobs:
+  build:
+    executor: app-executor
+    steps:
+      - checkout
+      - *show-current-branch-name
+      - *restore-cache # restore cache when node_modules changes
+      - *install-dependencies
+      - *save-cache
+
+  deploy-to-aws-s3:
+    executor: app-executor
+    steps:
+      - checkout
+      - *show-current-branch-name
+      - *build-project
+      - *install-aws-cli
+      - *deploy-to-s3
+
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy-to-aws-s3:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - polygon
