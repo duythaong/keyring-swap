@@ -176,7 +176,7 @@ export const WETH9_EXTENDED: { [chainId: number]: Token } = {
   ),
   [SupportedChainId.POLYGON_TESTNET]: new Token(
     SupportedChainId.POLYGON_TESTNET,
-    '0x9274dAC997ca1b6D82a57388cca05749EeaD4581',
+    '0x86652c1301843B4E06fBfbBDaA6849266fb2b5e7',
     18,
     'WMATIC',
     'Wrapped Matic'
