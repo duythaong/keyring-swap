@@ -296,6 +296,8 @@ export default function Swap({ history }: RouteComponentProps) {
     name: string
   } = tradeMap[selectedSwap]
 
+  console.log(trade, selectedSwap)
+
   const {
     wrapType,
     execute: onWrap,
