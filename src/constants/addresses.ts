@@ -51,7 +51,7 @@ export const MULTICALL_ADDRESS: AddressMap = {
 
 // Bacoor
 export const BACOOR_SWAP = 'Bacoorswap'
-export const BACOOR_ROUTER = '0xcB0D84bc5888B963F55c8612e23746BeEAb6faB9'
+export const BACOOR_ROUTER = '0xE5f9B5db196F5ADDe3ddBB937F9de2e350ed344A'
 
 // Uni
 export const UNI_SWAP = 'Uniswap'
