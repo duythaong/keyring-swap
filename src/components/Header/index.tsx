@@ -1,3 +1,4 @@
+import { NATIVE } from '@duythao_bacoor/v2-sdk'
 import { Trans } from '@lingui/macro'
 import useScrollPosition from '@react-hook/window-scroll'
 import { CHAIN_INFO, SupportedChainId } from 'constants/chains'
@@ -325,7 +326,7 @@ export default function Header() {
           <AccountElement active={!!account}>
             {account && userEthBalance ? (
               <BalanceText style={{ flexShrink: 0, userSelect: 'none' }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
-                <Trans>{userEthBalance?.toSignificant(3)} ETH</Trans>
+                <Trans>{`${userEthBalance?.toSignificant(3)} ${NATIVE[chainId ?? 1].symbol}`}</Trans>
               </BalanceText>
             ) : null}
             <Web3Status />

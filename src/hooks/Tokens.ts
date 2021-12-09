@@ -187,6 +187,8 @@ export function useCurrency(currencyId: string | null | undefined): Currency | n
 
   const wnative = chainId ? WNATIVE[chainId] : undefined
 
+  if (currencyId === null || currencyId === undefined) return currencyId
+
   if (wnative?.address?.toLowerCase() === currencyId?.toLowerCase()) return wnative
 
   return isETH ? native : token
