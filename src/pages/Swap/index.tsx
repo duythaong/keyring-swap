@@ -296,8 +296,6 @@ export default function Swap({ history }: RouteComponentProps) {
     name: string
   } = tradeMap[selectedSwap]
 
-  console.log(trade, selectedSwap)
-
   const {
     wrapType,
     execute: onWrap,
@@ -524,6 +522,8 @@ export default function Swap({ history }: RouteComponentProps) {
   const renderHooks = useMemo(() => {
     return SWAP_NAMES.map((item) => <Hooks key={item} name={item} refData={refData} toggledVersion={toggledVersion} />)
   }, [toggledVersion])
+
+  console.log('OUTPUT', currencies[Field.OUTPUT])
 
   return (
     <>

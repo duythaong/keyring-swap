@@ -70,7 +70,6 @@ const UpperSection = styled.div`
 
 export default function EmptyModal() {
   const emptyModalOpen = useModalOpen(ApplicationModal.EMPTY)
-  console.log('asdasdasd', emptyModalOpen)
   const toggleEmptyModal = useEmptyModalToggle()
 
   function getModalContent() {

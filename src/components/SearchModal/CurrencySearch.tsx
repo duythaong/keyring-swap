@@ -1,3 +1,4 @@
+import { NATIVE } from '@duythao_bacoor/v2-sdk'
 // eslint-disable-next-line no-restricted-imports
 import { t, Trans } from '@lingui/macro'
 import { Currency, Token } from '@uniswap/sdk-core'
@@ -13,7 +14,6 @@ import { FixedSizeList } from 'react-window'
 import { Text } from 'rebass'
 import styled from 'styled-components/macro'
 
-import { ExtendedEther } from '../../constants/tokens'
 import { useAllTokens, useIsUserAddedToken, useSearchInactiveTokenLists, useToken } from '../../hooks/Tokens'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { ButtonText, CloseIcon, IconWrapper, TYPE } from '../../theme'
@@ -112,15 +112,15 @@ export function CurrencySearch({
 
   const filteredSortedTokens = useSortedTokensByQuery(sortedTokens, debouncedQuery)
 
-  const ether = useMemo(() => chainId && ExtendedEther.onChain(chainId), [chainId])
+  const native = useMemo(() => chainId && NATIVE[chainId], [chainId])
 
   const filteredSortedTokensWithETH: Currency[] = useMemo(() => {
     const s = debouncedQuery.toLowerCase().trim()
     if (s === '' || s === 'e' || s === 'et' || s === 'eth') {
-      return ether ? [ether, ...filteredSortedTokens] : filteredSortedTokens
+      return native ? [native, ...filteredSortedTokens] : filteredSortedTokens
     }
     return filteredSortedTokens
-  }, [debouncedQuery, ether, filteredSortedTokens])
+  }, [debouncedQuery, native, filteredSortedTokens])
 
   const handleCurrencySelect = useCallback(
     (currency: Currency) => {
@@ -148,8 +148,8 @@ export function CurrencySearch({
     (e: KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') {
         const s = debouncedQuery.toLowerCase().trim()
-        if (s === 'eth' && ether) {
-          handleCurrencySelect(ether)
+        if (s === 'eth' && native) {
+          handleCurrencySelect(native)
         } else if (filteredSortedTokensWithETH.length > 0) {
           if (
             filteredSortedTokensWithETH[0].symbol?.toLowerCase() === debouncedQuery.trim().toLowerCase() ||
@@ -160,7 +160,7 @@ export function CurrencySearch({
         }
       }
     },
-    [debouncedQuery, ether, filteredSortedTokensWithETH, handleCurrencySelect]
+    [debouncedQuery, native, filteredSortedTokensWithETH, handleCurrencySelect]
   )
 
   // menu ui
