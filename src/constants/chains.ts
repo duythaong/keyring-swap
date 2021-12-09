@@ -17,7 +17,9 @@ export enum SupportedChainId {
   OPTIMISM = 10,
   OPTIMISTIC_KOVAN = 69,
 
+  // POLYGON_MAINET = 137,
   POLYGON_TESTNET = 80001,
+  // TOMOCHAIN_MAINNET = 88,
   TOMOCHAIN_TESNET = 89,
 }
 

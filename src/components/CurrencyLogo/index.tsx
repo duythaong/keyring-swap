@@ -1,9 +1,11 @@
 import { Currency } from '@uniswap/sdk-core'
 import { SupportedChainId } from 'constants/chains'
+import { WETH9_EXTENDED } from 'constants/tokens'
 import React, { useMemo } from 'react'
 import styled from 'styled-components/macro'
 
 import EthereumLogo from '../../assets/images/ethereum-logo.png'
+import PolygonLogo from '../../assets/images/polygon.svg'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/wrappedTokenInfo'
 import Logo from '../Logo'
@@ -34,13 +36,6 @@ export const getTokenLogoURL = (
   }
 }
 
-const StyledEthereumLogo = styled.img<{ size: string }>`
-  width: ${({ size }) => size};
-  height: ${({ size }) => size};
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
-  border-radius: 24px;
-`
-
 const StyledLogo = styled(Logo)<{ size: string }>`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
@@ -48,6 +43,14 @@ const StyledLogo = styled(Logo)<{ size: string }>`
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
   background-color: ${({ theme }) => theme.white};
 `
+
+const LOGO: { readonly [chainId in SupportedChainId]?: string } = {
+  [SupportedChainId.MAINNET]: EthereumLogo,
+  // [SupportedChainId.POLYGON_MAINET]: PolygonLogo,
+  [SupportedChainId.POLYGON_TESTNET]: PolygonLogo,
+}
+
+const unknown = 'https://raw.githubusercontent.com/sushiswap/icons/master/token/unknown.png'
 
 export default function CurrencyLogo({
   currency,
@@ -62,7 +65,11 @@ export default function CurrencyLogo({
   const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.logoURI : undefined)
 
   const srcs: string[] = useMemo(() => {
-    if (!currency || currency.isNative) return []
+    if (!currency) return [unknown]
+
+    if (currency?.isNative || currency.equals(WETH9_EXTENDED[currency.chainId])) {
+      return [LOGO[currency.chainId], unknown]
+    }
 
     if (currency.isToken) {
       const defaultUrls = []
@@ -77,10 +84,6 @@ export default function CurrencyLogo({
     }
     return []
   }, [currency, uriLocations])
-
-  if (currency?.isNative) {
-    return <StyledEthereumLogo src={EthereumLogo} alt="ethereum logo" size={size} style={style} {...rest} />
-  }
 
   return <StyledLogo size={size} srcs={srcs} alt={`${currency?.symbol ?? 'token'} logo`} style={style} {...rest} />
 }

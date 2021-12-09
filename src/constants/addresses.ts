@@ -20,6 +20,7 @@ import { constructSameAddressMap } from '../utils/constructSameAddressMap'
 import { SupportedChainId } from './chains'
 
 export type AddressMap = { [chainId: number]: string }
+
 export interface SwapInfo {
   readonly factoryAddresses: AddressMap
   readonly initCodeHash: string
@@ -37,7 +38,8 @@ export interface SwapInfo {
   }) => string
 }
 
-export type SwapMap = { [name: string]: SwapInfo }
+export type ChainSwapName = { [chainId: number]: string[] }
+export type ChainSwapMap = { [chaindId: number]: { [name: string]: SwapInfo } }
 
 export const UNI_ADDRESS: AddressMap = constructSameAddressMap('0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984')
 export const MULTICALL_ADDRESS: AddressMap = {
@@ -49,20 +51,22 @@ export const MULTICALL_ADDRESS: AddressMap = {
   [SupportedChainId.TOMOCHAIN_TESNET]: '0x7aFd4508B74302E15f182032038EE7c827Cf7aDd',
 }
 
-// Bacoor
+// Polygon testnet
 export const BACOOR_SWAP = 'Bacoorswap'
-export const BACOOR_ROUTER = '0x20E017D2605228CD369438e60C52aE038eC608d8'
-
-// Uni
 export const UNI_SWAP = 'Uniswap'
-export const UNI_ROUTER = '0x7D6361273b4D0d06b149B9639a983d88aBb56eD8'
-
-// Sushi
 export const SUSHI_SWAP = 'Sushiswap'
+
+export const BACOOR_ROUTER = '0x20E017D2605228CD369438e60C52aE038eC608d8'
+export const UNI_ROUTER = '0x7D6361273b4D0d06b149B9639a983d88aBb56eD8'
 export const SUSHI_ROUTER = ROUTER_ADDRESS[ChainId.MATIC_TESTNET]
+
 export const V2_SUSHI_FACTORY_ADDRESS = SUSHI_FACTORY_ADDRESS[ChainId.MATIC_TESTNET]
 
-export const SWAP_NAMES: string[] = [BACOOR_SWAP, UNI_SWAP, SUSHI_SWAP]
+// export const CHAIN_SWAP_NAMES: ChainSwapName = {
+//   [SupportedChainId.POLYGON_TESTNET]: [BACOOR_SWAP, UNI_SWAP, SUSHI_SWAP],
+// }
+
+export const SWAP_NAMES = [BACOOR_SWAP, UNI_SWAP, SUSHI_SWAP]
 
 export const V2_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_FACTORY_ADDRESS)
 export const V2_ROUTER_ADDRESS: AddressMap = constructSameAddressMap(BACOOR_ROUTER)
@@ -73,7 +77,11 @@ export const V2_UNI_ROUTER_ADDRESS: AddressMap = constructSameAddressMap(UNI_ROU
 export const V2_SUSHI_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_SUSHI_FACTORY_ADDRESS)
 export const V2_SUSHI_ROUTER_ADDRESS: AddressMap = constructSameAddressMap(SUSHI_ROUTER)
 
-export const SWAP_MAP: SwapMap = {
+// Polygon Mainnet
+export const QUICK_SWAP = 'Quickswap'
+export const POLYCAT = 'Polycat'
+
+export const SWAP_MAP = {
   [BACOOR_SWAP]: {
     factoryAddresses: V2_FACTORY_ADDRESSES,
     initCodeHash: BACOOR_INIT_CONDE_HASH,
@@ -93,6 +101,39 @@ export const SWAP_MAP: SwapMap = {
     computePairAddress,
   },
 }
+
+// export const CHAIN_SWAP_MAP: ChainSwapMap = {
+// [SupportedChainId.POLYGON_TESTNET]: {
+//   [BACOOR_SWAP]: {
+//     factoryAddresses: V2_FACTORY_ADDRESSES,
+//     initCodeHash: BACOOR_INIT_CONDE_HASH,
+//     routerAddress: V2_ROUTER_ADDRESS,
+//     computePairAddress,
+//   },
+//   [UNI_SWAP]: {
+//     factoryAddresses: V2_UNI_FACTORY_ADDRESSES,
+//     initCodeHash: UNI_INIT_CODE_HASH,
+//     routerAddress: V2_UNI_ROUTER_ADDRESS,
+//     computePairAddress,
+//   },
+//   [SUSHI_SWAP]: {
+//     factoryAddresses: V2_SUSHI_FACTORY_ADDRESSES,
+//     initCodeHash: SUSHI_INIT_CODE_HASH[ChainId.MATIC_TESTNET],
+//     routerAddress: V2_SUSHI_ROUTER_ADDRESS,
+//     computePairAddress,
+//   },
+// },
+// [SupportedChainId.POLYGON_MAINET]: {
+//   [SUSHI_SWAP]: {
+//     factoryAddresses: V2_SUSHI_FACTORY_ADDRESSES,
+//     initCodeHash: SUSHI_INIT_CODE_HASH[ChainId.MATIC_TESTNET],
+//     routerAddress: V2_SUSHI_ROUTER_ADDRESS,
+//     computePairAddress,
+//   }
+//   [QUICK_SWAP]: {},
+//   [POLYCAT]: {}
+// },
+// }
 
 /**
  * The oldest V0 governance address
