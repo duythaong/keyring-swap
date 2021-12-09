@@ -1,11 +1,10 @@
+import { NATIVE, WNATIVE } from '@duythao_bacoor/v2-sdk'
 import { arrayify } from '@ethersproject/bytes'
 import { parseBytes32String } from '@ethersproject/strings'
 import { Currency, Token } from '@uniswap/sdk-core'
-import { SupportedChainId } from 'constants/chains'
 import { useMemo } from 'react'
 
 import { createTokenFilterFunction } from '../components/SearchModal/filtering'
-import { ExtendedEther, WETH9_EXTENDED } from '../constants/tokens'
 import { useAllLists, useCombinedActiveList, useInactiveListUrls } from '../state/lists/hooks'
 import { WrappedTokenInfo } from '../state/lists/wrappedTokenInfo'
 import { NEVER_RELOAD, useSingleCallResult } from '../state/multicall/hooks'
@@ -182,16 +181,13 @@ export function useCurrency(currencyId: string | null | undefined): Currency | n
   const { chainId } = useActiveWeb3React()
   const isETH = currencyId?.toUpperCase() === 'ETH'
   const token = useToken(isETH ? undefined : currencyId)
-  const extendedEther = useMemo(
-    () =>
-      chainId
-        ? ExtendedEther.onChain(chainId)
-        : // display mainnet when not connected
-          ExtendedEther.onChain(SupportedChainId.MAINNET),
-    [chainId]
-  )
-  const weth = chainId ? WETH9_EXTENDED[chainId] : undefined
-  if (currencyId === null || currencyId === undefined) return currencyId
-  if (weth?.address?.toUpperCase() === currencyId?.toUpperCase()) return weth
-  return isETH ? extendedEther : token
+
+  const native = useMemo(() => (chainId ? NATIVE[chainId] : undefined), [chainId])
+  console.log('native', chainId, native)
+
+  const wnative = chainId ? WNATIVE[chainId] : undefined
+
+  if (wnative?.address?.toLowerCase() === currencyId?.toLowerCase()) return wnative
+
+  return isETH ? native : token
 }

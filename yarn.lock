@@ -1545,10 +1545,10 @@
     tiny-invariant "^1.1.0"
     tiny-warning "^1.0.3"
 
-"@duythao_bacoor/v2-sdk@^3.0.6":
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/@duythao_bacoor/v2-sdk/-/v2-sdk-3.0.6.tgz#b7bb6b938525f3c322adbf437f9ec219324f41cd"
-  integrity sha512-S9sySEaRKm7JeeRCLN/Keb5ReiV9Mf0e/p2OuIlpIM2EIP+3NVQvV15dCOjuemtx5UJBwkAydD05sZ64PUz4qg==
+"@duythao_bacoor/v2-sdk@^3.0.13":
+  version "3.0.13"
+  resolved "https://registry.yarnpkg.com/@duythao_bacoor/v2-sdk/-/v2-sdk-3.0.13.tgz#923560a300086754dbb7394783ca3a5fa39fea39"
+  integrity sha512-Atd65fq59LYZA+7rvrMJNm7oTKIoEsYnj1eOX3mjJTIfb8y3emLJDXk02NqIX/josM5CjWwBDKXEgLY2/9k+xA==
   dependencies:
     "@ethersproject/address" "^5.0.0"
     "@ethersproject/solidity" "^5.0.0"
