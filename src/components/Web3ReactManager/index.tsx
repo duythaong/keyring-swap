@@ -37,11 +37,7 @@ export default function Web3ReactManager({ children }: { children: JSX.Element }
   }, [triedEager, networkActive, networkError, activateNetwork, active])
 
   // when there's no account connected, react to logins (broadly speaking) on the injected provider, if it exists
-  useInactiveListener(!triedEager)
-
-  console.log('====================================')
-  console.log('networkError', networkError)
-  console.log('====================================')
+  // useInactiveListener(!triedEager)
 
   // if the account context isn't active, and there's an error on the network context, it's an irrecoverable error
   // if (triedEager && !active && networkError) {

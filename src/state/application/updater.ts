@@ -67,6 +67,7 @@ export default function Updater(): null {
   const dispatch = useAppDispatch()
   const windowVisible = useIsWindowVisible()
   const chainId = useAppSelector((state) => state.application.chainId) || 0
+  const { chainId: chainIdWeb3 } = useActiveWeb3React()
   const [state, setState] = useState<{ chainId: number | undefined; blockNumber: number | null }>({
     chainId,
     blockNumber: null,
@@ -126,13 +127,17 @@ export default function Updater(): null {
     //   .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
     //   .catch(() => dispatch(setImplements3085({ implements3085: false })))
     if (chainId) {
-      console.log('CHAINID', supportedChainId(chainId))
-
-      switchToNetwork({ library, chainId: supportedChainId(chainId) })
-        .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
-        .catch(() => dispatch(setImplements3085({ implements3085: false })))
+      if (windowVisible) {
+        switchToNetwork({ library, chainId: supportedChainId(chainId) })
+          .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
+          .catch(() => dispatch(setImplements3085({ implements3085: false })))
+      } else {
+        if (chainId !== chainIdWeb3 && chainIdWeb3) {
+          dispatch(updateChainId({ chainId: chainIdWeb3 ? supportedChainId(chainIdWeb3) ?? null : null }))
+        }
+      }
     }
-  }, [account, chainId, dispatch, library])
+  }, [account, chainId, dispatch, library, windowVisible, chainIdWeb3])
 
   return null
 }

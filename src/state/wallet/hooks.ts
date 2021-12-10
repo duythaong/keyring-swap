@@ -41,7 +41,6 @@ export function useETHBalances(uncheckedAddresses?: (string | undefined)[]): {
     'getEthBalance',
     addresses.map((address) => [address])
   )
-  console.log('results', results)
 
   return useMemo(
     () =>

@@ -523,8 +523,6 @@ export default function Swap({ history }: RouteComponentProps) {
     return SWAP_NAMES.map((item) => <Hooks key={item} name={item} refData={refData} toggledVersion={toggledVersion} />)
   }, [toggledVersion])
 
-  console.log('OUTPUT', currencies[Field.OUTPUT])
-
   return (
     <>
       {renderHooks}
