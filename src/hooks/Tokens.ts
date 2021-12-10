@@ -3,6 +3,7 @@ import { arrayify } from '@ethersproject/bytes'
 import { parseBytes32String } from '@ethersproject/strings'
 import { Currency, Token } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
+import { useAppSelector } from 'state/hooks'
 
 import { createTokenFilterFunction } from '../components/SearchModal/filtering'
 import { useAllLists, useCombinedActiveList, useInactiveListUrls } from '../state/lists/hooks'
@@ -178,7 +179,8 @@ export function useToken(tokenAddress?: string | null): Token | undefined | null
 }
 
 export function useCurrency(currencyId: string | null | undefined): Currency | null | undefined {
-  const { chainId } = useActiveWeb3React()
+  const chainId = useAppSelector((state) => state.application.chainId)
+  // const { chainId } = useActiveWeb3React()
   const isETH = currencyId?.toUpperCase() === 'ETH'
   const token = useToken(isETH ? undefined : currencyId)
 

@@ -5,6 +5,7 @@ import { Erc20Interface } from 'abis/types/Erc20'
 import { SupportedChainId } from 'constants/chains'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
+import { useAppSelector } from 'state/hooks'
 
 import { UNI } from '../../constants/tokens'
 import { useAllTokens } from '../../hooks/Tokens'
@@ -20,7 +21,8 @@ import { useTotalUniEarned } from '../stake/hooks'
 export function useETHBalances(uncheckedAddresses?: (string | undefined)[]): {
   [address: string]: CurrencyAmount<Currency> | undefined
 } {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const chainId = useAppSelector((state) => state.application.chainId)
   const multicallContract = useMulticall2Contract()
 
   const addresses: string[] = useMemo(
