@@ -22,7 +22,6 @@
     "isolatedModules": true,
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
-    "suppressImplicitAnyIndexErrors": true,
     "types": ["react-spring", "jest"]
   },
   "exclude": ["node_modules", "cypress"],
