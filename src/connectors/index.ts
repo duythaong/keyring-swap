@@ -21,17 +21,17 @@ if (typeof INFURA_KEY === 'undefined') {
 
 const NETWORK_URLS = {
   [SupportedChainId.POLYGON_MAINET]: 'https://rpc-mainnet.maticvigil.com/',
-  // [SupportedChainId.MAINNET]: `https://mainnet.infura.io/v3/${INFURA_KEY}`,
-  // [SupportedChainId.RINKEBY]: `https://rinkeby.infura.io/v3/${INFURA_KEY}`,
-  // [SupportedChainId.ROPSTEN]: `https://ropsten.infura.io/v3/${INFURA_KEY}`,
-  // [SupportedChainId.GOERLI]: `https://goerli.infura.io/v3/${INFURA_KEY}`,
-  // [SupportedChainId.KOVAN]: `https://kovan.infura.io/v3/${INFURA_KEY}`,
-  // [SupportedChainId.OPTIMISM]: `https://optimism-mainnet.infura.io/v3/${INFURA_KEY}`,
-  // [SupportedChainId.OPTIMISTIC_KOVAN]: `https://optimism-kovan.infura.io/v3/${INFURA_KEY}`,
-  // [SupportedChainId.ARBITRUM_ONE]: `https://arbitrum-mainnet.infura.io/v3/${INFURA_KEY}`,
-  // [SupportedChainId.ARBITRUM_RINKEBY]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
-  // [SupportedChainId.POLYGON_TESTNET]: `https://rpc-mumbai.maticvigil.com`,
-  // [SupportedChainId.TOMOCHAIN_TESNET]: `https://rpc.testnet.tomochain.com`,
+  [SupportedChainId.MAINNET]: `https://mainnet.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.RINKEBY]: `https://rinkeby.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.ROPSTEN]: `https://ropsten.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.GOERLI]: `https://goerli.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.KOVAN]: `https://kovan.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.OPTIMISM]: `https://optimism-mainnet.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.OPTIMISTIC_KOVAN]: `https://optimism-kovan.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.ARBITRUM_ONE]: `https://arbitrum-mainnet.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.ARBITRUM_RINKEBY]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.POLYGON_TESTNET]: `https://rpc-mumbai.maticvigil.com`,
+  [SupportedChainId.TOMOCHAIN_TESNET]: `https://rpc.testnet.tomochain.com`,
 }
 
 export const network = new NetworkConnector({
@@ -51,7 +51,7 @@ export const injected = new InjectedConnector({
 export const gnosisSafe = new SafeAppConnector()
 
 export const walletconnect = new WalletConnectConnector({
-  supportedChainIds: [137, 80001],
+  supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
   rpc: NETWORK_URLS,
   qrcodeModalOptions: {
     mobileLinks: [
@@ -168,7 +168,7 @@ export const walletconnect = new WalletConnectConnector({
     ],
   },
   qrcode: true,
-  pollingInterval: 15000,
+  // pollingInterval: 15000,
 })
 
 // mainnet only
