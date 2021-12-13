@@ -17,7 +17,7 @@ export enum SupportedChainId {
   OPTIMISM = 10,
   OPTIMISTIC_KOVAN = 69,
 
-  // POLYGON_MAINET = 137,
+  POLYGON_MAINET = 137,
   POLYGON_TESTNET = 80001,
   // TOMOCHAIN_MAINNET = 88,
   TOMOCHAIN_TESNET = 89,
@@ -35,6 +35,7 @@ export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = [
   SupportedChainId.OPTIMISM,
   SupportedChainId.OPTIMISTIC_KOVAN,
 
+  SupportedChainId.POLYGON_MAINET,
   SupportedChainId.TOMOCHAIN_TESNET,
   SupportedChainId.POLYGON_TESTNET,
 ]
@@ -45,6 +46,7 @@ export const L1_CHAIN_IDS = [
   SupportedChainId.RINKEBY,
   SupportedChainId.GOERLI,
   SupportedChainId.KOVAN,
+  SupportedChainId.POLYGON_MAINET,
   SupportedChainId.TOMOCHAIN_TESNET,
   SupportedChainId.POLYGON_TESTNET,
 ] as const
@@ -175,6 +177,15 @@ export const CHAIN_INFO: ChainInfo = {
     logoUrl: tomoLogoUrl,
     nativeCurrency: { name: 'TOMO', symbol: 'TOMO', decimals: 18 },
     rpcUrls: ['https://rpc.testnet.tomochain.com'],
+  },
+  [SupportedChainId.POLYGON_MAINET]: {
+    docs: 'https://docs.uniswap.org/',
+    explorer: 'https://mumbai.polygonscan.com/',
+    infoLink: 'https://info.uniswap.org/#/',
+    label: 'Polygon',
+    logoUrl: polygonLogoUrl,
+    nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
+    rpcUrls: ['https://rpc-mainnet.maticvigil.com'],
   },
   [SupportedChainId.POLYGON_TESTNET]: {
     docs: 'https://docs.uniswap.org/',

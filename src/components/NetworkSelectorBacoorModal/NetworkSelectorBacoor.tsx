@@ -288,7 +288,7 @@ export function NetworkSelectorBacoor(props: ImportProps) {
       <AutoColumn gap="md" style={{ padding: '0 1rem 1rem 1rem' }}>
         <NetworkContainer>
           <NetworkElement targetChain={SupportedChainId.MAINNET} confirmed={confirmed} />
-          <NetworkElement targetChain={SupportedChainId.POLYGON_TESTNET} confirmed={confirmed} />
+          <NetworkElement targetChain={SupportedChainId.POLYGON_MAINET} confirmed={confirmed} />
           <NetworkElement targetChain={SupportedChainId.TOMOCHAIN_TESNET} confirmed={confirmed} />
         </NetworkContainer>
       </AutoColumn>

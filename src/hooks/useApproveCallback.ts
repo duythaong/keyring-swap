@@ -5,7 +5,8 @@ import { Currency, CurrencyAmount, Percent, TradeType } from '@uniswap/sdk-core'
 import { Trade as V3Trade } from '@uniswap/v3-sdk'
 import { useCallback, useMemo } from 'react'
 
-import { SWAP_MAP, SWAP_ROUTER_ADDRESSES } from '../constants/addresses'
+import { CHAIN_SWAP_MAP, SWAP_MAP, SWAP_ROUTER_ADDRESSES } from '../constants/addresses'
+import { SupportedChainId } from '../constants/chains'
 import { TransactionType } from '../state/transactions/actions'
 import { useHasPendingApproval, useTransactionAdder } from '../state/transactions/hooks'
 import { calculateGasMargin } from '../utils/calculateGasMargin'
@@ -117,7 +118,7 @@ export function useApproveCallbackFromTrade(
     amountToApprove,
     chainId
       ? trade instanceof V2Trade
-        ? SWAP_MAP[name].routerAddress[chainId]
+        ? CHAIN_SWAP_MAP[SupportedChainId.POLYGON_MAINET][name].routerAddress[chainId]
         : trade instanceof V3Trade
         ? v3SwapRouterAddress
         : undefined

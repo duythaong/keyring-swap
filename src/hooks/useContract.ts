@@ -20,6 +20,8 @@ import WETH_ABI from 'abis/weth.json'
 import {
   ARGENT_WALLET_DETECTOR_ADDRESS,
   BACOOR_SWAP,
+  CHAIN_SWAP_MAP,
+  CHAIN_SWAP_NAMES,
   ENS_REGISTRAR_ADDRESSES,
   GOVERNANCE_ALPHA_V0_ADDRESSES,
   GOVERNANCE_ALPHA_V1_ADDRESSES,
@@ -37,6 +39,7 @@ import { V3Migrator } from 'types/v3/V3Migrator'
 import { getContract } from 'utils'
 
 import { ArgentWalletDetector, EnsPublicResolver, EnsRegistrar, Erc20, Weth } from '../abis/types'
+import { SupportedChainId } from '../constants/chains'
 import { UNI, WETH9_EXTENDED } from '../constants/tokens'
 import { useActiveWeb3React } from './web3'
 
@@ -100,8 +103,10 @@ export function usePairContract(pairAddress?: string, withSignerIfPossible?: boo
   return useContract(pairAddress, IUniswapV2PairABI, withSignerIfPossible)
 }
 
-export function useV2RouterContract(name: string = BACOOR_SWAP): Contract | null {
-  return useContract(SWAP_MAP[name].routerAddress, IUniswapV2Router02ABI, true)
+export function useV2RouterContract(
+  name: string = CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET][0]
+): Contract | null {
+  return useContract(CHAIN_SWAP_MAP[SupportedChainId.POLYGON_MAINET][name].routerAddress, IUniswapV2Router02ABI, true)
 }
 
 export function useMulticall2Contract() {

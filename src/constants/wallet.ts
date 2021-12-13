@@ -40,7 +40,12 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Easy-to-use browser extension.',
     href: null,
     color: '#E8831D',
-    chainSupport: [SupportedChainId.MAINNET, SupportedChainId.POLYGON_TESTNET, SupportedChainId.TOMOCHAIN_TESNET],
+    chainSupport: [
+      SupportedChainId.MAINNET,
+      SupportedChainId.POLYGON_MAINET,
+      SupportedChainId.POLYGON_TESTNET,
+      SupportedChainId.TOMOCHAIN_TESNET,
+    ],
   },
   WALLET_CONNECT: {
     connector: walletconnect,

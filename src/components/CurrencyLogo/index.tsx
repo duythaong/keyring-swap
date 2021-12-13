@@ -46,7 +46,7 @@ const StyledLogo = styled(Logo)<{ size: string }>`
 
 const LOGO: { readonly [chainId in SupportedChainId]?: string } = {
   [SupportedChainId.MAINNET]: EthereumLogo,
-  // [SupportedChainId.POLYGON_MAINET]: PolygonLogo,
+  [SupportedChainId.POLYGON_MAINET]: PolygonLogo,
   [SupportedChainId.POLYGON_TESTNET]: PolygonLogo,
 }
 
@@ -65,7 +65,8 @@ export default function CurrencyLogo({
   const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.logoURI : undefined)
 
   const srcs: string[] = useMemo(() => {
-    if (!currency) return [unknown]
+    console.log('value', currency, !currency)
+    if (currency === null || currency === undefined) return [unknown]
 
     if (currency?.isNative || currency.equals(WETH9_EXTENDED[currency.chainId])) {
       return [LOGO[currency.chainId], unknown]

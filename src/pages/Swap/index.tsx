@@ -16,6 +16,7 @@ import { ArrowDown, CheckCircle, HelpCircle, Info } from 'react-feather'
 import ReactGA from 'react-ga'
 import { RouteComponentProps } from 'react-router-dom'
 import { Text } from 'rebass'
+import { useAppSelector } from 'state/hooks'
 import { V3TradeState } from 'state/routing/types'
 import styled, { ThemeContext } from 'styled-components/macro'
 import useDeepCompareEffect from 'use-deep-compare-effect'
@@ -50,7 +51,8 @@ import {
 import SwapHeader from '../../components/swap/SwapHeader'
 import { SwitchLocaleLink } from '../../components/SwitchLocaleLink'
 import TokenWarningModal from '../../components/TokenWarningModal'
-import { BACOOR_SWAP, SWAP_NAMES } from '../../constants/addresses'
+import { BACOOR_SWAP, CHAIN_SWAP_NAMES } from '../../constants/addresses'
+import { SupportedChainId } from '../../constants/chains'
 import { TRADE_MAP_UPDATE } from '../../constants/misc'
 import { useAllTokens, useCurrency } from '../../hooks/Tokens'
 import { ApprovalState, useApproveCallbackFromTrade } from '../../hooks/useApproveCallback'
@@ -196,6 +198,7 @@ const useRouting = (
 
 export default function Swap({ history }: RouteComponentProps) {
   const { account } = useActiveWeb3React()
+  const chainId = useAppSelector((state) => state.application.chainId)
   const loadedUrlParams = useDefaultsFromURLSearch()
 
   // token warning stuff
@@ -238,7 +241,7 @@ export default function Swap({ history }: RouteComponentProps) {
   // swap state
   const { independentField, typedValue, recipient } = useSwapState()
 
-  const [selectedSwap, setSelectedSwap] = useState<string>(BACOOR_SWAP)
+  const [selectedSwap, setSelectedSwap] = useState<string>(CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET][0])
   const refData = useRef<any>({})
 
   // Bacoor
@@ -250,10 +253,10 @@ export default function Swap({ history }: RouteComponentProps) {
     parsedAmount: parsedAmountBacoor,
     currencies: currenciesBacoor,
     inputError: swapInputErrorBacoor,
-  } = useDerivedSwapInfo(BACOOR_SWAP, toggledVersion)
+  } = useDerivedSwapInfo(CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET][0], toggledVersion)
 
   const tradeMapInit: TradeMap = {
-    [BACOOR_SWAP]: {
+    [CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET][0]]: {
       trade: tradeBacoor,
       v3TradeState: v3TradeStateBacoor,
       allowedSlippage: allowedSlippageBacoor,
@@ -261,7 +264,7 @@ export default function Swap({ history }: RouteComponentProps) {
       parsedAmount: parsedAmountBacoor,
       currencies: currenciesBacoor,
       swapInputError: swapInputErrorBacoor,
-      name: BACOOR_SWAP,
+      name: CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET][0],
     },
   }
 
@@ -296,6 +299,7 @@ export default function Swap({ history }: RouteComponentProps) {
     name: string
   } = tradeMap[selectedSwap]
 
+  console.log('current selected currency', currencies)
   const {
     wrapType,
     execute: onWrap,
@@ -520,7 +524,9 @@ export default function Swap({ history }: RouteComponentProps) {
   const priceImpactTooHigh = priceImpactSeverity > 3 && !isExpertMode
 
   const renderHooks = useMemo(() => {
-    return SWAP_NAMES.map((item) => <Hooks key={item} name={item} refData={refData} toggledVersion={toggledVersion} />)
+    return CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET].map((item) => (
+      <Hooks key={item} name={item} refData={refData} toggledVersion={toggledVersion} />
+    ))
   }, [toggledVersion])
 
   return (
