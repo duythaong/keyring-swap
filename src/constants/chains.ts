@@ -24,6 +24,7 @@ export enum SupportedChainId {
 }
 
 export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = [
+  SupportedChainId.POLYGON_MAINET,
   SupportedChainId.MAINNET,
   SupportedChainId.ROPSTEN,
   SupportedChainId.RINKEBY,
@@ -36,7 +37,6 @@ export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = [
   SupportedChainId.OPTIMISTIC_KOVAN,
 
   SupportedChainId.TOMOCHAIN_TESNET,
-  SupportedChainId.POLYGON_MAINET,
   SupportedChainId.POLYGON_TESTNET,
 ]
 
