@@ -53,6 +53,9 @@ export const gnosisSafe = new SafeAppConnector()
 export const walletconnect = new WalletConnectConnector({
   supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
   rpc: NETWORK_URLS,
+  qrcodeModalOptions: {
+    mobileLinks: ['keyring', 'trust', 'metamask', 'gnosissafe', 'cryptowallet', 'mathwallet', '1inch', 'safepalwallet'],
+  },
   qrcode: true,
 })
 
