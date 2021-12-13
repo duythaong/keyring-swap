@@ -51,7 +51,7 @@ export const injected = new InjectedConnector({
 export const gnosisSafe = new SafeAppConnector()
 
 export const walletconnect = new WalletConnectConnector({
-  supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
+  supportedChainIds: [137, 80001],
   rpc: NETWORK_URLS,
   qrcodeModalOptions: {
     mobileLinks: [
@@ -168,6 +168,7 @@ export const walletconnect = new WalletConnectConnector({
     ],
   },
   qrcode: true,
+  pollingInterval: 15000,
 })
 
 // mainnet only

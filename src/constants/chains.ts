@@ -6,6 +6,7 @@ import optimismLogoUrl from 'assets/svg/optimistic_ethereum.svg'
 import ms from 'ms.macro'
 
 export enum SupportedChainId {
+  POLYGON_MAINET = 137,
   MAINNET = 1,
   ROPSTEN = 3,
   RINKEBY = 4,
@@ -17,9 +18,8 @@ export enum SupportedChainId {
   OPTIMISM = 10,
   OPTIMISTIC_KOVAN = 69,
 
-  POLYGON_MAINET = 137,
   POLYGON_TESTNET = 80001,
-  // TOMOCHAIN_MAINNET = 88,
+  TOMOCHAIN_MAINNET = 88,
   TOMOCHAIN_TESNET = 89,
 }
 
@@ -41,12 +41,12 @@ export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = [
 ]
 
 export const L1_CHAIN_IDS = [
+  SupportedChainId.POLYGON_MAINET,
   SupportedChainId.MAINNET,
   SupportedChainId.ROPSTEN,
   SupportedChainId.RINKEBY,
   SupportedChainId.GOERLI,
   SupportedChainId.KOVAN,
-  SupportedChainId.POLYGON_MAINET,
   SupportedChainId.TOMOCHAIN_TESNET,
   SupportedChainId.POLYGON_TESTNET,
 ] as const

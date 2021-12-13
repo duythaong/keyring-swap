@@ -56,8 +56,8 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     color: '#4196FC',
     mobile: true,
     chainSupport: [
-      SupportedChainId.MAINNET,
       SupportedChainId.POLYGON_MAINET,
+      SupportedChainId.MAINNET,
       SupportedChainId.POLYGON_TESTNET,
       SupportedChainId.TOMOCHAIN_TESNET,
     ],
