@@ -174,8 +174,9 @@ export default function NetworkSelector() {
   const dispatch = useAppDispatch()
   const info = chainId ? CHAIN_INFO[chainId] : undefined
 
-  const isOnL2 = chainId ? L2_CHAIN_IDS.includes(chainId) : false
-  const showSelector = Boolean(implements3085 || isOnL2)
+  // const isOnL2 = chainId ? L2_CHAIN_IDS.includes(chainId) : false
+  // const showSelector = Boolean(implements3085 || isOnL2)
+  const showSelector = true
   const mainnetInfo = CHAIN_INFO[SupportedChainId.MAINNET]
 
   const conditionalToggle = useCallback(() => {

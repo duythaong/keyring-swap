@@ -261,13 +261,6 @@ export default function Header() {
   const showClaimPopup = useShowClaimPopup()
 
   const scrollY = useScrollPosition()
-  console.log(
-    'aaaa',
-    account,
-    userEthBalance,
-    NATIVE,
-    `${userEthBalance?.toSignificant(3)} ${NATIVE[chainId ?? 1].symbol}`
-  )
 
   const { infoLink } = CHAIN_INFO[chainId ? chainId : SupportedChainId.MAINNET]
   return (

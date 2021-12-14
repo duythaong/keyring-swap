@@ -171,7 +171,7 @@ function Web3StatusInner() {
   const { ENSName } = useENSName(account ?? undefined)
 
   const allTransactions = useAllTransactions()
-  const toggleNWSModal = useNWSModalToggle()
+  const toggleNWSModal = useWalletModalToggle()
 
   const sortedRecentTransactions = useMemo(() => {
     const txs = Object.values(allTransactions)
