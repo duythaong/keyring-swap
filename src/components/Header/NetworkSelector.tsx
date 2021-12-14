@@ -17,7 +17,6 @@ import { useAppDispatch, useAppSelector } from 'state/hooks'
 import styled from 'styled-components/macro'
 import { ExternalLink, MEDIA_WIDTHS } from 'theme'
 import { supportedChainId } from 'utils/supportedChainId'
-import { switchToNetwork } from 'utils/switchToNetwork'
 
 const ActiveRowLinkList = styled.div`
   display: flex;
@@ -170,7 +169,7 @@ export default function NetworkSelector() {
   const open = useModalOpen(ApplicationModal.NETWORK_SELECTOR)
   const toggle = useToggleModal(ApplicationModal.NETWORK_SELECTOR)
   useOnClickOutside(node, open ? toggle : undefined)
-  const implements3085 = useAppSelector((state) => state.application.implements3085)
+  // const implements3085 = useAppSelector((state) => state.application.implements3085)
   const dispatch = useAppDispatch()
   const info = chainId ? CHAIN_INFO[chainId] : undefined
 

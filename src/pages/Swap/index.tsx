@@ -37,7 +37,6 @@ import CurrencyInputPanel from '../../components/CurrencyInputPanel'
 import CurrencyLogo from '../../components/CurrencyLogo'
 import Loader from '../../components/Loader'
 import NetworkSelectorBacoorModal from '../../components/NetworkSelectorBacoorModal'
-import NetworkSelectorModal from '../../components/NetworkSelectorBacoorModal'
 import Row, { AutoRow, RowFixed } from '../../components/Row'
 import confirmPriceImpactWithoutFee from '../../components/swap/confirmPriceImpactWithoutFee'
 import ConfirmSwapModal from '../../components/swap/ConfirmSwapModal'
@@ -65,7 +64,7 @@ import useToggledVersion from '../../hooks/useToggledVersion'
 import { useUSDCValue } from '../../hooks/useUSDCPrice'
 import useWrapCallback, { WrapType } from '../../hooks/useWrapCallback'
 import { useActiveWeb3React } from '../../hooks/web3'
-import { useNWSModalToggle, useWalletModalToggle } from '../../state/application/hooks'
+import { useWalletModalToggle } from '../../state/application/hooks'
 import { Field } from '../../state/swap/actions'
 import {
   useDefaultsFromURLSearch,
@@ -207,7 +206,6 @@ export default function Swap({ history }: RouteComponentProps) {
     useCurrency(loadedUrlParams?.outputCurrencyId),
   ]
   const [dismissTokenWarning, setDismissTokenWarning] = useState<boolean>(false)
-  const [dismissNetWorkSelectorBaccor, setDismissNetWorkSelectorBaccor] = useState<boolean>(false)
   const urlLoadedTokens: Token[] = useMemo(
     () => [loadedInputCurrency, loadedOutputCurrency]?.filter((c): c is Token => c?.isToken ?? false) ?? [],
     [loadedInputCurrency, loadedOutputCurrency]
@@ -228,9 +226,6 @@ export default function Swap({ history }: RouteComponentProps) {
 
   // toggle wallet when disconnected
   const toggleWalletModal = useWalletModalToggle()
-
-  // bacoor select chain
-  const toggleNWSModal = useNWSModalToggle()
 
   // for expert mode
   const [isExpertMode] = useExpertModeManager()
@@ -699,7 +694,7 @@ export default function Swap({ history }: RouteComponentProps) {
                 </ButtonPrimary>
               ) : !account ? (
                 <>
-                  <ButtonLight onClick={toggleNWSModal}>
+                  <ButtonLight onClick={toggleWalletModal}>
                     <Trans>Connect Wallet</Trans>
                   </ButtonLight>
                   <NetworkSelectorBacoorModal />

@@ -7,7 +7,6 @@ import { useCallback, useMemo } from 'react'
 import { useAppSelector } from 'state/hooks'
 
 import { CHAIN_SWAP_MAP, SWAP_ROUTER_ADDRESSES } from '../constants/addresses'
-import { SupportedChainId } from '../constants/chains'
 import { TransactionType } from '../state/transactions/actions'
 import { useHasPendingApproval, useTransactionAdder } from '../state/transactions/hooks'
 import { calculateGasMargin } from '../utils/calculateGasMargin'
