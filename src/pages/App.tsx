@@ -75,22 +75,22 @@ function TopLevelModals() {
 }
 
 export default function App() {
-  const dispatch = useAppDispatch()
-  const { chainId: chainIdWeb3 } = useActiveWeb3React()
-  const { ethereum } = window
-  useEffect(() => {
-    const changeChainIdRedux = () => {
-      console.log('====================================')
-      console.log('chainIdWeb3aaaaa', chainIdWeb3)
-      console.log('====================================')
-      dispatch(updateChainId({ chainId: chainIdWeb3 ? chainIdWeb3 ?? null : null }))
-    }
+  // const dispatch = useAppDispatch()
+  // const { chainId: chainIdWeb3 } = useActiveWeb3React()
+  // const { ethereum } = window
+  // useEffect(() => {
+  //   const changeChainIdRedux = () => {
+  //     console.log('====================================')
+  //     console.log('chainIdWeb3aaaaa', chainIdWeb3)
+  //     console.log('====================================')
+  //     dispatch(updateChainId({ chainId: chainIdWeb3 ? chainIdWeb3 ?? null : null }))
+  //   }
 
-    if (ethereum && ethereum.on) {
-      ethereum.on('chainChanged', changeChainIdRedux)
-      // ethereum.on('networkChanged', changeChainIdRedux)
-    }
-  }, [chainIdWeb3])
+  //   if (ethereum && ethereum.on) {
+  //     ethereum.on('chainChanged', changeChainIdRedux)
+  //     // ethereum.on('networkChanged', changeChainIdRedux)
+  //   }
+  // }, [chainIdWeb3])
 
   return (
     <ErrorBoundary>
