@@ -9,8 +9,6 @@ import { useDerivedSwapInfo } from '../../state/swap/hooks'
 const Hooks = (props: { name: string; toggledVersion: Version | undefined; refData: any }) => {
   const { name, toggledVersion, refData } = props
   const derivedSwapInfo = useDerivedSwapInfo(name, toggledVersion)
-  console.log('name', name)
-  console.log('refData', refData.current)
   useEffect(() => {
     const newData = {
       ...refData.current,

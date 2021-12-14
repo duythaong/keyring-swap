@@ -299,7 +299,6 @@ export default function Swap({ history }: RouteComponentProps) {
     name: string
   } = tradeMap[selectedSwap]
 
-  console.log('current selected currency', currencies)
   const {
     wrapType,
     execute: onWrap,

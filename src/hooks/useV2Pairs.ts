@@ -46,9 +46,6 @@ export function useV2Pairs(
   )
   const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
 
-  console.log('pool', CHAIN_SWAP_MAP[SupportedChainId.POLYGON_MAINET][name])
-  console.log('pairAddresses', pairAddresses)
-
   return useMemo(() => {
     return results.map((result, i) => {
       const { result: reserves, loading } = result

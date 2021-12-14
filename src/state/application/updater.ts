@@ -123,16 +123,24 @@ export default function Updater(): null {
     if (!account || !library?.provider?.request || !library?.provider?.isMetaMask) {
       return
     }
+
+    console.log('account', account)
+    console.log('library', library)
+    console.log('chainId', chainId)
     // switchToNetwork({ library })
     //   .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
     //   .catch(() => dispatch(setImplements3085({ implements3085: false })))
     if (chainId) {
       if (windowVisible) {
-        switchToNetwork({ library, chainId: supportedChainId(chainId) })
-          .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
-          .catch(() => dispatch(setImplements3085({ implements3085: false })))
+        if (chainIdWeb3 && chainId !== chainIdWeb3) {
+          dispatch(updateChainId({ chainId: chainIdWeb3 ? supportedChainId(chainIdWeb3) ?? null : null }))
+        } else {
+          switchToNetwork({ library, chainId: supportedChainId(chainId) })
+        }
+        // .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
+        // .catch(() => dispatch(setImplements3085({ implements3085: false })))
       } else {
-        if (chainId !== chainIdWeb3 && chainIdWeb3) {
+        if (chainIdWeb3 && chainId !== chainIdWeb3) {
           dispatch(updateChainId({ chainId: chainIdWeb3 ? supportedChainId(chainIdWeb3) ?? null : null }))
         }
       }

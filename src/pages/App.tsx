@@ -1,5 +1,9 @@
 import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
+import { useActiveWeb3React } from 'hooks/web3'
+import { useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
+import { updateChainId } from 'state/application/reducer'
+import { useAppDispatch, useAppSelector } from 'state/hooks'
 import styled from 'styled-components/macro'
 
 import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
@@ -71,6 +75,23 @@ function TopLevelModals() {
 }
 
 export default function App() {
+  const dispatch = useAppDispatch()
+  const { chainId: chainIdWeb3 } = useActiveWeb3React()
+  const { ethereum } = window
+  useEffect(() => {
+    const changeChainIdRedux = () => {
+      console.log('====================================')
+      console.log('chainIdWeb3aaaaa', chainIdWeb3)
+      console.log('====================================')
+      dispatch(updateChainId({ chainId: chainIdWeb3 ? chainIdWeb3 ?? null : null }))
+    }
+
+    if (ethereum && ethereum.on) {
+      ethereum.on('chainChanged', changeChainIdRedux)
+      // ethereum.on('networkChanged', changeChainIdRedux)
+    }
+  }, [chainIdWeb3])
+
   return (
     <ErrorBoundary>
       <Route component={GoogleAnalyticsReporter} />
