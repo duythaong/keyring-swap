@@ -36,12 +36,15 @@ export function useETHBalances(uncheckedAddresses?: (string | undefined)[]): {
     [uncheckedAddresses]
   )
 
+  console.log('mc', addresses, multicallContract)
+
   const results = useSingleContractMultipleData(
     multicallContract,
     'getEthBalance',
     addresses.map((address) => [address])
   )
 
+  console.log('results', results)
   return useMemo(
     () =>
       addresses.reduce<{ [address: string]: CurrencyAmount<Currency> }>((memo, address, i) => {

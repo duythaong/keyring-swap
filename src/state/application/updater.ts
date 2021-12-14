@@ -130,8 +130,8 @@ export default function Updater(): null {
     //   .catch(() => dispatch(setImplements3085({ implements3085: false })))
     if (chainId) {
       if (windowVisible) {
-        if (chainIdWeb3 && chainId !== chainIdWeb3) {
-          console.log('chainId', chainId, chainIdWeb3)
+        const isRedux = localStorage.getItem('CHAIN_REDUX')
+        if (chainIdWeb3 && chainId !== chainIdWeb3 && isRedux !== 'true') {
           dispatch(updateChainId({ chainId: chainIdWeb3 ? supportedChainId(chainIdWeb3) ?? null : null }))
         } else {
           switchToNetwork({ library, chainId: supportedChainId(chainId) })

@@ -49,6 +49,7 @@ const applicationSlice = createSlice({
   initialState,
   reducers: {
     updateChainId(state, action) {
+      localStorage.setItem('CHAIN_REDUX', 'true')
       const { chainId } = action.payload
       state.chainId = chainId
     },

@@ -26,6 +26,7 @@ export async function switchToNetwork({ library, chainId }: SwitchNetworkArgumen
 
   const formattedChainId = hexStripZeros(BigNumber.from(chainId).toHexString())
   try {
+    localStorage.setItem('CHAIN_REDUX', 'false')
     await library?.provider.request({
       method: 'wallet_switchEthereumChain',
       params: [{ chainId: formattedChainId }],
