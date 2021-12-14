@@ -190,7 +190,7 @@ export default function NetworkSelector() {
   }
 
   function Row({ targetChain }: { targetChain: number }) {
-    if (!library || !chainId || (!implements3085 && targetChain !== chainId)) {
+    if (!library || !chainId) {
       return null
     }
     const handleRowClick = () => {
@@ -242,9 +242,9 @@ export default function NetworkSelector() {
           <FlyoutHeader>
             <Trans>Select a network</Trans>
           </FlyoutHeader>
-          <Row targetChain={SupportedChainId.MAINNET} />
+          {/* <Row targetChain={SupportedChainId.MAINNET} /> */}
           <Row targetChain={SupportedChainId.POLYGON_MAINET} />
-          {/* <Row targetChain={SupportedChainId.TOMOCHAIN_TESNET} /> */}
+          <Row targetChain={SupportedChainId.POLYGON_TESTNET} />
         </FlyoutMenu>
       )}
     </SelectorWrapper>

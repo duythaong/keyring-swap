@@ -180,7 +180,7 @@ export const CHAIN_INFO: ChainInfo = {
   },
   [SupportedChainId.POLYGON_MAINET]: {
     docs: 'https://docs.uniswap.org/',
-    explorer: 'https://mumbai.polygonscan.com/',
+    explorer: 'https://polygonscan.com/',
     infoLink: 'https://info.uniswap.org/#/',
     label: 'Polygon',
     logoUrl: polygonLogoUrl,
@@ -191,7 +191,7 @@ export const CHAIN_INFO: ChainInfo = {
     docs: 'https://docs.uniswap.org/',
     explorer: 'https://mumbai.polygonscan.com/',
     infoLink: 'https://info.uniswap.org/#/',
-    label: 'Polygon',
+    label: 'Mumbai',
     logoUrl: polygonLogoUrl,
     nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
     rpcUrls: ['https://rpc-mumbai.maticvigil.com'],

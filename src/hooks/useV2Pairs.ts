@@ -3,6 +3,7 @@ import { Interface } from '@ethersproject/abi'
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { useMemo } from 'react'
+import { useAppSelector } from 'state/hooks'
 
 import { CHAIN_SWAP_MAP, CHAIN_SWAP_NAMES } from '../constants/addresses'
 import { SupportedChainId } from '../constants/chains'
@@ -25,6 +26,7 @@ export function useV2Pairs(
     () => currencies.map(([currencyA, currencyB]) => [currencyA?.wrapped, currencyB?.wrapped]),
     [currencies]
   )
+  const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
 
   const pairAddresses = useMemo(
     () =>
@@ -33,16 +35,16 @@ export function useV2Pairs(
           tokenB &&
           tokenA.chainId === tokenB.chainId &&
           !tokenA.equals(tokenB) &&
-          CHAIN_SWAP_MAP[SupportedChainId.POLYGON_MAINET][name].factoryAddresses[tokenA.chainId]
-          ? CHAIN_SWAP_MAP[SupportedChainId.POLYGON_MAINET][name].computePairAddress({
-              factoryAddress: CHAIN_SWAP_MAP[SupportedChainId.POLYGON_MAINET][name].factoryAddresses[tokenA.chainId],
-              initCodeHash: CHAIN_SWAP_MAP[SupportedChainId.POLYGON_MAINET][name].initCodeHash,
+          CHAIN_SWAP_MAP[chainId][name].factoryAddresses[tokenA.chainId]
+          ? CHAIN_SWAP_MAP[chainId][name].computePairAddress({
+              factoryAddress: CHAIN_SWAP_MAP[chainId][name].factoryAddresses[tokenA.chainId],
+              initCodeHash: CHAIN_SWAP_MAP[chainId][name].initCodeHash,
               tokenA,
               tokenB,
             })
           : undefined
       }),
-    [name, tokens]
+    [chainId, name, tokens]
   )
   const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
 
@@ -62,17 +64,18 @@ export function useV2Pairs(
       return [
         PairState.EXISTS,
         new Pair(
-          CHAIN_SWAP_MAP[SupportedChainId.POLYGON_MAINET][name].factoryAddresses[tokenA.chainId],
-          CHAIN_SWAP_MAP[SupportedChainId.POLYGON_MAINET][name].initCodeHash,
+          CHAIN_SWAP_MAP[chainId][name].factoryAddresses[tokenA.chainId],
+          CHAIN_SWAP_MAP[chainId][name].initCodeHash,
           CurrencyAmount.fromRawAmount(token0, reserve0.toString()),
           CurrencyAmount.fromRawAmount(token1, reserve1.toString())
         ),
       ]
     })
-  }, [name, results, tokens])
+  }, [chainId, name, results, tokens])
 }
 
 export function useV2Pair(tokenA?: Currency, tokenB?: Currency): [PairState, Pair | null] {
   const inputs: [[Currency | undefined, Currency | undefined]] = useMemo(() => [[tokenA, tokenB]], [tokenA, tokenB])
-  return useV2Pairs(CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET][0], inputs)[0]
+  const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
+  return useV2Pairs(CHAIN_SWAP_NAMES[chainId][0], inputs)[0]
 }

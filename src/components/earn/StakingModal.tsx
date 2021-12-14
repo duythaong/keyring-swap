@@ -3,9 +3,11 @@ import { TransactionResponse } from '@ethersproject/providers'
 import { Trans } from '@lingui/macro'
 import { CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { useCallback, useState } from 'react'
+import { useAppSelector } from 'state/hooks'
 import styled from 'styled-components/macro'
 
-import { BACOOR_SWAP, SWAP_MAP } from '../../constants/addresses'
+import { BACOOR_SWAP, CHAIN_SWAP_MAP } from '../../constants/addresses'
+import { SupportedChainId } from '../../constants/chains'
 import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallback'
 import { usePairContract, useStakingContract, useV2RouterContract } from '../../hooks/useContract'
 import { useV2LiquidityTokenPermit } from '../../hooks/useERC20Permit'
@@ -48,7 +50,7 @@ interface StakingModalProps {
 
 export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiquidityUnstaked }: StakingModalProps) {
   const { library } = useActiveWeb3React()
-
+  const chainId = useAppSelector((state) => state.application.chainId)
   // track and parse user input
   const [typedValue, setTypedValue] = useState('')
   const { parsedAmount, error } = useDerivedStakeInfo(
@@ -79,8 +81,8 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
 
   // pair contract for this token to be staked
   const dummyPair = new Pair(
-    SWAP_MAP[BACOOR_SWAP].factoryAddresses[1],
-    SWAP_MAP[BACOOR_SWAP].initCodeHash,
+    CHAIN_SWAP_MAP[chainId ?? SupportedChainId.POLYGON_MAINET][BACOOR_SWAP].factoryAddresses[1],
+    CHAIN_SWAP_MAP[chainId ?? SupportedChainId.POLYGON_MAINET][BACOOR_SWAP].initCodeHash,
     CurrencyAmount.fromRawAmount(stakingInfo.tokens[0], '0'),
     CurrencyAmount.fromRawAmount(stakingInfo.tokens[1], '0')
   )

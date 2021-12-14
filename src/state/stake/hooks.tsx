@@ -6,8 +6,9 @@ import { CurrencyAmount, Token } from '@uniswap/sdk-core'
 import useCurrentBlockTimestamp from 'hooks/useCurrentBlockTimestamp'
 import JSBI from 'jsbi'
 import { ReactNode, useMemo } from 'react'
+import { useAppSelector } from 'state/hooks'
 
-import { BACOOR_SWAP, SWAP_MAP } from '.../../constants/addresses'
+import { BACOOR_SWAP, CHAIN_SWAP_MAP } from '.../../constants/addresses'
 import { DAI, UNI, USDC, USDT, WBTC, WETH9_EXTENDED } from '../../constants/tokens'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { NEVER_RELOAD, useMultipleContractSingleData } from '../multicall/hooks'
@@ -75,7 +76,8 @@ export interface StakingInfo {
 
 // gets the staking info from the network for the active chain id
 export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
-  const { chainId, account } = useActiveWeb3React()
+  const { account } = useActiveWeb3React()
+  const chainId = useAppSelector((state) => state.application.chainId)
 
   // detect if staking is ended
   const currentBlockTimestamp = useCurrentBlockTimestamp()
@@ -124,7 +126,6 @@ export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
 
   return useMemo(() => {
     if (!chainId || !uni) return []
-
     return rewardsAddresses.reduce<StakingInfo[]>((memo, rewardsAddress, index) => {
       // these two are dependent on account
       const balanceState = balances[index]
@@ -161,8 +162,8 @@ export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
         // get the LP token
         const tokens = info[index].tokens
         const dummyPair = new Pair(
-          SWAP_MAP[BACOOR_SWAP].factoryAddresses[1],
-          SWAP_MAP[BACOOR_SWAP].initCodeHash,
+          CHAIN_SWAP_MAP[chainId][BACOOR_SWAP].factoryAddresses[1],
+          CHAIN_SWAP_MAP[chainId][BACOOR_SWAP].initCodeHash,
           CurrencyAmount.fromRawAmount(tokens[0], '0'),
           CurrencyAmount.fromRawAmount(tokens[1], '0')
         )

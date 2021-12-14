@@ -19,7 +19,6 @@ import GOVERNOR_BRAVO_ABI from 'abis/governor-bravo.json'
 import WETH_ABI from 'abis/weth.json'
 import {
   ARGENT_WALLET_DETECTOR_ADDRESS,
-  BACOOR_SWAP,
   CHAIN_SWAP_MAP,
   CHAIN_SWAP_NAMES,
   ENS_REGISTRAR_ADDRESSES,
@@ -30,10 +29,10 @@ import {
   MULTICALL_ADDRESS,
   NONFUNGIBLE_POSITION_MANAGER_ADDRESSES,
   QUOTER_ADDRESSES,
-  SWAP_MAP,
   V3_MIGRATOR_ADDRESSES,
 } from 'constants/addresses'
 import { useMemo } from 'react'
+import { useAppSelector } from 'state/hooks'
 import { NonfungiblePositionManager, Quoter, UniswapInterfaceMulticall } from 'types/v3'
 import { V3Migrator } from 'types/v3/V3Migrator'
 import { getContract } from 'utils'
@@ -106,7 +105,8 @@ export function usePairContract(pairAddress?: string, withSignerIfPossible?: boo
 export function useV2RouterContract(
   name: string = CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET][0]
 ): Contract | null {
-  return useContract(CHAIN_SWAP_MAP[SupportedChainId.POLYGON_MAINET][name].routerAddress, IUniswapV2Router02ABI, true)
+  const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
+  return useContract(CHAIN_SWAP_MAP[chainId][name].routerAddress, IUniswapV2Router02ABI, true)
 }
 
 export function useMulticall2Contract() {

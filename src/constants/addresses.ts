@@ -109,27 +109,6 @@ export const CHAIN_SWAP_NAMES: ChainSwapName = {
   [SupportedChainId.POLYGON_TESTNET]: [BACOOR_SWAP, UNI_SWAP, SUSHI_SWAP],
 }
 
-export const SWAP_MAP = {
-  [BACOOR_SWAP]: {
-    factoryAddresses: V2_FACTORY_ADDRESSES,
-    initCodeHash: BACOOR_INIT_CONDE_HASH,
-    routerAddress: V2_ROUTER_ADDRESS,
-    computePairAddress,
-  },
-  [UNI_SWAP]: {
-    factoryAddresses: V2_UNI_FACTORY_ADDRESSES,
-    initCodeHash: UNI_INIT_CODE_HASH,
-    routerAddress: V2_UNI_ROUTER_ADDRESS,
-    computePairAddress,
-  },
-  [SUSHI_SWAP]: {
-    factoryAddresses: V2_SUSHI_FACTORY_ADDRESSES,
-    initCodeHash: SUSHI_INIT_CODE_HASH[ChainId.MATIC_TESTNET],
-    routerAddress: V2_SUSHI_ROUTER_ADDRESS,
-    computePairAddress,
-  },
-}
-
 export const CHAIN_SWAP_MAP: ChainSwapMap = {
   [SupportedChainId.POLYGON_TESTNET]: {
     [BACOOR_SWAP]: {
