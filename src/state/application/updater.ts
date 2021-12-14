@@ -1,6 +1,7 @@
 import { CHAIN_INFO } from 'constants/chains'
 import useDebounce from 'hooks/useDebounce'
 import useIsWindowVisible from 'hooks/useIsWindowVisible'
+import usePrevious from 'hooks/usePrevious'
 import { useActiveWeb3React } from 'hooks/web3'
 import ms from 'ms.macro'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -124,15 +125,13 @@ export default function Updater(): null {
       return
     }
 
-    console.log('account', account)
-    console.log('library', library)
-    console.log('chainId', chainId)
     // switchToNetwork({ library })
     //   .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
     //   .catch(() => dispatch(setImplements3085({ implements3085: false })))
     if (chainId) {
       if (windowVisible) {
         if (chainIdWeb3 && chainId !== chainIdWeb3) {
+          console.log('chainId', chainId, chainIdWeb3)
           dispatch(updateChainId({ chainId: chainIdWeb3 ? supportedChainId(chainIdWeb3) ?? null : null }))
         } else {
           switchToNetwork({ library, chainId: supportedChainId(chainId) })

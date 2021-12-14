@@ -10,6 +10,7 @@ import SwapRoute from 'components/swap/SwapRoute'
 import TradePrice from 'components/swap/TradePrice'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
 import { MouseoverTooltip, MouseoverTooltipContent } from 'components/Tooltip'
+import usePrevious from 'hooks/usePrevious'
 import JSBI from 'jsbi'
 import { ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowDown, CheckCircle, HelpCircle, Info } from 'react-feather'
@@ -198,6 +199,7 @@ const useRouting = (
 export default function Swap({ history }: RouteComponentProps) {
   const { account } = useActiveWeb3React()
   const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
+  const previousChainId = usePrevious(chainId)
   const loadedUrlParams = useDefaultsFromURLSearch()
 
   // token warning stuff
@@ -513,10 +515,13 @@ export default function Swap({ history }: RouteComponentProps) {
   const priceImpactTooHigh = priceImpactSeverity > 3 && !isExpertMode
 
   const renderHooks = useMemo(() => {
+    if (chainId !== previousChainId) {
+      refData.current = {}
+    }
     return CHAIN_SWAP_NAMES[chainId].map((item) => (
       <Hooks key={item} name={item} refData={refData} toggledVersion={toggledVersion} />
     ))
-  }, [chainId, toggledVersion])
+  }, [chainId, previousChainId, toggledVersion])
 
   return (
     <>
@@ -528,11 +533,6 @@ export default function Swap({ history }: RouteComponentProps) {
         onDismiss={handleDismissTokenWarning}
       />
       <NetworkAlert />
-      {/* <NetworkSelectorModal
-        isOpen={!dismissNetWorkSelectorBaccor}
-        onDismiss={handleDismissNetworkSelectorBaccor}
-        onConfirm={() => console.log('xyz')}
-      /> */}
       <AppBody>
         <SwapHeader allowedSlippage={allowedSlippage} />
         <Wrapper id="swap-page">
