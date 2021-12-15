@@ -18,6 +18,7 @@ import { FACTORY_ADDRESS as V3_FACTORY_ADDRESS } from '@uniswap/v3-sdk'
 import polycatLogoUrl from 'assets/images/polycat.png'
 import quickswapLogoUrl from 'assets/images/quickswap.png'
 import sushiswapLogoUrl from 'assets/images/sushi.svg'
+import uniswapLogoUrl from 'assets/svg/logo.svg'
 
 import { constructSameAddressMap } from '../utils/constructSameAddressMap'
 import { SupportedChainId } from './chains'
@@ -83,6 +84,7 @@ export const LOGO: { [key: string]: string } = {
   [SUSHI_SWAP]: sushiswapLogoUrl,
   [QUICK_SWAP]: quickswapLogoUrl,
   [POLYCAT]: polycatLogoUrl,
+  [UNI_SWAP]: uniswapLogoUrl,
 }
 
 export const UNKNOWN_LOGO = 'https://raw.githubusercontent.com/sushiswap/icons/master/token/unknown.png'
@@ -115,12 +117,46 @@ export const POLYCAT_FACTORY_ADDRESSES_MAINNET: AddressMap = constructSameAddres
 
 export const POLYCAT_INIT_CODE_HASH = '0x3cad6f9e70e13835b4f07e5dd475f25a109450b22811d0437da51e66c161255a'
 
+// Ethreum Mainnet
+export const SUSHI_ROUTER_ADDRESS_ETH: AddressMap = constructSameAddressMap(
+  '0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F'
+)
+export const SUSHI_FACTORY_ADDRESSES_ETH: AddressMap = constructSameAddressMap(
+  '0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac'
+)
+export const SUSHI_INIT_CODE_HASH_ETH = '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303'
+
+export const UNI_ROUTER_ADDRESS_MAINNET: AddressMap = constructSameAddressMap(
+  '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
+)
+
+export const UNI_FACTORY_ADDRESSES_MAINNET: AddressMap = constructSameAddressMap(
+  '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
+)
+
+export const UNI_INIT_CODE_HASH_MAINNET = '0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f'
+
 export const CHAIN_SWAP_NAMES: ChainSwapName = {
+  [SupportedChainId.MAINNET]: [SUSHI_SWAP, UNI_SWAP],
   [SupportedChainId.POLYGON_MAINET]: [SUSHI_SWAP, POLYCAT, QUICK_SWAP],
   [SupportedChainId.POLYGON_TESTNET]: [SUSHI_SWAP, BACOOR_SWAP, UNI_SWAP],
 }
 
 export const CHAIN_SWAP_MAP: ChainSwapMap = {
+  [SupportedChainId.MAINNET]: {
+    [SUSHI_SWAP]: {
+      factoryAddresses: V2_FACTORY_ADDRESSES,
+      initCodeHash: BACOOR_INIT_CONDE_HASH,
+      routerAddress: V2_ROUTER_ADDRESS,
+      computePairAddress,
+    },
+    [UNI_SWAP]: {
+      factoryAddresses: V2_UNI_FACTORY_ADDRESSES,
+      initCodeHash: UNI_INIT_CODE_HASH,
+      routerAddress: V2_UNI_ROUTER_ADDRESS,
+      computePairAddress,
+    },
+  },
   [SupportedChainId.POLYGON_TESTNET]: {
     [BACOOR_SWAP]: {
       factoryAddresses: V2_FACTORY_ADDRESSES,

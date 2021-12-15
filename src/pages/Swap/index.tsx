@@ -19,7 +19,8 @@ import { RouteComponentProps } from 'react-router-dom'
 import { Text } from 'rebass'
 import { useAppSelector } from 'state/hooks'
 import { V3TradeState } from 'state/routing/types'
-import styled, { ThemeContext } from 'styled-components/macro'
+import { useDarkModeManager } from 'state/user/hooks'
+import styled, { css, ThemeContext } from 'styled-components/macro'
 import useDeepCompareEffect from 'use-deep-compare-effect'
 import Observer from 'utils/observer'
 
@@ -114,10 +115,13 @@ const ActiveOutlinedBottom = styled(OutlinedBottom)`
   border: 1px solid;
   border-color: ${({ theme }) => theme.primary1};
 `
-const Logo = styled.img`
+const Logo = styled.img<{ darkMode: boolean }>`
   height: 20px;
   width: 20px;
   margin-right: 8px;
+  ${(props) => css`
+    fill: ${props.darkMode ? 'white' : 'black'};
+  `}
 `
 
 const ActiveOutlinedButton = ({
@@ -208,7 +212,7 @@ export default function Swap({ history }: RouteComponentProps) {
   const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
   const previousChainId = usePrevious(chainId)
   const loadedUrlParams = useDefaultsFromURLSearch()
-
+  const [darkMode] = useDarkModeManager()
   // token warning stuff
   const [loadedInputCurrency, loadedOutputCurrency] = [
     useCurrency(loadedUrlParams?.inputCurrencyId),
@@ -616,7 +620,7 @@ export default function Swap({ history }: RouteComponentProps) {
                         onClick={() => setSelectedSwap(name)}
                       >
                         <BacoorOutput>
-                          <Logo src={logo} />
+                          <Logo darkMode={darkMode} src={logo} />
                           <TextOutput>{`${name}`}</TextOutput>
                           <NumericalInput
                             className="token-amount-input"
