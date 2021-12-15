@@ -52,7 +52,7 @@ import {
 import SwapHeader from '../../components/swap/SwapHeader'
 import { SwitchLocaleLink } from '../../components/SwitchLocaleLink'
 import TokenWarningModal from '../../components/TokenWarningModal'
-import { CHAIN_SWAP_NAMES, LOGO, UNKNOWN_LOGO } from '../../constants/addresses'
+import { CHAIN_SWAP_NAMES, LOGO, SUSHI_SWAP, UNKNOWN_LOGO } from '../../constants/addresses'
 import { SupportedChainId } from '../../constants/chains'
 import { TRADE_MAP_UPDATE } from '../../constants/misc'
 import { useAllTokens, useCurrency } from '../../hooks/Tokens'
@@ -245,7 +245,7 @@ export default function Swap({ history }: RouteComponentProps) {
   // swap state
   const { independentField, typedValue, recipient } = useSwapState()
 
-  const [selectedSwap, setSelectedSwap] = useState<string>(CHAIN_SWAP_NAMES[chainId][0])
+  const [selectedSwap, setSelectedSwap] = useState<string>(SUSHI_SWAP)
   console.log('selectedSwap', selectedSwap, 'chainId', chainId)
 
   const refData = useRef<any>({})
@@ -259,10 +259,10 @@ export default function Swap({ history }: RouteComponentProps) {
     parsedAmount: parsedAmountBacoor,
     currencies: currenciesBacoor,
     inputError: swapInputErrorBacoor,
-  } = useDerivedSwapInfo(CHAIN_SWAP_NAMES[chainId][0], toggledVersion)
+  } = useDerivedSwapInfo(SUSHI_SWAP, toggledVersion)
 
   const tradeMapInit: TradeMap = {
-    [CHAIN_SWAP_NAMES[chainId][0]]: {
+    [SUSHI_SWAP]: {
       trade: tradeBacoor,
       v3TradeState: v3TradeStateBacoor,
       allowedSlippage: allowedSlippageBacoor,
@@ -270,14 +270,14 @@ export default function Swap({ history }: RouteComponentProps) {
       parsedAmount: parsedAmountBacoor,
       currencies: currenciesBacoor,
       swapInputError: swapInputErrorBacoor,
-      name: CHAIN_SWAP_NAMES[chainId][0],
+      name: SUSHI_SWAP,
     },
   }
 
   const [tradeMap, setTradeMap] = useState<TradeMap>(tradeMapInit)
 
   useEffect(() => {
-    setSelectedSwap(CHAIN_SWAP_NAMES[chainId][0])
+    setSelectedSwap(SUSHI_SWAP)
   }, [chainId])
 
   useEffect(() => {
@@ -531,9 +531,8 @@ export default function Swap({ history }: RouteComponentProps) {
     if (chainId !== previousChainId) {
       refData.current = {}
     }
-    return CHAIN_SWAP_NAMES[chainId].map((item) => (
-      <Hooks key={item} name={item} refData={refData} toggledVersion={toggledVersion} />
-    ))
+    const swapNames = CHAIN_SWAP_NAMES[chainId] ?? CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET]
+    return swapNames.map((item) => <Hooks key={item} name={item} refData={refData} toggledVersion={toggledVersion} />)
   }, [chainId, previousChainId, toggledVersion])
 
   return (

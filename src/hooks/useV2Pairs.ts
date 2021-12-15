@@ -35,6 +35,9 @@ export function useV2Pairs(
           tokenB &&
           tokenA.chainId === tokenB.chainId &&
           !tokenA.equals(tokenB) &&
+          name &&
+          CHAIN_SWAP_MAP[chainId] &&
+          CHAIN_SWAP_MAP[chainId][name] &&
           CHAIN_SWAP_MAP[chainId][name].factoryAddresses[tokenA.chainId]
           ? CHAIN_SWAP_MAP[chainId][name].computePairAddress({
               factoryAddress: CHAIN_SWAP_MAP[chainId][name].factoryAddresses[tokenA.chainId],

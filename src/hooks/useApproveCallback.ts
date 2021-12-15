@@ -6,7 +6,7 @@ import { Trade as V3Trade } from '@uniswap/v3-sdk'
 import { useCallback, useMemo } from 'react'
 import { useAppSelector } from 'state/hooks'
 
-import { CHAIN_SWAP_MAP, CHAIN_SWAP_NAMES, SWAP_ROUTER_ADDRESSES } from '../constants/addresses'
+import { CHAIN_SWAP_MAP, CHAIN_SWAP_NAMES, SUSHI_SWAP, SWAP_ROUTER_ADDRESSES } from '../constants/addresses'
 import { SupportedChainId } from '../constants/chains'
 import { TransactionType } from '../state/transactions/actions'
 import { useHasPendingApproval, useTransactionAdder } from '../state/transactions/hooks'
@@ -122,9 +122,9 @@ export function useApproveCallbackFromTrade(
     amountToApprove,
     chainId
       ? trade instanceof V2Trade
-        ? CHAIN_SWAP_MAP[chainId][name]
+        ? CHAIN_SWAP_MAP[chainId] && CHAIN_SWAP_MAP[chainId][name]
           ? CHAIN_SWAP_MAP[chainId][name].routerAddress[chainId]
-          : CHAIN_SWAP_MAP[chainId][CHAIN_SWAP_NAMES[chainId][0]].routerAddress[chainId]
+          : CHAIN_SWAP_MAP[SupportedChainId.POLYGON_MAINET][SUSHI_SWAP].routerAddress[SupportedChainId.POLYGON_MAINET]
         : trade instanceof V3Trade
         ? v3SwapRouterAddress
         : undefined

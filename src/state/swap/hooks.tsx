@@ -3,6 +3,7 @@ import { parseUnits } from '@ethersproject/units'
 import { Trans } from '@lingui/macro'
 import { Currency, CurrencyAmount, Percent, TradeType } from '@uniswap/sdk-core'
 import { Trade as V3Trade } from '@uniswap/v3-sdk'
+import { UNI_SWAP } from 'constants/addresses'
 import { TWO_PERCENT } from 'constants/misc'
 import { useBestV2Trade } from 'hooks/useBestV2Trade'
 import { useBestV3Trade } from 'hooks/useBestV3Trade'
@@ -188,7 +189,8 @@ export function useDerivedSwapInfo(
     }
   }, [toggledVersion, v2Trade, v3Trade.state, v3Trade.trade])
 
-  const bestTrade = isV2TradeBetter == undefined ? undefined : isV2TradeBetter ? v2Trade : v3Trade.trade
+  const bestTrade =
+    isV2TradeBetter == undefined ? undefined : isV2TradeBetter ? v2Trade : name === UNI_SWAP ? v3Trade.trade : undefined
 
   const currencyBalances = {
     [Field.INPUT]: relevantTokenBalances[0],

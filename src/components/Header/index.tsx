@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom'
 import { Text } from 'rebass'
 import { useShowClaimPopup, useToggleSelfClaimModal } from 'state/application/hooks'
 import { useUserHasAvailableClaim } from 'state/claim/hooks'
+import { useAppSelector } from 'state/hooks'
 import { useUserHasSubmittedClaim } from 'state/transactions/hooks'
 import { useDarkModeManager } from 'state/user/hooks'
 import { useETHBalances } from 'state/wallet/hooks'
@@ -245,8 +246,8 @@ const StyledExternalLink = styled(ExternalLink).attrs({
 `
 
 export default function Header() {
-  const { account, chainId } = useActiveWeb3React()
-
+  const { account } = useActiveWeb3React()
+  const chainId = useAppSelector((state) => state.application.chainId)
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   const [darkMode] = useDarkModeManager()
   const { white, black } = useTheme()

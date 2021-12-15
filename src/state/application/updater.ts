@@ -132,7 +132,7 @@ export default function Updater(): null {
       if (windowVisible) {
         const isRedux = localStorage.getItem('CHAIN_REDUX')
         if (chainIdWeb3 && chainId !== chainIdWeb3 && isRedux !== 'true') {
-          dispatch(updateChainId({ chainId: chainIdWeb3 ? supportedChainId(chainIdWeb3) ?? null : null }))
+          dispatch(updateChainId({ chainId: chainIdWeb3 ? supportedChainId(chainIdWeb3) ?? chainId : null }))
         } else {
           switchToNetwork({ library, chainId: supportedChainId(chainId) })
         }

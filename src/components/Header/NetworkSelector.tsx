@@ -241,7 +241,7 @@ export default function NetworkSelector() {
           <FlyoutHeader>
             <Trans>Select a network</Trans>
           </FlyoutHeader>
-          {/* <Row targetChain={SupportedChainId.MAINNET} /> */}
+          <Row targetChain={SupportedChainId.MAINNET} />
           <Row targetChain={SupportedChainId.POLYGON_MAINET} />
           <Row targetChain={SupportedChainId.POLYGON_TESTNET} />
         </FlyoutMenu>
