@@ -15,6 +15,9 @@ import {
 } from '@sushiswap/sdk'
 import { Token } from '@uniswap/sdk-core'
 import { FACTORY_ADDRESS as V3_FACTORY_ADDRESS } from '@uniswap/v3-sdk'
+import polycatLogoUrl from 'assets/images/polycat.png'
+import quickswapLogoUrl from 'assets/images/quickswap.png'
+import sushiswapLogoUrl from 'assets/images/sushi.svg'
 
 import { constructSameAddressMap } from '../utils/constructSameAddressMap'
 import { SupportedChainId } from './chains'
@@ -53,9 +56,9 @@ export const MULTICALL_ADDRESS: AddressMap = {
 }
 
 // Polygon testnet
-export const BACOOR_SWAP = 'Bacoorswap'
-export const UNI_SWAP = 'Uniswap'
-export const SUSHI_SWAP = 'Sushiswap'
+export const BACOOR_SWAP = 'BacoorSwap'
+export const UNI_SWAP = 'UniSwap'
+export const SUSHI_SWAP = 'SushiSwap'
 
 export const BACOOR_ROUTER = '0x20E017D2605228CD369438e60C52aE038eC608d8'
 export const UNI_ROUTER = '0x7D6361273b4D0d06b149B9639a983d88aBb56eD8'
@@ -73,8 +76,16 @@ export const V2_SUSHI_ROUTER_ADDRESS: AddressMap = constructSameAddressMap(SUSHI
 export const V2_SUSHI_FACTORY_ADDRESSES: AddressMap = constructSameAddressMap(V2_SUSHI_FACTORY_ADDRESS)
 
 // Polygon Mainnet
-export const QUICK_SWAP = 'Quickswap'
-export const POLYCAT = 'Polycat'
+export const QUICK_SWAP = 'QuickSwap'
+export const POLYCAT = 'PolyCat'
+
+export const LOGO: { [key: string]: string } = {
+  [SUSHI_SWAP]: sushiswapLogoUrl,
+  [QUICK_SWAP]: quickswapLogoUrl,
+  [POLYCAT]: polycatLogoUrl,
+}
+
+export const UNKNOWN_LOGO = 'https://raw.githubusercontent.com/sushiswap/icons/master/token/unknown.png'
 
 export const SUSHI_ROUTER_ADDRESS_MAINNET: AddressMap = constructSameAddressMap(
   '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506'

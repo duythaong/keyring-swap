@@ -52,7 +52,7 @@ import {
 import SwapHeader from '../../components/swap/SwapHeader'
 import { SwitchLocaleLink } from '../../components/SwitchLocaleLink'
 import TokenWarningModal from '../../components/TokenWarningModal'
-import { CHAIN_SWAP_NAMES } from '../../constants/addresses'
+import { CHAIN_SWAP_NAMES, LOGO, UNKNOWN_LOGO } from '../../constants/addresses'
 import { SupportedChainId } from '../../constants/chains'
 import { TRADE_MAP_UPDATE } from '../../constants/misc'
 import { useAllTokens, useCurrency } from '../../hooks/Tokens'
@@ -113,6 +113,11 @@ const OutlinedBottom = styled(ButtonOutlined)`
 const ActiveOutlinedBottom = styled(OutlinedBottom)`
   border: 1px solid;
   border-color: ${({ theme }) => theme.primary1};
+`
+const Logo = styled.img`
+  height: 20px;
+  width: 20px;
+  margin-right: 8px;
 `
 
 const ActiveOutlinedButton = ({
@@ -177,6 +182,7 @@ const useSortedTrades = (showWrap: boolean, tradeMap: TradeMap) => {
         })
         .map((item) => ({
           name: item.name,
+          logo: LOGO[item.name] ?? UNKNOWN_LOGO,
           amountOut: item?.trade?.outputAmount?.toSignificant(6) ?? '',
         })),
     [showWrap, tradeMap]
@@ -364,7 +370,7 @@ export default function Swap({ history }: RouteComponentProps) {
       : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
   }
 
-  const sortedTrades: { name: string; amountOut: string }[] = useSortedTrades(showWrap, tradeMap)
+  const sortedTrades: { name: string; logo: string; amountOut: string }[] = useSortedTrades(showWrap, tradeMap)
 
   useDeepCompareEffect(() => setSelectedSwap(sortedTrades[0].name), [sortedTrades])
 
@@ -603,7 +609,7 @@ export default function Swap({ history }: RouteComponentProps) {
                 disabled={true}
                 customNode={
                   <>
-                    {sortedTrades.map(({ name, amountOut }) => (
+                    {sortedTrades.map(({ name, logo, amountOut }) => (
                       <ActiveOutlinedButton
                         key={name}
                         name={name}
@@ -611,6 +617,7 @@ export default function Swap({ history }: RouteComponentProps) {
                         onClick={() => setSelectedSwap(name)}
                       >
                         <BacoorOutput>
+                          <Logo src={logo} />
                           <TextOutput>{`${name}`}</TextOutput>
                           <NumericalInput
                             className="token-amount-input"
