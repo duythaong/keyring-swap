@@ -18,7 +18,7 @@ import { FACTORY_ADDRESS as V3_FACTORY_ADDRESS } from '@uniswap/v3-sdk'
 import polycatLogoUrl from 'assets/images/polycat.png'
 import quickswapLogoUrl from 'assets/images/quickswap.png'
 import sushiswapLogoUrl from 'assets/images/sushi.svg'
-import uniswapLogoUrl from 'assets/svg/logo.svg'
+import uniswapLogoUrl from 'assets/images/token-logo.png'
 
 import { constructSameAddressMap } from '../utils/constructSameAddressMap'
 import { SupportedChainId } from './chains'
