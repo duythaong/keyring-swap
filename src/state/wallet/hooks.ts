@@ -36,8 +36,6 @@ export function useETHBalances(uncheckedAddresses?: (string | undefined)[]): {
     [uncheckedAddresses]
   )
 
-  console.log('mc', addresses, multicallContract)
-
   const results = useSingleContractMultipleData(
     multicallContract,
     'getEthBalance',

@@ -38,6 +38,7 @@ import CurrencyInputPanel from '../../components/CurrencyInputPanel'
 import CurrencyLogo from '../../components/CurrencyLogo'
 import Loader from '../../components/Loader'
 import NetworkSelectorBacoorModal from '../../components/NetworkSelectorBacoorModal'
+import { Input as NumericalInput } from '../../components/NumericalInput'
 import Row, { AutoRow, RowFixed } from '../../components/Row'
 import confirmPriceImpactWithoutFee from '../../components/swap/confirmPriceImpactWithoutFee'
 import ConfirmSwapModal from '../../components/swap/ConfirmSwapModal'
@@ -101,7 +102,7 @@ const BacoorOutput = styled.div`
 `
 
 const TextOutput = styled.div`
-  font-size: 1.5rem
+  font-size: 24px
   font-weight: 500
 `
 
@@ -239,6 +240,8 @@ export default function Swap({ history }: RouteComponentProps) {
   const { independentField, typedValue, recipient } = useSwapState()
 
   const [selectedSwap, setSelectedSwap] = useState<string>(CHAIN_SWAP_NAMES[chainId][0])
+  console.log('selectedSwap', selectedSwap, 'chainId', chainId)
+
   const refData = useRef<any>({})
 
   // Bacoor
@@ -266,6 +269,10 @@ export default function Swap({ history }: RouteComponentProps) {
   }
 
   const [tradeMap, setTradeMap] = useState<TradeMap>(tradeMapInit)
+
+  useEffect(() => {
+    setSelectedSwap(CHAIN_SWAP_NAMES[chainId][0])
+  }, [chainId])
 
   useEffect(() => {
     const tradeMapUpdate = () => {
@@ -605,7 +612,14 @@ export default function Swap({ history }: RouteComponentProps) {
                       >
                         <BacoorOutput>
                           <TextOutput>{`${name}`}</TextOutput>
-                          <TextOutput>{amountOut !== '' ? amountOut : '0.0'}</TextOutput>
+                          <NumericalInput
+                            className="token-amount-input"
+                            onUserInput={() => {
+                              console.log(amountOut)
+                            }}
+                            value={amountOut !== '' ? amountOut : '0'}
+                            disabled={true}
+                          />
                         </BacoorOutput>
                       </ActiveOutlinedButton>
                     ))}

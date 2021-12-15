@@ -102,11 +102,13 @@ export function usePairContract(pairAddress?: string, withSignerIfPossible?: boo
   return useContract(pairAddress, IUniswapV2PairABI, withSignerIfPossible)
 }
 
-export function useV2RouterContract(
-  name: string = CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET][0]
-): Contract | null {
+export function useV2RouterContract(name?: string): Contract | null {
   const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
-  return useContract(CHAIN_SWAP_MAP[chainId][name].routerAddress, IUniswapV2Router02ABI, true)
+  const routerAddress =
+    name && CHAIN_SWAP_MAP[chainId][name]
+      ? CHAIN_SWAP_MAP[chainId][name].routerAddress
+      : CHAIN_SWAP_MAP[chainId][CHAIN_SWAP_NAMES[chainId][0]].routerAddress
+  return useContract(routerAddress, IUniswapV2Router02ABI, true)
 }
 
 export function useMulticall2Contract() {
