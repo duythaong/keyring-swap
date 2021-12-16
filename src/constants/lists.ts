@@ -12,7 +12,7 @@ const ROLL_LIST = 'https://app.tryroll.com/tokens.json'
 const SET_LIST = 'https://raw.githubusercontent.com/SetProtocol/uniswap-tokenlist/main/set.tokenlist.json'
 const WRAPPED_LIST = 'wrapped.tokensoft.eth'
 const QUICK_LIST = 'https://unpkg.com/quickswap-default-token-list@1.2.11/build/quickswap-default.tokenlist.json'
-const PANCAKE_LIST = 'https://tokens.pancakeswap.finance/pancakeswap-top-100.json'
+const PANCAKE_LIST = 'https://tokens.pancakeswap.finance/pancakeswap-extended.json'
 
 export const UNSUPPORTED_LIST_URLS: string[] = [BA_LIST]
 
@@ -20,6 +20,7 @@ export const UNSUPPORTED_LIST_URLS: string[] = [BA_LIST]
 // lower index == higher priority for token import
 const DEFAULT_LIST_OF_LISTS_TO_DISPLAY: string[] = [
   QUICK_LIST,
+  PANCAKE_LIST,
   COMPOUND_LIST,
   AAVE_LIST,
   CMC_ALL_LIST,
