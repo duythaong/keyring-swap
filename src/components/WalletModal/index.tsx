@@ -2,6 +2,7 @@ import { Trans } from '@lingui/macro'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
+import { URI_AVAILABLE } from '@web3-react/walletconnect-connector'
 import { AutoColumn } from 'components/Column'
 import { PrivacyPolicy } from 'components/PrivacyPolicy'
 import Row, { AutoRow, RowBetween } from 'components/Row'
@@ -138,6 +139,7 @@ export default function WalletModal({
 }) {
   // important that these are destructed from the account-specific web3-react context
   const { active, account, connector, activate, error } = useWeb3React()
+  console.log('connector', connector)
 
   const [walletView, setWalletView] = useState(WALLET_VIEWS.ACCOUNT)
   const previousWalletView = usePrevious(walletView)
@@ -157,6 +159,7 @@ export default function WalletModal({
   useEffect(() => {
     if (account && !previousAccount && walletModalOpen) {
       toggleWalletModal()
+      console.log('connector1', connector)
     }
   }, [account, previousAccount, toggleWalletModal, walletModalOpen])
 
@@ -177,6 +180,17 @@ export default function WalletModal({
     }
   }, [setWalletView, active, error, connector, walletModalOpen, activePrevious, connectorPrevious])
 
+  const walletConnectConnector = SUPPORTED_WALLETS['WALLET_CONNECT'].connector
+
+  useEffect(() => {
+    console.log('walletConnectConnector', walletConnectConnector)
+    if (walletConnectConnector) {
+      walletConnectConnector.on(URI_AVAILABLE, (uri) => {
+        console.log('uri', uri)
+      })
+    }
+  }, [walletConnectConnector])
+
   const tryActivation = async (connector: AbstractConnector | undefined) => {
     let name = ''
     Object.keys(SUPPORTED_WALLETS).map((key) => {
@@ -194,8 +208,14 @@ export default function WalletModal({
     setPendingWallet(connector) // set wallet for pending view
     setWalletView(WALLET_VIEWS.PENDING)
 
+    // console.log('connectorA', connector)
+    // window.open(`https://keyring.app/wc?uri=${}`)
+
     // if the connector is walletconnect and the user has already tried to connect, manually reset the connector
     if (connector instanceof WalletConnectConnector) {
+      connector.on(URI_AVAILABLE, (uri) => {
+        console.log('uri', uri)
+      })
       connector.walletConnectProvider = undefined
     }
 
@@ -204,6 +224,12 @@ export default function WalletModal({
         .then(async () => {
           const walletAddress = await connector.getAccount()
           logMonitoringEvent({ walletAddress })
+          console.log('====================================')
+          console.log('connectorB', connector)
+          console.log('====================================')
+          connector.on(URI_AVAILABLE, (uri) => {
+            console.log('uri', uri)
+          })
         })
         .catch((error) => {
           if (error instanceof UnsupportedChainIdError) {
