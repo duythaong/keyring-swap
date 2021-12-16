@@ -120,7 +120,7 @@ function involvesAddress(
 // from the current swap inputs, compute the best trade and return it.
 export function useDerivedSwapInfo(
   name: string,
-  toggledVersion: Version | undefined
+  swapVersion: Version | undefined
 ): {
   currencies: { [field in Field]?: Currency | null }
   currencyBalances: { [field in Field]?: CurrencyAmount<Currency> }
@@ -135,6 +135,8 @@ export function useDerivedSwapInfo(
   allowedSlippage: Percent
 } {
   const { account } = useActiveWeb3React()
+
+  const toggledVersion = swapVersion ? swapVersion : name !== UNI_SWAP ? Version.v2 : swapVersion
 
   const {
     independentField,
@@ -190,7 +192,13 @@ export function useDerivedSwapInfo(
   }, [toggledVersion, v2Trade, v3Trade.state, v3Trade.trade])
 
   const bestTrade =
-    isV2TradeBetter == undefined ? undefined : isV2TradeBetter ? v2Trade : name === UNI_SWAP ? v3Trade.trade : undefined
+    isV2TradeBetter === undefined
+      ? undefined
+      : isV2TradeBetter
+      ? v2Trade
+      : name === UNI_SWAP
+      ? v3Trade.trade
+      : undefined
 
   const currencyBalances = {
     [Field.INPUT]: relevantTokenBalances[0],
