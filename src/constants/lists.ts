@@ -12,6 +12,7 @@ const ROLL_LIST = 'https://app.tryroll.com/tokens.json'
 const SET_LIST = 'https://raw.githubusercontent.com/SetProtocol/uniswap-tokenlist/main/set.tokenlist.json'
 const WRAPPED_LIST = 'wrapped.tokensoft.eth'
 const QUICK_LIST = 'https://unpkg.com/quickswap-default-token-list@1.2.11/build/quickswap-default.tokenlist.json'
+const PANCAKE_LIST = 'https://tokens.pancakeswap.finance/pancakeswap-top-100.json'
 
 export const UNSUPPORTED_LIST_URLS: string[] = [BA_LIST]
 
@@ -39,4 +40,4 @@ export const DEFAULT_LIST_OF_LISTS: string[] = [
 ]
 
 // default lists to be 'active' aka searched across
-export const DEFAULT_ACTIVE_LIST_URLS: string[] = [QUICK_LIST, GEMINI_LIST]
+export const DEFAULT_ACTIVE_LIST_URLS: string[] = [GEMINI_LIST, QUICK_LIST, PANCAKE_LIST]

@@ -188,12 +188,12 @@ export const WETH9_EXTENDED: { [chainId: number]: Token } = {
     'WMATIC',
     'Wrapped Matic'
   ),
-  [SupportedChainId.TOMOCHAIN_TESNET]: new Token(
-    SupportedChainId.TOMOCHAIN_TESNET,
-    '0xB47e6A5f8b33b3F17603C83a0535A9dcD7E32681',
+  [SupportedChainId.BSC_MAINNET]: new Token(
+    SupportedChainId.BSC_MAINNET,
+    '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
     18,
-    'WETH',
-    'Wrapped Ether'
+    'WBNB',
+    'Wrapped BNB'
   ),
 }
 

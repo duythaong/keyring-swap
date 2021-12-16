@@ -174,7 +174,7 @@ export const CHAIN_INFO: ChainInfo = {
     docs: 'https://docs.uniswap.org/',
     explorer: 'https://bscscan.com/',
     infoLink: 'https://info.uniswap.org/#/',
-    label: 'BNB',
+    label: 'BSC',
     logoUrl: binanceLogoUrl,
     nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
     rpcUrls: ['https://bsc-dataseed1.ninicoin.io'],
