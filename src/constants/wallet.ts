@@ -1,7 +1,9 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { SupportedChainId } from 'constants/chains'
+import { isMobile } from 'utils/userAgent'
 
 import COINBASE_ICON_URL from '../assets/images/coinbaseWalletIcon.svg'
+import KEYRING from '../assets/images/keyring.svg'
 import METAMASK_ICON_URL from '../assets/images/metamask.png'
 import WALLETCONNECT_ICON_URL from '../assets/images/walletConnectIcon.svg'
 import { injected, walletconnect, walletlink } from '../connectors'
@@ -59,6 +61,21 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     chainSupport: [
       SupportedChainId.MAINNET,
       SupportedChainId.POLYGON_MAINET,
+      SupportedChainId.POLYGON_TESTNET,
+      SupportedChainId.TOMOCHAIN_TESNET,
+    ],
+  },
+  KEYRING: {
+    connector: walletconnect,
+    name: 'Keyring',
+    iconURL: KEYRING,
+    description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
+    href: isMobile ? 'https://keyring.app/wc?uri=' : null,
+    color: '#4196FC',
+    mobile: true,
+    chainSupport: [
+      SupportedChainId.POLYGON_MAINET,
+      SupportedChainId.MAINNET,
       SupportedChainId.POLYGON_TESTNET,
       SupportedChainId.TOMOCHAIN_TESNET,
     ],
