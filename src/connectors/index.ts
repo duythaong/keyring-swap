@@ -20,7 +20,6 @@ if (typeof INFURA_KEY === 'undefined') {
 }
 
 const NETWORK_URLS = {
-  [SupportedChainId.POLYGON_MAINET]: 'https://rpc-mainnet.maticvigil.com/',
   [SupportedChainId.MAINNET]: `https://mainnet.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.RINKEBY]: `https://rinkeby.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ROPSTEN]: `https://ropsten.infura.io/v3/${INFURA_KEY}`,
@@ -30,6 +29,7 @@ const NETWORK_URLS = {
   [SupportedChainId.OPTIMISTIC_KOVAN]: `https://optimism-kovan.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_ONE]: `https://arbitrum-mainnet.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_RINKEBY]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.POLYGON_MAINET]: 'https://rpc-mainnet.maticvigil.com/',
   [SupportedChainId.POLYGON_TESTNET]: `https://rpc-mumbai.maticvigil.com`,
   [SupportedChainId.BSC_MAINNET]: `https://bsc-dataseed1.ninicoin.io`,
 }
