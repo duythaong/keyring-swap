@@ -15,7 +15,7 @@ import { useDarkModeManager } from 'state/user/hooks'
 import { useETHBalances } from 'state/wallet/hooks'
 import styled from 'styled-components/macro'
 
-import { ReactComponent as Logo } from '../../assets/svg/logo.svg'
+import Logo from '../../assets/images/logo.png'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { ExternalLink, TYPE } from '../../theme'
 import ClaimModal from '../claim/ClaimModal'
@@ -119,6 +119,11 @@ const HeaderLinks = styled(Row)`
     border: 1px solid ${({ theme }) => theme.bg2};
     box-shadow: 0px 6px 10px rgb(0 0 0 / 2%);
   `};
+`
+
+const BacoorIcon = styled.img`
+  width: 24px;
+  height: auto;
 `
 
 const AccountElement = styled.div<{ active: boolean }>`
@@ -271,9 +276,10 @@ export default function Header() {
         <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
       </Modal>
       <Title href=".">
-        <UniIcon>
+        {/* <UniIcon>
           <Logo fill={darkMode ? white : black} width="24px" height="100%" title="logo" />
-        </UniIcon>
+        </UniIcon> */}
+        <BacoorIcon src={Logo} />
       </Title>
       <HeaderLinks>
         {/* <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
