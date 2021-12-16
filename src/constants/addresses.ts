@@ -136,6 +136,16 @@ export const POLYDEX_FACTORY_ADDRESSES_POLYGON: AddressMap = constructSameAddres
 
 export const POLYDEX_INIT_CODE_HASH = '0xf60eec85709051eb86026776e0ece6269f1ab16f3af55442e19958beb5239ae2'
 
+export const APESWAP_ROUTER_ADDRESS_POLYGON: AddressMap = constructSameAddressMap(
+  '0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607'
+)
+
+export const APESWAP_FACTORY_ADDRESSES_POLYGON: AddressMap = constructSameAddressMap(
+  '0xCf083Be4164828f00cAE704EC15a36D711491284'
+)
+
+export const APESWAP_INIT_CODE_HASH_POLYGON = '0x511f0f358fe530cda0859ec20becf391718fdf5a329be02f4c95361f3d6a42d8'
+
 // Ethreum Mainnet
 export const SUSHI_ROUTER_ADDRESS_ETH: AddressMap = constructSameAddressMap(
   '0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F'
@@ -227,7 +237,7 @@ export const BABYSWAP_INIT_CODE_HASH_BSC = '0x48c8bec5512d397a5d512fbb7d83d515e7
 
 export const CHAIN_SWAP_NAMES: ChainSwapName = {
   [SupportedChainId.MAINNET]: [SUSHI_SWAP, UNI_SWAP, KYBER_SWAP, SHIBA_SWAP],
-  [SupportedChainId.POLYGON_MAINET]: [SUSHI_SWAP, QUICK_SWAP, POLYCAT, POLYDEX],
+  [SupportedChainId.POLYGON_MAINET]: [SUSHI_SWAP, QUICK_SWAP, APE_SWAP, POLYCAT, POLYDEX],
   [SupportedChainId.BSC_MAINNET]: [SUSHI_SWAP, PANCAKE_SWAP, BI_SWAP, APE_SWAP, BABY_SWAP],
   [SupportedChainId.POLYGON_TESTNET]: [SUSHI_SWAP, BACOOR_SWAP, UNI_SWAP],
 }
@@ -304,6 +314,12 @@ export const CHAIN_SWAP_MAP: ChainSwapMap = {
       factoryAddresses: QUICK_FACTORY_ADDRESSES_MAINNET,
       initCodeHash: QUICK_INIT_CODE_HASH,
       routerAddress: QUICK_ROUTER_ADDRESS_MAINNET,
+      computePairAddress,
+    },
+    [APE_SWAP]: {
+      factoryAddresses: APESWAP_FACTORY_ADDRESSES_POLYGON,
+      initCodeHash: APESWAP_INIT_CODE_HASH_POLYGON,
+      routerAddress: APESWAP_ROUTER_ADDRESS_POLYGON,
       computePairAddress,
     },
     [POLYCAT]: {
