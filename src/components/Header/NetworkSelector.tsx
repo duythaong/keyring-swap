@@ -243,7 +243,7 @@ export default function NetworkSelector() {
           </FlyoutHeader>
           <Row targetChain={SupportedChainId.MAINNET} />
           <Row targetChain={SupportedChainId.POLYGON_MAINET} />
-          <Row targetChain={SupportedChainId.POLYGON_TESTNET} />
+          <Row targetChain={SupportedChainId.BSC_MAINNET} />
         </FlyoutMenu>
       )}
     </SelectorWrapper>
