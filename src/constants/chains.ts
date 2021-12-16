@@ -1,12 +1,11 @@
+import binanceLogoUrl from 'assets/images/binance.svg'
 import ethereumLogoUrl from 'assets/images/ethereum-logo.png'
 import polygonLogoUrl from 'assets/images/polygon.svg'
-import tomoLogoUrl from 'assets/images/tomochain.png'
 import arbitrumLogoUrl from 'assets/svg/arbitrum_logo.svg'
 import optimismLogoUrl from 'assets/svg/optimistic_ethereum.svg'
 import ms from 'ms.macro'
 
 export enum SupportedChainId {
-  POLYGON_MAINET = 137,
   MAINNET = 1,
   ROPSTEN = 3,
   RINKEBY = 4,
@@ -18,13 +17,13 @@ export enum SupportedChainId {
   OPTIMISM = 10,
   OPTIMISTIC_KOVAN = 69,
 
+  BSC_MAINNET = 56,
+
+  POLYGON_MAINET = 137,
   POLYGON_TESTNET = 80001,
-  TOMOCHAIN_MAINNET = 88,
-  TOMOCHAIN_TESNET = 89,
 }
 
 export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = [
-  SupportedChainId.POLYGON_MAINET,
   SupportedChainId.MAINNET,
   SupportedChainId.ROPSTEN,
   SupportedChainId.RINKEBY,
@@ -36,18 +35,20 @@ export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = [
   SupportedChainId.OPTIMISM,
   SupportedChainId.OPTIMISTIC_KOVAN,
 
-  SupportedChainId.TOMOCHAIN_TESNET,
+  SupportedChainId.BSC_MAINNET,
+
+  SupportedChainId.POLYGON_MAINET,
   SupportedChainId.POLYGON_TESTNET,
 ]
 
 export const L1_CHAIN_IDS = [
-  SupportedChainId.POLYGON_MAINET,
   SupportedChainId.MAINNET,
   SupportedChainId.ROPSTEN,
   SupportedChainId.RINKEBY,
   SupportedChainId.GOERLI,
   SupportedChainId.KOVAN,
-  SupportedChainId.TOMOCHAIN_TESNET,
+  SupportedChainId.BSC_MAINNET,
+  SupportedChainId.POLYGON_MAINET,
   SupportedChainId.POLYGON_TESTNET,
 ] as const
 
@@ -169,14 +170,14 @@ export const CHAIN_INFO: ChainInfo = {
     nativeCurrency: { name: 'Optimistic kovETH', symbol: 'kovOpETH', decimals: 18 },
     statusPage: 'https://optimism.io/status',
   },
-  [SupportedChainId.TOMOCHAIN_TESNET]: {
+  [SupportedChainId.BSC_MAINNET]: {
     docs: 'https://docs.uniswap.org/',
-    explorer: 'https://scan.testnet.tomochain.com/',
+    explorer: 'https://bscscan.com/',
     infoLink: 'https://info.uniswap.org/#/',
-    label: 'Tomo',
-    logoUrl: tomoLogoUrl,
-    nativeCurrency: { name: 'TOMO', symbol: 'TOMO', decimals: 18 },
-    rpcUrls: ['https://rpc.testnet.tomochain.com'],
+    label: 'BNB',
+    logoUrl: binanceLogoUrl,
+    nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
+    rpcUrls: ['https://bsc-dataseed1.ninicoin.io'],
   },
   [SupportedChainId.POLYGON_MAINET]: {
     docs: 'https://docs.uniswap.org/',

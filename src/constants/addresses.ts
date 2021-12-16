@@ -136,6 +136,8 @@ export const UNI_FACTORY_ADDRESSES_MAINNET: AddressMap = constructSameAddressMap
 
 export const UNI_INIT_CODE_HASH_MAINNET = '0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f'
 
+// BSC Mainnet
+
 export const CHAIN_SWAP_NAMES: ChainSwapName = {
   [SupportedChainId.MAINNET]: [SUSHI_SWAP, UNI_SWAP],
   [SupportedChainId.POLYGON_MAINET]: [SUSHI_SWAP, POLYCAT, QUICK_SWAP],
