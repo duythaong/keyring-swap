@@ -36,7 +36,7 @@ const NETWORK_URLS = {
 
 export const network = new NetworkConnector({
   urls: NETWORK_URLS,
-  defaultChainId: 137,
+  defaultChainId: 56,
 })
 
 let networkLibrary: Web3Provider | undefined
