@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react'
 import { ArrowLeft, ArrowRight, Info } from 'react-feather'
 import ReactGA from 'react-ga'
 import styled from 'styled-components/macro'
+import { setInterval } from 'timers'
 
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
@@ -180,17 +181,6 @@ export default function WalletModal({
     }
   }, [setWalletView, active, error, connector, walletModalOpen, activePrevious, connectorPrevious])
 
-  const walletConnectConnector = SUPPORTED_WALLETS['WALLET_CONNECT'].connector
-
-  useEffect(() => {
-    console.log('walletConnectConnector', walletConnectConnector)
-    if (walletConnectConnector) {
-      walletConnectConnector.on(URI_AVAILABLE, (uri) => {
-        console.log('uri', uri)
-      })
-    }
-  }, [walletConnectConnector])
-
   const tryActivation = async (connector: AbstractConnector | undefined) => {
     let name = ''
     Object.keys(SUPPORTED_WALLETS).map((key) => {
@@ -207,16 +197,29 @@ export default function WalletModal({
     })
     setPendingWallet(connector) // set wallet for pending view
     setWalletView(WALLET_VIEWS.PENDING)
-
-    // console.log('connectorA', connector)
-    // window.open(`https://keyring.app/wc?uri=${}`)
+    console.log('connectorA', connector)
 
     // if the connector is walletconnect and the user has already tried to connect, manually reset the connector
     if (connector instanceof WalletConnectConnector) {
-      connector.on(URI_AVAILABLE, (uri) => {
-        console.log('uri', uri)
-      })
-      connector.walletConnectProvider = undefined
+      // window.open(`https://keyring.app/wc?uri=${uri}`)
+
+      let first = true
+      if (!isMobile) {
+        setInterval(() => {
+          if (connector && connector.walletConnectProvider && first) {
+            console.log('connectorB', connector)
+            const enc = new TextDecoder('utf-8')
+            console.log('connectorC', connector?.walletConnectProvider?.signer?.connection?.wc?._key)
+            console.log(
+              'connectorD',
+              enc.decode(new Uint32Array(connector?.walletConnectProvider?.signer?.connection?.wc?._key))
+            )
+            first = false
+          }
+        }, 3000)
+      }
+
+      // connector.walletConnectProvider = undefined
     }
 
     connector &&
@@ -224,12 +227,6 @@ export default function WalletModal({
         .then(async () => {
           const walletAddress = await connector.getAccount()
           logMonitoringEvent({ walletAddress })
-          console.log('====================================')
-          console.log('connectorB', connector)
-          console.log('====================================')
-          connector.on(URI_AVAILABLE, (uri) => {
-            console.log('uri', uri)
-          })
         })
         .catch((error) => {
           if (error instanceof UnsupportedChainIdError) {

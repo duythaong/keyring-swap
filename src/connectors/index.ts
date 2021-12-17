@@ -82,8 +82,5 @@ export const getURI = async () => {
     bridge: 'https://bridge.keyringpro.com',
     rpc: NETWORK_URLS,
     qrcode: true,
-  }).on(URI_AVAILABLE, (uri) => {
-    console.log('URI', uri)
-    return uri
   })
 }
