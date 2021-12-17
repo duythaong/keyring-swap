@@ -36,7 +36,8 @@ aliases:
     run:
       name: Build Project
       command: |
-        yarn run build
+        yarn install
+        yarn build
         echo "Build successful"
   - &deploy-firebase
     run:
@@ -62,6 +63,7 @@ jobs:
     steps:
       - checkout
       - *show-current-branch-name
+      - *install-dependencies
       - *build-project
       - *deploy-firebase
 
