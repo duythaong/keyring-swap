@@ -25,7 +25,6 @@ aliases:
       command: |
         yarn install --frozen-lockfile
         yarn global add firebase-tools
-        yarn run firebase --version
 
   - &save-cache
     save_cache: # {key: paths}
