@@ -63,7 +63,6 @@ jobs:
     steps:
       - checkout
       - *show-current-branch-name
-      - *install-dependencies
       - *build-project
       - *deploy-firebase
 
