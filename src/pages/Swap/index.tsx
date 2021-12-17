@@ -640,7 +640,7 @@ export default function Swap({ history }: RouteComponentProps) {
                               console.log(amountOut)
                             }}
                             value={amountOut !== '' ? amountOut : '0'}
-                            disabled={true}
+                            // disabled={true}
                           />
                         </BacoorOutput>
                       </ActiveOutlinedButton>
