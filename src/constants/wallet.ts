@@ -33,7 +33,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
       SupportedChainId.MAINNET,
       SupportedChainId.POLYGON_MAINET,
       SupportedChainId.POLYGON_TESTNET,
-      SupportedChainId.TOMOCHAIN_TESNET,
+      SupportedChainId.BSC_MAINNET,
     ],
   },
   WALLET_CONNECT: {
@@ -48,7 +48,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
       SupportedChainId.POLYGON_MAINET,
       SupportedChainId.MAINNET,
       SupportedChainId.POLYGON_TESTNET,
-      SupportedChainId.TOMOCHAIN_TESNET,
+      SupportedChainId.BSC_MAINNET,
     ],
   },
   WALLET_LINK: {
@@ -62,7 +62,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
       SupportedChainId.MAINNET,
       SupportedChainId.POLYGON_MAINET,
       SupportedChainId.POLYGON_TESTNET,
-      SupportedChainId.TOMOCHAIN_TESNET,
+      SupportedChainId.BSC_MAINNET,
     ],
   },
   KEYRING: {
@@ -77,7 +77,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
       SupportedChainId.POLYGON_MAINET,
       SupportedChainId.MAINNET,
       SupportedChainId.POLYGON_TESTNET,
-      SupportedChainId.TOMOCHAIN_TESNET,
+      SupportedChainId.BSC_MAINNET,
     ],
   },
 }

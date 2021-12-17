@@ -4,6 +4,7 @@ import { WETH9_EXTENDED } from 'constants/tokens'
 import React, { useMemo } from 'react'
 import styled from 'styled-components/macro'
 
+import BNBLogo from '../../assets/images/binance.svg'
 import EthereumLogo from '../../assets/images/ethereum-logo.png'
 import PolygonLogo from '../../assets/images/polygon.svg'
 import useHttpLocations from '../../hooks/useHttpLocations'
@@ -48,6 +49,7 @@ const LOGO: { readonly [chainId in SupportedChainId]?: string } = {
   [SupportedChainId.MAINNET]: EthereumLogo,
   [SupportedChainId.POLYGON_MAINET]: PolygonLogo,
   [SupportedChainId.POLYGON_TESTNET]: PolygonLogo,
+  [SupportedChainId.BSC_MAINNET]: BNBLogo,
 }
 
 const unknown = 'https://raw.githubusercontent.com/sushiswap/icons/master/token/unknown.png'
@@ -65,7 +67,6 @@ export default function CurrencyLogo({
   const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.logoURI : undefined)
 
   const srcs: string[] = useMemo(() => {
-    console.log('value', currency, !currency)
     if (currency === null || currency === undefined) return [unknown]
 
     if (currency?.isNative || currency.equals(WETH9_EXTENDED[currency.chainId])) {

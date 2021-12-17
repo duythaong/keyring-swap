@@ -2,7 +2,7 @@ import { Pair } from '@duythao_bacoor/v2-sdk'
 import { Trans } from '@lingui/macro'
 import { Currency, CurrencyAmount, Percent, Token } from '@uniswap/sdk-core'
 import { AutoColumn } from 'components/Column'
-import { LoadingOpacityContainer, loadingOpacityMixin } from 'components/Loader/styled'
+import { loadingOpacityMixin } from 'components/Loader/styled'
 import { darken } from 'polished'
 import { ReactNode, useCallback, useState } from 'react'
 import { Lock } from 'react-feather'
@@ -20,7 +20,7 @@ import DoubleCurrencyLogo from '../DoubleLogo'
 import { Input as NumericalInput } from '../NumericalInput'
 import { RowBetween, RowFixed } from '../Row'
 import CurrencySearchModal from '../SearchModal/CurrencySearchModal'
-import { FiatValue } from './FiatValue'
+// import { FiatValue } from './FiatValue'
 
 const InputPanel = styled.div<{ hideInput?: boolean }>`
   ${({ theme }) => theme.flexColumnNoWrap}
@@ -301,9 +301,9 @@ export default function CurrencyInputPanel({
               ) : (
                 <span />
               )}
-              <LoadingOpacityContainer $loading={loading}>
+              {/* <LoadingOpacityContainer $loading={loading}>
                 <FiatValue fiatValue={fiatValue} priceImpact={priceImpact} />
-              </LoadingOpacityContainer>
+              </LoadingOpacityContainer> */}
             </RowBetween>
           </FiatRow>
         )}

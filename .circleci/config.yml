@@ -16,45 +16,36 @@ aliases:
   - &restore-cache
     restore_cache:
       keys:
-        - app-{{ checksum "package.json" }}
-        - app-
+        - yarn-v1-{{ checksum "yarn.lock" }}
+        - yarn-v1-
 
   - &install-dependencies
     run:
       name: Install dependencies
-      command: npm install
+      command: |
+        yarn install
+        yarn global add firebase-tools
 
   - &save-cache
     save_cache: # {key: paths}
       paths:
-        - node_modules
-      key: app-{{ checksum "package.json" }}
+        - ./node_modules
+      key: yarn-v1-{{ checksum "yarn.lock" }}
 
   - &build-project
     run:
       name: Build Project
       command: |
-        npm install
-        npm run build
-        cd build
-        zip ../build.zip -r * .[^.]*
+        yarn install
+        yarn build
         echo "Build successful"
-  - &install-aws-cli
+  - &deploy-firebase
     run:
-      name: Installing AWS CLI
-      working_directory: /
+      name: Deploy to Firebase
       command: |
-        sudo apt-get -y -qq update
-        sudo apt-get install -y awscli
-        sudo apt-get install -y python-pip python-dev build-essential
-  # Synchronous build directory to create AWS s3 bucket, then delete this local one.
-  - &deploy-to-s3
-    run:
-      name: Deploy to AWS S3
-      command: |
-        if [ "${CIRCLE_BRANCH}" == "polygon" ]
-        then
-          aws --region ${AWS_REGION} s3 sync ~/repo/build s3://${AWS_PRODUCTION_BUCKET} --delete
+        if [ "${CIRCLE_BRANCH}" == "mainnet" ]; then
+          yarn run firebase use dev
+          yarn run firebase deploy --token=$FIREBASE_TOKEN
         fi
 
 jobs:
@@ -67,24 +58,23 @@ jobs:
       - *install-dependencies
       - *save-cache
 
-  deploy-to-aws-s3:
+  deploy-to-firebase:
     executor: app-executor
     steps:
       - checkout
       - *show-current-branch-name
       - *build-project
-      - *install-aws-cli
-      - *deploy-to-s3
+      - *deploy-firebase
 
 
 workflows:
   build-and-deploy:
     jobs:
       - build
-      - deploy-to-aws-s3:
+      - deploy-to-firebase:
           requires:
             - build
           filters:
             branches:
               only:
-                - polygon
+                - mainnet

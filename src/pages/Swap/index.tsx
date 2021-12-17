@@ -250,7 +250,6 @@ export default function Swap({ history }: RouteComponentProps) {
   const { independentField, typedValue, recipient } = useSwapState()
 
   const [selectedSwap, setSelectedSwap] = useState<string>(SUSHI_SWAP)
-  console.log('selectedSwap', selectedSwap, 'chainId', chainId)
 
   const refData = useRef<any>({})
 
@@ -612,7 +611,7 @@ export default function Swap({ history }: RouteComponentProps) {
                 disabled={true}
                 customNode={
                   <>
-                    {sortedTrades.map(({ name, logo, amountOut }) => (
+                    {sortedTrades.slice(0, 3).map(({ name, logo, amountOut }) => (
                       <ActiveOutlinedButton
                         key={name}
                         name={name}
