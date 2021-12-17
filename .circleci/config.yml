@@ -36,7 +36,6 @@ aliases:
     run:
       name: Build Project
       command: |
-        yarn relay --watchman=false
         yarn run build
         echo "Build successful"
   - &deploy-firebase
