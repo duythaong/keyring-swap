@@ -21,7 +21,6 @@ import { useAppSelector } from 'state/hooks'
 import { V3TradeState } from 'state/routing/types'
 import { useDarkModeManager } from 'state/user/hooks'
 import styled, { css, ThemeContext } from 'styled-components/macro'
-import useDeepCompareEffect from 'use-deep-compare-effect'
 import Observer from 'utils/observer'
 
 import AddressInputPanel from '../../components/AddressInputPanel'
@@ -375,7 +374,7 @@ export default function Swap({ history }: RouteComponentProps) {
 
   const sortedTrades: { name: string; logo: string; amountOut: string }[] = useSortedTrades(showWrap, tradeMap)
 
-  useDeepCompareEffect(() => setSelectedSwap(sortedTrades[0].name), [sortedTrades])
+  // useDeepCompareEffect(() => setSelectedSwap(sortedTrades[0].name), [sortedTrades])
 
   const userHasSpecifiedInputOutput = Boolean(
     currencies[Field.INPUT] && currencies[Field.OUTPUT] && parsedAmounts[independentField]?.greaterThan(JSBI.BigInt(0))
