@@ -23,7 +23,7 @@ aliases:
     run:
       name: Install dependencies
       command: |
-        yarn install --frozen-lockfile
+        yarn install
         yarn global add firebase-tools
 
   - &save-cache
