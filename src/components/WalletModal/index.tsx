@@ -202,8 +202,6 @@ export default function WalletModal({
 
     // if the connector is walletconnect and the user has already tried to connect, manually reset the connector
     if (connector instanceof WalletConnectConnector) {
-      // window.open(`https://keyring.app/wc?uri=${uri}`)
-
       let first = true
       if (isMobile) {
         if (nameParam === 'Keyring') {
@@ -224,7 +222,6 @@ export default function WalletModal({
           }, 10000)
         }
       }
-
       // connector.walletConnectProvider = undefined
     }
 
