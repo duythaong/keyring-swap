@@ -16,7 +16,7 @@ import { setInterval, setTimeout } from 'timers'
 
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
-import { fortmatic, injected, portis, walletconnect } from '../../connectors'
+import { fortmatic, injected, portis } from '../../connectors'
 import { OVERLAY_READY } from '../../connectors/Fortmatic'
 import { SUPPORTED_WALLETS } from '../../constants/wallet'
 import usePrevious from '../../hooks/usePrevious'
@@ -182,17 +182,6 @@ export default function WalletModal({
     }
   }, [setWalletView, active, error, connector, walletModalOpen, activePrevious, connectorPrevious])
 
-  useEffect(() => {
-    console.log('check wallet connect')
-    const logURI = (uri: any) => {
-      console.log('WalletConnect URI', uri)
-    }
-    walletconnect.on('URI_AVAILABLE', logURI)
-    return () => {
-      walletconnect.off('URI_AVAILABLE', logURI)
-    }
-  }, [])
-
   const buf2hex = (buffer: any) => {
     // buffer is an ArrayBuffer
     return [...new Uint8Array(buffer)].map((x) => x.toString(16).padStart(2, '0')).join('')
@@ -240,7 +229,7 @@ export default function WalletModal({
           }, 10000)
         }
       }
-      // connector.walletConnectProvider = undefined
+      connector.walletConnectProvider = undefined
     }
 
     connector &&
@@ -251,7 +240,7 @@ export default function WalletModal({
         })
         .catch((error) => {
           if (error instanceof UnsupportedChainIdError) {
-            activate(connector) // a little janky...can't use setError because the connector isn't set
+            // activate(connector) // a little janky...can't use setError because the connector isn't set
           } else {
             setPendingError(true)
           }
