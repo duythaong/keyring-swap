@@ -55,8 +55,14 @@ export const gnosisSafe = new SafeAppConnector()
 export const walletconnect = new WalletConnectConnector({
   supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
   rpc: NETWORK_URLS,
-  qrcode: isMobile ? false : true,
+  qrcode: true,
   // pollingInterval: 15000,
+})
+
+export const keyringConnect = new WalletConnectConnector({
+  supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
+  rpc: NETWORK_URLS,
+  qrcode: isMobile ? false : true,
 })
 
 // mainnet only
