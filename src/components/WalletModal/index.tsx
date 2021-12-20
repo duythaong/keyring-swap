@@ -180,7 +180,10 @@ export default function WalletModal({
       setWalletView(WALLET_VIEWS.ACCOUNT)
     }
   }, [setWalletView, active, error, connector, walletModalOpen, activePrevious, connectorPrevious])
-
+  const buf2hex = (buffer: any) => {
+    // buffer is an ArrayBuffer
+    return [...new Uint8Array(buffer)].map((x) => x.toString(16).padStart(2, '0')).join('')
+  }
   const tryActivation = async (connector: AbstractConnector | undefined) => {
     let name = ''
     Object.keys(SUPPORTED_WALLETS).map((key) => {
@@ -197,7 +200,7 @@ export default function WalletModal({
     })
     setPendingWallet(connector) // set wallet for pending view
     setWalletView(WALLET_VIEWS.PENDING)
-    console.log('connectorA', connector)
+    console.log('keyString5', connector)
 
     // if the connector is walletconnect and the user has already tried to connect, manually reset the connector
     if (connector instanceof WalletConnectConnector) {
@@ -207,13 +210,18 @@ export default function WalletModal({
       if (!isMobile) {
         setInterval(() => {
           if (connector && connector.walletConnectProvider && first) {
-            console.log('connectorB', connector)
-            const enc = new TextDecoder('utf-8')
-            console.log('connectorC', connector?.walletConnectProvider?.signer?.connection?.wc?._key)
-            console.log(
-              'connectorD',
-              enc.decode(new Uint32Array(connector?.walletConnectProvider?.signer?.connection?.wc?._key))
-            )
+            console.log('keyString4', connector)
+            const keyTemp = new Uint8Array(connector?.walletConnectProvider?.wc?._key)
+            const key = buf2hex(keyTemp)
+
+            console.log('keyString3', connector?.walletConnectProvider?.signer?.connection?.wc?._key)
+            console.log('keyString2', keyTemp)
+            console.log('keyString', key)
+            const handshakeTopic = connector?.walletConnectProvider?.wc?._handshakeTopic
+            const bridge = encodeURIComponent(connector?.walletConnectProvider?.bridge)
+            const uri = `wc:${handshakeTopic}@1?bridge=${bridge}&key=${key}`
+            window.open(`https://keyring.app/wc?uri=${uri}`)
+            console.log('keyString0', `https://keyring.app/wc?uri=${uri}`)
             first = false
           }
         }, 3000)
