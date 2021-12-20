@@ -160,7 +160,6 @@ export default function WalletModal({
   useEffect(() => {
     if (account && !previousAccount && walletModalOpen) {
       toggleWalletModal()
-      console.log('connector1', connector)
     }
   }, [account, previousAccount, toggleWalletModal, walletModalOpen])
 
@@ -200,7 +199,6 @@ export default function WalletModal({
     })
     setPendingWallet(connector) // set wallet for pending view
     setWalletView(WALLET_VIEWS.PENDING)
-    console.log('keyString5', connector)
 
     // if the connector is walletconnect and the user has already tried to connect, manually reset the connector
     if (connector instanceof WalletConnectConnector) {
@@ -211,21 +209,16 @@ export default function WalletModal({
         if (nameParam === 'Keyring') {
           const keyringInterval = setInterval(() => {
             if (connector && connector.walletConnectProvider && first) {
-              console.log('keyString4', connector)
+              console.log('connector2', connector)
               const keyTemp = new Uint8Array(connector?.walletConnectProvider?.wc?._key)
               const key = buf2hex(keyTemp)
-
-              console.log('keyString3', connector?.walletConnectProvider?.signer?.connection?.wc?._key)
-              console.log('keyString2', keyTemp)
-              console.log('keyString', key)
               const handshakeTopic = connector?.walletConnectProvider?.wc?._handshakeTopic
               const bridge = encodeURIComponent(connector?.walletConnectProvider?.wc._bridge)
               const uri = `wc:${handshakeTopic}@1?bridge=${bridge}&key=${key}`
               window.open(`https://keyring.app/wc?uri=${uri}`)
-              console.log('keyString0', `https://keyring.app/wc?uri=${uri}`)
               first = false
             }
-          }, 3000)
+          }, 1000)
           setTimeout(() => {
             clearInterval(keyringInterval)
           }, 10000)
