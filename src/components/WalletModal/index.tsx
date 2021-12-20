@@ -239,7 +239,7 @@ export default function WalletModal({
           }, 10000)
         }
       }
-      // connector.walletConnectProvider = undefined
+      connector.walletConnectProvider = undefined
     }
 
     connector &&
