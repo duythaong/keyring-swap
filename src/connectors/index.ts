@@ -63,6 +63,7 @@ export const keyringConnect = new WalletConnectConnector({
   supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
   rpc: NETWORK_URLS,
   qrcode: isMobile ? false : true,
+  bridge: 'https://bridge.keyringpro.com',
 })
 
 // mainnet only
