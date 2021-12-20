@@ -215,13 +215,7 @@ export default function WalletModal({
               const uri = `wc:${handshakeTopic}@1?bridge=${bridge}&key=${key}`
               Object.assign(document.createElement('a'), {
                 target: '_blank',
-                href: `https://keyring.app/wc?uri=${uri}`,
-                onClick: () => {
-                  localStorage.setItem(
-                    'WALLETCONNECT_DEEPLINK_CHOICE',
-                    JSON.stringify({ href: `https://keyring.app/wc?uri=${uri}` })
-                  )
-                },
+                href: `keyring://keyring.app/wc?uri=${uri}`,
               }).click()
               // window.location.href = `https://keyring.app/wc?uri=${uri}`
               first = false
