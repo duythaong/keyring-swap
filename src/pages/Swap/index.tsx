@@ -368,12 +368,22 @@ export default function Swap({ history }: RouteComponentProps) {
     txHash: undefined,
   })
 
-  const formattedAmounts = {
-    [independentField]: typedValue,
-    [dependentField]: showWrap
-      ? parsedAmounts[independentField]?.toExact() ?? ''
-      : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
-  }
+  // const formattedAmounts = {
+  //   [independentField]: typedValue,
+  //   [dependentField]: showWrap
+  //     ? parsedAmounts[independentField]?.toExact() ?? ''
+  //     : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
+  // }
+
+  const formattedAmounts = useMemo(
+    () => ({
+      [independentField]: typedValue,
+      [dependentField]: showWrap
+        ? parsedAmounts[independentField]?.toExact() ?? ''
+        : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
+    }),
+    [dependentField, independentField, parsedAmounts, showWrap, typedValue]
+  )
 
   const sortedTrades: { name: string; logo: string; amountOut: string }[] = useSortedTrades(showWrap, tradeMap)
 
