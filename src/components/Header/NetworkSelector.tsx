@@ -17,6 +17,7 @@ import { useAppDispatch, useAppSelector } from 'state/hooks'
 import styled from 'styled-components/macro'
 import { ExternalLink, MEDIA_WIDTHS } from 'theme'
 import { supportedChainId } from 'utils/supportedChainId'
+import { switchToNetwork } from 'utils/switchToNetwork'
 
 const ActiveRowLinkList = styled.div`
   display: flex;
@@ -163,19 +164,18 @@ const ExplorerText = ({ chainId }: { chainId: SupportedL2ChainId }) => {
 }
 
 export default function NetworkSelector() {
-  const { library } = useActiveWeb3React()
-  const chainId = useAppSelector((state) => state.application.chainId)
+  const { chainId, library } = useActiveWeb3React()
+
   const node = useRef<HTMLDivElement>()
   const open = useModalOpen(ApplicationModal.NETWORK_SELECTOR)
   const toggle = useToggleModal(ApplicationModal.NETWORK_SELECTOR)
   useOnClickOutside(node, open ? toggle : undefined)
-  // const implements3085 = useAppSelector((state) => state.application.implements3085)
+  const implements3085 = useAppSelector((state) => state.application.implements3085)
   const dispatch = useAppDispatch()
   const info = chainId ? CHAIN_INFO[chainId] : undefined
 
-  // const isOnL2 = chainId ? L2_CHAIN_IDS.includes(chainId) : false
-  // const showSelector = Boolean(implements3085 || isOnL2)
-  const showSelector = true
+  const isOnL2 = chainId ? L2_CHAIN_IDS.includes(chainId) : false
+  const showSelector = Boolean(implements3085 || isOnL2)
   const mainnetInfo = CHAIN_INFO[SupportedChainId.MAINNET]
 
   const conditionalToggle = useCallback(() => {
@@ -193,7 +193,8 @@ export default function NetworkSelector() {
       return null
     }
     const handleRowClick = () => {
-      dispatch(updateChainId({ chainId: targetChain ? supportedChainId(targetChain) ?? null : null }))
+      // dispatch(updateChainId({ chainId: targetChain ? supportedChainId(targetChain) ?? null : null }))
+      switchToNetwork({ library, chainId: targetChain })
       toggle()
     }
     const active = chainId === targetChain
