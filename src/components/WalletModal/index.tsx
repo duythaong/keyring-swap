@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 import { ArrowLeft, ArrowRight, Info } from 'react-feather'
 import ReactGA from 'react-ga'
 import styled from 'styled-components/macro'
-import { setInterval } from 'timers'
+import { setInterval, setTimeout } from 'timers'
 
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
@@ -184,7 +184,7 @@ export default function WalletModal({
     // buffer is an ArrayBuffer
     return [...new Uint8Array(buffer)].map((x) => x.toString(16).padStart(2, '0')).join('')
   }
-  const tryActivation = async (connector: AbstractConnector | undefined) => {
+  const tryActivation = async (connector: AbstractConnector | undefined, nameParam?: string) => {
     let name = ''
     Object.keys(SUPPORTED_WALLETS).map((key) => {
       if (connector === SUPPORTED_WALLETS[key].connector) {
@@ -207,24 +207,29 @@ export default function WalletModal({
       // window.open(`https://keyring.app/wc?uri=${uri}`)
 
       let first = true
-      if (!isMobile) {
-        setInterval(() => {
-          if (connector && connector.walletConnectProvider && first) {
-            console.log('keyString4', connector)
-            const keyTemp = new Uint8Array(connector?.walletConnectProvider?.wc?._key)
-            const key = buf2hex(keyTemp)
+      if (isMobile) {
+        if (nameParam === 'Keyring') {
+          const keyringInterval = setInterval(() => {
+            if (connector && connector.walletConnectProvider && first) {
+              console.log('keyString4', connector)
+              const keyTemp = new Uint8Array(connector?.walletConnectProvider?.wc?._key)
+              const key = buf2hex(keyTemp)
 
-            console.log('keyString3', connector?.walletConnectProvider?.signer?.connection?.wc?._key)
-            console.log('keyString2', keyTemp)
-            console.log('keyString', key)
-            const handshakeTopic = connector?.walletConnectProvider?.wc?._handshakeTopic
-            const bridge = encodeURIComponent(connector?.walletConnectProvider?.bridge)
-            const uri = `wc:${handshakeTopic}@1?bridge=${bridge}&key=${key}`
-            window.open(`https://keyring.app/wc?uri=${uri}`)
-            console.log('keyString0', `https://keyring.app/wc?uri=${uri}`)
-            first = false
-          }
-        }, 3000)
+              console.log('keyString3', connector?.walletConnectProvider?.signer?.connection?.wc?._key)
+              console.log('keyString2', keyTemp)
+              console.log('keyString', key)
+              const handshakeTopic = connector?.walletConnectProvider?.wc?._handshakeTopic
+              const bridge = encodeURIComponent(connector?.walletConnectProvider?.wc._bridge)
+              const uri = `wc:${handshakeTopic}@1?bridge=${bridge}&key=${key}`
+              window.open(`https://keyring.app/wc?uri=${uri}`)
+              console.log('keyString0', `https://keyring.app/wc?uri=${uri}`)
+              first = false
+            }
+          }, 3000)
+          setTimeout(() => {
+            clearInterval(keyringInterval)
+          }, 10000)
+        }
       }
 
       // connector.walletConnectProvider = undefined
@@ -268,7 +273,7 @@ export default function WalletModal({
           return (
             <Option
               onClick={() => {
-                option.connector !== connector && !option.href && tryActivation(option.connector)
+                option.connector !== connector && !option.href && tryActivation(option.connector, option.name)
               }}
               id={`connect-${key}`}
               key={key}

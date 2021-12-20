@@ -70,7 +70,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     name: 'Keyring',
     iconURL: KEYRING,
     description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
-    href: isMobile ? `https://keyring.app/wc?uri=${getURI()}` : null,
+    href: null,
     color: '#4196FC',
     mobile: true,
     chainSupport: [
