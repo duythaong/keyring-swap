@@ -15,7 +15,7 @@ import { setInterval, setTimeout } from 'timers'
 
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
-import { fortmatic, injected, portis, walletconnect } from '../../connectors'
+import { fortmatic, injected, portis } from '../../connectors'
 import { OVERLAY_READY } from '../../connectors/Fortmatic'
 import { SUPPORTED_WALLETS } from '../../constants/wallet'
 import usePrevious from '../../hooks/usePrevious'
@@ -180,17 +180,6 @@ export default function WalletModal({
       setWalletView(WALLET_VIEWS.ACCOUNT)
     }
   }, [setWalletView, active, error, connector, walletModalOpen, activePrevious, connectorPrevious])
-
-  useEffect(() => {
-    console.log('check wallet connect')
-    const logURI = (uri: any) => {
-      console.log('WalletConnect URI', uri)
-    }
-    walletconnect.on('URI_AVAILABLE', logURI)
-    return () => {
-      walletconnect.off('URI_AVAILABLE', logURI)
-    }
-  }, [])
 
   const buf2hex = (buffer: any) => {
     // buffer is an ArrayBuffer
