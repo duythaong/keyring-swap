@@ -336,7 +336,7 @@ export default function Header() {
           <AccountElement active={!!account}>
             {account && userEthBalance ? (
               <BalanceText style={{ flexShrink: 0, userSelect: 'none' }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
-                <Trans>{`${userEthBalance?.toSignificant(3)} ${NATIVE[chainId ?? 1].symbol}`}</Trans>
+                {`${userEthBalance?.toSignificant(3)} ${NATIVE[chainId ?? 1].symbol}`}
               </BalanceText>
             ) : null}
             <Web3Status />

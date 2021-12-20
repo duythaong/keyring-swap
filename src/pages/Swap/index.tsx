@@ -896,7 +896,7 @@ export default function Swap({ history }: RouteComponentProps) {
           </AutoColumn>
         </Wrapper>
       </AppBody>
-      <SwitchLocaleLink />
+      {/* <SwitchLocaleLink /> */}
       {!swapIsUnsupported ? null : (
         <UnsupportedCurrencyFooter
           show={swapIsUnsupported}
