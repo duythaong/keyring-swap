@@ -5,6 +5,7 @@ import { PortisConnector } from '@web3-react/portis-connector'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { URI_AVAILABLE } from '@web3-react/walletconnect-connector'
 import { WalletLinkConnector } from '@web3-react/walletlink-connector'
+import { isMobile } from 'utils/userAgent'
 
 import UNISWAP_LOGO_URL from '../assets/svg/logo.svg'
 import { ALL_SUPPORTED_CHAIN_IDS, SupportedChainId } from '../constants/chains'
@@ -54,7 +55,7 @@ export const gnosisSafe = new SafeAppConnector()
 export const walletconnect = new WalletConnectConnector({
   supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
   rpc: NETWORK_URLS,
-  qrcode: true,
+  qrcode: isMobile ? false : true,
   // pollingInterval: 15000,
 })
 
