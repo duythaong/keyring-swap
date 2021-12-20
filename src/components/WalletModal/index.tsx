@@ -1,11 +1,11 @@
 import { Trans } from '@lingui/macro'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
-import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
-import { URI_AVAILABLE } from '@web3-react/walletconnect-connector'
+import { URI_AVAILABLE, WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { AutoColumn } from 'components/Column'
 import { PrivacyPolicy } from 'components/PrivacyPolicy'
 import Row, { AutoRow, RowBetween } from 'components/Row'
+import { CHAIN_INFO } from 'constants/chains'
 import { useWalletConnectMonitoringEventCallback } from 'hooks/useMonitoringEventCallback'
 import { useEffect, useState } from 'react'
 import { ArrowLeft, ArrowRight, Info } from 'react-feather'
@@ -15,7 +15,7 @@ import { setInterval, setTimeout } from 'timers'
 
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
-import { fortmatic, injected, portis } from '../../connectors'
+import { fortmatic, injected, portis, walletconnect } from '../../connectors'
 import { OVERLAY_READY } from '../../connectors/Fortmatic'
 import { SUPPORTED_WALLETS } from '../../constants/wallet'
 import usePrevious from '../../hooks/usePrevious'
@@ -139,8 +139,7 @@ export default function WalletModal({
   ENSName?: string
 }) {
   // important that these are destructed from the account-specific web3-react context
-  const { active, account, connector, activate, error } = useWeb3React()
-  console.log('connector', connector)
+  const { active, chainId, account, connector, activate, error } = useWeb3React()
 
   const [walletView, setWalletView] = useState(WALLET_VIEWS.ACCOUNT)
   const previousWalletView = usePrevious(walletView)
@@ -155,6 +154,8 @@ export default function WalletModal({
   const previousAccount = usePrevious(account)
 
   const logMonitoringEvent = useWalletConnectMonitoringEventCallback()
+
+  const chainInfo = chainId ? CHAIN_INFO[chainId] : undefined
 
   // close on connection, when logged out before
   useEffect(() => {
@@ -179,6 +180,18 @@ export default function WalletModal({
       setWalletView(WALLET_VIEWS.ACCOUNT)
     }
   }, [setWalletView, active, error, connector, walletModalOpen, activePrevious, connectorPrevious])
+
+  useEffect(() => {
+    console.log('check wallet connect')
+    const logURI = (uri: any) => {
+      console.log('WalletConnect URI', uri)
+    }
+    walletconnect.on('URI_AVAILABLE', logURI)
+    return () => {
+      walletconnect.off('URI_AVAILABLE', logURI)
+    }
+  }, [])
+
   const buf2hex = (buffer: any) => {
     // buffer is an ArrayBuffer
     return [...new Uint8Array(buffer)].map((x) => x.toString(16).padStart(2, '0')).join('')
@@ -322,7 +335,7 @@ export default function WalletModal({
             onClick={() => {
               option.connector === connector
                 ? setWalletView(WALLET_VIEWS.ACCOUNT)
-                : !option.href && tryActivation(option.connector)
+                : !option.href && tryActivation(option.connector, option.name)
             }}
             key={key}
             active={option.connector === connector}
@@ -350,7 +363,7 @@ export default function WalletModal({
           <ContentWrapper>
             {error instanceof UnsupportedChainIdError ? (
               <h5>
-                <Trans>Please connect to the appropriate Ethereum network.</Trans>
+                <Trans>{`Please connect to the appropriate ${chainInfo?.label} network.`}</Trans>
               </h5>
             ) : (
               <Trans>Error connecting. Try refreshing the page.</Trans>

@@ -12,6 +12,10 @@ export function useBlockNumber(): number | undefined {
   return useAppSelector((state: AppState) => state.application.blockNumber[chainId ?? -1])
 }
 
+export function useActiveChainId(): number | null {
+  return useAppSelector((state: AppState) => state.application.chainId)
+}
+
 export function useModalOpen(modal: ApplicationModal): boolean {
   const openModal = useAppSelector((state: AppState) => state.application.openModal)
   return openModal === modal
