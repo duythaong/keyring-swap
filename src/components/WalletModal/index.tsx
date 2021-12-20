@@ -214,7 +214,7 @@ export default function WalletModal({
               const bridge = encodeURIComponent(connector?.walletConnectProvider?.wc._bridge)
               const uri = `wc:${handshakeTopic}@1?bridge=${bridge}&key=${key}`
               Object.assign(document.createElement('a'), {
-                // target: '_blank',
+                target: '_blank',
                 href: `https://keyring.app/wc?uri=${uri}`,
               }).click()
               // window.location.href = `https://keyring.app/wc?uri=${uri}`
