@@ -3,6 +3,7 @@ import { SafeAppConnector } from '@gnosis.pm/safe-apps-web3-react'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { PortisConnector } from '@web3-react/portis-connector'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
+import { URI_AVAILABLE } from '@web3-react/walletconnect-connector'
 import { WalletLinkConnector } from '@web3-react/walletlink-connector'
 
 import UNISWAP_LOGO_URL from '../assets/svg/logo.svg'
@@ -75,3 +76,11 @@ export const walletlink = new WalletLinkConnector({
   appName: 'Uniswap',
   appLogoUrl: UNISWAP_LOGO_URL,
 })
+
+export const getURI = async () => {
+  new WalletConnectConnector({
+    bridge: 'https://bridge.keyringpro.com',
+    rpc: NETWORK_URLS,
+    qrcode: true,
+  })
+}

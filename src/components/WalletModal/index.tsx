@@ -2,6 +2,7 @@ import { Trans } from '@lingui/macro'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
+import { URI_AVAILABLE } from '@web3-react/walletconnect-connector'
 import { AutoColumn } from 'components/Column'
 import { PrivacyPolicy } from 'components/PrivacyPolicy'
 import Row, { AutoRow, RowBetween } from 'components/Row'
@@ -10,6 +11,7 @@ import { useEffect, useState } from 'react'
 import { ArrowLeft, ArrowRight, Info } from 'react-feather'
 import ReactGA from 'react-ga'
 import styled from 'styled-components/macro'
+import { setInterval, setTimeout } from 'timers'
 
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
@@ -138,6 +140,7 @@ export default function WalletModal({
 }) {
   // important that these are destructed from the account-specific web3-react context
   const { active, account, connector, activate, error } = useWeb3React()
+  console.log('connector', connector)
 
   const [walletView, setWalletView] = useState(WALLET_VIEWS.ACCOUNT)
   const previousWalletView = usePrevious(walletView)
@@ -157,6 +160,7 @@ export default function WalletModal({
   useEffect(() => {
     if (account && !previousAccount && walletModalOpen) {
       toggleWalletModal()
+      console.log('connector1', connector)
     }
   }, [account, previousAccount, toggleWalletModal, walletModalOpen])
 
@@ -176,8 +180,11 @@ export default function WalletModal({
       setWalletView(WALLET_VIEWS.ACCOUNT)
     }
   }, [setWalletView, active, error, connector, walletModalOpen, activePrevious, connectorPrevious])
-
-  const tryActivation = async (connector: AbstractConnector | undefined) => {
+  const buf2hex = (buffer: any) => {
+    // buffer is an ArrayBuffer
+    return [...new Uint8Array(buffer)].map((x) => x.toString(16).padStart(2, '0')).join('')
+  }
+  const tryActivation = async (connector: AbstractConnector | undefined, nameParam?: string) => {
     let name = ''
     Object.keys(SUPPORTED_WALLETS).map((key) => {
       if (connector === SUPPORTED_WALLETS[key].connector) {
@@ -193,10 +200,39 @@ export default function WalletModal({
     })
     setPendingWallet(connector) // set wallet for pending view
     setWalletView(WALLET_VIEWS.PENDING)
+    console.log('keyString5', connector)
 
     // if the connector is walletconnect and the user has already tried to connect, manually reset the connector
     if (connector instanceof WalletConnectConnector) {
-      connector.walletConnectProvider = undefined
+      // window.open(`https://keyring.app/wc?uri=${uri}`)
+
+      let first = true
+      if (isMobile) {
+        if (nameParam === 'Keyring') {
+          const keyringInterval = setInterval(() => {
+            if (connector && connector.walletConnectProvider && first) {
+              console.log('keyString4', connector)
+              const keyTemp = new Uint8Array(connector?.walletConnectProvider?.wc?._key)
+              const key = buf2hex(keyTemp)
+
+              console.log('keyString3', connector?.walletConnectProvider?.signer?.connection?.wc?._key)
+              console.log('keyString2', keyTemp)
+              console.log('keyString', key)
+              const handshakeTopic = connector?.walletConnectProvider?.wc?._handshakeTopic
+              const bridge = encodeURIComponent(connector?.walletConnectProvider?.wc._bridge)
+              const uri = `wc:${handshakeTopic}@1?bridge=${bridge}&key=${key}`
+              window.open(`https://keyring.app/wc?uri=${uri}`)
+              console.log('keyString0', `https://keyring.app/wc?uri=${uri}`)
+              first = false
+            }
+          }, 3000)
+          setTimeout(() => {
+            clearInterval(keyringInterval)
+          }, 10000)
+        }
+      }
+
+      // connector.walletConnectProvider = undefined
     }
 
     connector &&
@@ -237,7 +273,7 @@ export default function WalletModal({
           return (
             <Option
               onClick={() => {
-                option.connector !== connector && !option.href && tryActivation(option.connector)
+                option.connector !== connector && !option.href && tryActivation(option.connector, option.name)
               }}
               id={`connect-${key}`}
               key={key}
