@@ -38,7 +38,7 @@ export interface ApplicationState {
 const initialState: ApplicationState = {
   blockNumber: {},
   chainConnectivityWarning: false,
-  chainId: 56,
+  chainId: 1,
   implements3085: false,
   openModal: null,
   popupList: [],
