@@ -250,7 +250,6 @@ export default function Swap({ history }: RouteComponentProps) {
   const { independentField, typedValue, recipient } = useSwapState()
 
   const [selectedSwap, setSelectedSwap] = useState<string>(SUSHI_SWAP)
-  console.log('selectedSwap', selectedSwap, 'chainId', chainId)
 
   const refData = useRef<any>({})
 

@@ -104,7 +104,6 @@ export function usePairContract(pairAddress?: string, withSignerIfPossible?: boo
 
 export function useV2RouterContract(name?: string): Contract | null {
   const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
-  console.log('csm', CHAIN_SWAP_MAP[chainId])
   const routerAddress =
     name && CHAIN_SWAP_MAP[chainId] && CHAIN_SWAP_MAP[chainId][name]
       ? CHAIN_SWAP_MAP[chainId][name].routerAddress
