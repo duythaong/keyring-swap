@@ -202,8 +202,6 @@ export default function WalletModal({
 
     // if the connector is walletconnect and the user has already tried to connect, manually reset the connector
     if (connector instanceof WalletConnectConnector) {
-      // window.open(`https://keyring.app/wc?uri=${uri}`)
-
       let first = true
       if (isMobile) {
         if (nameParam === 'Keyring') {
@@ -215,7 +213,7 @@ export default function WalletModal({
               const handshakeTopic = connector?.walletConnectProvider?.wc?._handshakeTopic
               const bridge = encodeURIComponent(connector?.walletConnectProvider?.wc._bridge)
               const uri = `wc:${handshakeTopic}@1?bridge=${bridge}&key=${key}`
-              window.open(`https://keyring.app/wc?uri=${uri}`)
+              window.location.href = `https://keyring.app/wc?uri=${uri}`
               first = false
             }
           }, 1000)
@@ -224,7 +222,6 @@ export default function WalletModal({
           }, 10000)
         }
       }
-
       // connector.walletConnectProvider = undefined
     }
 
