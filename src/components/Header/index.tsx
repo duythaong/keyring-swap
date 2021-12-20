@@ -251,8 +251,7 @@ const StyledExternalLink = styled(ExternalLink).attrs({
 `
 
 export default function Header() {
-  const { account } = useActiveWeb3React()
-  const chainId = useAppSelector((state) => state.application.chainId)
+  const { account, chainId } = useActiveWeb3React()
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   const [darkMode] = useDarkModeManager()
   const { white, black } = useTheme()

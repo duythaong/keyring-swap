@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react'
 import { ArrowLeft, ArrowRight, Info } from 'react-feather'
 import ReactGA from 'react-ga'
 import styled from 'styled-components/macro'
+import { setInterval, setTimeout } from 'timers'
 
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
@@ -138,7 +139,7 @@ export default function WalletModal({
   ENSName?: string
 }) {
   // important that these are destructed from the account-specific web3-react context
-  const { active, account, connector, activate, error } = useWeb3React()
+  const { active, chainId, account, connector, activate, error } = useWeb3React()
 
   const [walletView, setWalletView] = useState(WALLET_VIEWS.ACCOUNT)
   const previousWalletView = usePrevious(walletView)
@@ -191,7 +192,11 @@ export default function WalletModal({
     }
   }, [])
 
-  const tryActivation = async (connector: AbstractConnector | undefined) => {
+  const buf2hex = (buffer: any) => {
+    // buffer is an ArrayBuffer
+    return [...new Uint8Array(buffer)].map((x) => x.toString(16).padStart(2, '0')).join('')
+  }
+  const tryActivation = async (connector: AbstractConnector | undefined, nameParam?: string) => {
     let name = ''
     Object.keys(SUPPORTED_WALLETS).map((key) => {
       if (connector === SUPPORTED_WALLETS[key].connector) {
@@ -210,7 +215,27 @@ export default function WalletModal({
 
     // if the connector is walletconnect and the user has already tried to connect, manually reset the connector
     if (connector instanceof WalletConnectConnector) {
-      connector.walletConnectProvider = undefined
+      let first = true
+      if (isMobile) {
+        if (nameParam === 'Keyring') {
+          const keyringInterval = setInterval(() => {
+            if (connector && connector.walletConnectProvider && first) {
+              console.log('connector2', connector)
+              const keyTemp = new Uint8Array(connector?.walletConnectProvider?.wc?._key)
+              const key = buf2hex(keyTemp)
+              const handshakeTopic = connector?.walletConnectProvider?.wc?._handshakeTopic
+              const bridge = encodeURIComponent(connector?.walletConnectProvider?.wc._bridge)
+              const uri = `wc:${handshakeTopic}@1?bridge=${bridge}&key=${key}`
+              window.location.href = `https://keyring.app/wc?uri=${uri}`
+              first = false
+            }
+          }, 1000)
+          setTimeout(() => {
+            clearInterval(keyringInterval)
+          }, 10000)
+        }
+      }
+      // connector.walletConnectProvider = undefined
     }
 
     connector &&
@@ -251,7 +276,7 @@ export default function WalletModal({
           return (
             <Option
               onClick={() => {
-                option.connector !== connector && !option.href && tryActivation(option.connector)
+                option.connector !== connector && !option.href && tryActivation(option.connector, option.name)
               }}
               id={`connect-${key}`}
               key={key}
@@ -306,7 +331,7 @@ export default function WalletModal({
             onClick={() => {
               option.connector === connector
                 ? setWalletView(WALLET_VIEWS.ACCOUNT)
-                : !option.href && tryActivation(option.connector)
+                : !option.href && tryActivation(option.connector, option.name)
             }}
             key={key}
             active={option.connector === connector}

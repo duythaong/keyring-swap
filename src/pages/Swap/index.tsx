@@ -208,8 +208,8 @@ const useRouting = (
 }
 
 export default function Swap({ history }: RouteComponentProps) {
-  const { account } = useActiveWeb3React()
-  const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
+  const { account, chainId } = useActiveWeb3React()
+  // const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
   const previousChainId = usePrevious(chainId)
   const loadedUrlParams = useDefaultsFromURLSearch()
   const [darkMode] = useDarkModeManager()
@@ -252,6 +252,8 @@ export default function Swap({ history }: RouteComponentProps) {
   const [selectedSwap, setSelectedSwap] = useState<string>(SUSHI_SWAP)
 
   const refData = useRef<any>({})
+
+  const userHasSelected = useRef(false)
 
   // Bacoor
   const {
@@ -366,16 +368,30 @@ export default function Swap({ history }: RouteComponentProps) {
     txHash: undefined,
   })
 
-  const formattedAmounts = {
-    [independentField]: typedValue,
-    [dependentField]: showWrap
-      ? parsedAmounts[independentField]?.toExact() ?? ''
-      : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
-  }
+  // const formattedAmounts = {
+  //   [independentField]: typedValue,
+  //   [dependentField]: showWrap
+  //     ? parsedAmounts[independentField]?.toExact() ?? ''
+  //     : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
+  // }
+
+  const formattedAmounts = useMemo(
+    () => ({
+      [independentField]: typedValue,
+      [dependentField]: showWrap
+        ? parsedAmounts[independentField]?.toExact() ?? ''
+        : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
+    }),
+    [dependentField, independentField, parsedAmounts, showWrap, typedValue]
+  )
 
   const sortedTrades: { name: string; logo: string; amountOut: string }[] = useSortedTrades(showWrap, tradeMap)
 
-  useDeepCompareEffect(() => setSelectedSwap(sortedTrades[0].name), [sortedTrades])
+  useDeepCompareEffect(() => {
+    if (!userHasSelected.current) {
+      setSelectedSwap(sortedTrades[0].name)
+    }
+  }, [sortedTrades])
 
   const userHasSpecifiedInputOutput = Boolean(
     currencies[Field.INPUT] && currencies[Field.OUTPUT] && parsedAmounts[independentField]?.greaterThan(JSBI.BigInt(0))
@@ -511,6 +527,7 @@ export default function Swap({ history }: RouteComponentProps) {
 
   const handleInputSelect = useCallback(
     (inputCurrency) => {
+      userHasSelected.current = false
       setApprovalSubmitted(false) // reset 2 step UI for approvals
       onCurrencySelection(Field.INPUT, inputCurrency)
     },
@@ -522,7 +539,10 @@ export default function Swap({ history }: RouteComponentProps) {
   }, [maxInputAmount, onUserInput])
 
   const handleOutputSelect = useCallback(
-    (outputCurrency) => onCurrencySelection(Field.OUTPUT, outputCurrency),
+    (outputCurrency) => {
+      userHasSelected.current = false
+      onCurrencySelection(Field.OUTPUT, outputCurrency)
+    },
     [onCurrencySelection]
   )
 
@@ -534,7 +554,8 @@ export default function Swap({ history }: RouteComponentProps) {
     if (chainId !== previousChainId) {
       refData.current = {}
     }
-    const swapNames = CHAIN_SWAP_NAMES[chainId] ?? CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET]
+    const swapNames =
+      CHAIN_SWAP_NAMES[chainId ?? SupportedChainId.POLYGON_MAINET] ?? CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET]
     return swapNames.map((item) => <Hooks key={item} name={item} refData={refData} toggledVersion={toggledVersion} />)
   }, [chainId, previousChainId, toggledVersion])
 
@@ -616,7 +637,10 @@ export default function Swap({ history }: RouteComponentProps) {
                         key={name}
                         name={name}
                         selectedSwap={selectedSwap}
-                        onClick={() => setSelectedSwap(name)}
+                        onClick={() => {
+                          userHasSelected.current = true
+                          setSelectedSwap(name)
+                        }}
                       >
                         <BacoorOutput>
                           <Logo darkMode={darkMode} src={logo} />
@@ -627,7 +651,7 @@ export default function Swap({ history }: RouteComponentProps) {
                               console.log(amountOut)
                             }}
                             value={amountOut !== '' ? amountOut : '0'}
-                            disabled={true}
+                            // disabled={true}
                           />
                         </BacoorOutput>
                       </ActiveOutlinedButton>
@@ -749,7 +773,10 @@ export default function Swap({ history }: RouteComponentProps) {
                 <AutoRow style={{ flexWrap: 'nowrap', width: '100%' }}>
                   <AutoColumn style={{ width: '100%' }} gap="12px">
                     <ButtonConfirmed
-                      onClick={handleApprove}
+                      onClick={() => {
+                        userHasSelected.current = true
+                        handleApprove()
+                      }}
                       disabled={
                         approvalState !== ApprovalState.NOT_APPROVED ||
                         approvalSubmitted ||
@@ -833,6 +860,7 @@ export default function Swap({ history }: RouteComponentProps) {
                 <>
                   <ButtonError
                     onClick={() => {
+                      userHasSelected.current = true
                       if (isExpertMode) {
                         handleSwap()
                       } else {

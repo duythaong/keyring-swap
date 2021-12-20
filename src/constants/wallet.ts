@@ -6,7 +6,7 @@ import COINBASE_ICON_URL from '../assets/images/coinbaseWalletIcon.svg'
 import KEYRING from '../assets/images/keyring.svg'
 import METAMASK_ICON_URL from '../assets/images/metamask.png'
 import WALLETCONNECT_ICON_URL from '../assets/images/walletConnectIcon.svg'
-import { injected, walletconnect, walletlink } from '../connectors'
+import { injected, keyringConnect, walletconnect, walletlink } from '../connectors'
 
 interface WalletInfo {
   connector?: AbstractConnector
@@ -66,11 +66,11 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     ],
   },
   KEYRING: {
-    connector: walletconnect,
+    connector: keyringConnect,
     name: 'Keyring',
     iconURL: KEYRING,
     description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
-    href: isMobile ? 'https://keyring.app/wc?uri=' : null,
+    href: null,
     color: '#4196FC',
     mobile: true,
     chainSupport: [

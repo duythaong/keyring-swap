@@ -32,7 +32,6 @@ import {
   V3_MIGRATOR_ADDRESSES,
 } from 'constants/addresses'
 import { useMemo } from 'react'
-import { useAppSelector } from 'state/hooks'
 import { NonfungiblePositionManager, Quoter, UniswapInterfaceMulticall } from 'types/v3'
 import { V3Migrator } from 'types/v3/V3Migrator'
 import { getContract } from 'utils'
@@ -103,10 +102,14 @@ export function usePairContract(pairAddress?: string, withSignerIfPossible?: boo
 }
 
 export function useV2RouterContract(name?: string): Contract | null {
-  const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
+  const { chainId } = useActiveWeb3React()
+  // const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
+
   const routerAddress =
-    name && CHAIN_SWAP_MAP[chainId] && CHAIN_SWAP_MAP[chainId][name]
-      ? CHAIN_SWAP_MAP[chainId][name].routerAddress
+    name &&
+    CHAIN_SWAP_MAP[chainId ?? SupportedChainId.POLYGON_MAINET] &&
+    CHAIN_SWAP_MAP[chainId ?? SupportedChainId.POLYGON_MAINET][name]
+      ? CHAIN_SWAP_MAP[chainId ?? SupportedChainId.POLYGON_MAINET][name].routerAddress
       : CHAIN_SWAP_MAP[SupportedChainId.POLYGON_MAINET][CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET][0]]
           .routerAddress
 

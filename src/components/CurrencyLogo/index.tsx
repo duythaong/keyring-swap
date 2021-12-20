@@ -67,7 +67,6 @@ export default function CurrencyLogo({
   const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.logoURI : undefined)
 
   const srcs: string[] = useMemo(() => {
-    console.log('value', currency, !currency)
     if (currency === null || currency === undefined) return [unknown]
 
     if (currency?.isNative || currency.equals(WETH9_EXTENDED[currency.chainId])) {

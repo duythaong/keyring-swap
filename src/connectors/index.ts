@@ -3,7 +3,9 @@ import { SafeAppConnector } from '@gnosis.pm/safe-apps-web3-react'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { PortisConnector } from '@web3-react/portis-connector'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
+import { URI_AVAILABLE } from '@web3-react/walletconnect-connector'
 import { WalletLinkConnector } from '@web3-react/walletlink-connector'
+import { isMobile } from 'utils/userAgent'
 
 import UNISWAP_LOGO_URL from '../assets/svg/logo.svg'
 import { ALL_SUPPORTED_CHAIN_IDS, SupportedChainId } from '../constants/chains'
@@ -20,7 +22,6 @@ if (typeof INFURA_KEY === 'undefined') {
 }
 
 const NETWORK_URLS = {
-  [SupportedChainId.POLYGON_MAINET]: 'https://rpc-mainnet.maticvigil.com/',
   [SupportedChainId.MAINNET]: `https://mainnet.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.RINKEBY]: `https://rinkeby.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ROPSTEN]: `https://ropsten.infura.io/v3/${INFURA_KEY}`,
@@ -30,13 +31,14 @@ const NETWORK_URLS = {
   [SupportedChainId.OPTIMISTIC_KOVAN]: `https://optimism-kovan.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_ONE]: `https://arbitrum-mainnet.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_RINKEBY]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.POLYGON_MAINET]: 'https://rpc-mainnet.maticvigil.com/',
   [SupportedChainId.POLYGON_TESTNET]: `https://rpc-mumbai.maticvigil.com`,
   [SupportedChainId.BSC_MAINNET]: `https://bsc-dataseed1.ninicoin.io`,
 }
 
 export const network = new NetworkConnector({
   urls: NETWORK_URLS,
-  defaultChainId: 137,
+  defaultChainId: 1,
 })
 
 let networkLibrary: Web3Provider | undefined
@@ -57,6 +59,12 @@ export const walletconnect = new WalletConnectConnector({
   // pollingInterval: 15000,
 })
 
+export const keyringConnect = new WalletConnectConnector({
+  supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
+  rpc: NETWORK_URLS,
+  qrcode: isMobile ? false : true,
+})
+
 // mainnet only
 export const fortmatic = new FortmaticConnector({
   apiKey: FORMATIC_KEY ?? '',
@@ -75,3 +83,11 @@ export const walletlink = new WalletLinkConnector({
   appName: 'Uniswap',
   appLogoUrl: UNISWAP_LOGO_URL,
 })
+
+export const getURI = async () => {
+  new WalletConnectConnector({
+    bridge: 'https://bridge.keyringpro.com',
+    rpc: NETWORK_URLS,
+    qrcode: true,
+  })
+}
