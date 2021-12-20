@@ -14,6 +14,7 @@ import {
   FileText,
   Globe,
   Info,
+  Link2,
   MessageCircle,
   Moon,
   PieChart,
@@ -209,6 +210,17 @@ function LanguageMenu({ close }: { close: () => void }) {
   )
 }
 
+function getBridge(chainId: number | undefined) {
+  switch (chainId) {
+    case SupportedChainId.BSC_MAINNET:
+      return 'https://www.binance.org/en/bridge'
+    case SupportedChainId.POLYGON_MAINET:
+      return 'https://wallet.polygon.technology/bridge/'
+    default:
+      return ''
+  }
+}
+
 export default function Menu() {
   const { account, chainId } = useActiveWeb3React()
 
@@ -246,6 +258,16 @@ export default function Menu() {
               default:
                 return (
                   <MenuFlyout>
+                    {chainId &&
+                      (chainId === SupportedChainId.BSC_MAINNET || chainId === SupportedChainId.POLYGON_MAINET) && (
+                        <MenuItem href={getBridge(chainId)}>
+                          <div>
+                            <Trans>Bridge</Trans>
+                          </div>
+                          <Link2 opacity={0.6} size={16} />
+                        </MenuItem>
+                      )}
+
                     <MenuItem href="https://uniswap.org/">
                       <div>
                         <Trans>About</Trans>
