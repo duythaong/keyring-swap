@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/macro'
+import { isAndroid } from '@walletconnect/browser-utils'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import { URI_AVAILABLE, WalletConnectConnector } from '@web3-react/walletconnect-connector'
@@ -228,7 +229,7 @@ export default function WalletModal({
               const uri = `wc:${handshakeTopic}@1?bridge=${bridge}&key=${key}`
               Object.assign(document.createElement('a'), {
                 target: '_blank',
-                href: `keyring://keyring.app/wc?uri=${uri}`,
+                href: isAndroid() ? `https://keyring.app/wc?uri=${uri}` : `keyring://keyring.app/wc?uri=${uri}`,
               }).click()
               // window.location.href = `https://keyring.app/wc?uri=${uri}`
               first = false
