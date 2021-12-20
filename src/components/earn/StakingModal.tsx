@@ -49,8 +49,8 @@ interface StakingModalProps {
 }
 
 export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiquidityUnstaked }: StakingModalProps) {
-  const { library } = useActiveWeb3React()
-  const chainId = useAppSelector((state) => state.application.chainId)
+  const { library, chainId } = useActiveWeb3React()
+
   // track and parse user input
   const [typedValue, setTypedValue] = useState('')
   const { parsedAmount, error } = useDerivedStakeInfo(

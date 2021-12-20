@@ -21,8 +21,8 @@ import { useTotalUniEarned } from '../stake/hooks'
 export function useETHBalances(uncheckedAddresses?: (string | undefined)[]): {
   [address: string]: CurrencyAmount<Currency> | undefined
 } {
-  // const { chainId } = useActiveWeb3React()
-  const chainId = useAppSelector((state) => state.application.chainId)
+  const { chainId } = useActiveWeb3React()
+  // const chainId = useAppSelector((state) => state.application.chainId)
   const multicallContract = useMulticall2Contract()
 
   const addresses: string[] = useMemo(

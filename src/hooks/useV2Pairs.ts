@@ -3,11 +3,11 @@ import { Interface } from '@ethersproject/abi'
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { useMemo } from 'react'
-import { useAppSelector } from 'state/hooks'
 
 import { CHAIN_SWAP_MAP, CHAIN_SWAP_NAMES } from '../constants/addresses'
 import { SupportedChainId } from '../constants/chains'
 import { useMultipleContractSingleData } from '../state/multicall/hooks'
+import { useActiveWeb3React } from './web3'
 
 const PAIR_INTERFACE = new Interface(IUniswapV2PairABI)
 
@@ -26,7 +26,9 @@ export function useV2Pairs(
     () => currencies.map(([currencyA, currencyB]) => [currencyA?.wrapped, currencyB?.wrapped]),
     [currencies]
   )
-  const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
+
+  const { chainId } = useActiveWeb3React()
+  // const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
 
   const pairAddresses = useMemo(
     () =>
@@ -36,12 +38,13 @@ export function useV2Pairs(
           tokenA.chainId === tokenB.chainId &&
           !tokenA.equals(tokenB) &&
           name &&
-          CHAIN_SWAP_MAP[chainId] &&
-          CHAIN_SWAP_MAP[chainId][name] &&
-          CHAIN_SWAP_MAP[chainId][name].factoryAddresses[tokenA.chainId]
-          ? CHAIN_SWAP_MAP[chainId][name].computePairAddress({
-              factoryAddress: CHAIN_SWAP_MAP[chainId][name].factoryAddresses[tokenA.chainId],
-              initCodeHash: CHAIN_SWAP_MAP[chainId][name].initCodeHash,
+          CHAIN_SWAP_MAP[chainId ?? SupportedChainId.POLYGON_MAINET] &&
+          CHAIN_SWAP_MAP[chainId ?? SupportedChainId.POLYGON_MAINET][name] &&
+          CHAIN_SWAP_MAP[chainId ?? SupportedChainId.POLYGON_MAINET][name].factoryAddresses[tokenA.chainId]
+          ? CHAIN_SWAP_MAP[chainId ?? SupportedChainId.POLYGON_MAINET][name].computePairAddress({
+              factoryAddress:
+                CHAIN_SWAP_MAP[chainId ?? SupportedChainId.POLYGON_MAINET][name].factoryAddresses[tokenA.chainId],
+              initCodeHash: CHAIN_SWAP_MAP[chainId ?? SupportedChainId.POLYGON_MAINET][name].initCodeHash,
               tokenA,
               tokenB,
             })
@@ -67,8 +70,8 @@ export function useV2Pairs(
       return [
         PairState.EXISTS,
         new Pair(
-          CHAIN_SWAP_MAP[chainId][name].factoryAddresses[tokenA.chainId],
-          CHAIN_SWAP_MAP[chainId][name].initCodeHash,
+          CHAIN_SWAP_MAP[chainId ?? SupportedChainId.POLYGON_MAINET][name].factoryAddresses[tokenA.chainId],
+          CHAIN_SWAP_MAP[chainId ?? SupportedChainId.POLYGON_MAINET][name].initCodeHash,
           CurrencyAmount.fromRawAmount(token0, reserve0.toString()),
           CurrencyAmount.fromRawAmount(token1, reserve1.toString())
         ),
@@ -79,6 +82,7 @@ export function useV2Pairs(
 
 export function useV2Pair(tokenA?: Currency, tokenB?: Currency): [PairState, Pair | null] {
   const inputs: [[Currency | undefined, Currency | undefined]] = useMemo(() => [[tokenA, tokenB]], [tokenA, tokenB])
-  const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
-  return useV2Pairs(CHAIN_SWAP_NAMES[chainId][0], inputs)[0]
+  const { chainId } = useActiveWeb3React() ?? SupportedChainId.POLYGON_MAINET
+  // const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
+  return useV2Pairs(CHAIN_SWAP_NAMES[chainId ?? SupportedChainId.POLYGON_MAINET][0], inputs)[0]
 }

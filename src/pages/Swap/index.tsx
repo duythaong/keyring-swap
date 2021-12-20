@@ -208,8 +208,8 @@ const useRouting = (
 }
 
 export default function Swap({ history }: RouteComponentProps) {
-  const { account } = useActiveWeb3React()
-  const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
+  const { account, chainId } = useActiveWeb3React()
+  // const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
   const previousChainId = usePrevious(chainId)
   const loadedUrlParams = useDefaultsFromURLSearch()
   const [darkMode] = useDarkModeManager()
@@ -554,7 +554,8 @@ export default function Swap({ history }: RouteComponentProps) {
     if (chainId !== previousChainId) {
       refData.current = {}
     }
-    const swapNames = CHAIN_SWAP_NAMES[chainId] ?? CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET]
+    const swapNames =
+      CHAIN_SWAP_NAMES[chainId ?? SupportedChainId.POLYGON_MAINET] ?? CHAIN_SWAP_NAMES[SupportedChainId.POLYGON_MAINET]
     return swapNames.map((item) => <Hooks key={item} name={item} refData={refData} toggledVersion={toggledVersion} />)
   }, [chainId, previousChainId, toggledVersion])
 

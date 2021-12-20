@@ -1,7 +1,6 @@
 import { CHAIN_INFO } from 'constants/chains'
 import useDebounce from 'hooks/useDebounce'
 import useIsWindowVisible from 'hooks/useIsWindowVisible'
-import usePrevious from 'hooks/usePrevious'
 import { useActiveWeb3React } from 'hooks/web3'
 import ms from 'ms.macro'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -64,11 +63,10 @@ function useBlockWarningTimer() {
 }
 
 export default function Updater(): null {
-  const { account, library } = useActiveWeb3React()
+  const { account, chainId, library } = useActiveWeb3React()
   const dispatch = useAppDispatch()
   const windowVisible = useIsWindowVisible()
-  const chainId = useAppSelector((state) => state.application.chainId) || 0
-  const { chainId: chainIdWeb3 } = useActiveWeb3React()
+
   const [state, setState] = useState<{ chainId: number | undefined; blockNumber: number | null }>({
     chainId,
     blockNumber: null,
@@ -124,27 +122,10 @@ export default function Updater(): null {
     if (!account || !library?.provider?.request || !library?.provider?.isMetaMask) {
       return
     }
-
-    // switchToNetwork({ library })
-    //   .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
-    //   .catch(() => dispatch(setImplements3085({ implements3085: false })))
-    if (chainId) {
-      if (windowVisible) {
-        const isRedux = localStorage.getItem('CHAIN_REDUX')
-        if (chainIdWeb3 && chainId !== chainIdWeb3 && isRedux !== 'true') {
-          dispatch(updateChainId({ chainId: chainIdWeb3 ? supportedChainId(chainIdWeb3) ?? chainId : null }))
-        } else {
-          switchToNetwork({ library, chainId: supportedChainId(chainId) })
-        }
-        // .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
-        // .catch(() => dispatch(setImplements3085({ implements3085: false })))
-      } else {
-        if (chainIdWeb3 && chainId !== chainIdWeb3) {
-          dispatch(updateChainId({ chainId: chainIdWeb3 ? supportedChainId(chainIdWeb3) ?? null : null }))
-        }
-      }
-    }
-  }, [account, chainId, dispatch, library, windowVisible, chainIdWeb3])
+    switchToNetwork({ library })
+      .then((x) => x ?? dispatch(setImplements3085({ implements3085: true })))
+      .catch(() => dispatch(setImplements3085({ implements3085: false })))
+  }, [account, chainId, dispatch, library])
 
   return null
 }
