@@ -69,7 +69,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     connector: keyringConnect,
     name: 'Keyring',
     iconURL: KEYRING,
-    description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
+    description: '',
     href: null,
     color: '#4196FC',
     mobile: true,
