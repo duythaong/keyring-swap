@@ -145,6 +145,9 @@ export default function WalletModal({
   const [walletView, setWalletView] = useState(WALLET_VIEWS.ACCOUNT)
   const previousWalletView = usePrevious(walletView)
 
+  const android = isAndroid()
+  console.log('android', android)
+
   const [pendingWallet, setPendingWallet] = useState<AbstractConnector | undefined>()
 
   const [pendingError, setPendingError] = useState<boolean>()
@@ -216,11 +219,13 @@ export default function WalletModal({
               const handshakeTopic = connector?.walletConnectProvider?.wc?._handshakeTopic
               const bridge = encodeURIComponent(connector?.walletConnectProvider?.wc._bridge)
               const uri = `wc:${handshakeTopic}@1?bridge=${bridge}&key=${key}`
-              Object.assign(document.createElement('a'), {
-                target: '_blank',
-                href: isAndroid() ? `https://keyring.app/wc?uri=${uri}` : `keyring://keyring.app/wc?uri=${uri}`,
-              }).click()
-              // window.location.href = `https://keyring.app/wc?uri=${uri}`
+              // Object.assign(document.createElement('a'), {
+              //   target: '_blank',
+              //   href: android ? `https://keyring.app/wc?uri=${uri}` : `keyring://keyring.app/wc?uri=${uri}`,
+              // }).click()
+              window.location.href = android
+                ? `https://keyring.app/wc?uri=${uri}`
+                : `keyring://keyring.app/wc?uri=${uri}`
               first = false
             }
           }, 1000)
