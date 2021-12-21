@@ -137,7 +137,6 @@ export function useDerivedSwapInfo(
   const { account } = useActiveWeb3React()
 
   const toggledVersion = swapVersion ? swapVersion : name !== UNI_SWAP ? Version.v2 : swapVersion
-  console.log('name', name, toggledVersion)
 
   const {
     independentField,

@@ -330,7 +330,7 @@ export default function WalletModal({
             onClick={() => {
               option.connector === connector
                 ? setWalletView(WALLET_VIEWS.ACCOUNT)
-                : !option.href && tryActivation(option.connector, option.name)
+                : !option.href && tryActivation(option.connector)
             }}
             key={key}
             active={option.connector === connector}
