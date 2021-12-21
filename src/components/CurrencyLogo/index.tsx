@@ -1,12 +1,12 @@
 import { Currency } from '@uniswap/sdk-core'
+import BNBLogo from 'assets/images/binance.svg'
+import EthereumLogo from 'assets/images/ethereum-logo.png'
+import PolygonLogo from 'assets/images/polygon.svg'
 import { SupportedChainId } from 'constants/chains'
 import { WETH9_EXTENDED } from 'constants/tokens'
 import React, { useMemo } from 'react'
 import styled from 'styled-components/macro'
 
-import BNBLogo from '../../assets/images/binance.svg'
-import EthereumLogo from '../../assets/images/ethereum-logo.png'
-import PolygonLogo from '../../assets/images/polygon.svg'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/wrappedTokenInfo'
 import Logo from '../Logo'
@@ -42,7 +42,6 @@ const StyledLogo = styled(Logo)<{ size: string }>`
   height: ${({ size }) => size};
   border-radius: ${({ size }) => size};
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
-  background-color: ${({ theme }) => theme.white};
 `
 
 const LOGO: { readonly [chainId in SupportedChainId]?: string } = {

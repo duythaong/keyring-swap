@@ -1,10 +1,7 @@
 import { Trans } from '@lingui/macro'
 import { useWeb3React } from '@web3-react/core'
 import { useEffect } from 'react'
-import { updateChainId } from 'state/application/reducer'
-import { useAppDispatch } from 'state/hooks'
 import styled from 'styled-components/macro'
-import { supportedChainId } from 'utils/supportedChainId'
 
 import { network } from '../../connectors'
 import { NetworkContextName } from '../../constants/misc'
@@ -24,7 +21,6 @@ const Message = styled.h2`
 export default function Web3ReactManager({ children }: { children: JSX.Element }) {
   const { active } = useWeb3React()
   const { active: networkActive, error: networkError, activate: activateNetwork } = useWeb3React(NetworkContextName)
-  const dispatch = useAppDispatch()
 
   // try to eagerly connect to an injected provider, if it exists and has granted access already
   const triedEager = useEagerConnect()
@@ -37,20 +33,20 @@ export default function Web3ReactManager({ children }: { children: JSX.Element }
   }, [triedEager, networkActive, networkError, activateNetwork, active])
 
   // when there's no account connected, react to logins (broadly speaking) on the injected provider, if it exists
-  // useInactiveListener(!triedEager)
+  useInactiveListener(!triedEager)
 
   // if the account context isn't active, and there's an error on the network context, it's an irrecoverable error
-  // if (triedEager && !active && networkError) {
-  //   return (
-  //     <MessageWrapper>
-  //       <Message>
-  //         <Trans>
-  //           Oops! An unknown error occurred. Please refresh the page, or visit from another browser or device.
-  //         </Trans>
-  //       </Message>
-  //     </MessageWrapper>
-  //   )
-  // }
+  if (triedEager && !active && networkError) {
+    return (
+      <MessageWrapper>
+        <Message>
+          <Trans>
+            Oops! An unknown error occurred. Please refresh the page, or visit from another browser or device.
+          </Trans>
+        </Message>
+      </MessageWrapper>
+    )
+  }
 
   return children
 }

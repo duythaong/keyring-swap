@@ -2,7 +2,7 @@ import { Trans } from '@lingui/macro'
 import { isAndroid } from '@walletconnect/browser-utils'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
-import { URI_AVAILABLE, WalletConnectConnector } from '@web3-react/walletconnect-connector'
+import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { AutoColumn } from 'components/Column'
 import { PrivacyPolicy } from 'components/PrivacyPolicy'
 import Row, { AutoRow, RowBetween } from 'components/Row'
@@ -190,6 +190,7 @@ export default function WalletModal({
     return [...new Uint8Array(buffer)].map((x) => x.toString(16).padStart(2, '0')).join('')
   }
   const tryActivation = async (connector: AbstractConnector | undefined, nameParam?: string) => {
+    console.log('tryActivation -> connector', connector, nameParam)
     let name = ''
     Object.keys(SUPPORTED_WALLETS).map((key) => {
       if (connector === SUPPORTED_WALLETS[key].connector) {
@@ -241,6 +242,7 @@ export default function WalletModal({
       activate(connector, undefined, true)
         .then(async () => {
           const walletAddress = await connector.getAccount()
+          console.log('tryActivation -> walletAddress', walletAddress)
           logMonitoringEvent({ walletAddress })
         })
         .catch((error) => {
@@ -330,7 +332,7 @@ export default function WalletModal({
             onClick={() => {
               option.connector === connector
                 ? setWalletView(WALLET_VIEWS.ACCOUNT)
-                : !option.href && tryActivation(option.connector, option.name)
+                : !option.href && tryActivation(option.connector)
             }}
             key={key}
             active={option.connector === connector}
