@@ -20,7 +20,7 @@ import { Text } from 'rebass'
 import { useAppSelector } from 'state/hooks'
 import { V3TradeState } from 'state/routing/types'
 import { useDarkModeManager } from 'state/user/hooks'
-import styled, { css, ThemeContext } from 'styled-components/macro'
+import styled, { css, keyframes, ThemeContext } from 'styled-components/macro'
 import useDeepCompareEffect from 'use-deep-compare-effect'
 import Observer from 'utils/observer'
 
@@ -124,6 +124,37 @@ const Logo = styled.img<{ darkMode: boolean }>`
   `}
 `
 
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`
+
+const Banner = styled.div`
+  max-width: 480px;
+  height: 50px;
+  width: 100%;
+  background-color: ${({ theme }) => theme.primary1};
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: ${fadeIn} 3s ease-out;
+`
+const Banner2 = styled.div`
+  max-width: 480px;
+  height: 50px;
+  width: 100%;
+  background-color: ${({ theme }) => theme.primary1};
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: ${fadeIn} 3s ease-out;
+`
 const ActiveOutlinedButton = ({
   name,
   selectedSwap,
@@ -219,6 +250,7 @@ export default function Swap({ history }: RouteComponentProps) {
     useCurrency(loadedUrlParams?.outputCurrencyId),
   ]
   const [dismissTokenWarning, setDismissTokenWarning] = useState<boolean>(false)
+  const [isRenderAngo, setIsRenderAngo] = useState<boolean>(false)
   const urlLoadedTokens: Token[] = useMemo(
     () => [loadedInputCurrency, loadedOutputCurrency]?.filter((c): c is Token => c?.isToken ?? false) ?? [],
     [loadedInputCurrency, loadedOutputCurrency]
@@ -289,10 +321,20 @@ export default function Swap({ history }: RouteComponentProps) {
     const tradeMapUpdate = () => {
       setTradeMap(refData.current)
     }
+    const bannerInte = setInterval(() => {
+      setIsRenderAngo((state) => !state)
+    }, 10000)
     Observer.on(TRADE_MAP_UPDATE, tradeMapUpdate)
 
-    return () => Observer.removeListener(TRADE_MAP_UPDATE, tradeMapUpdate)
+    return () => {
+      Observer.removeListener(TRADE_MAP_UPDATE, tradeMapUpdate)
+      clearInterval(bannerInte)
+    }
   }, [])
+
+  useEffect(() => {
+    console.log('isRenderAngo', isRenderAngo)
+  }, [isRenderAngo])
 
   const {
     trade,
@@ -897,6 +939,7 @@ export default function Swap({ history }: RouteComponentProps) {
         </Wrapper>
       </AppBody>
       {/* <SwitchLocaleLink /> */}
+      {isRenderAngo ? <Banner>Angoname</Banner> : <Banner2>Wraptag</Banner2>}
       {!swapIsUnsupported ? null : (
         <UnsupportedCurrencyFooter
           show={swapIsUnsupported}
