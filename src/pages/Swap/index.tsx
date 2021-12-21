@@ -321,13 +321,14 @@ export default function Swap({ history }: RouteComponentProps) {
     const tradeMapUpdate = () => {
       setTradeMap(refData.current)
     }
-    setInterval(() => {
-      setIsRenderAngo(!isRenderAngo)
+    const bannerInte = setInterval(() => {
+      setIsRenderAngo((state) => !state)
     }, 10000)
     Observer.on(TRADE_MAP_UPDATE, tradeMapUpdate)
 
     return () => {
       Observer.removeListener(TRADE_MAP_UPDATE, tradeMapUpdate)
+      clearInterval(bannerInte)
     }
   }, [])
 
