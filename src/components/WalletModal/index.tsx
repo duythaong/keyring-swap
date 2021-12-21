@@ -2,7 +2,7 @@ import { Trans } from '@lingui/macro'
 import { isAndroid } from '@walletconnect/browser-utils'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
-import { URI_AVAILABLE, WalletConnectConnector } from '@web3-react/walletconnect-connector'
+import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { AutoColumn } from 'components/Column'
 import { PrivacyPolicy } from 'components/PrivacyPolicy'
 import Row, { AutoRow, RowBetween } from 'components/Row'
@@ -241,6 +241,7 @@ export default function WalletModal({
       activate(connector, undefined, true)
         .then(async () => {
           const walletAddress = await connector.getAccount()
+          console.log('tryActivation -> walletAddress', walletAddress)
           logMonitoringEvent({ walletAddress })
         })
         .catch((error) => {
