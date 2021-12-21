@@ -49,4 +49,4 @@ workflows:
       - build-deploy:
           filters:
             branches:
-              only: ci
+              only: mainnet
