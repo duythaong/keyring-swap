@@ -67,7 +67,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
   },
   KEYRING: {
     connector: keyringConnect,
-    name: 'Keyring',
+    name: 'KEYRING PRO',
     iconURL: KEYRING,
     description: '',
     href: null,

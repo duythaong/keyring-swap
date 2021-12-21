@@ -210,7 +210,7 @@ export default function WalletModal({
     if (connector instanceof WalletConnectConnector) {
       let first = true
       if (isMobile) {
-        if (nameParam === 'Keyring') {
+        if (nameParam === 'KEYRING PRO') {
           const keyringInterval = setInterval(() => {
             if (connector && connector.walletConnectProvider && first) {
               console.log('connector2', connector)
@@ -440,7 +440,7 @@ export default function WalletModal({
                 </TYPE.black>
               </AutoRow>
             </LightCard>
-            <LinkCard padding=".5rem" $borderRadius=".75rem" onClick={() => setWalletView(WALLET_VIEWS.LEGAL)}>
+            {/* <LinkCard padding=".5rem" $borderRadius=".75rem" onClick={() => setWalletView(WALLET_VIEWS.LEGAL)}>
               <RowBetween>
                 <AutoRow gap="4px">
                   <Info size={20} />
@@ -450,7 +450,7 @@ export default function WalletModal({
                 </AutoRow>
                 <ArrowRight size={16} />
               </RowBetween>
-            </LinkCard>
+            </LinkCard> */}
             {walletView === WALLET_VIEWS.PENDING ? (
               <PendingView
                 connector={pendingWallet}
