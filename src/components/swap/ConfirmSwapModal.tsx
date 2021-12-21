@@ -42,6 +42,7 @@ export default function ConfirmSwapModal({
   isOpen,
   attemptingTxn,
   txHash,
+  selectedSwap,
 }: {
   isOpen: boolean
   trade: V2Trade<Currency, Currency, TradeType> | V3Trade<Currency, Currency, TradeType> | undefined
@@ -54,6 +55,7 @@ export default function ConfirmSwapModal({
   onConfirm: () => void
   swapErrorMessage: ReactNode | undefined
   onDismiss: () => void
+  selectedSwap: string
 }) {
   const showAcceptChanges = useMemo(
     () =>
@@ -76,6 +78,7 @@ export default function ConfirmSwapModal({
         recipient={recipient}
         showAcceptChanges={showAcceptChanges}
         onAcceptChanges={onAcceptChanges}
+        selectedSwap={selectedSwap}
       />
     ) : null
   }, [allowedSlippage, onAcceptChanges, recipient, showAcceptChanges, trade])

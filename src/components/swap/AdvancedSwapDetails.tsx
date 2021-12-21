@@ -6,6 +6,7 @@ import { LoadingRows } from 'components/Loader/styled'
 import { useContext, useMemo } from 'react'
 import { ThemeContext } from 'styled-components/macro'
 
+import { LOGO } from '../../constants/addresses'
 import { TYPE } from '../../theme'
 import { computeRealizedLPFeePercent } from '../../utils/prices'
 import { AutoColumn } from '../Column'
@@ -17,6 +18,7 @@ interface AdvancedSwapDetailsProps {
   trade?: V2Trade<Currency, Currency, TradeType> | V3Trade<Currency, Currency, TradeType>
   allowedSlippage: Percent
   syncing?: boolean
+  selectedSwap?: string
 }
 
 function TextWithLoadingPlaceholder({
@@ -37,7 +39,12 @@ function TextWithLoadingPlaceholder({
   )
 }
 
-export function AdvancedSwapDetails({ trade, allowedSlippage, syncing = false }: AdvancedSwapDetailsProps) {
+export function AdvancedSwapDetails({
+  trade,
+  allowedSlippage,
+  syncing = false,
+  selectedSwap = '',
+}: AdvancedSwapDetailsProps) {
   const theme = useContext(ThemeContext)
 
   const { realizedLPFee, priceImpact } = useMemo(() => {
@@ -52,7 +59,11 @@ export function AdvancedSwapDetails({ trade, allowedSlippage, syncing = false }:
   return !trade ? null : (
     <AutoColumn gap="8px">
       <TransactionDetailsLabel fontWeight={500} fontSize={14}>
-        <Trans>Transaction Details</Trans>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <img src={LOGO[selectedSwap]} width={20} style={{ marginRight: '5px' }} />
+          <span style={{ marginRight: '5px' }}>{selectedSwap}</span>
+          <Trans>Transaction Details</Trans>
+        </div>
       </TransactionDetailsLabel>
       <RowBetween>
         <RowFixed>

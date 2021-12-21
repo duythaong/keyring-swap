@@ -626,6 +626,7 @@ export default function Swap({ history }: RouteComponentProps) {
             onConfirm={handleSwap}
             swapErrorMessage={swapErrorMessage}
             onDismiss={handleConfirmDismiss}
+            selectedSwap={selectedSwap}
           />
 
           <AutoColumn gap={'sm'}>
@@ -757,7 +758,12 @@ export default function Swap({ history }: RouteComponentProps) {
                     wrap={false}
                     content={
                       <ResponsiveTooltipContainer origin="top right" width={'295px'}>
-                        <AdvancedSwapDetails trade={trade} allowedSlippage={allowedSlippage} syncing={routeIsSyncing} />
+                        <AdvancedSwapDetails
+                          trade={trade}
+                          allowedSlippage={allowedSlippage}
+                          syncing={routeIsSyncing}
+                          selectedSwap={selectedSwap}
+                        />
                       </ResponsiveTooltipContainer>
                     }
                     placement="bottom"

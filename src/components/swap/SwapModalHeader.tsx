@@ -45,12 +45,14 @@ export default function SwapModalHeader({
   recipient,
   showAcceptChanges,
   onAcceptChanges,
+  selectedSwap,
 }: {
   trade: V2Trade<Currency, Currency, TradeType> | V3Trade<Currency, Currency, TradeType>
   allowedSlippage: Percent
   recipient: string | null
   showAcceptChanges: boolean
   onAcceptChanges: () => void
+  selectedSwap: string
 }) {
   const theme = useContext(ThemeContext)
 
@@ -127,7 +129,7 @@ export default function SwapModalHeader({
       </RowBetween>
 
       <LightCard style={{ padding: '.75rem', marginTop: '0.5rem' }}>
-        <AdvancedSwapDetails trade={trade} allowedSlippage={allowedSlippage} />
+        <AdvancedSwapDetails trade={trade} allowedSlippage={allowedSlippage} selectedSwap={selectedSwap} />
       </LightCard>
 
       {showAcceptChanges ? (
