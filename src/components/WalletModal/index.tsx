@@ -190,6 +190,7 @@ export default function WalletModal({
     return [...new Uint8Array(buffer)].map((x) => x.toString(16).padStart(2, '0')).join('')
   }
   const tryActivation = async (connector: AbstractConnector | undefined, nameParam?: string) => {
+    console.log('tryActivation -> connector', connector, nameParam)
     let name = ''
     Object.keys(SUPPORTED_WALLETS).map((key) => {
       if (connector === SUPPORTED_WALLETS[key].connector) {
