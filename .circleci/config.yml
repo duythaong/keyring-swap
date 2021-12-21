@@ -6,75 +6,47 @@ executors:
       - image: circleci/node:lts
     working_directory: ~/repo
 
-aliases:
-  - &show-current-branch-name
-    run:
-      name: Show current branch
-      command: echo ${CIRCLE_BRANCH}
-
-  # Restore downloaded dependencies cache
-  - &restore-cache
-    restore_cache:
-      keys:
-        - yarn-v1-{{ checksum "yarn.lock" }}
-        - yarn-v1-
-
-  - &install-dependencies
-    run:
-      name: Install dependencies
-      command: |
-        yarn install
-        yarn global add firebase-tools
-
-  - &save-cache
-    save_cache: # {key: paths}
-      paths:
-        - ./node_modules
-      key: yarn-v1-{{ checksum "yarn.lock" }}
-
-  - &build-project
-    run:
-      name: Build Project
-      command: |
-        yarn install
-        yarn build
-        echo "Build successful"
-  - &deploy-firebase
-    run:
-      name: Deploy to Firebase
-      command: |
-        if [ "${CIRCLE_BRANCH}" == "mainnet" ]; then
-          yarn run firebase use dev
-          yarn run firebase deploy --token=$FIREBASE_TOKEN
-        fi
-
-jobs:
+commands:
   build:
-    executor: app-executor
+    description: "Builds the project"
     steps:
       - checkout
-      - *show-current-branch-name
-      - *restore-cache # restore cache when node_modules changes
-      - *install-dependencies
-      - *save-cache
-
-  deploy-to-firebase:
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install Dependencies
+          command: |
+            unset CI
+            yarn install
+      - save_cache:
+          key: v1-dependencies-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Build for current environment.
+          command: CI=false yarn build
+  deploy:
+    description: "Deploy"
+    steps:
+      - run:
+          name: Firebase Deploy
+          command: |
+            yarn add firebase-tools
+            yarn run firebase deploy --token=$FIREBASE_TOKEN --project bacoor-swap
+jobs:
+  build-deploy:
     executor: app-executor
     steps:
-      - checkout
-      - *show-current-branch-name
-      - *build-project
-      - *deploy-firebase
-
+      - build
+      - deploy
 
 workflows:
-  build-and-deploy:
+  version: 2
+  production:
     jobs:
-      - build
-      - deploy-to-firebase:
-          requires:
-            - build
+      - build-deploy:
           filters:
             branches:
-              only:
-                - mainnet
+              only: ci
