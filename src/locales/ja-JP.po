@@ -1248,7 +1248,7 @@ msgstr "イーサリアムのレイヤー1に接続してください"
 
 #: src/components/WalletModal/index.tsx
 msgid "Please connect to the appropriate Ethereum network."
-msgstr "適切なイーサリアムネットワークに接続してください。"
+msgstr "適切なネットワークに接続してください。"
 
 #: src/components/Settings/index.tsx
 msgid "Please type the word \"{confirmWord}\" to enable expert mode."
