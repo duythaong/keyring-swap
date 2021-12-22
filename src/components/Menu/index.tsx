@@ -268,7 +268,7 @@ export default function Menu() {
                         </MenuItem>
                       )}
 
-                    <MenuItem href="https://uniswap.org/">
+                    {/* <MenuItem href="https://uniswap.org/">
                       <div>
                         <Trans>About</Trans>
                       </div>
@@ -297,7 +297,7 @@ export default function Menu() {
                         <Trans>Analytics</Trans>
                       </div>
                       <PieChart opacity={0.6} size={16} />
-                    </MenuItem>
+                    </MenuItem> */}
                     <ToggleMenuItem onClick={() => setMenu('lang')}>
                       <div>
                         <Trans>Language</Trans>
@@ -308,12 +308,12 @@ export default function Menu() {
                       <div>{darkMode ? <Trans>Light Theme</Trans> : <Trans>Dark Theme</Trans>}</div>
                       {darkMode ? <Moon opacity={0.6} size={16} /> : <Sun opacity={0.6} size={16} />}
                     </ToggleMenuItem>
-                    <ToggleMenuItem onClick={() => togglePrivacyPolicy()}>
+                    {/* <ToggleMenuItem onClick={() => togglePrivacyPolicy()}>
                       <div>
                         <Trans>Legal & Privacy</Trans>
                       </div>
                       <FileText opacity={0.6} size={16} />
-                    </ToggleMenuItem>
+                    </ToggleMenuItem> */}
                     {showUNIClaimOption && (
                       <UNIbutton
                         onClick={openClaimModal}
