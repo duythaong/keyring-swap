@@ -33,8 +33,7 @@ commands:
       - run:
           name: Firebase Deploy
           command: |
-            yarn add firebase-tools
-            yarn run firebase deploy --token=$FIREBASE_TOKEN --project bacoor-swap
+            ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --project bacoor-swap
 jobs:
   build-deploy:
     executor: app-executor
