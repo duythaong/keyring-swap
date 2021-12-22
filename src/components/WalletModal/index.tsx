@@ -16,7 +16,7 @@ import { setInterval, setTimeout } from 'timers'
 
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
-import { fortmatic, injected, portis } from '../../connectors'
+import { fortmatic, injected, portis, walletlink } from '../../connectors'
 import { OVERLAY_READY } from '../../connectors/Fortmatic'
 import { SUPPORTED_WALLETS } from '../../constants/wallet'
 import usePrevious from '../../hooks/usePrevious'
@@ -191,6 +191,9 @@ export default function WalletModal({
   }
   const tryActivation = async (connector: AbstractConnector | undefined, nameParam?: string) => {
     console.log('tryActivation -> connector', connector, nameParam)
+    if (connector !== injected && connector !== walletlink) {
+      ;(connector as any).close()
+    }
     let name = ''
     Object.keys(SUPPORTED_WALLETS).map((key) => {
       if (connector === SUPPORTED_WALLETS[key].connector) {
