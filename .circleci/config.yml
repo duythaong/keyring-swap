@@ -20,7 +20,6 @@ commands:
           command: |
             unset CI
             yarn install
-            yarn add firebase-tools
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
