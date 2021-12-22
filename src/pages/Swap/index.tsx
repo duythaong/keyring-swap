@@ -2,8 +2,8 @@ import { Trade as V2Trade } from '@duythao_bacoor/v2-sdk'
 import { Trans } from '@lingui/macro'
 import { Currency, CurrencyAmount, Percent, Token, TradeType } from '@uniswap/sdk-core'
 import { Trade as V3Trade } from '@uniswap/v3-sdk'
-import BannerImg1 from 'assets/images/Banner1.png'
-import BannerImg2 from 'assets/images/Banner2.png'
+import BannerImg1 from 'assets/images/Banner1.jpeg'
+import BannerImg2 from 'assets/images/Banner2.jpeg'
 import { LoadingOpacityContainer } from 'components/Loader/styled'
 import { NetworkAlert } from 'components/NetworkAlert/NetworkAlert'
 import { AdvancedSwapDetails } from 'components/swap/AdvancedSwapDetails'
@@ -145,7 +145,7 @@ const Banner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: ${fadeIn} 5s ease-out;
+  // animation: ${fadeIn} 5s ease-out;
 `
 const Banner2 = styled.div`
   max-width: 480px;
@@ -154,7 +154,7 @@ const Banner2 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: ${fadeIn} 5s ease-out;
+  // animation: ${fadeIn} 5s ease-out;
 `
 const ActiveOutlinedButton = ({
   name,
@@ -946,7 +946,7 @@ export default function Swap({ history }: RouteComponentProps) {
         </Wrapper>
       </AppBody>
       {/* <SwitchLocaleLink /> */}
-      {isRenderAngo ? (
+      {/* {isRenderAngo ? (
         <Banner>
           <img
             src={BannerImg1}
@@ -964,7 +964,19 @@ export default function Swap({ history }: RouteComponentProps) {
             style={{ cursor: 'pointer' }}
           />
         </Banner2>
-      )}
+      )} */}
+      <Banner>
+        <img
+          src={isRenderAngo ? BannerImg1 : BannerImg2}
+          width={'100%'}
+          onClick={() =>
+            isRenderAngo
+              ? window.open('https://app.angoname.com/', '_blank')
+              : window.open('https://app.wraptag.io/', '_blank')
+          }
+          style={{ cursor: 'pointer' }}
+        />
+      </Banner>
       {!swapIsUnsupported ? null : (
         <UnsupportedCurrencyFooter
           show={swapIsUnsupported}
