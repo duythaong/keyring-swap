@@ -212,8 +212,8 @@ msgid "Allow high price impact trades and skip the confirm screen. Use at your o
 msgstr "السماح بتداول تأثير الأسعار المرتفعة وتخطي شاشة التأكيد. استخدمه على مسؤوليتك الخاصة."
 
 #: src/pages/Swap/index.tsx
-msgid "Allow the Uniswap Protocol to use your {0}"
-msgstr "السماح لبروتوكول Uniswap باستخدام {0} الخاص بك"
+msgid "Allow the {name} Protocol to use your {0}"
+msgstr "السماح لبروتوكول {name} باستخدام {0} الخاص بك"
 
 #: src/pages/MigrateV2/MigrateV2Pair.tsx
 msgid "Allowed"
