@@ -212,8 +212,8 @@ msgid "Allow high price impact trades and skip the confirm screen. Use at your o
 msgstr "Laat handel oor hoë prysimpak toe en slaan die bevestigingsskerm oor. Gebruik op eie risiko."
 
 #: src/pages/Swap/index.tsx
-msgid "Allow the {0} Protocol to use your {1}"
-msgstr "Laat die {0}-protokol toe om u {1} te gebruik"
+msgid "Allow the {name} Protocol to use your {0}"
+msgstr "Laat die {name}-protokol toe om u {0} te gebruik"
 
 #: src/pages/MigrateV2/MigrateV2Pair.tsx
 msgid "Allowed"

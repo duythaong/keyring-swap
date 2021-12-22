@@ -212,8 +212,8 @@ msgid "Allow high price impact trades and skip the confirm screen. Use at your o
 msgstr "Engedélyezze a magas árfolyamú kereskedéseket, és hagyja ki a megerősítő képernyőt. Használat csak saját felelősségre."
 
 #: src/pages/Swap/index.tsx
-msgid "Allow the Uniswap Protocol to use your {0}"
-msgstr "Engedélyezze az Uniswap protokollnak a(z) {0} használatát"
+msgid "Allow the {name} Protocol to use your {0}"
+msgstr "Engedélyezze az {name} protokollnak a(z) {0} használatát"
 
 #: src/pages/MigrateV2/MigrateV2Pair.tsx
 msgid "Allowed"
