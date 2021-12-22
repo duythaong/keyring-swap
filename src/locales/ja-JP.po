@@ -344,8 +344,8 @@ msgid "By adding this list you are implicitly trusting that the data is correct.
 msgstr "このリストを追加することで、データが正しいことを暗黙的に信頼することになります。 誰でもリストを作成することができます。そのため、既存リストの偽のバージョンや、実体のないプロジェクトを掲載するリストが作成されている可能性があります。"
 
 #: src/components/WalletModal/index.tsx
-msgid "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the Uniswap <1>Protocol Disclaimer</1>."
-msgstr "財布を接続することにより、あなたはUniswap Labsのに同意 <0>サービス規約</0> 、あなたが読んでUniswap理解していることを認める <1>プロトコル免責事項</1>。"
+msgid "By connecting a wallet, you agree to KEYRING SWAP Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the KEYRING SWAP <1>Protocol Disclaimer</1>."
+msgstr "財布を接続することにより、あなたはKEYRING SWAP Labsのに同意 <0>サービス規約</0> 、あなたが読んでKEYRING SWAP理解していることを認める <1>プロトコル免責事項</1>。"
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"
@@ -1677,8 +1677,8 @@ msgid "This token doesn't appear on the active token list(s). Make sure this is 
 msgstr "このトークンはご利用中のトークンリストに存在しません。取引したいトークンであることを確認してください。"
 
 #: src/components/SearchModal/BlockedToken.tsx
-msgid "This token is not supported in the Uniswap Labs app"
-msgstr "このトークンは、UniswapLabsアプリではサポートされていません"
+msgid "This token is not supported in the KEYRING PRO Labs app"
+msgstr "このトークンは、KEYRING PROLabsアプリではサポートされていません"
 
 #: src/pages/MigrateV2/MigrateV2Pair.tsx
 msgid "This tool will safely migrate your {0} liquidity to V3. The process is completely trustless thanks to the"
@@ -1866,7 +1866,7 @@ msgstr "Uniswap移行コントラクト↗"
 
 #: src/components/NetworkAlert/NetworkAlert.tsx
 msgid "Uniswap on {0}"
-msgstr "{0}ユニスワップ"
+msgstr "{0} KEYRING SWAP"
 
 #: src/components/SearchModal/TokenImportCard.tsx
 msgid "Unknown Source"
