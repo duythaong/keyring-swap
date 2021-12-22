@@ -3,7 +3,6 @@ import { parseUnits } from '@ethersproject/units'
 import { Trans } from '@lingui/macro'
 import { Currency, CurrencyAmount, Percent, TradeType } from '@uniswap/sdk-core'
 import { Trade as V3Trade } from '@uniswap/v3-sdk'
-import { UNI_SWAP } from 'constants/addresses'
 import { TWO_PERCENT } from 'constants/misc'
 import { useBestV2Trade } from 'hooks/useBestV2Trade'
 import { useBestV3Trade } from 'hooks/useBestV3Trade'
@@ -136,7 +135,7 @@ export function useDerivedSwapInfo(
 } {
   const { account } = useActiveWeb3React()
 
-  const toggledVersion = swapVersion ? swapVersion : name !== UNI_SWAP ? Version.v2 : swapVersion
+  const toggledVersion = swapVersion ? swapVersion : Version.v2
 
   const {
     independentField,
