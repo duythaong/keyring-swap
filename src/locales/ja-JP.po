@@ -1247,7 +1247,7 @@ msgid "Please connect to Layer 1 Ethereum"
 msgstr "イーサリアムのレイヤー1に接続してください"
 
 #: src/components/WalletModal/index.tsx
-msgid "Please connect to the appropriate Ethereum network."
+msgid "Please connect to the appropriate network."
 msgstr "適切なネットワークに接続してください。"
 
 #: src/components/Settings/index.tsx
