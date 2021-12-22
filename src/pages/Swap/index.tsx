@@ -2,6 +2,8 @@ import { Trade as V2Trade } from '@duythao_bacoor/v2-sdk'
 import { Trans } from '@lingui/macro'
 import { Currency, CurrencyAmount, Percent, Token, TradeType } from '@uniswap/sdk-core'
 import { Trade as V3Trade } from '@uniswap/v3-sdk'
+import BannerImg1 from 'assets/images/Banner1.png'
+import BannerImg2 from 'assets/images/Banner2.svg'
 import { LoadingOpacityContainer } from 'components/Loader/styled'
 import { NetworkAlert } from 'components/NetworkAlert/NetworkAlert'
 import { AdvancedSwapDetails } from 'components/swap/AdvancedSwapDetails'
@@ -128,32 +130,31 @@ const fadeIn = keyframes`
   0% {
     opacity: 0;
   }
-  100% {
+  50%{
     opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 `
 
 const Banner = styled.div`
   max-width: 480px;
-  height: 50px;
   width: 100%;
-  background-color: ${({ theme }) => theme.primary1};
   margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: ${fadeIn} 3s ease-out;
+  animation: ${fadeIn} 5s ease-out;
 `
 const Banner2 = styled.div`
   max-width: 480px;
-  height: 50px;
   width: 100%;
-  background-color: ${({ theme }) => theme.primary1};
   margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: ${fadeIn} 3s ease-out;
+  animation: ${fadeIn} 5s ease-out;
 `
 const ActiveOutlinedButton = ({
   name,
@@ -323,7 +324,7 @@ export default function Swap({ history }: RouteComponentProps) {
     }
     const bannerInte = setInterval(() => {
       setIsRenderAngo((state) => !state)
-    }, 10000)
+    }, 5000)
     Observer.on(TRADE_MAP_UPDATE, tradeMapUpdate)
 
     return () => {
@@ -945,7 +946,15 @@ export default function Swap({ history }: RouteComponentProps) {
         </Wrapper>
       </AppBody>
       {/* <SwitchLocaleLink /> */}
-      {isRenderAngo ? <Banner>Angoname</Banner> : <Banner2>Wraptag</Banner2>}
+      {isRenderAngo ? (
+        <Banner>
+          <img src={BannerImg1} width={'100%'} />
+        </Banner>
+      ) : (
+        <Banner2>
+          <img src={BannerImg2} width={'100%'} />
+        </Banner2>
+      )}
       {!swapIsUnsupported ? null : (
         <UnsupportedCurrencyFooter
           show={swapIsUnsupported}
