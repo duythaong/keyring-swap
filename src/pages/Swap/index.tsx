@@ -948,11 +948,21 @@ export default function Swap({ history }: RouteComponentProps) {
       {/* <SwitchLocaleLink /> */}
       {isRenderAngo ? (
         <Banner>
-          <img src={BannerImg1} width={'100%'} />
+          <img
+            src={BannerImg1}
+            width={'100%'}
+            onClick={() => window.open('https://app.angoname.com/', '_blank')}
+            style={{ cursor: 'pointer' }}
+          />
         </Banner>
       ) : (
         <Banner2>
-          <img src={BannerImg2} width={'100%'} />
+          <img
+            src={BannerImg2}
+            width={'100%'}
+            onClick={() => window.open('https://app.wraptag.io/', '_blank')}
+            style={{ cursor: 'pointer' }}
+          />
         </Banner2>
       )}
       {!swapIsUnsupported ? null : (
