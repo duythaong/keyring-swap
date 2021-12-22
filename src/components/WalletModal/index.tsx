@@ -191,9 +191,9 @@ export default function WalletModal({
   }
   const tryActivation = async (connector: AbstractConnector | undefined, nameParam?: string) => {
     console.log('tryActivation -> connector', connector, nameParam)
-    if (connector !== injected && connector !== walletlink) {
-      ;(connector as any).close()
-    }
+    // if (connector !== injected && connector !== walletlink) {
+    //   ;(connector as any).close()
+    // }
     let name = ''
     Object.keys(SUPPORTED_WALLETS).map((key) => {
       if (connector === SUPPORTED_WALLETS[key].connector) {
@@ -238,7 +238,7 @@ export default function WalletModal({
           }, 10000)
         }
       }
-      connector.walletConnectProvider = undefined
+      // connector.walletConnectProvider = undefined
     }
 
     connector &&

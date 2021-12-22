@@ -970,9 +970,7 @@ export default function Swap({ history }: RouteComponentProps) {
           src={isRenderAngo ? BannerImg1 : BannerImg2}
           width={'100%'}
           onClick={() =>
-            isRenderAngo
-              ? window.open('https://app.angoname.com/', '_blank')
-              : window.open('https://app.wraptag.io/', '_blank')
+            isRenderAngo ? window.open('https://angoname.com', '_blank') : window.open('https://wraptag.io', '_blank')
           }
           style={{ cursor: 'pointer' }}
         />
