@@ -176,5 +176,9 @@
       "last 1 safari version"
     ]
   },
+<<<<<<< HEAD
   "license": "GPL-3.0-or-later",
+=======
+  "license": "GPL-3.0-or-later"
+>>>>>>> 66d7ac1e4b8569c37d6bc723b744018a9f61be41
 }
