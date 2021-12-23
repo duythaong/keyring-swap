@@ -1,3 +1,4 @@
+import darkBG from 'assets/images/darkBG.jpg'
 import React, { useMemo } from 'react'
 import { Text, TextProps as TextPropsOriginal } from 'rebass'
 import styled, {
@@ -74,6 +75,9 @@ function colors(darkMode: boolean): Colors {
     bg4: darkMode ? '#565A69' : '#888D9B',
     bg5: darkMode ? '#6C7284' : '#888D9B',
     bg6: darkMode ? '#1A2028' : '#6C7284',
+    bg7: darkMode
+      ? `url(${darkBG})`
+      : 'linear-gradient(180deg, rgba(5, 208, 201, 0.1) 0%, rgba(213, 106, 201, 0.1) 49.48%, rgba(255, 170, 85, 0.1) 100%), #FFFFFF',
 
     //specialty colors
     modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',
@@ -211,7 +215,8 @@ export const TYPE = {
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
   color: ${({ theme }) => theme.text1};
-  background-color: ${({ theme }) => theme.bg1} !important;
+  // background-color: ${({ theme }) => theme.bg1} !important;
+  background: ${({ theme }) => theme.bg7} !important;
 }
 
 a {
