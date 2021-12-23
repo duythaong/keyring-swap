@@ -10,9 +10,9 @@
       %PUBLIC_URL% will be replaced with the URL of the `public` folder during build.
       Only files inside the `public` folder can be referenced from the HTML.
     -->
-    <link rel="shortcut icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
-    <link rel="apple-touch-icon" sizes="192x192" href="%PUBLIC_URL%/images/192x192_App_Icon.png" />
-    <link rel="apple-touch-icon" sizes="512x512" href="%PUBLIC_URL%/images/512x512_App_Icon.png" />
+    <link rel="shortcut icon" type="image/png" href={`%PUBLIC_URL%/favicon.png?q=${Date.now()}`} />
+    <link rel="apple-touch-icon" sizes="192x192" href={`%PUBLIC_URL%/images/192x192_App_Icon.png?q=${Date.now()}`} />
+    <link rel="apple-touch-icon" sizes="512x512" href={`%PUBLIC_URL%/images/512x512_App_Icon.png?q=${Date.now()}`} />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#000000" />
