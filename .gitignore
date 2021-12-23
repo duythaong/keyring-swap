@@ -14,7 +14,7 @@
 /coverage
 
 # production
-/build
+# /build
 
 # bundle
 /dist
