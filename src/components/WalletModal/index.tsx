@@ -218,11 +218,19 @@ export default function WalletModal({
           const keyringInterval = setInterval(() => {
             if (connector && connector.walletConnectProvider && first) {
               console.log('connector2', connector)
-              const keyTemp = new Uint8Array(connector?.walletConnectProvider?.wc?._key)
+              const keyTemp = connector?.walletConnectProvider?.wc?._key
+                ? new Uint8Array(connector?.walletConnectProvider?.wc?._key)
+                : new Uint8Array(connector?.walletConnectProvider?.signer?.connection?.wc?._key)
               const key = buf2hex(keyTemp)
-              const handshakeTopic = connector?.walletConnectProvider?.wc?._handshakeTopic
-              const bridge = encodeURIComponent(connector?.walletConnectProvider?.wc._bridge)
+              const handshakeTopic =
+                connector?.walletConnectProvider?.wc?._handshakeTopic ||
+                connector?.walletConnectProvider?.signer?.connection?.wc?._handshakeTopic
+              const bridge = connector?.walletConnectProvider?.wc?._bridge
+                ? encodeURIComponent(connector?.walletConnectProvider?.wc?._bridge)
+                : encodeURIComponent(connector?.walletConnectProvider?.signer?.connection?.wc?._bridge)
+
               const uri = `wc:${handshakeTopic}@1?bridge=${bridge}&key=${key}`
+              console.log('connector3', uri)
               // Object.assign(document.createElement('a'), {
               //   target: '_blank',
               //   href: android ? `https://keyring.app/wc?uri=${uri}` : `keyring://keyring.app/wc?uri=${uri}`,
@@ -238,7 +246,7 @@ export default function WalletModal({
           }, 10000)
         }
       }
-      // connector.walletConnectProvider = undefined
+      connector.walletConnectProvider = undefined
     }
 
     connector &&
