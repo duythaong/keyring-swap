@@ -103,7 +103,6 @@ export function usePairContract(pairAddress?: string, withSignerIfPossible?: boo
 
 export function useV2RouterContract(name?: string): Contract | null {
   const { chainId } = useActiveWeb3React()
-  // const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
 
   const routerAddress =
     name &&
