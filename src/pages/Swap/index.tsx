@@ -241,7 +241,6 @@ const useRouting = (
 
 export default function Swap({ history }: RouteComponentProps) {
   const { account, chainId } = useActiveWeb3React()
-  // const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
   const previousChainId = usePrevious(chainId)
   const loadedUrlParams = useDefaultsFromURLSearch()
   const [darkMode] = useDarkModeManager()

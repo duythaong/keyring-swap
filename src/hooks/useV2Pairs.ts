@@ -28,7 +28,6 @@ export function useV2Pairs(
   )
 
   const { chainId } = useActiveWeb3React()
-  // const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
 
   const pairAddresses = useMemo(
     () =>
@@ -83,6 +82,5 @@ export function useV2Pairs(
 export function useV2Pair(tokenA?: Currency, tokenB?: Currency): [PairState, Pair | null] {
   const inputs: [[Currency | undefined, Currency | undefined]] = useMemo(() => [[tokenA, tokenB]], [tokenA, tokenB])
   const { chainId } = useActiveWeb3React() ?? SupportedChainId.POLYGON_MAINET
-  // const chainId = useAppSelector((state) => state.application.chainId) ?? SupportedChainId.POLYGON_MAINET
   return useV2Pairs(CHAIN_SWAP_NAMES[chainId ?? SupportedChainId.POLYGON_MAINET][0], inputs)[0]
 }
