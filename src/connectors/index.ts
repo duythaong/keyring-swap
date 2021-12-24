@@ -9,6 +9,7 @@ import { isMobile } from 'utils/userAgent'
 
 import UNISWAP_LOGO_URL from '../assets/svg/logo.svg'
 import { ALL_SUPPORTED_CHAIN_IDS, SupportedChainId } from '../constants/chains'
+import { getActiveChainBaseOnUrl } from '../utils/getActiveChain'
 import getLibrary from '../utils/getLibrary'
 import { FortmaticConnector } from './Fortmatic'
 import { NetworkConnector } from './NetworkConnector'
@@ -56,6 +57,7 @@ export const walletconnect = new WalletConnectConnector({
   supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
   rpc: NETWORK_URLS,
   qrcode: true,
+  chainId: getActiveChainBaseOnUrl(),
   // pollingInterval: 15000,
 })
 
@@ -64,6 +66,7 @@ export const keyringConnect = new WalletConnectConnector({
   rpc: NETWORK_URLS,
   qrcode: isMobile ? false : true,
   bridge: 'https://bridge.keyringpro.com',
+  chainId: getActiveChainBaseOnUrl(),
 })
 
 // mainnet only

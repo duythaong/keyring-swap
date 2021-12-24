@@ -1,6 +1,8 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit'
 import { DEFAULT_TXN_DISMISS_MS } from 'constants/misc'
 
+import { getActiveChainBaseOnUrl } from '../../utils/getActiveChain'
+
 export type PopupContent = {
   txn: {
     hash: string
@@ -38,7 +40,7 @@ export interface ApplicationState {
 const initialState: ApplicationState = {
   blockNumber: {},
   chainConnectivityWarning: false,
-  chainId: 1,
+  chainId: getActiveChainBaseOnUrl(),
   implements3085: false,
   openModal: null,
   popupList: [],

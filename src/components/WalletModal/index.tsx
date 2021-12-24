@@ -190,7 +190,6 @@ export default function WalletModal({
     return [...new Uint8Array(buffer)].map((x) => x.toString(16).padStart(2, '0')).join('')
   }
   const tryActivation = async (connector: AbstractConnector | undefined, nameParam?: string) => {
-    console.log('tryActivation -> connector', connector, nameParam)
     // if (connector !== injected && connector !== walletlink) {
     //   ;(connector as any).close()
     // }
@@ -217,7 +216,6 @@ export default function WalletModal({
         if (nameParam === 'KEYRING PRO') {
           const keyringInterval = setInterval(() => {
             if (connector && connector.walletConnectProvider && first) {
-              console.log('connector2', connector)
               const keyTemp = connector?.walletConnectProvider?.wc?._key
                 ? new Uint8Array(connector?.walletConnectProvider?.wc?._key)
                 : new Uint8Array(connector?.walletConnectProvider?.signer?.connection?.wc?._key)
@@ -230,7 +228,6 @@ export default function WalletModal({
                 : encodeURIComponent(connector?.walletConnectProvider?.signer?.connection?.wc?._bridge)
 
               const uri = `wc:${handshakeTopic}@1?bridge=${bridge}&key=${key}`
-              console.log('connector3', uri)
               // Object.assign(document.createElement('a'), {
               //   target: '_blank',
               //   href: android ? `https://keyring.app/wc?uri=${uri}` : `keyring://keyring.app/wc?uri=${uri}`,
@@ -258,7 +255,7 @@ export default function WalletModal({
         })
         .catch((error) => {
           if (error instanceof UnsupportedChainIdError) {
-            // activate(connector) // a little janky...can't use setError because the connector isn't set
+            activate(connector) // a little janky...can't use setError because the connector isn't set
           } else {
             setPendingError(true)
           }
