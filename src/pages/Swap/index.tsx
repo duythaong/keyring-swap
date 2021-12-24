@@ -19,11 +19,11 @@ import { ArrowDown, CheckCircle, HelpCircle, Info } from 'react-feather'
 import ReactGA from 'react-ga'
 import { RouteComponentProps } from 'react-router-dom'
 import { Text } from 'rebass'
-import { useAppSelector } from 'state/hooks'
 import { V3TradeState } from 'state/routing/types'
 import { useDarkModeManager } from 'state/user/hooks'
 import styled, { css, keyframes, ThemeContext } from 'styled-components/macro'
 import useDeepCompareEffect from 'use-deep-compare-effect'
+import { getActiveChainBaseOnUrl } from 'utils/getActiveChain'
 import Observer from 'utils/observer'
 
 import AddressInputPanel from '../../components/AddressInputPanel'
@@ -240,8 +240,11 @@ const useRouting = (
 }
 
 export default function Swap({ history }: RouteComponentProps) {
-  const { account, chainId } = useActiveWeb3React()
-  console.log('beforeConnected', account, chainId)
+  const { account, chainId: chainidAfterConnected } = useActiveWeb3React()
+  let chainId: number | undefined = chainidAfterConnected
+  if (account === null || account === undefined) {
+    chainId = getActiveChainBaseOnUrl()
+  }
   const previousChainId = usePrevious(chainId)
   const loadedUrlParams = useDefaultsFromURLSearch()
   const [darkMode] = useDarkModeManager()

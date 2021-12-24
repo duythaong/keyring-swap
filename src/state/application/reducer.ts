@@ -42,7 +42,11 @@ export interface ApplicationState {
 const initialState: ApplicationState = {
   blockNumber: {},
   chainConnectivityWarning: false,
+<<<<<<< HEAD
   chainId: defaultChainId,
+=======
+  chainId: getActiveChainBaseOnUrl(),
+>>>>>>> mainnet
   implements3085: false,
   openModal: null,
   popupList: [],
