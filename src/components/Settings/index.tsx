@@ -2,6 +2,7 @@
 import { t, Trans } from '@lingui/macro'
 import { Percent } from '@uniswap/sdk-core'
 import { SupportedChainId } from 'constants/chains'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useActiveWeb3React } from 'hooks/web3'
 import { useContext, useRef, useState } from 'react'
 import { Settings, X } from 'react-feather'
@@ -119,7 +120,8 @@ const ModalContentWrapper = styled.div`
 `
 
 export default function SettingsTab({ placeholderSlippage }: { placeholderSlippage: Percent }) {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
 
   const node = useRef<HTMLDivElement>()
   const open = useModalOpen(ApplicationModal.SETTINGS)

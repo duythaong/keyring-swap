@@ -31,6 +31,7 @@ import {
   QUOTER_ADDRESSES,
   V3_MIGRATOR_ADDRESSES,
 } from 'constants/addresses'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useMemo } from 'react'
 import { NonfungiblePositionManager, Quoter, UniswapInterfaceMulticall } from 'types/v3'
 import { V3Migrator } from 'types/v3/V3Migrator'
@@ -47,7 +48,8 @@ export function useContract<T extends Contract = Contract>(
   ABI: any,
   withSignerIfPossible = true
 ): T | null {
-  const { library, account, chainId } = useActiveWeb3React()
+  const { library, account } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
 
   return useMemo(() => {
     if (!addressOrAddressMap || !ABI || !library || !chainId) return null
@@ -73,7 +75,9 @@ export function useTokenContract(tokenAddress?: string, withSignerIfPossible?: b
 }
 
 export function useWETHContract(withSignerIfPossible?: boolean) {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
+
   return useContract<Weth>(chainId ? WETH9_EXTENDED[chainId]?.address : undefined, WETH_ABI, withSignerIfPossible)
 }
 
@@ -102,7 +106,8 @@ export function usePairContract(pairAddress?: string, withSignerIfPossible?: boo
 }
 
 export function useV2RouterContract(name?: string): Contract | null {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
 
   const routerAddress =
     name &&
@@ -138,7 +143,9 @@ export function useGovernanceBravoContract(): Contract | null {
 export const useLatestGovernanceContract = useGovernanceBravoContract
 
 export function useUniContract() {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
+
   return useContract(chainId ? UNI[chainId]?.address : undefined, UNI_ABI, true)
 }
 

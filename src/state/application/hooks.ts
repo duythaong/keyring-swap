@@ -1,4 +1,5 @@
 import { DEFAULT_TXN_DISMISS_MS } from 'constants/misc'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useCallback, useMemo } from 'react'
 import { useAppDispatch, useAppSelector } from 'state/hooks'
 
@@ -7,7 +8,8 @@ import { AppState } from '../index'
 import { addPopup, ApplicationModal, PopupContent, removePopup, setOpenModal } from './reducer'
 
 export function useBlockNumber(): number | undefined {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
 
   return useAppSelector((state: AppState) => state.application.blockNumber[chainId ?? -1])
 }

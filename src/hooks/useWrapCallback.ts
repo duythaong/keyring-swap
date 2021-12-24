@@ -1,4 +1,5 @@
 import { Currency } from '@uniswap/sdk-core'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useMemo } from 'react'
 
 import { WETH9_EXTENDED } from '../constants/tokens'
@@ -27,7 +28,9 @@ export default function useWrapCallback(
   outputCurrency: Currency | undefined | null,
   typedValue: string | undefined
 ): { wrapType: WrapType; execute?: undefined | (() => Promise<void>); inputError?: string } {
-  const { chainId, account } = useActiveWeb3React()
+  const { account } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
+
   const wethContract = useWETHContract()
   const balance = useCurrencyBalance(account ?? undefined, inputCurrency ?? undefined)
   // we can always parse the amount typed as the input currency, since wrapping is 1:1

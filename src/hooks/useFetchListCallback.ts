@@ -1,5 +1,6 @@
 import { nanoid } from '@reduxjs/toolkit'
 import { TokenList } from '@uniswap/token-lists'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useCallback } from 'react'
 import { useAppDispatch } from 'state/hooks'
 
@@ -10,7 +11,9 @@ import resolveENSContentHash from '../utils/resolveENSContentHash'
 import { useActiveWeb3React } from './web3'
 
 export function useFetchListCallback(): (listUrl: string, sendDispatch?: boolean) => Promise<TokenList> {
-  const { chainId, library } = useActiveWeb3React()
+  const { library } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
+
   const dispatch = useAppDispatch()
 
   const ensResolver = useCallback(

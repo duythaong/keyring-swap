@@ -7,6 +7,7 @@ import {
   SupportedChainId,
   SupportedL2ChainId,
 } from 'constants/chains'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useOnClickOutside } from 'hooks/useOnClickOutside'
 import { useActiveWeb3React } from 'hooks/web3'
 import { useCallback, useRef } from 'react'
@@ -165,12 +166,9 @@ const ExplorerText = ({ chainId }: { chainId: SupportedL2ChainId }) => {
 }
 
 export default function NetworkSelector() {
-  const { account, chainId: chainidAfterConnected, library } = useActiveWeb3React()
+  const { library } = useActiveWeb3React()
 
-  let chainId: number | undefined = chainidAfterConnected
-  if (account === null || account === undefined) {
-    chainId = getActiveChainBaseOnUrl()
-  }
+  const [chainId] = useDefaultChainId()
 
   const node = useRef<HTMLDivElement>()
   const open = useModalOpen(ApplicationModal.NETWORK_SELECTOR)
