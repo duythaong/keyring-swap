@@ -12,6 +12,7 @@ import SwapRoute from 'components/swap/SwapRoute'
 import TradePrice from 'components/swap/TradePrice'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
 import { MouseoverTooltip, MouseoverTooltipContent } from 'components/Tooltip'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import usePrevious from 'hooks/usePrevious'
 import JSBI from 'jsbi'
 import { ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
@@ -19,11 +20,11 @@ import { ArrowDown, CheckCircle, HelpCircle, Info } from 'react-feather'
 import ReactGA from 'react-ga'
 import { RouteComponentProps } from 'react-router-dom'
 import { Text } from 'rebass'
-import { useAppSelector } from 'state/hooks'
 import { V3TradeState } from 'state/routing/types'
 import { useDarkModeManager } from 'state/user/hooks'
 import styled, { css, keyframes, ThemeContext } from 'styled-components/macro'
 import useDeepCompareEffect from 'use-deep-compare-effect'
+import { getActiveChainBaseOnUrl } from 'utils/getActiveChain'
 import Observer from 'utils/observer'
 
 import AddressInputPanel from '../../components/AddressInputPanel'
@@ -240,7 +241,12 @@ const useRouting = (
 }
 
 export default function Swap({ history }: RouteComponentProps) {
-  const { account, chainId } = useActiveWeb3React()
+  const { account } = useActiveWeb3React()
+  // let chainId: number | undefined = chainidAfterConnected
+  // if (account === null || account === undefined) {
+  //   chainId = getActiveChainBaseOnUrl()
+  // }
+  const [chainId] = useDefaultChainId()
   const previousChainId = usePrevious(chainId)
   const loadedUrlParams = useDefaultsFromURLSearch()
   const [darkMode] = useDarkModeManager()

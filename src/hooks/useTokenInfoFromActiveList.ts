@@ -1,4 +1,5 @@
 import { Currency } from '@uniswap/sdk-core'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useActiveWeb3React } from 'hooks/web3'
 import { useMemo } from 'react'
 import { useCombinedActiveList } from 'state/lists/hooks'
@@ -7,7 +8,9 @@ import { useCombinedActiveList } from 'state/lists/hooks'
  * Returns a WrappedTokenInfo from the active token lists when possible,
  * or the passed token otherwise. */
 export function useTokenInfoFromActiveList(currency: Currency) {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
+
   const activeList = useCombinedActiveList()
 
   return useMemo(() => {

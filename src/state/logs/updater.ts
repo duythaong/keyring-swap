@@ -1,3 +1,4 @@
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useEffect, useMemo } from 'react'
 
 import { useActiveWeb3React } from '../../hooks/web3'
@@ -9,7 +10,8 @@ import { EventFilter, keyToFilter } from './utils'
 export default function Updater(): null {
   const dispatch = useAppDispatch()
   const state = useAppSelector((state) => state.logs)
-  const { chainId, library } = useActiveWeb3React()
+  const { library } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
 
   const blockNumber = useBlockNumber()
 

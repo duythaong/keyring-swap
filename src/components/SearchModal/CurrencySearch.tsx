@@ -3,6 +3,7 @@ import { NATIVE } from '@duythao_bacoor/v2-sdk'
 import { t, Trans } from '@lingui/macro'
 import { Currency, Token } from '@uniswap/sdk-core'
 import useDebounce from 'hooks/useDebounce'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useOnClickOutside } from 'hooks/useOnClickOutside'
 import useTheme from 'hooks/useTheme'
 import useToggle from 'hooks/useToggle'
@@ -70,7 +71,8 @@ export function CurrencySearch({
   showImportView,
   setImportToken,
 }: CurrencySearchProps) {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
   const theme = useTheme()
 
   // refs for fixed size lists

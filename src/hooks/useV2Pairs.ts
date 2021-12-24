@@ -2,6 +2,7 @@ import { Pair } from '@duythao_bacoor/v2-sdk'
 import { Interface } from '@ethersproject/abi'
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useMemo } from 'react'
 
 import { CHAIN_SWAP_MAP, CHAIN_SWAP_NAMES } from '../constants/addresses'
@@ -27,7 +28,8 @@ export function useV2Pairs(
     [currencies]
   )
 
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
 
   const pairAddresses = useMemo(
     () =>
@@ -81,6 +83,6 @@ export function useV2Pairs(
 
 export function useV2Pair(tokenA?: Currency, tokenB?: Currency): [PairState, Pair | null] {
   const inputs: [[Currency | undefined, Currency | undefined]] = useMemo(() => [[tokenA, tokenB]], [tokenA, tokenB])
-  const { chainId } = useActiveWeb3React() ?? SupportedChainId.POLYGON_MAINET
+  const [chainId] = useDefaultChainId() ?? SupportedChainId.POLYGON_MAINET
   return useV2Pairs(CHAIN_SWAP_NAMES[chainId ?? SupportedChainId.POLYGON_MAINET][0], inputs)[0]
 }

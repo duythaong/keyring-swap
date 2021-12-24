@@ -4,6 +4,7 @@ import { PrivacyPolicyModal } from 'components/PrivacyPolicy'
 import { CHAIN_INFO, L2_CHAIN_IDS, SupportedChainId } from 'constants/chains'
 import { LOCALE_LABEL, SUPPORTED_LOCALES, SupportedLocale } from 'constants/locales'
 import { useActiveLocale } from 'hooks/useActiveLocale'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useLocationLinkProps } from 'hooks/useLocationLinkProps'
 import React, { useEffect, useRef, useState } from 'react'
 import {
@@ -222,8 +223,8 @@ function getBridge(chainId: number | undefined) {
 }
 
 export default function Menu() {
-  const { account, chainId } = useActiveWeb3React()
-
+  const { account } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
   const node = useRef<HTMLDivElement>()
   const open = useModalOpen(ApplicationModal.MENU)
   const toggleMenu = useToggleModal(ApplicationModal.MENU)

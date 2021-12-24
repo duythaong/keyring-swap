@@ -2,6 +2,7 @@ import { Trade as V2Trade } from '@duythao_bacoor/v2-sdk'
 import { splitSignature } from '@ethersproject/bytes'
 import { Currency, CurrencyAmount, Percent, Token, TradeType } from '@uniswap/sdk-core'
 import { Trade as V3Trade } from '@uniswap/v3-sdk'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import JSBI from 'jsbi'
 import { useMemo, useState } from 'react'
 
@@ -124,7 +125,9 @@ function useERC20Permit(
   state: UseERC20PermitState
   gatherPermitSignature: null | (() => Promise<void>)
 } {
-  const { account, chainId, library } = useActiveWeb3React()
+  const { account, library } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
+
   const transactionDeadline = useTransactionDeadline()
   const tokenAddress = currencyAmount?.currency?.isToken ? currencyAmount.currency.address : undefined
   const eip2612Contract = useEIP2612Contract(tokenAddress)

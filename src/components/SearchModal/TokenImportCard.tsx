@@ -6,6 +6,7 @@ import { AutoColumn } from 'components/Column'
 import CurrencyLogo from 'components/CurrencyLogo'
 import ListLogo from 'components/ListLogo'
 import { RowFixed } from 'components/Row'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useActiveWeb3React } from 'hooks/web3'
 import { transparentize } from 'polished'
 import { AlertCircle } from 'react-feather'
@@ -33,7 +34,9 @@ interface TokenImportCardProps {
 }
 const TokenImportCard = ({ list, token }: TokenImportCardProps) => {
   const theme = useTheme()
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
+
   return (
     <Card backgroundColor={theme.bg2} padding="2rem">
       <AutoColumn gap="10px" justify="center">

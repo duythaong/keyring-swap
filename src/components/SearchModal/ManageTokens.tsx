@@ -5,6 +5,7 @@ import Column from 'components/Column'
 import CurrencyLogo from 'components/CurrencyLogo'
 import Row, { RowBetween, RowFixed } from 'components/Row'
 import { useToken } from 'hooks/Tokens'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useActiveWeb3React } from 'hooks/web3'
 import { RefObject, useCallback, useMemo, useRef, useState } from 'react'
 import { useRemoveUserAddedToken, useUserAddedTokens } from 'state/user/hooks'
@@ -44,7 +45,8 @@ export default function ManageTokens({
   setModalView: (view: CurrencyModalView) => void
   setImportToken: (token: Token) => void
 }) {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
 
   const [searchQuery, setSearchQuery] = useState<string>('')
   const theme = useTheme()

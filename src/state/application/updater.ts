@@ -1,5 +1,6 @@
 import { CHAIN_INFO } from 'constants/chains'
 import useDebounce from 'hooks/useDebounce'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import useIsWindowVisible from 'hooks/useIsWindowVisible'
 import { useActiveWeb3React } from 'hooks/web3'
 import ms from 'ms.macro'
@@ -29,7 +30,9 @@ const NETWORK_HEALTH_CHECK_MS = ms`15s`
 const DEFAULT_MS_BEFORE_WARNING = ms`10m`
 
 function useBlockWarningTimer() {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
+
   const dispatch = useAppDispatch()
   const chainConnectivityWarningActive = useAppSelector((state) => state.application.chainConnectivityWarning)
   const timeout = useRef<NodeJS.Timeout>()

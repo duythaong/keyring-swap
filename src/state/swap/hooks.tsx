@@ -6,6 +6,7 @@ import { Trade as V3Trade } from '@uniswap/v3-sdk'
 import { TWO_PERCENT } from 'constants/misc'
 import { useBestV2Trade } from 'hooks/useBestV2Trade'
 import { useBestV3Trade } from 'hooks/useBestV3Trade'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import JSBI from 'jsbi'
 import { ParsedQs } from 'qs'
 import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
@@ -303,7 +304,9 @@ export function queryParametersToSwapState(parsedQs: ParsedQs): SwapState {
 export function useDefaultsFromURLSearch():
   | { inputCurrencyId: string | undefined; outputCurrencyId: string | undefined }
   | undefined {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
+
   const dispatch = useAppDispatch()
   const parsedQs = useParsedQueryString()
   const [result, setResult] = useState<

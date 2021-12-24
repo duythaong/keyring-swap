@@ -1,3 +1,4 @@
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useEffect, useMemo } from 'react'
 
 import { useActiveWeb3React } from '../../hooks/web3'
@@ -30,7 +31,9 @@ export interface UseLogsResult {
  * The filter parameter should _always_ be memoized, or else will trigger constant refetching
  */
 export function useLogs(filter: EventFilter | undefined): UseLogsResult {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
+
   const blockNumber = useBlockNumber()
 
   const logs = useAppSelector((state) => state.logs)
