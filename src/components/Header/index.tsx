@@ -92,35 +92,35 @@ const HeaderElement = styled.div`
 `
 
 const HeaderLinks = styled(Row)`
-  // justify-self: center;
-  // background-color: ${({ theme }) => theme.bg0};
-  // width: fit-content;
-  // padding: 4px;
-  // border-radius: 16px;
-  // display: grid;
-  // grid-auto-flow: column;
-  // grid-gap: 10px;
-  // overflow: auto;
-  // align-items: center;
-  // ${({ theme }) => theme.mediaWidth.upToLarge`
-  //   justify-self: start;  
-  //   `};
-  // ${({ theme }) => theme.mediaWidth.upToMedium`
-  //   justify-self: center;
-  // `};
-  // ${({ theme }) => theme.mediaWidth.upToMedium`
-  //   flex-direction: row;
-  //   justify-content: space-between;
-  //   justify-self: center;
-  //   z-index: 99;
-  //   position: fixed;
-  //   bottom: 0; right: 50%;
-  //   transform: translate(50%,-50%);
-  //   margin: 0 auto;
-  //   background-color: ${({ theme }) => theme.bg0};
-  //   border: 1px solid ${({ theme }) => theme.bg2};
-  //   box-shadow: 0px 6px 10px rgb(0 0 0 / 2%);
-  // `};
+  justify-self: center;
+  background-color: ${({ theme }) => theme.bg0};
+  width: fit-content;
+  padding: 4px;
+  border-radius: 16px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 10px;
+  overflow: auto;
+  align-items: center;
+  ${({ theme }) => theme.mediaWidth.upToLarge`
+    justify-self: start;  
+    `};
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+    justify-self: center;
+  `};
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+    flex-direction: row;
+    justify-content: space-between;
+    justify-self: center;
+    z-index: 99;
+    position: fixed;
+    bottom: 0; right: 50%;
+    transform: translate(50%,-50%);
+    margin: 0 auto;
+    background-color: ${({ theme }) => theme.bg0};
+    border: 1px solid ${({ theme }) => theme.bg2};
+    box-shadow: 0px 6px 10px rgb(0 0 0 / 2%);
+  `};
 `
 
 const BacoorIcon = styled.img`
