@@ -15,9 +15,11 @@ import { useDarkModeManager } from 'state/user/hooks'
 import { useETHBalances } from 'state/wallet/hooks'
 import styled from 'styled-components/macro'
 
+import LogoMobile from '../../assets/images/logo.png'
 import Logo from '../../assets/svg/logo.svg'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { ExternalLink, TYPE } from '../../theme'
+import { isMobile } from '../../utils/userAgent'
 import ClaimModal from '../claim/ClaimModal'
 import { CardNoise } from '../earn/styled'
 import Menu from '../Menu'
@@ -278,7 +280,7 @@ export default function Header() {
         {/* <UniIcon>
           <Logo fill={darkMode ? white : black} width="24px" height="100%" title="logo" />
         </UniIcon> */}
-        <BacoorIcon src={Logo} />
+        <BacoorIcon src={isMobile ? LogoMobile : Logo} />
       </Title>
       <HeaderLinks>
         {/* <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
