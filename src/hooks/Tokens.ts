@@ -2,6 +2,7 @@ import { NATIVE, WNATIVE } from '@duythao_bacoor/v2-sdk'
 import { arrayify } from '@ethersproject/bytes'
 import { parseBytes32String } from '@ethersproject/strings'
 import { Currency, Token } from '@uniswap/sdk-core'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useMemo } from 'react'
 
 import { createTokenFilterFunction } from '../components/SearchModal/filtering'
@@ -16,7 +17,9 @@ import { useActiveWeb3React } from './web3'
 
 // reduce token map into standard address <-> Token mapping, optionally include user added tokens
 function useTokensFromMap(tokenMap: TokenAddressMap, includeUserAdded: boolean): { [address: string]: Token } {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
+
   const userAddedTokens = useUserAddedTokens()
 
   return useMemo(() => {
@@ -64,7 +67,9 @@ export function useUnsupportedTokens(): { [address: string]: Token } {
 export function useSearchInactiveTokenLists(search: string | undefined, minResults = 10): WrappedTokenInfo[] {
   const lists = useAllLists()
   const inactiveUrls = useInactiveListUrls()
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
+
   const activeTokens = useAllTokens()
   return useMemo(() => {
     if (!search || search.trim().length === 0) return []
@@ -126,7 +131,9 @@ function parseStringOrBytes32(str: string | undefined, bytes32: string | undefin
 // null if loading or null was passed
 // otherwise returns the token
 export function useToken(tokenAddress?: string | null): Token | undefined | null {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
+
   const tokens = useAllTokens()
 
   const address = isAddress(tokenAddress)
@@ -178,8 +185,10 @@ export function useToken(tokenAddress?: string | null): Token | undefined | null
 }
 
 export function useCurrency(currencyId: string | null | undefined): Currency | null | undefined {
-  const { chainId } = useActiveWeb3React()
+  // const { chainId } = useActiveWeb3React()
   // const chainId = useAppSelector((state) => state.application.chainId)
+  const [chainId] = useDefaultChainId()
+
   const isETH = currencyId?.toUpperCase() === 'ETH'
   const token = useToken(isETH ? undefined : currencyId)
 

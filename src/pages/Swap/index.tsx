@@ -12,6 +12,7 @@ import SwapRoute from 'components/swap/SwapRoute'
 import TradePrice from 'components/swap/TradePrice'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
 import { MouseoverTooltip, MouseoverTooltipContent } from 'components/Tooltip'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import usePrevious from 'hooks/usePrevious'
 import JSBI from 'jsbi'
 import { ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
@@ -240,11 +241,12 @@ const useRouting = (
 }
 
 export default function Swap({ history }: RouteComponentProps) {
-  const { account, chainId: chainidAfterConnected } = useActiveWeb3React()
-  let chainId: number | undefined = chainidAfterConnected
-  if (account === null || account === undefined) {
-    chainId = getActiveChainBaseOnUrl()
-  }
+  const { account } = useActiveWeb3React()
+  // let chainId: number | undefined = chainidAfterConnected
+  // if (account === null || account === undefined) {
+  //   chainId = getActiveChainBaseOnUrl()
+  // }
+  const [chainId] = useDefaultChainId()
   const previousChainId = usePrevious(chainId)
   const loadedUrlParams = useDefaultsFromURLSearch()
   const [darkMode] = useDarkModeManager()
