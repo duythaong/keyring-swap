@@ -220,7 +220,7 @@ const useSortedTrades = (showWrap: boolean, tradeMap: TradeMap) => {
         .map((item) => ({
           name: item.name,
           logo: LOGO[item.name] ?? UNKNOWN_LOGO,
-          amountOut: item?.trade?.outputAmount?.toSignificant(6) ?? '',
+          amountOut: showWrap ? item.parsedAmount?.toExact() ?? '' : item?.trade?.outputAmount?.toSignificant(6) ?? '',
         })),
     [showWrap, tradeMap]
   )
