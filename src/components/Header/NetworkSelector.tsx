@@ -16,6 +16,7 @@ import { ApplicationModal, updateChainId } from 'state/application/reducer'
 import { useAppDispatch, useAppSelector } from 'state/hooks'
 import styled from 'styled-components/macro'
 import { ExternalLink, MEDIA_WIDTHS } from 'theme'
+import { getActiveChainBaseOnUrl } from 'utils/getActiveChain'
 import { supportedChainId } from 'utils/supportedChainId'
 import { switchToNetwork } from 'utils/switchToNetwork'
 
@@ -164,7 +165,12 @@ const ExplorerText = ({ chainId }: { chainId: SupportedL2ChainId }) => {
 }
 
 export default function NetworkSelector() {
-  const { chainId, library } = useActiveWeb3React()
+  const { account, chainId: chainidAfterConnected, library } = useActiveWeb3React()
+
+  let chainId: number | undefined = chainidAfterConnected
+  if (account === null || account === undefined) {
+    chainId = getActiveChainBaseOnUrl()
+  }
 
   const node = useRef<HTMLDivElement>()
   const open = useModalOpen(ApplicationModal.NETWORK_SELECTOR)
@@ -176,7 +182,8 @@ export default function NetworkSelector() {
 
   const isOnL2 = chainId ? L2_CHAIN_IDS.includes(chainId) : false
   const showSelector = Boolean(implements3085 || isOnL2)
-  const mainnetInfo = CHAIN_INFO[SupportedChainId.MAINNET]
+
+  const mainnetInfo = CHAIN_INFO[chainId ?? getActiveChainBaseOnUrl()]
 
   const conditionalToggle = useCallback(() => {
     if (showSelector) {
