@@ -29,7 +29,7 @@ export enum ApplicationModal {
 type PopupList = Array<{ key: string; show: boolean; content: PopupContent; removeAfterMs: number | null }>
 
 const defaultChainId = getActiveChainBaseOnUrl()
-console.log(defaultChainId)
+
 export interface ApplicationState {
   readonly blockNumber: { readonly [chainId: number]: number }
   readonly chainConnectivityWarning: boolean
@@ -47,6 +47,8 @@ const initialState: ApplicationState = {
   openModal: null,
   popupList: [],
 }
+
+console.log('initialState', initialState)
 
 const applicationSlice = createSlice({
   name: 'application',
