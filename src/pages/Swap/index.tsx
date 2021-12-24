@@ -241,7 +241,7 @@ const useRouting = (
 
 export default function Swap({ history }: RouteComponentProps) {
   const { account, chainId } = useActiveWeb3React()
-  console.log('chainIdBeforeConnect', chainId)
+  console.log('beforeConnected', account, chainId)
   const previousChainId = usePrevious(chainId)
   const loadedUrlParams = useDefaultsFromURLSearch()
   const [darkMode] = useDarkModeManager()
