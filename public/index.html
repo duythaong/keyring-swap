@@ -10,9 +10,9 @@
       %PUBLIC_URL% will be replaced with the URL of the `public` folder during build.
       Only files inside the `public` folder can be referenced from the HTML.
     -->
-    <link rel="shortcut icon" type="image/png" href="https://ipfs.pantograph.app/ipfs/QmdTFMfDybMfgDjKqC7NX1eAFjVTnbJtusjrG5wcsMDDLB?filename=favicon.png" />
-    <link rel="apple-touch-icon" sizes="192x192" href="https://ipfs.pantograph.app/ipfs/QmdTFMfDybMfgDjKqC7NX1eAFjVTnbJtusjrG5wcsMDDLB?filename=logo192x192.png" />
-    <link rel="apple-touch-icon" sizes="512x512" href="https://ipfs.pantograph.app/ipfs/QmSaAc9aXTpRn9LALCTSyjTK2Rj9xL4rA5ufxA4NcRCAMi?filename=logo512x512.png" />
+    <link rel="shortcut icon" type="image/png" href="PUBLIC_URL/favicon.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="PUBLIC_URL/images/logo192x192.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="PUBLIC_URL/images/logo512x512.png" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#000000" />
@@ -125,5 +125,15 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      var link = document.querySelector("link[rel~='icon']");
+      console.log('link', link)
+      if (!link) {
+          link = document.createElement('link');
+          link.rel = 'icon';
+          document.getElementsByTagName('head')[0].appendChild(link);
+      }
+      link.href = link.getAttribute('href').replace('PUBLIC_URL', window.location.origin);
+    </script>
   </body>
 </html>
