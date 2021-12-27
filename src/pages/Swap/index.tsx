@@ -24,7 +24,6 @@ import { V3TradeState } from 'state/routing/types'
 import { useDarkModeManager } from 'state/user/hooks'
 import styled, { css, keyframes, ThemeContext } from 'styled-components/macro'
 import useDeepCompareEffect from 'use-deep-compare-effect'
-import { getActiveChainBaseOnUrl } from 'utils/getActiveChain'
 import Observer from 'utils/observer'
 
 import AddressInputPanel from '../../components/AddressInputPanel'
