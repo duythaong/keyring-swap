@@ -2,6 +2,7 @@ import { NATIVE } from '@duythao_bacoor/v2-sdk'
 import { Trans } from '@lingui/macro'
 import useScrollPosition from '@react-hook/window-scroll'
 import { CHAIN_INFO, SupportedChainId } from 'constants/chains'
+import useDefaultChainId from 'hooks/useDefaultChainId'
 import useTheme from 'hooks/useTheme'
 import { darken } from 'polished'
 import { useState } from 'react'
@@ -253,7 +254,8 @@ const StyledExternalLink = styled(ExternalLink).attrs({
 `
 
 export default function Header() {
-  const { account, chainId } = useActiveWeb3React()
+  const { account } = useActiveWeb3React()
+  const [chainId] = useDefaultChainId()
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   const [darkMode] = useDarkModeManager()
   const { white, black } = useTheme()
@@ -283,13 +285,15 @@ export default function Header() {
         <BacoorIcon src={isMobile ? LogoMobile : Logo} />
       </Title>
       <HeaderLinks>
-        {/* <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
-          <Trans>Swap</Trans>
-        </StyledNavLink>
+        {(!chainId || chainId === SupportedChainId.POLYGON_TESTNET) && (
+          <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
+            <Trans>Swap</Trans>
+          </StyledNavLink>
+        )}
         {(!chainId || chainId === SupportedChainId.POLYGON_TESTNET) && (
           <StyledNavLink
             id={`pool-nav-link`}
-            to={'/pool'}
+            to={'/pool/v2'}
             isActive={(match, { pathname }) =>
               Boolean(match) ||
               pathname.startsWith('/add') ||
@@ -302,16 +306,11 @@ export default function Header() {
           </StyledNavLink>
         )}
         {(!chainId || chainId === SupportedChainId.POLYGON_TESTNET) && (
-          <StyledNavLink id={`vote-nav-link`} to={'/vote'}>
-            <Trans>Vote</Trans>
-          </StyledNavLink>
-        )}
-        {(!chainId || chainId === SupportedChainId.POLYGON_TESTNET) && (
           <StyledExternalLink id={`charts-nav-link`} href={infoLink}>
             <Trans>Charts</Trans>
             <sup>↗</sup>
           </StyledExternalLink>
-        )} */}
+        )}
       </HeaderLinks>
 
       <HeaderControls>

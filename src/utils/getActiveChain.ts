@@ -9,6 +9,8 @@ export function getActiveChainBaseOnUrl(): number {
       return SupportedChainId.BSC_MAINNET
     case 'swap_polygon':
       return SupportedChainId.POLYGON_MAINET
+    case 'swap_mumbai':
+      return SupportedChainId.POLYGON_TESTNET
     default:
       return SupportedChainId.MAINNET
   }
