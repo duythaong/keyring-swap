@@ -78,6 +78,7 @@ export function useDerivedMintInfo(
 
   // pair
   const [pairState, pair] = useV2Pair(currencies[Field.CURRENCY_A], currencies[Field.CURRENCY_B])
+  console.log('mint', pairState, pair, currencies)
   const totalSupply = useTotalSupply(pair?.liquidityToken)
 
   const noLiquidity: boolean =

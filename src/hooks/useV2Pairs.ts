@@ -5,7 +5,7 @@ import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.
 import useDefaultChainId from 'hooks/useDefaultChainId'
 import { useMemo } from 'react'
 
-import { CHAIN_SWAP_MAP, CHAIN_SWAP_NAMES } from '../constants/addresses'
+import { BACOOR_SWAP, CHAIN_SWAP_MAP } from '../constants/addresses'
 import { SupportedChainId } from '../constants/chains'
 import { useMultipleContractSingleData } from '../state/multicall/hooks'
 import { useActiveWeb3React } from './web3'
@@ -34,6 +34,7 @@ export function useV2Pairs(
   const pairAddresses = useMemo(
     () =>
       tokens.map(([tokenA, tokenB]) => {
+        console.log('useV2Pairs', name, tokenA, tokenB)
         return tokenA &&
           tokenB &&
           tokenA.chainId === tokenB.chainId &&
@@ -83,6 +84,6 @@ export function useV2Pairs(
 
 export function useV2Pair(tokenA?: Currency, tokenB?: Currency): [PairState, Pair | null] {
   const inputs: [[Currency | undefined, Currency | undefined]] = useMemo(() => [[tokenA, tokenB]], [tokenA, tokenB])
-  const [chainId] = useDefaultChainId() ?? SupportedChainId.POLYGON_MAINET
-  return useV2Pairs(CHAIN_SWAP_NAMES[chainId ?? SupportedChainId.POLYGON_MAINET][0], inputs)[0]
+  // const [chainId] = useDefaultChainId() ?? SupportedChainId.POLYGON_MAINET
+  return useV2Pairs(BACOOR_SWAP, inputs)[0]
 }
