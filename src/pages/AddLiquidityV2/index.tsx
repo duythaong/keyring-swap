@@ -4,6 +4,7 @@ import { Trans } from '@lingui/macro'
 import { Currency, CurrencyAmount, Percent } from '@uniswap/sdk-core'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
 import { SwitchLocaleLink } from 'components/SwitchLocaleLink'
+import { BACOOR_SWAP } from 'constants/addresses'
 import { useCallback, useContext, useState } from 'react'
 import { Plus } from 'react-feather'
 import ReactGA from 'react-ga'
@@ -125,7 +126,7 @@ export default function AddLiquidity({
     {}
   )
 
-  const router = useV2RouterContract()
+  const router = useV2RouterContract(BACOOR_SWAP)
 
   // check whether the user has approved the router on the tokens
   const [approvalA, approveACallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_A], router?.address)
@@ -273,7 +274,7 @@ export default function AddLiquidity({
 
   const pendingText = (
     <Trans>
-      Supplying {parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} {currencies[Field.CURRENCY_A]?.symbol} and
+      Supplying {parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} {currencies[Field.CURRENCY_A]?.symbol} and{' '}
       {parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} {currencies[Field.CURRENCY_B]?.symbol}
     </Trans>
   )

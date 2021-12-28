@@ -191,7 +191,7 @@ export const CHAIN_INFO: ChainInfo = {
   [SupportedChainId.POLYGON_TESTNET]: {
     docs: 'https://docs.uniswap.org/',
     explorer: 'https://mumbai.polygonscan.com/',
-    infoLink: 'https://info.uniswap.org/#/',
+    infoLink: 'https://v2.info.uniswap.org/#',
     label: 'Mumbai',
     logoUrl: polygonLogoUrl,
     nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },

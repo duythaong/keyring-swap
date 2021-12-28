@@ -3,6 +3,7 @@ import { Contract } from '@ethersproject/contracts'
 import { TransactionResponse } from '@ethersproject/providers'
 import { Trans } from '@lingui/macro'
 import { Currency, Percent } from '@uniswap/sdk-core'
+import { BACOOR_SWAP } from 'constants/addresses'
 import { useCallback, useContext, useMemo, useState } from 'react'
 import { ArrowDown, Plus } from 'react-feather'
 import ReactGA from 'react-ga'
@@ -95,7 +96,7 @@ export default function RemoveLiquidity({
   // pair contract
   const pairContract: Contract | null = usePairContract(pair?.liquidityToken?.address)
 
-  const router = useV2RouterContract()
+  const router = useV2RouterContract(BACOOR_SWAP)
 
   // allowance handling
   const { gatherPermitSignature, signatureData } = useV2LiquidityTokenPermit(
