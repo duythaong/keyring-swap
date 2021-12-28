@@ -125,16 +125,14 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <!-- <script>
-      var link = document.querySelector("link[rel~='icon']");
-      console.log('link', link)
-      if (!link) {
-          link = document.createElement('link');
-          link.rel = 'shortcut icon';
-          link.href = window.location.origin + '/favicon.png'
-          document.getElementsByTagName('head')[0].appendChild(link);
-      }
-      link.href = link.getAttribute('href').replace('PUBLIC_URL', window.location.origin);
-    </script> -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-STSH2BFD3E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-STSH2BFD3E');
+    </script>
   </body>
 </html>
