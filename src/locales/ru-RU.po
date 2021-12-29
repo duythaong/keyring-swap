@@ -2148,7 +2148,7 @@ msgid "You must connect an account."
 msgstr "Вы должны подключить аккаунт."
 
 #: src/pages/Swap/index.tsx
-msgid "You must give the Uniswap smart contracts permission to use your {0}. You only have to do this once per token."
+msgid "You must give the KEYRING SWAP smart contracts permission to use your {0}. You only have to do this once per token."
 msgstr "Вы должны дать разрешение смарт-контрактам Uniswap на использование ваших {0}. Это нужно сделать только один раз для каждого токена."
 
 #: src/pages/CreateProposal/index.tsx
