@@ -2148,7 +2148,7 @@ msgid "You must connect an account."
 msgstr "Du må koble til en konto."
 
 #: src/pages/Swap/index.tsx
-msgid "You must give the KEYRING SWAP"
+msgid "You must give the KEYRING SWAP smart contracts permission to use your {0}. You only have to do this once per token."
 msgstr "Du må gi Uniswap smartkontrakter tillatelse til å bruke din {0}. Du må bare gjøre dette en gang per pollett."
 
 #: src/pages/CreateProposal/index.tsx
