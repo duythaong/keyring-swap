@@ -213,7 +213,7 @@ msgstr "価格への大きな影響がある取引を許可し、確認画面を
 
 #: src/pages/Swap/index.tsx
 msgid "Allow the {name} Protocol to use your {0}"
-msgstr "{name} の使用を{0}に許可する"
+msgstr "{0} の使用を{name}に許可する"
 
 #: src/pages/MigrateV2/MigrateV2Pair.tsx
 msgid "Allowed"
