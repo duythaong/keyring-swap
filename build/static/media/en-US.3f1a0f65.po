@@ -347,6 +347,10 @@ msgstr "Canceled"
 msgid "Change"
 msgstr "Change"
 
+#: src/components/Header/index.tsx
+msgid "Charts"
+msgstr "Charts"
+
 #: src/components/Header/ChainConnectivityWarning.tsx
 msgid "Check network status"
 msgstr "Check network status"
@@ -1245,6 +1249,7 @@ msgstr "Please connect to the appropriate network."
 msgid "Please type the word \"{confirmWord}\" to enable expert mode."
 msgstr "Please type the word \"{confirmWord}\" to enable expert mode."
 
+#: src/components/Header/index.tsx
 #: src/components/NavigationTabs/index.tsx
 msgid "Pool"
 msgstr "Pool"
@@ -1541,9 +1546,14 @@ msgid "Supply"
 msgstr "Supply"
 
 #: src/pages/AddLiquidityV2/index.tsx
-msgid "Supplying {0} {1} and{2} {3}"
-msgstr "Supplying {0} {1} and{2} {3}"
+msgid "Supplying {0} {1} and {2} {3}"
+msgstr "Supplying {0} {1} and {2} {3}"
 
+#: 
+#~ msgid "Supplying {0} {1} and{2} {3}"
+#~ msgstr "Supplying {0} {1} and{2} {3}"
+
+#: src/components/Header/index.tsx
 #: src/components/NavigationTabs/index.tsx
 #: src/components/swap/SwapHeader.tsx
 #: src/pages/Swap/index.tsx
@@ -2133,8 +2143,12 @@ msgid "You must connect an account."
 msgstr "You must connect an account."
 
 #: src/pages/Swap/index.tsx
-msgid "You must give the Uniswap smart contracts permission to use your {0}. You only have to do this once per token."
-msgstr "You must give the Uniswap smart contracts permission to use your {0}. You only have to do this once per token."
+msgid "You must give the KEYRING SWAP smart contracts permission to use your {0}. You only have to do this once per token."
+msgstr "You must give the KEYRING SWAP smart contracts permission to use your {0}. You only have to do this once per token."
+
+#: 
+#~ msgid "You must give the Uniswap smart contracts permission to use your {0}. You only have to do this once per token."
+#~ msgstr "You must give the Uniswap smart contracts permission to use your {0}. You only have to do this once per token."
 
 #: src/pages/CreateProposal/index.tsx
 msgid "You must have {formattedProposalThreshold} votes to submit a proposal"
