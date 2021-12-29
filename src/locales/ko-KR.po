@@ -213,7 +213,7 @@ msgstr "높은 가격 영향 거래를 허용하고 확인 화면을 건너 뜁�
 
 #: src/pages/Swap/index.tsx
 msgid "Allow the {name} Protocol to use your {0}"
-msgstr "{0} 프로토콜이 귀하의 {name}을(를) 사용하도록 허용"
+msgstr "{name} 프로토콜이 귀하의 {0}을(를) 사용하도록 허용"
 
 #: src/pages/MigrateV2/MigrateV2Pair.tsx
 msgid "Allowed"
