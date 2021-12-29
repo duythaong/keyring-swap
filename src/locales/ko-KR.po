@@ -213,7 +213,7 @@ msgstr "높은 가격 영향 거래를 허용하고 확인 화면을 건너 뜁�
 
 #: src/pages/Swap/index.tsx
 msgid "Allow the {name} Protocol to use your {0}"
-msgstr "{0} 프로토콜이 귀하의 {name}을(를) 사용하도록 허용"
+msgstr "{name} 프로토콜이 귀하의 {0}을(를) 사용하도록 허용"
 
 #: src/pages/MigrateV2/MigrateV2Pair.tsx
 msgid "Allowed"
@@ -2148,7 +2148,7 @@ msgid "You must connect an account."
 msgstr "계정을 연결해야합니다."
 
 #: src/pages/Swap/index.tsx
-msgid "You must give the Uniswap smart contracts permission to use your {0}. You only have to do this once per token."
+msgid "You must give the KEYRING SWAP smart contracts permission to use your {0}. You only have to do this once per token."
 msgstr "{0}을 사용하려면 Uniswap 스마트 계약에 권한을 부여해야합니다. 토큰 당 한 번만 이 작업을 수행하면 됩니다."
 
 #: src/pages/CreateProposal/index.tsx

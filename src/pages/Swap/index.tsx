@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Trade as V2Trade } from '@duythao_bacoor/v2-sdk'
 import { Trans } from '@lingui/macro'
 import { Currency, CurrencyAmount, Percent, Token, TradeType } from '@uniswap/sdk-core'
@@ -864,8 +865,7 @@ export default function Swap({ history }: RouteComponentProps) {
                           <MouseoverTooltip
                             text={
                               <Trans>
-                                You must give the KEYRING SWAP smart contracts permission to use your{' '}
-                                {currencies[Field.INPUT]?.symbol}. You only have to do this once per token.
+                                You must give the KEYRING SWAP smart contracts permission to use your {currencies[Field.INPUT]?.symbol}. You only have to do this once per token.
                               </Trans>
                             }
                           >
