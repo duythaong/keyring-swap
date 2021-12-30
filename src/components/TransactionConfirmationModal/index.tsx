@@ -161,6 +161,7 @@ export function ConfirmationModalContent({
   topContent: () => ReactNode
   bottomContent?: () => ReactNode | undefined
 }) {
+  console.log('title', title)
   return (
     <Wrapper>
       <Section>

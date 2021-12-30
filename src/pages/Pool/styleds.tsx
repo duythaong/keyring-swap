@@ -7,6 +7,15 @@ export const Wrapper = styled.div`
   padding: 20px;
 `
 
+export const WrapperEllipsis = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+export const WrapperBlock = styled.div`
+  display: block;
+`
+
 export const ClickableText = styled(Text)`
   :hover {
     cursor: pointer;
