@@ -162,7 +162,7 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
 
   const currency0 = unwrappedToken(pair.token0)
   const currency1 = unwrappedToken(pair.token1)
-
+  console.log('asd', pair.token1, currency1)
   const [showMore, setShowMore] = useState(false)
 
   const userDefaultPoolBalance = useTokenBalance(account ?? undefined, pair.liquidityToken)

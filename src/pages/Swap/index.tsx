@@ -338,10 +338,6 @@ export default function Swap({ history }: RouteComponentProps) {
     }
   }, [])
 
-  useEffect(() => {
-    console.log('isRenderAngo', isRenderAngo)
-  }, [isRenderAngo])
-
   const {
     trade,
     v3TradeState,
