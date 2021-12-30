@@ -221,7 +221,13 @@ export default function AddLiquidity({
       <AutoColumn gap="20px">
         <LightCard mt="20px" $borderRadius="20px">
           <RowFlat>
-            <Text fontSize="48px" fontWeight={500} lineHeight="42px" marginRight={10}>
+            <Text
+              // style={{ textOverflow: 'aTriet' }}
+              fontSize="48px"
+              fontWeight={500}
+              lineHeight="42px"
+              marginRight={10}
+            >
               {currencies[Field.CURRENCY_A]?.symbol + '/' + currencies[Field.CURRENCY_B]?.symbol}
             </Text>
             <DoubleCurrencyLogo
