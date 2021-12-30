@@ -146,7 +146,6 @@ export default function WalletModal({
   const previousWalletView = usePrevious(walletView)
 
   const android = isAndroid()
-  console.log('android', android)
 
   const [pendingWallet, setPendingWallet] = useState<AbstractConnector | undefined>()
 

@@ -34,7 +34,6 @@ export function useV2Pairs(
   const pairAddresses = useMemo(
     () =>
       tokens.map(([tokenA, tokenB]) => {
-        console.log('useV2Pairs', name, tokenA, tokenB)
         return tokenA &&
           tokenB &&
           tokenA.chainId === tokenB.chainId &&
