@@ -31,8 +31,8 @@ const NETWORK_URLS = {
   [SupportedChainId.OPTIMISTIC_KOVAN]: `https://optimism-kovan.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_ONE]: `https://arbitrum-mainnet.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_RINKEBY]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
-  [SupportedChainId.POLYGON_MAINET]: `https://polygon-mainnet.infura.io/v3/${INFURA_KEY}`,
-  [SupportedChainId.POLYGON_TESTNET]: `https://polygon-mumbai.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.POLYGON_MAINET]: `https://polygon-rpc.com/`,
+  [SupportedChainId.POLYGON_TESTNET]: `https://rpc-mumbai.matic.today`,
   [SupportedChainId.BSC_MAINNET]: `https://bsc-dataseed1.ninicoin.io`,
 }
 
