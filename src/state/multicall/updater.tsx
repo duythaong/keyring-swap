@@ -204,7 +204,7 @@ export default function Updater(): null {
         promise
           .then((returnData) => {
             numberCalls.current++
-            console.log('Number of calls', numberCalls)
+            console.log('Number of calls', numberCalls.current)
             // split the returned slice into errors and results
             const { erroredCalls, results } = chunk.reduce<{
               erroredCalls: Call[]
