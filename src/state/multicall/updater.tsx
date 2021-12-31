@@ -25,7 +25,7 @@ async function fetchChunk(
   chunk: Call[],
   blockNumber: number
 ): Promise<{ success: boolean; returnData: string }[]> {
-  console.debug('Fetching chunk', chunk, blockNumber)
+  // console.debug('Fetching chunk', chunk, blockNumber)
 
   try {
     const { returnData } = await multicall.callStatic.multicall(
@@ -240,7 +240,7 @@ export default function Updater(): null {
                   }
                 })
               } else {
-                console.debug('Calls errored in fetch', erroredCalls)
+                // console.debug('Calls errored in fetch', erroredCalls)
               }
               dispatch(
                 errorFetchingMulticallResults({
