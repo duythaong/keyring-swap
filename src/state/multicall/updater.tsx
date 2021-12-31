@@ -14,7 +14,6 @@ import { errorFetchingMulticallResults, fetchingMulticallResults, updateMultical
 import { Call, parseCallKey, toCallKey } from './utils'
 
 const DEFAULT_CALL_GAS_REQUIRED = 1_000_000
-
 /**
  * Fetches a chunk of calls, enforcing a minimum block number constraint
  * @param multicall multicall contract to fetch against
@@ -27,6 +26,7 @@ async function fetchChunk(
   blockNumber: number
 ): Promise<{ success: boolean; returnData: string }[]> {
   console.debug('Fetching chunk', chunk, blockNumber)
+
   try {
     const { returnData } = await multicall.callStatic.multicall(
       chunk.map((obj) => ({
@@ -56,7 +56,6 @@ async function fetchChunk(
         }
       })
     }
-
     return returnData
   } catch (error) {
     if (error.code === -32000 || error.message?.indexOf('header not found') !== -1) {
@@ -146,6 +145,7 @@ export function outdatedListeningKeys(
 
 export default function Updater(): null {
   const dispatch = useAppDispatch()
+  const numberCalls = useRef(0)
   const state = useAppSelector((state) => state.multicall)
   // wait for listeners to settle before triggering updates
   const debouncedListeners = useDebounce(state.callListeners, 100)
@@ -203,6 +203,8 @@ export default function Updater(): null {
         })
         promise
           .then((returnData) => {
+            numberCalls.current++
+            console.log('Number of calls', numberCalls)
             // split the returned slice into errors and results
             const { erroredCalls, results } = chunk.reduce<{
               erroredCalls: Call[]
