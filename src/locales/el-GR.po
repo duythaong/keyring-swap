@@ -344,7 +344,7 @@ msgid "By adding this list you are implicitly trusting that the data is correct.
 msgstr "Προσθέτοντας αυτή τη λίστα, εμπιστεύεστε έμμεσα ότι τα δεδομένα είναι σωστά. Οποιοσδήποτε μπορεί να δημιουργήσει μια λίστα, συμπεριλαμβανομένης της δημιουργίας πλαστών εκδόσεων των υφιστάμενων καταλόγων και καταλόγων που ισχυρίζονται ότι αντιπροσωπεύουν έργα που δεν έχουν ένα."
 
 #: src/components/WalletModal/index.tsx
-msgid "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the Uniswap <1>Protocol Disclaimer</1>."
+msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
 msgstr "Συνδέοντας ένα πορτοφόλι, συμφωνείτε με τους Όρους Παροχής Υπηρεσιών <0></0> και αναγνωρίζετε ότι έχετε διαβάσει και κατανοήσει τη Δήλωση Αποποίησης ευθυνών Πρωτοκόλλου <1></1>."
 
 #: src/pages/Vote/styled.tsx

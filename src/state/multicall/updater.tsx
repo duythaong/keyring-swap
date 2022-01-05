@@ -150,6 +150,7 @@ export default function Updater(): null {
   // wait for listeners to settle before triggering updates
   const debouncedListeners = useDebounce(state.callListeners, 100)
   const latestBlockNumber = useBlockNumber()
+  numberCalls.current++
   // const { chainId } = useActiveWeb3React()
   const [chainId] = useDefaultChainId()
 
