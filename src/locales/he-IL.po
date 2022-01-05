@@ -344,7 +344,7 @@ msgid "By adding this list you are implicitly trusting that the data is correct.
 msgstr "על ידי הוספת רשימה זו אתה סומך באופן מרומז על כך שהנתונים נכונים. כל אחד יכול ליצור רשימה, כולל יצירת גרסאות מזויפות של רשימות קיימות ורשימות המתיימרות לייצג פרויקטים שאין להם."
 
 #: src/components/WalletModal/index.tsx
-msgid "By connecting your wallet, you agree to the <0>Terms of Service</0> and <1>Protocol Disclaimer</1>."
+msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
 msgstr "על ידי חיבור ארנק, אתה מסכים לתנאי השירות</0> <0>ומאשר שקראת והבנת את כתב ויתור פרוטוקול <1></1>."
 
 #: src/pages/Vote/styled.tsx
