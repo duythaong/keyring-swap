@@ -441,10 +441,7 @@ export default function WalletModal({
               <AutoRow style={{ flexWrap: 'nowrap' }}>
                 <TYPE.black fontSize={14}>
                   <Trans>
-                    By connecting a wallet, you agree to KEYRING SWAP Labs’{' '}
-                    <ExternalLink href="https://uniswap.org/terms-of-service/">Terms of Service</ExternalLink> and
-                    acknowledge that you have read and understand the KEYRING SWAP{' '}
-                    <ExternalLink href="https://uniswap.org/disclaimer/">Protocol Disclaimer</ExternalLink>.
+                    By connecting your wallet, you agree to the <ExternalLink href="https://uniswap.org/terms-of-service">Terms of Service</ExternalLink> and <ExternalLink href="https://uniswap.org/disclaimer">Protocol Disclaimer</ExternalLink>.
                   </Trans>
                 </TYPE.black>
               </AutoRow>
