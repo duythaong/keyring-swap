@@ -441,7 +441,9 @@ export default function WalletModal({
               <AutoRow style={{ flexWrap: 'nowrap' }}>
                 <TYPE.black fontSize={14}>
                   <Trans>
-                    By connecting your wallet, you agree to the <ExternalLink href="https://uniswap.org/terms-of-service">Terms of Service</ExternalLink> and <ExternalLink href="https://uniswap.org/disclaimer">Protocol Disclaimer</ExternalLink>.
+                    By connecting your wallet, you agree to the
+                    <ExternalLink href="https://uniswap.org/terms-of-service"> Terms of Service</ExternalLink> and
+                    <ExternalLink href="https://uniswap.org/disclaimer"> Protocol Disclaimer</ExternalLink>.
                   </Trans>
                 </TYPE.black>
               </AutoRow>
