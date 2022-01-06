@@ -173,7 +173,7 @@ export const CHAIN_INFO: ChainInfo = {
   [SupportedChainId.BSC_MAINNET]: {
     docs: 'https://docs.uniswap.org/',
     explorer: 'https://bscscan.com/',
-    infoLink: 'https://info.uniswap.org/#/',
+    infoLink: 'https://info-swap.web.app',
     label: 'BSC',
     logoUrl: binanceLogoUrl,
     nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
@@ -182,7 +182,7 @@ export const CHAIN_INFO: ChainInfo = {
   [SupportedChainId.POLYGON_MAINET]: {
     docs: 'https://docs.uniswap.org/',
     explorer: 'https://polygonscan.com/',
-    infoLink: 'https://info.uniswap.org/#/',
+    infoLink: 'https://info-swap.web.app',
     label: 'Polygon',
     logoUrl: polygonLogoUrl,
     nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
@@ -191,7 +191,7 @@ export const CHAIN_INFO: ChainInfo = {
   [SupportedChainId.POLYGON_TESTNET]: {
     docs: 'https://docs.uniswap.org/',
     explorer: 'https://mumbai.polygonscan.com/',
-    infoLink: 'https://v2.info.uniswap.org/#',
+    infoLink: 'https://info-swap.web.app',
     label: 'Mumbai',
     logoUrl: polygonLogoUrl,
     nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
