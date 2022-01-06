@@ -58,7 +58,7 @@ import SwapHeader from '../../components/swap/SwapHeader'
 import { SwitchLocaleLink } from '../../components/SwitchLocaleLink'
 import TokenWarningModal from '../../components/TokenWarningModal'
 import { CHAIN_SWAP_NAMES, LOGO, SUSHI_SWAP, UNKNOWN_LOGO } from '../../constants/addresses'
-import { SupportedChainId } from '../../constants/chains'
+import { CHAIN_INFO, SupportedChainId } from '../../constants/chains'
 import { TRADE_MAP_UPDATE } from '../../constants/misc'
 import { useAllTokens, useCurrency } from '../../hooks/Tokens'
 import { ApprovalState, useApproveCallbackFromTrade } from '../../hooks/useApproveCallback'
@@ -158,6 +158,34 @@ const Banner2 = styled.div`
   align-items: center;
   // animation: ${fadeIn} 5s ease-out;
 `
+const Chains = styled.div`
+  display: flex;
+  margin: 70px auto;
+`
+const ChainItem = styled.a`
+  background-color: ${({ theme }) => theme.bg0};
+  border: 1px solid ${({ theme }) => theme.bg0};
+  color: ${({ theme }) => theme.text1};
+  display: flex;
+  font-weight: 500;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  cursor: pointer;
+  border-radius: 11px;
+  margin: 0 5px;
+  text-decoration: none;
+  transistion: 0.3s all;
+  &:hover {
+    border-color: ${({ theme }) => theme.bg2};
+  }
+`
+const ChainLogo = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+`
+const ChainLabel = styled.span``
 const ActiveOutlinedButton = ({
   name,
   selectedSwap,
@@ -982,6 +1010,20 @@ export default function Swap({ history }: RouteComponentProps) {
           currencies={[currencies[Field.INPUT], currencies[Field.OUTPUT]]}
         />
       )}
+      <Chains>
+        <ChainItem href='https://swap_eth.keyring.app/#/swap' target='_blank'>
+          <ChainLogo src={CHAIN_INFO[SupportedChainId.MAINNET].logoUrl} />
+          <ChainLabel>Ethereum</ChainLabel>
+        </ChainItem>
+        <ChainItem href='https://swap_bsc.keyring.app/#/swap' target='_blank'>
+          <ChainLogo src={CHAIN_INFO[SupportedChainId.BSC_MAINNET].logoUrl} />
+          <ChainLabel>BSC</ChainLabel>
+        </ChainItem>
+        <ChainItem href='https://swap_polygon.keyring.app/#/swap' target='_blank'>
+          <ChainLogo src={CHAIN_INFO[SupportedChainId.POLYGON_MAINET].logoUrl} />
+          <ChainLabel>Polygon</ChainLabel>
+        </ChainItem>
+      </Chains>
     </>
   )
 }
