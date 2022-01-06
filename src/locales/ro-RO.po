@@ -345,7 +345,7 @@ msgstr "Prin adăugarea acestei liste ești încrezător implicit că datele sun
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "Prin conectarea unui portofel, sunteți de acord cu <0>Termenii și condițiile</0> și confirmați că ați citit și înțeles Declinarea răspunderii privind protocolul <1></1>."
+msgstr "Prin conectarea unui portofel, sunteți de acord cu <0>Termenii și condițiile</0> și confirmați că ați citit și înțeles Declinarea răspunderii privind  <1> protocolul</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

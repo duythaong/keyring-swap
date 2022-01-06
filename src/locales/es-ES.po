@@ -345,7 +345,7 @@ msgstr "Al añadir esta lista está confiando implícitamente en que los datos s
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "Al conectar una billetera, acepta los <0>Términos de servicio</0> Uniswap Labs y reconoce que ha leído y comprendido el Descargo <1>responsabilidad del protocolo</1>."
+msgstr "Al conectar una billetera, acepta los <0>Términos de servicio</0> y reconoce que ha leído y comprendido el Descargo <1>responsabilidad del protocolo</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

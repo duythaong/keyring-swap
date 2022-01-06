@@ -345,7 +345,7 @@ msgstr "การเพิ่มรายการนี้แสดงว่า
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "การเชื่อมต่อกระเป๋าเงินหมายความว่าคุณยอมรับข้อกำหนดในการให้บริการ <0></0> และรับทราบว่าคุณได้อ่านและทำความเข้าใจ Uniswap <1>Protocol Disclaimer</1>แล้ว"
+msgstr "การเชื่อมต่อกระเป๋าเงินหมายความว่าคุณยอมรับข้อกำหนดในการใ <0>ห้บริการ</0> และรับทราบว่าคุณได้อ่านและทำความเข้าใจ <1>Protocol Disclaimer</1>แล้ว"
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

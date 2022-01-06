@@ -345,7 +345,7 @@ msgstr "Bằng cách thêm danh sách này, bạn hoàn toàn tin tưởng rằn
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "Bằng cách kết nối ví, bạn đồng ý với <0>Điều khoản dịch vụ</0> của Uniswap Labs và xác nhận rằng bạn đã đọc và hiểu Tuyên bố từ chối trách nhiệm</1><1>."
+msgstr "Bằng cách kết nối ví, bạn đồng ý với <0>Điều khoản dịch vụ</0> và xác nhận rằng bạn đã đọc và hiểu <1>Tuyên bố từ chối trách nhiệm</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

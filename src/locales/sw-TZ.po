@@ -345,7 +345,7 @@ msgstr "Kwa kuongeza orodha hii unaamini kabisa kuwa data ni sahihi. Mtu yeyote 
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "Kwa kuunganisha mkoba, unakubaliana na Uniswap Labs ' <0>Masharti ya Huduma</0> na kutambua kwamba umesoma na kuelewa Uniswap <1>Itifaki Kanusho</1>."
+msgstr "Kwa kuunganisha mkoba, unakubaliana na ' <0>Masharti ya Huduma</0> na kutambua kwamba umesoma na kuelewa <1>Itifaki Kanusho</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

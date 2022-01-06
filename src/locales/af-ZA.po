@@ -345,7 +345,7 @@ msgstr "Deur hierdie lys by te voeg, vertrou u implisiet dat die data korrek is.
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "Deur 'n beursie te koppel, stem jy in tot Uniswap Labs se <0>Diensbepalings</0> en erken dat jy die Uniswap <1>Protokol Disclaimer</1>gelees en verstaan het."
+msgstr "Deur jou beursie te koppel, stem jy in tot die <0>Diensbepalings</0> en <1>Protokol Disclaimer</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

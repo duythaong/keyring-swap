@@ -345,7 +345,7 @@ msgstr "Dengan menambahkan daftar ini, Anda secara implisit mempercayai bahwa da
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "Dengan menghubungkan dompet, Anda menyetujui Persyaratan Layanan</0> <0>dan mengakui bahwa Anda telah membaca dan memahami Penafian Protokol <1></1>."
+msgstr "Dengan menghubungkan dompet, Anda menyetujui <0>Persyaratan Layanan </0>dan mengakui bahwa Anda telah membaca dan memahami Penafian <1>Protokol</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

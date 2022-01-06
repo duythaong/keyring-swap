@@ -345,7 +345,8 @@ msgstr "이 목록을 추가하면 데이터가 정확하다는 것을 암시적
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "지갑을 연결하면 Uniswap Labs의 <0>서비스 약관</0> <1>프로토콜 면책 조항</1>읽고 이해했음을 인정합니다."
+msgstr "지갑을 연결하면 <0>서비스 약관</0> 및 <1>프로토콜 면책 조항</1> 동의하는 것입니다."
+
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

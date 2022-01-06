@@ -345,7 +345,7 @@ msgstr "Přidáním tohoto seznamu implicitně vyjadřujete důvěru v to, že d
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "Připojením peněženky souhlasíte s <0>podmínkami služby</0> a potvrzujete, že jste si přečetli a rozumíte prohlášení o vyloučení odpovědnosti za protokol <1></1>."
+msgstr "Připojením peněženky souhlasíte s <0>podmínkami služby</0> a potvrzujete, že jste si přečetli a rozumíte prohlášení o vyloučení odpovědnosti za  <1>protokol</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

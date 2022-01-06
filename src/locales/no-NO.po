@@ -345,7 +345,7 @@ msgstr "Ved å legge til denne listen stoler du implisitt på at dataene er rikt
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "Ved å koble til en lommebok godtar du Uniswap Labs' <0>vilkår for bruk</0> og erkjenner at du har lest og forstått Uniswap <1>Protocol Ansvarsfraskrivelse</1>."
+msgstr "Ved å koble til en lommebok godtar du <0>vilkår for bruk</0> og erkjenner at du har lest og forstått <1>Protocol Ansvarsfraskrivelse</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

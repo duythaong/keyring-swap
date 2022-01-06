@@ -345,7 +345,7 @@ msgstr "添加此代币列表代表您信任其数据是正确的。任何人都
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "连接钱包即表示您同意 Uniswap Labs 的 <0>服务条款</0> 并确认您已阅读并理解 Uniswap <1>协议免责声明</1>。"
+msgstr "连接钱包即表示您同意 的 <0>服务条款</0> 并确认您已阅读并理解 <1>协议免责声明</1>。"
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"
