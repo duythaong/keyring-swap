@@ -344,8 +344,8 @@ msgid "By adding this list you are implicitly trusting that the data is correct.
 msgstr "A lista hozzáadásával hallgatólagosan megbízik az adatok helyességében. Bárki létrehozhat egy listát, beleértve a meglévő listák hamisított változatait is és olyan listákat is, amelyek azt állítják, hogy olyan projekteket képviselnek, amelyeknek nincs."
 
 #: src/components/WalletModal/index.tsx
-msgid "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the Uniswap <1>Protocol Disclaimer</1>."
-msgstr "A pénztárca csatlakoztatásával Ön elfogadja az Uniswap Labs <0>szolgáltatási feltételeit</0> és elismeri, hogy elolvasta és megértette az Uniswap <1>Protokoll Jogi nyilatkozatát</1>."
+msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
+msgstr "A pénztárca csatlakoztatásával Ön elfogadja a <0>szolgáltatási feltételeit</0> és a <1>Protokoll Jogi nyilatkozatát</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

@@ -344,8 +344,8 @@ msgid "By adding this list you are implicitly trusting that the data is correct.
 msgstr "Dodając tę listę domyślnie ufasz że dane są poprawne. Każdy może utworzyć listę, w tym tworzyć fałszywe wersje istniejących list i list, które twierdzą, że reprezentują projekty, które ich nie posiadają."
 
 #: src/components/WalletModal/index.tsx
-msgid "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the Uniswap <1>Protocol Disclaimer</1>."
-msgstr "Podłączając portfel, zgadzasz się na Warunki korzystania z usługi <0></0> i potwierdzasz, że przeczytałeś i zrozumiałeś Zastrzeżenie dotyczące protokołu <1></1>."
+msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
+msgstr "Podłączając portfel, zgadzasz się na Warunki korzystania z  <0>usługi</0> i potwierdzasz, że przeczytałeś i zrozumiałeś Zastrzeżenie dotyczące  <1>protokołu</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"
