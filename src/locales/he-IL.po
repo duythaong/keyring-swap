@@ -345,7 +345,7 @@ msgstr "על ידי הוספת רשימה זו אתה סומך באופן מרו
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "על ידי חיבור ארנק, אתה מסכים לתנאי השירות</0> <0>ומאשר שקראת והבנת את כתב ויתור פרוטוקול <1></1>."
+msgstr "ע<1/>ל ידי<1> חיבור הארנק שלך, <0/>אתה מסכים<0> לתנאי השירות ולכתב ויתור פרוטוקול."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"
