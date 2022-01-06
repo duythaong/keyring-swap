@@ -345,7 +345,7 @@ msgstr "Bu listeyi ekleyerek, verilerin doğru olduğuna dolaylı olarak güveni
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "Bir cüzdan bağlayarak, Uniswap Labs'ın kabul <0>Hizmet Şartları'nı</0> ve okuduğunuzu ve Uniswap anladığımı teyit <1>Protokol Uyarı</1>."
+msgstr "Bir cüzdan bağlayarak, ın kabul <0>Hizmet Şartları'nı</0> ve okuduğunuzu ve anladığımı teyit <1>Protokol Uyarı</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

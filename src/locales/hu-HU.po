@@ -345,7 +345,7 @@ msgstr "A lista hozzáadásával hallgatólagosan megbízik az adatok helyesség
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "A pénztárca csatlakoztatásával Ön elfogadja az Uniswap Labs <0>szolgáltatási feltételeit</0> és elismeri, hogy elolvasta és megértette az Uniswap <1>Protokoll Jogi nyilatkozatát</1>."
+msgstr "A pénztárca csatlakoztatásával Ön elfogadja a <0>szolgáltatási feltételeit</0> és a <1>Protokoll Jogi nyilatkozatát</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

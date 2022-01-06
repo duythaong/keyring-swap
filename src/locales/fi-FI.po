@@ -345,7 +345,7 @@ msgstr "Lisäämällä tämän luettelon luotat ehdottomasti siihen, että tiedo
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "Yhdistämällä lompakon hyväksyt Uniswap Labsin <0>-palveluehdot</0> ja vahvistat lukeneesi ja ymmärtäväsi Uniswap <1>-protokollan vastuuvapauslausekkeen</1>."
+msgstr "Yhdistämällä lompakkosi hyväksyt <0>palveluehdot</0> ja <1>protokollan vastuuvapauslausekkeen</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"
