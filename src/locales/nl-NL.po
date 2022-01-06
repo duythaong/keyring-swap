@@ -345,7 +345,7 @@ msgstr "Door deze lijst toe te voegen, vertrouwt u er impliciet op dat de gegeve
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "Door een portemonnee te koppelen, gaat u akkoord met de <0>Servicevoorwaarden</0> van en bevestigt u dat u de Disclaimer</1><1>protocol hebt gelezen en begrepen."
+msgstr "Door een portemonnee te koppelen, gaat u akkoord met de <0>Servicevoorwaarden</0> van en bevestigt u dat u de <1>protocol Disclaimer</1> hebt gelezen en begrepen."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"

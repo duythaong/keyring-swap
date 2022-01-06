@@ -345,7 +345,7 @@ msgstr "Додавањем ове листе имплицитно сте саг�
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting your wallet, you agree to the<0> Terms of Service</0> and<1> Protocol Disclaimer</1>."
-msgstr "Povezivanjem novčanika prihvatate Uslove korišćenja usluge <0></0> i potvrđujete da ste pročitali i razumeli Odricanje odgovornosti</1><1>."
+msgstr "Povezivanjem novčanika prihvatate Uslove korišćenja <0>usluge</0> i potvrđujete da ste pročitali i razumeli Odricanje odgovornosti<1>odgovornosti</1>."
 
 #: src/pages/Vote/styled.tsx
 msgid "Canceled"
