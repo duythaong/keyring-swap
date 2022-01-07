@@ -3,13 +3,13 @@ import { SupportedChainId } from '../constants/chains'
 export function getActiveChainBaseOnUrl(): number {
   const subdomain = window.location.host.split('.')[1] ? window.location.host.split('.')[0] : false
   switch (subdomain) {
-    case 'swap_eth':
+    case 'swap-eth':
       return SupportedChainId.MAINNET
-    case 'swap_bsc':
+    case 'swap-bsc':
       return SupportedChainId.BSC_MAINNET
-    case 'swap_polygon':
+    case 'swap_-olygon':
       return SupportedChainId.POLYGON_MAINET
-    case 'swap_mumbai':
+    case 'swap-mumbai':
       return SupportedChainId.POLYGON_TESTNET
     default:
       return SupportedChainId.MAINNET
