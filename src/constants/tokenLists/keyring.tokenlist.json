@@ -1,0 +1,54 @@
+{
+  "name": "KeyringSwap Tokens List",
+  "timestamp": "2022-01-10T20:47:02.923Z",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "tags": {},
+  "logoURI": "ipfs.pantograph.app/ipfs/QmdTFMfDybMfgDjKqC7NX1eAFjVTnbJtusjrG5wcsMDDLB",
+  "keywords": ["keyring"],
+  "tokens": [
+    {
+      "name": "Tether USD",
+      "address": "0x4b1691404797D407F5bAdb1CE1EDABF867e271fd",
+      "symbol": "USDT",
+      "decimals": 18,
+      "chainId": 80001,
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png"
+    },
+    {
+      "name": "XRP Token",
+      "address": "0x8958aC138F6A654C7fED84DC5A44E855b556d46B",
+      "symbol": "XRP",
+      "decimals": 18,
+      "chainId": 80001,
+      "logoURI": "https://tokens.pancakeswap.finance/images/0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE.png"
+    },
+    {
+      "name": "Wrapped LUNA Token",
+      "address": "0xB8df8B3521dd00d09E9211bFeB6AFBFE096aB342",
+      "symbol": "LUNA",
+      "decimals": 18,
+      "chainId": 80001,
+      "logoURI": "https://assets.coingecko.com/coins/images/8284/small/luna1557227471663.png?1567147072"
+    },
+    {
+      "name": "Tron",
+      "symbol": "TRX",
+      "address": "0x66fbe590aa3c9761071D4595F100a80b6a721eca",
+      "chainId": 80001,
+      "decimals": 18,
+      "logoURI": "https://tokens.pancakeswap.finance/images/0x85EAC5Ac2F758618dFa09bDbe0cf174e7d574D5B.png"
+    },
+    {
+      "name": "Tezos Token",
+      "symbol": "XTZ",
+      "address": "0xC7E785221BDCa907111D94ceA6105B7cDE2c1088",
+      "chainId": 80001,
+      "decimals": 18,
+      "logoURI": "https://tokens.pancakeswap.finance/images/0x16939ef78684453bfDFb47825F8a5F714f12623a.png"
+    }
+  ]
+}
