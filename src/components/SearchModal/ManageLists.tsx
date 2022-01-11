@@ -265,6 +265,8 @@ export function ManageLists({
   // sort by active but only if not visible
   const activeListUrls = useActiveListUrls()
 
+  console.log('activeListUrls', activeListUrls)
+
   const handleInput = useCallback((e) => {
     setListUrlInput(e.target.value)
   }, [])
