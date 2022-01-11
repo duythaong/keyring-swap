@@ -265,8 +265,6 @@ export function ManageLists({
   // sort by active but only if not visible
   const activeListUrls = useActiveListUrls()
 
-  console.log('activeListUrls', activeListUrls)
-
   const handleInput = useCallback((e) => {
     setListUrlInput(e.target.value)
   }, [])
@@ -323,7 +321,10 @@ export function ManageLists({
     async function fetchTempList() {
       fetchList(listUrlInput, false)
         .then((list) => setTempList(list))
-        .catch(() => setAddError(t`Error importing list`))
+        .catch((error) => {
+          console.log('tokenlists', error)
+          setAddError(t`Error importing list`)
+        })
     }
     // if valid url, fetch details for card
     if (validUrl) {
