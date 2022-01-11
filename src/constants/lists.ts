@@ -1,4 +1,6 @@
-// import KEYRING_LIST from './tokenLists/keyring.tokenlist.json'
+import { SupportedChainId } from 'constants/chains'
+import { getActiveChainBaseOnUrl } from 'utils/getActiveChain'
+
 const AAVE_LIST = 'tokenlist.aave.eth'
 const BA_LIST = 'https://raw.githubusercontent.com/The-Blockchain-Association/sec-notice-list/master/ba-sec-list.json'
 const CMC_ALL_LIST = 'defi.cmc.eth'
@@ -45,4 +47,7 @@ export const DEFAULT_LIST_OF_LISTS: string[] = [
 ]
 
 // default lists to be 'active' aka searched across
-export const DEFAULT_ACTIVE_LIST_URLS: string[] = [KEYRING_LIST, GEMINI_LIST, QUICK_LIST, PANCAKE_LIST]
+export const DEFAULT_ACTIVE_LIST_URLS: string[] =
+  getActiveChainBaseOnUrl() !== SupportedChainId.POLYGON_TESTNET
+    ? [GEMINI_LIST, QUICK_LIST, PANCAKE_LIST]
+    : [KEYRING_LIST]
