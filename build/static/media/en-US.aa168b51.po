@@ -393,17 +393,17 @@ msgstr "Claim <0/> for {0}"
 msgid "Claim UNI"
 msgstr "Claim UNI"
 
-#: src/components/AccountDetails/TransactionSummary.tsx
-msgid "Claim UNI 3 reward for {0}"
-msgstr "Claim UNI 3 reward for {0}"
+#: 
+#~ msgid "Claim UNI 3 reward for {0}"
+#~ msgstr "Claim UNI 3 reward for {0}"
 
 #: src/components/claim/AddressClaimModal.tsx
 msgid "Claim UNI Token"
 msgstr "Claim UNI Token"
 
-#: 
-#~ msgid "Claim UNI reward for {0}"
-#~ msgstr "Claim UNI reward for {0}"
+#: src/components/AccountDetails/TransactionSummary.tsx
+msgid "Claim UNI reward for {0}"
+msgstr "Claim UNI reward for {0}"
 
 #: src/pages/Pool/PositionPage.tsx
 msgid "Claim fees"
