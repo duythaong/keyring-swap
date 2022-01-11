@@ -8,7 +8,7 @@
   },
   "tags": {},
   "logoURI": "https://ipfs.pantograph.app/ipfs/QmdTFMfDybMfgDjKqC7NX1eAFjVTnbJtusjrG5wcsMDDLB",
-  "keywords": ["keyring"],
+  "keywords": ["keyring", "default"],
   "tokens": [
     {
       "name": "Tether USD",
