@@ -132,7 +132,7 @@ msgid "A minimum threshold of 0.25% of the total UNI supply is required to submi
 msgstr "Απαιτείται ελάχιστο όριο 0,25% της συνολικής προσφοράς UNI για την υποβολή προτάσεων"
 
 #: src/components/Menu/index.tsx
-msgid "About"
+msgid "About Keyring Swap"
 msgstr "Σχετικά με εμάς"
 
 #: src/components/swap/SwapModalHeader.tsx
@@ -155,8 +155,8 @@ msgid "Add"
 msgstr "Προσθήκη"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
-msgid "Add <0/> and <1/> to Uniswap V2"
-msgstr "Προσθέστε <0/> και <1/> στο Uniswap V2"
+msgid "Add <0/> and <1/> to Keyringswap"
+msgstr "Προσθέστε <0/> και <1/> στο Keyringswap"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Add Delegate +"

@@ -132,7 +132,7 @@ msgid "A minimum threshold of 0.25% of the total UNI supply is required to submi
 msgstr "A pályázatok benyújtásához az UNI teljes kínálatának minimum 0,25% -a szükséges"
 
 #: src/components/Menu/index.tsx
-msgid "About"
+msgid "About Keyring Swap"
 msgstr "Körülbelül"
 
 #: src/components/swap/SwapModalHeader.tsx
@@ -155,8 +155,8 @@ msgid "Add"
 msgstr "Hozzáadás"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
-msgid "Add <0/> and <1/> to Uniswap V2"
-msgstr "A <0/> és <1/> hozzáadása a Uniswap V2 -hez"
+msgid "Add <0/> and <1/> to Keyringswap"
+msgstr "A <0/> és <1/> hozzáadása a Keyringswap -hez"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Add Delegate +"

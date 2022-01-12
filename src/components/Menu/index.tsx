@@ -86,7 +86,7 @@ const StyledMenu = styled.div`
 `
 
 const MenuFlyout = styled.span<{ flyoutAlignment?: FlyoutAlignment }>`
-  min-width: 196px;
+  min-width: 220px;
   max-height: 350px;
   overflow: auto;
   background-color: ${({ theme }) => theme.bg1};
@@ -269,13 +269,13 @@ export default function Menu() {
                         </MenuItem>
                       )}
 
-                    {/* <MenuItem href="https://uniswap.org/">
+                    <MenuItem href="https://keyring.app/keyring-swap">
                       <div>
-                        <Trans>About</Trans>
+                        <Trans>About Keyring Swap</Trans>
                       </div>
                       <Info opacity={0.6} size={16} />
                     </MenuItem>
-                    <MenuItem href="https://docs.uniswap.org/">
+                    {/* <MenuItem href="https://docs.uniswap.org/">
                       <div>
                         <Trans>Docs</Trans>
                       </div>
@@ -315,7 +315,7 @@ export default function Menu() {
                       </div>
                       <FileText opacity={0.6} size={16} />
                     </ToggleMenuItem> */}
-                    {showUNIClaimOption && (
+                    {/* {showUNIClaimOption && (
                       <UNIbutton
                         onClick={openClaimModal}
                         padding="8px 16px"
@@ -325,7 +325,7 @@ export default function Menu() {
                       >
                         <Trans>Claim UNI</Trans>
                       </UNIbutton>
-                    )}
+                    )} */}
                   </MenuFlyout>
                 )
             }
