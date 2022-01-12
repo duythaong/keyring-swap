@@ -155,8 +155,8 @@ msgid "Add"
 msgstr "Añadir"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
-msgid "Add <0/> and <1/> to Uniswap V2"
-msgstr "Agregue <0 /> y <1 /> a Uniswap V2"
+msgid "Add <0/> and <1/> to Keyringswap"
+msgstr "Agregue <0 /> y <1 /> a Keyringswap"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Add Delegate +"
