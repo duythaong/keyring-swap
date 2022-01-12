@@ -73,6 +73,13 @@ export const USDT_OPTIMISM = new Token(
   'USDT',
   'Tether USD'
 )
+export const USDT_MUMBAI = new Token(
+  SupportedChainId.POLYGON_TESTNET,
+  '0x4b1691404797d407f5badb1ce1edabf867e271fd',
+  18,
+  'USDT',
+  'Tether USD'
+)
 export const WBTC = new Token(
   SupportedChainId.MAINNET,
   '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
