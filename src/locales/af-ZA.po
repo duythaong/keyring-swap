@@ -132,7 +132,7 @@ msgid "A minimum threshold of 0.25% of the total UNI supply is required to submi
 msgstr "'N Minimum drempel van 0,25% van die totale UNI-aanbod is nodig om voorstelle in te dien"
 
 #: src/components/Menu/index.tsx
-msgid "About"
+msgid "About Keyring Swap"
 msgstr "Oor"
 
 #: src/components/swap/SwapModalHeader.tsx
