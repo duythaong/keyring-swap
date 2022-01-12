@@ -13,7 +13,7 @@
   "devDependencies": {
     "@davatar/react": "1.8.1",
     "@duythao_bacoor/thaoswap-sdk": "^1.0.0",
-    "@duythao_bacoor/v2-sdk": "^3.0.15",
+    "@duythao_bacoor/v2-sdk": "^3.0.16",
     "@ethersproject/experimental": "^5.4.0",
     "@gnosis.pm/safe-apps-web3-react": "^0.6.0",
     "@graphql-codegen/cli": "1.21.5",
