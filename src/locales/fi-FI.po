@@ -1953,8 +1953,8 @@ msgid "View UNI Analytics"
 msgstr "Näytä UNI-analytiikka"
 
 #: src/pages/Pool/index.tsx
-msgid "View V2 Liquidity"
-msgstr "Näytä V2-likviditeetti"
+msgid "View Liquidity"
+msgstr "Näytä Likviditeetti"
 
 #: src/components/PositionCard/index.tsx
 msgid "View accrued fees and analytics<0>↗</0>"
@@ -2083,12 +2083,12 @@ msgid "Withdraw deposited liquidity"
 msgstr "Vedä talletettu likviditeetti takaisin"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrawing {0} UNI-V2"
-msgstr "Vedetään pois {0} UNI-V2"
+msgid "Withdrawing {0}"
+msgstr "Vedetään pois {0}"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrew UNI-V2!"
-msgstr "UNI-V2 vedetty pois!"
+msgid "Withdrew!"
+msgstr "Vedetty pois!"
 
 #: src/pages/Swap/index.tsx
 msgid "Wrap"
@@ -2173,8 +2173,8 @@ msgid "Your UNI Breakdown"
 msgstr "Sinun UNI-erittelysi"
 
 #: src/pages/Pool/v2.tsx
-msgid "Your V2 liquidity"
-msgstr "Sinun V2-likviditeettisi"
+msgid "Your liquidity"
+msgstr "Sinun likviditeettisi"
 
 #: src/pages/Pool/index.tsx
 msgid "Your V3 liquidity positions will appear here."
@@ -2353,12 +2353,12 @@ msgid "{0} UNI / week"
 msgstr "{0} UNI / viikko"
 
 #: src/components/earn/StakingModal.tsx
-msgid "{0} UNI-V2"
-msgstr "{0} UNI-V2"
+msgid "{0} Bacoor"
+msgstr "{0} Bacoor"
 
 #: src/pages/Earn/Manage.tsx
-msgid "{0} UNI-V2 LP tokens available"
-msgstr "{0} UNI-V2 LP -rahaketta saatavilla"
+msgid "{0} Bacoor LP tokens available"
+msgstr "{0} Bacoor LP -rahaketta saatavilla"
 
 #: src/components/vote/VoteModal.tsx
 msgid "{0} Votes"

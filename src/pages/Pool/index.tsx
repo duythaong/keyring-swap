@@ -281,7 +281,7 @@ export default function Pool() {
                   >
                     <Layers size={14} style={{ marginRight: '8px' }} />
 
-                    <Trans>View V2 Liquidity</Trans>
+                    <Trans>View Liquidity</Trans>
                   </ButtonOutlined>
                   {positions && positions.length > 0 && (
                     <ButtonOutlined

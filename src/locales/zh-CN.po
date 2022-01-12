@@ -1953,8 +1953,8 @@ msgid "View UNI Analytics"
 msgstr "查看 UNI 代币分析"
 
 #: src/pages/Pool/index.tsx
-msgid "View V2 Liquidity"
-msgstr "查看 V2 流动资金"
+msgid "View Liquidity"
+msgstr "查看 流动资金"
 
 #: src/components/PositionCard/index.tsx
 msgid "View accrued fees and analytics<0>↗</0>"
@@ -2083,12 +2083,12 @@ msgid "Withdraw deposited liquidity"
 msgstr "赎回注入的流动资金"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrawing {0} UNI-V2"
-msgstr "赎回 {0} UNI-V2 流动池代币"
+msgid "Withdrawing {0}"
+msgstr "赎回 {0} 流动池代币"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrew UNI-V2!"
-msgstr "已赎回 UNI-V2！"
+msgid "Withdrew!"
+msgstr "已赎回 ！"
 
 #: src/pages/Swap/index.tsx
 msgid "Wrap"
@@ -2173,8 +2173,8 @@ msgid "Your UNI Breakdown"
 msgstr "您的 UNI 代币明细表"
 
 #: src/pages/Pool/v2.tsx
-msgid "Your V2 liquidity"
-msgstr "您的V2流动资金"
+msgid "Your liquidity"
+msgstr "您的流动资金"
 
 #: src/pages/Pool/index.tsx
 msgid "Your V3 liquidity positions will appear here."
@@ -2353,12 +2353,12 @@ msgid "{0} UNI / week"
 msgstr "{0} UNI 代币 / 每周"
 
 #: src/components/earn/StakingModal.tsx
-msgid "{0} UNI-V2"
-msgstr "{0} UNI-V2 流动池代币"
+msgid "{0} Bacoor"
+msgstr "{0} Bacoor 流动池代币"
 
 #: src/pages/Earn/Manage.tsx
-msgid "{0} UNI-V2 LP tokens available"
-msgstr "{0} UNI-V2 流动池代币可用"
+msgid "{0} Bacoor LP tokens available"
+msgstr "{0} Bacoor 流动池代币可用"
 
 #: src/components/vote/VoteModal.tsx
 msgid "{0} Votes"

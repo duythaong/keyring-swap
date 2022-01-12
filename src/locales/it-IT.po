@@ -1953,8 +1953,8 @@ msgid "View UNI Analytics"
 msgstr "Visualizza Analisi Uni"
 
 #: src/pages/Pool/index.tsx
-msgid "View V2 Liquidity"
-msgstr "Visualizza Liquidità V2"
+msgid "View Liquidity"
+msgstr "Visualizza Liquidità"
 
 #: src/components/PositionCard/index.tsx
 msgid "View accrued fees and analytics<0>↗</0>"
@@ -2083,12 +2083,12 @@ msgid "Withdraw deposited liquidity"
 msgstr "Ritira liquidità depositata"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrawing {0} UNI-V2"
-msgstr "Ritiro {0} UNI-V2"
+msgid "Withdrawing {0}"
+msgstr "Ritiro {0}"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrew UNI-V2!"
-msgstr "UNI-V2 ritirato!"
+msgid "Withdrew!"
+msgstr "Ritirato!"
 
 #: src/pages/Swap/index.tsx
 msgid "Wrap"
@@ -2173,8 +2173,8 @@ msgid "Your UNI Breakdown"
 msgstr "La Tua Ripartizione Uni"
 
 #: src/pages/Pool/v2.tsx
-msgid "Your V2 liquidity"
-msgstr "La tua liquidità V2"
+msgid "Your liquidity"
+msgstr "La tua liquidità"
 
 #: src/pages/Pool/index.tsx
 msgid "Your V3 liquidity positions will appear here."
@@ -2353,12 +2353,12 @@ msgid "{0} UNI / week"
 msgstr "{0} UNI / settimana"
 
 #: src/components/earn/StakingModal.tsx
-msgid "{0} UNI-V2"
-msgstr "{0} UNI-V2"
+msgid "{0} Bacoor"
+msgstr "{0} Bacoor"
 
 #: src/pages/Earn/Manage.tsx
-msgid "{0} UNI-V2 LP tokens available"
-msgstr "{0} token LP UNI-V2 disponibili"
+msgid "{0} Bacoor LP tokens available"
+msgstr "{0} token LP Bacoor disponibili"
 
 #: src/components/vote/VoteModal.tsx
 msgid "{0} Votes"

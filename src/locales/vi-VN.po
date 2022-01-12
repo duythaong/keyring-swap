@@ -1953,8 +1953,8 @@ msgid "View UNI Analytics"
 msgstr "Xem Bảng phân tích UNI"
 
 #: src/pages/Pool/index.tsx
-msgid "View V2 Liquidity"
-msgstr "Xem thanh khoản V2"
+msgid "View Liquidity"
+msgstr "Xem thanh khoản"
 
 #: src/components/PositionCard/index.tsx
 msgid "View accrued fees and analytics<0>↗</0>"
@@ -2083,12 +2083,12 @@ msgid "Withdraw deposited liquidity"
 msgstr "Rút tiền thanh khoản đã ký gửi"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrawing {0} UNI-V2"
-msgstr "Đang rút {0} UNI-V2"
+msgid "Withdrawing {0}"
+msgstr "Đang rút {0}"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrew UNI-V2!"
-msgstr "Đã rút UNI-V2!"
+msgid "Withdrew!"
+msgstr "Đã rút !"
 
 #: src/pages/Swap/index.tsx
 msgid "Wrap"
@@ -2173,8 +2173,8 @@ msgid "Your UNI Breakdown"
 msgstr "Sự cố UNI của bạn"
 
 #: src/pages/Pool/v2.tsx
-msgid "Your V2 liquidity"
-msgstr "Thanh khoản V2 của bạn"
+msgid "Your liquidity"
+msgstr "Thanh khoản của bạn"
 
 #: src/pages/Pool/index.tsx
 msgid "Your V3 liquidity positions will appear here."
@@ -2353,12 +2353,12 @@ msgid "{0} UNI / week"
 msgstr "{0} UNI / tuần"
 
 #: src/components/earn/StakingModal.tsx
-msgid "{0} UNI-V2"
-msgstr "{0} UNI-V2"
+msgid "{0} Bacoor"
+msgstr "{0} Bacoor"
 
 #: src/pages/Earn/Manage.tsx
-msgid "{0} UNI-V2 LP tokens available"
-msgstr "{0} mã token UNI-V2 LP có sẵn"
+msgid "{0} Bacoor LP tokens available"
+msgstr "{0} mã token Bacoor LP có sẵn"
 
 #: src/components/vote/VoteModal.tsx
 msgid "{0} Votes"

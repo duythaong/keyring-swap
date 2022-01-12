@@ -364,7 +364,7 @@ export default function Manage({
         )}
         {!userLiquidityUnstaked ? null : userLiquidityUnstaked.equalTo('0') ? null : !stakingInfo?.active ? null : (
           <TYPE.main>
-            <Trans>{userLiquidityUnstaked.toSignificant(6)} UNI-V2 LP tokens available</Trans>
+            <Trans>{userLiquidityUnstaked.toSignificant(6)} Bacoor LP tokens available</Trans>
           </TYPE.main>
         )}
       </PositionInfo>
