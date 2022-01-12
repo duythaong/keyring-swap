@@ -155,8 +155,8 @@ msgid "Add"
 msgstr "Lägg till"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
-msgid "Add <0/> and <1/> to Uniswap V2"
-msgstr "Lägg till <0/> och <1/> i Uniswap V2"
+msgid "Add <0/> and <1/> to Keyringswap"
+msgstr "Lägg till <0/> och <1/> i Keyringswap"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Add Delegate +"
