@@ -132,7 +132,7 @@ msgid "A minimum threshold of 0.25% of the total UNI supply is required to submi
 msgstr "За подношење предлога потребан је минимални праг од 0,25% укупне УНИ понуде"
 
 #: src/components/Menu/index.tsx
-msgid "About"
+msgid "About Keyring Swap"
 msgstr "О"
 
 #: src/components/swap/SwapModalHeader.tsx
