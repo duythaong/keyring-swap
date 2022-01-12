@@ -1,4 +1,5 @@
 // a list of tokens by chain
+import { NATIVE } from '@duythao_bacoor/v2-sdk'
 import { Currency, Token } from '@uniswap/sdk-core'
 
 import { SupportedChainId } from './chains'
@@ -19,6 +20,7 @@ import {
   USDC_OPTIMISM,
   USDT,
   USDT_ARBITRUM_ONE,
+  USDT_MUMBAI,
   USDT_OPTIMISM,
   WBTC,
   WBTC_ARBITRUM_ONE,
@@ -49,6 +51,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDT_ARBITRUM_ONE,
     WBTC_ARBITRUM_ONE,
   ],
+  [SupportedChainId.POLYGON_TESTNET]: [USDT_MUMBAI],
 }
 export const ADDITIONAL_BASES: { [chainId: number]: { [tokenAddress: string]: Token[] } } = {
   [SupportedChainId.MAINNET]: {
@@ -113,6 +116,7 @@ export const COMMON_BASES: ChainCurrencyList = {
     WBTC_OPTIMISM,
   ],
   [SupportedChainId.OPTIMISTIC_KOVAN]: [ExtendedEther.onChain(SupportedChainId.OPTIMISTIC_KOVAN)],
+  [SupportedChainId.POLYGON_TESTNET]: [NATIVE[SupportedChainId.POLYGON_TESTNET], USDT_MUMBAI],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
