@@ -1129,8 +1129,8 @@ msgid "New Position"
 msgstr "עמדה חדשה"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "No V2 Liquidity found."
-msgstr "לא נמצאה נזילות V2."
+msgid "No Liquidity found."
+msgstr "לא נמצאה נזילות."
 
 #: src/pages/Earn/index.tsx
 #: src/pages/Earn/index.tsx
@@ -1457,8 +1457,8 @@ msgid "Select a token"
 msgstr "בחר אסימון"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "Select a token to find your v2 liquidity."
-msgstr "בחר אסימון כדי למצוא את נזילות ה- v2 שלך."
+msgid "Select a token to find your liquidity."
+msgstr "בחר אסימון כדי למצוא את נזילות ה- שלך."
 
 #: src/pages/CreateProposal/ProposalActionSelector.tsx
 msgid "Select an action"
@@ -1523,8 +1523,8 @@ msgid "Status"
 msgstr "סטָטוּס"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Step 1. Get UNI-V2 Liquidity tokens"
-msgstr "שלב 1. קבל תווי נזילות של UNI-V2"
+msgid "Step 1. Get Liquidity tokens"
+msgstr "שלב 1. קבל תווי נזילות של "
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Submit new proposal"
@@ -1808,12 +1808,12 @@ msgid "UNI {0}/{1} Burned"
 msgstr "UNI {0}/{1} שרופה"
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
-msgstr "נדרשים אסימונים של UNI-V2 LP. לאחר שהוספת נזילות {0}-{1} תוכל להניח את אסימוני הנזילות שלך בדף זה."
+msgid "LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
+msgstr "נדרשים אסימונים של LP. לאחר שהוספת נזילות {0}-{1} תוכל להניח את אסימוני הנזילות שלך בדף זה."
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 {0}-{1}"
-msgstr "UNI-V2 {0}-{1}"
+msgid "{0}-{1}"
+msgstr "{0}-{1}"
 
 #: src/components/earn/ClaimRewardModal.tsx
 #: src/components/earn/UnstakingModal.tsx

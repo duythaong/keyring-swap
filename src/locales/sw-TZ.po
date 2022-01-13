@@ -1129,8 +1129,8 @@ msgid "New Position"
 msgstr "Nafasi mpya"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "No V2 Liquidity found."
-msgstr "Hakuna V2 Liquidity iliyopatikana."
+msgid "No Liquidity found."
+msgstr "Hakuna Liquidity iliyopatikana."
 
 #: src/pages/Earn/index.tsx
 #: src/pages/Earn/index.tsx
@@ -1457,8 +1457,8 @@ msgid "Select a token"
 msgstr "Chagua ishara"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "Select a token to find your v2 liquidity."
-msgstr "Chagua ishara ili kupata v2 yako ukwasi."
+msgid "Select a token to find your liquidity."
+msgstr "Chagua ishara ili kupata yako ukwasi."
 
 #: src/pages/CreateProposal/ProposalActionSelector.tsx
 msgid "Select an action"
@@ -1523,8 +1523,8 @@ msgid "Status"
 msgstr "Hali"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Step 1. Get UNI-V2 Liquidity tokens"
-msgstr "Hatua ya 1. Pata tokeni za Liquidity za UNI-V2"
+msgid "Step 1. Get Liquidity tokens"
+msgstr "Hatua ya 1. Pata tokeni za Liquidity za"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Submit new proposal"
@@ -1808,12 +1808,12 @@ msgid "UNI {0}/{1} Burned"
 msgstr "UNI {0}/{1} kuchomwa"
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
-msgstr "Ishara za UNI-V2 LP zinahitajika. Mara baada ya kuongeza ukwasi kwenye {0}-{1} unaweza kuweka ishara zako za ukwasi kwenye ukurasa huu."
+msgid "LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
+msgstr "Ishara za LP zinahitajika. Mara baada ya kuongeza ukwasi kwenye {0}-{1} unaweza kuweka ishara zako za ukwasi kwenye ukurasa huu."
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 {0}-{1}"
-msgstr "UNI-V2 {0}-{1}"
+msgid "{0}-{1}"
+msgstr "{0}-{1}"
 
 #: src/components/earn/ClaimRewardModal.tsx
 #: src/components/earn/UnstakingModal.tsx

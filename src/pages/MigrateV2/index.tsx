@@ -166,7 +166,7 @@ export default function MigrateV2() {
               })}
             </>
           ) : (
-            <EmptyState message={<Trans>No V2 Liquidity found.</Trans>} />
+            <EmptyState message={<Trans>No Liquidity found.</Trans>} />
           )}
 
           <AutoColumn justify={'center'} gap="md">

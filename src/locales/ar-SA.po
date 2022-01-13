@@ -1129,8 +1129,8 @@ msgid "New Position"
 msgstr "موضع جديد"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "No V2 Liquidity found."
-msgstr "لم يتم العثور على سيولة V2."
+msgid "No Liquidity found."
+msgstr "لم يتم العثور على سيولة ."
 
 #: src/pages/Earn/index.tsx
 #: src/pages/Earn/index.tsx
@@ -1457,8 +1457,8 @@ msgid "Select a token"
 msgstr "حدد الرمز"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "Select a token to find your v2 liquidity."
-msgstr "حدد رمزًا للعثور على سيولة v2 الخاصة بك."
+msgid "Select a token to find your liquidity."
+msgstr "حدد رمزًا للعثور على سيولة  الخاصة بك."
 
 #: src/pages/CreateProposal/ProposalActionSelector.tsx
 msgid "Select an action"
@@ -1523,8 +1523,8 @@ msgid "Status"
 msgstr "حالة"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Step 1. Get UNI-V2 Liquidity tokens"
-msgstr "الخطوة 1. احصل على رمز سيولة UNI-V2"
+msgid "Step 1. Get Liquidity tokens"
+msgstr "الخطوة 1. احصل على رمز سيولة "
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Submit new proposal"
@@ -1808,12 +1808,12 @@ msgid "UNI {0}/{1} Burned"
 msgstr "UNI {0}/{1} محروق"
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
-msgstr "مطلوب رمز UNI-V2 LP. بمجرد إضافة السيولة إلى مجموعة {0}-{1} يمكنك الحصول على رموز السيولة الخاصة بك على هذه الصفحة."
+msgid "LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
+msgstr "مطلوب رمز  LP. بمجرد إضافة السيولة إلى مجموعة {0}-{1} يمكنك الحصول على رموز السيولة الخاصة بك على هذه الصفحة."
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 {0}-{1}"
-msgstr "UNI-V2 {0}-{1}"
+msgid "{0}-{1}"
+msgstr "{0}-{1}"
 
 #: src/components/earn/ClaimRewardModal.tsx
 #: src/components/earn/UnstakingModal.tsx

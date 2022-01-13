@@ -173,7 +173,7 @@ export default function Pool() {
     {
       content: (
         <MenuItem>
-          <Trans>V2 liquidity</Trans>
+          <Trans>Liquidity</Trans>
           <Layers size={16} />
         </MenuItem>
       ),
