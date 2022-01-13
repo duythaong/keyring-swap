@@ -113,7 +113,7 @@ msgstr "<0> 팁 :</0> 조치를 선택하고 커뮤니티에 대한 제안을 �
 
 #: src/pages/PoolFinder/index.tsx
 msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
-msgstr "<0> 팁 :</0> 이 도구를 사용하여 인터페이스에 자동으로 표시되지 않는 v2 풀을 찾습니다."
+msgstr "<0> 팁 :</0> 이 도구를 사용하여 인터페이스에 자동으로 표시되지 않는 풀을 찾습니다."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -169,7 +169,7 @@ msgstr "유동성 추가"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "V2 유동성 추가"
+msgstr "유동성 추가"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -544,7 +544,7 @@ msgstr "지갑에 연결하여 풀 찾기"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "V2 유동성을 보려면 지갑에 연결하십시오."
+msgstr "유동성을 보려면 지갑에 연결하십시오."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -651,7 +651,7 @@ msgstr "예금 자산"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "UNI-V2 LP 토큰 예치"
+msgstr "LP 토큰 예치"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -667,7 +667,7 @@ msgstr "예금 유동성 :"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "{0} UNI-V2 입금"
+msgstr "{0} 입금"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -878,7 +878,7 @@ msgstr "풀 가져 오기"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "V2 풀 가져 오기"
+msgstr "풀 가져 오기"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

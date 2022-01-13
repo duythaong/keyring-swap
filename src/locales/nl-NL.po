@@ -113,7 +113,7 @@ msgstr "<0>Tip:</0> Selecteer een actie en beschrijf je voorstel voor de communi
 
 #: src/pages/PoolFinder/index.tsx
 msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
-msgstr "<0>Tip:</0> Gebruik deze tool om v2-pools te vinden die niet automatisch in de interface verschijnen."
+msgstr "<0>Tip:</0> Gebruik deze tool om pools te vinden die niet automatisch in de interface verschijnen."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -169,7 +169,7 @@ msgstr "Liquiditeit toevoegen"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "V2 Liquiditeit toevoegen"
+msgstr "Liquiditeit toevoegen"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "Maak verbinding met een portemonnee om pools te vinden"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "Maak verbinding met een portemonnee om uw V2 liquiditeit te bekijken."
+msgstr "Maak verbinding met een portemonnee om uw liquiditeit te bekijken."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "Tegoeden storten"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "Stort UNI-V2 LP Tokens"
+msgstr "Stort LP Tokens"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "Gestorte liquiditeit:"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "{0} UNI-V2 gestort"
+msgstr "{0} gestort"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -702,7 +702,7 @@ msgstr "Documenten"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Don’t see one of your positions? <0>Import it.</0>"
-msgstr "Ziet u één van uw v2 posities niet? <0>Importeer deze.</0>"
+msgstr "Ziet u één van uw posities niet? <0>Importeer deze.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -877,7 +877,7 @@ msgstr "Pool importeren"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "V2-pool importeren"
+msgstr "pool importeren"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

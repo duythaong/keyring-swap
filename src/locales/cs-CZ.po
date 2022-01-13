@@ -169,7 +169,7 @@ msgstr "Přidat likviditu"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "Přidat likviditu V2"
+msgstr "Přidat likviditu"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "Chcete-li vyhledat fondy, připojte se k peněžence"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "Chcete-li si zobrazit svou likviditu V2, připojte se k peněžence."
+msgstr "Chcete-li si zobrazit svou likviditu, připojte se k peněžence."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -666,7 +666,7 @@ msgstr "Uložená likvidita:"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "Uloženo {0} UNI-V2"
+msgstr "Uloženo {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -877,7 +877,7 @@ msgstr "Importovat fond"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "Importovat fond V2"
+msgstr "Importovat fond"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

@@ -113,7 +113,7 @@ msgstr "<0> טיפ:</0> בחר פעולה ותיאר את ההצעה שלך לק
 
 #: src/pages/PoolFinder/index.tsx
 msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
-msgstr "<0> טיפ:</0> השתמש בכלי זה כדי למצוא מאגרי v2 שלא מופיעים אוטומטית בממשק."
+msgstr "<0> טיפ:</0> השתמש בכלי זה כדי למצוא מאגרי  שלא מופיעים אוטומטית בממשק."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -169,7 +169,7 @@ msgstr "הוסף נזילות"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "הוסף נזילות V2"
+msgstr "הוסף נזילות "
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "התחבר לארנק כדי למצוא בריכות"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "התחבר לארנק כדי להציג את נזילות V2 שלך."
+msgstr "התחבר לארנק כדי להציג את נזילות  שלך."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "נכסי הפקדה"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "הפקדת אסימוני LP של UNI-V2"
+msgstr "הפקדת אסימוני LP של "
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "נזילות שהופקדה:"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "הופקד {0} UNI-V2"
+msgstr "הופקד {0} "
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -702,7 +702,7 @@ msgstr "מסמכים"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Don’t see one of your positions? <0>Import it.</0>"
-msgstr "אינך רואה את אחת מעמדות ה- v2 שלך? <0> יבא אותו.</0>"
+msgstr "אינך רואה את אחת מעמדות ה-  שלך? <0> יבא אותו.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -877,7 +877,7 @@ msgstr "יְיבוּא בריכה"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "יְיבוּא בריכת V2"
+msgstr "יְיבוּא בריכת "
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

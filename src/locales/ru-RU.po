@@ -113,7 +113,7 @@ msgstr "<0> Подсказка:</0> выберите действие и опи�
 
 #: src/pages/PoolFinder/index.tsx
 msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
-msgstr "<0> Подсказка:</0> Используйте этот инструмент для поиска пулов в V2, которые не отображаются автоматически в интерфейсе."
+msgstr "<0> Подсказка:</0> Используйте этот инструмент для поиска пулов в, которые не отображаются автоматически в интерфейсе."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -169,7 +169,7 @@ msgstr "Добавить ликвидность"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "Добавить ликвидность в V2"
+msgstr "Добавить ликвидность в"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "Подключите кошелёк, чтобы найти пулы"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "Подключите кошелёк, чтобы просмотреть вашу ликвидность в V2."
+msgstr "Подключите кошелёк, чтобы просмотреть вашу ликвидность в."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "Внести активы"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "Внести LP-токены UNI-V2"
+msgstr "Внести LP-токены"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "Внесённая ликвидность:"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "Внесено {0} UNI-V2"
+msgstr "Внесено {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -877,7 +877,7 @@ msgstr "Импортировать пул"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "Импортировать пул из V2"
+msgstr "Импортировать пул из"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

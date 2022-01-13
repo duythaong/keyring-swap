@@ -113,7 +113,7 @@ msgstr "<0> Mẹo:</0> Chọn một hành động và mô tả đề xuất củ
 
 #: src/pages/PoolFinder/index.tsx
 msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
-msgstr "<0> Mẹo:</0> Sử dụng công cụ này để tìm các nhóm v2 không tự động xuất hiện trong giao diện."
+msgstr "<0> Mẹo:</0> Sử dụng công cụ này để tìm các nhóm không tự động xuất hiện trong giao diện."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -169,7 +169,7 @@ msgstr "Thêm thanh khoản"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "Thêm thanh khoản V2"
+msgstr "Thêm thanh khoản"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "Kết nối với ví để tìm nhóm"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "Kết nối với ví để xem tính thanh khoản V2 của bạn."
+msgstr "Kết nối với ví để xem tính thanh khoản của bạn."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "Ký quỹ tài sản"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "Gửi token UNI-V2 LP"
+msgstr "Gửi token LP"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "Thanh khoản tiền gửi:"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "Đã gửi {0} UNI-V2"
+msgstr "Đã gửi {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -702,7 +702,7 @@ msgstr "Docs"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Don’t see one of your positions? <0>Import it.</0>"
-msgstr "Bạn không thấy một trong các vị trí v2 của mình? <0> Nhập nó ngay.</0>"
+msgstr "Bạn không thấy một trong các vị trí của mình? <0> Nhập nó ngay.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -877,7 +877,7 @@ msgstr "Nhập Pool"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "Nhập pool V2"
+msgstr "Nhập pool"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

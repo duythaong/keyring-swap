@@ -113,7 +113,7 @@ msgstr "<0> Tips:</0> Välj en åtgärd och beskriv ditt förslag för samhälle
 
 #: src/pages/PoolFinder/index.tsx
 msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
-msgstr "<0>Tips:</0> Använd det här verktyget för att hitta v2-pooler som inte automatiskt visas i gränssnittet."
+msgstr "<0>Tips:</0> Använd det här verktyget för att hitta pooler som inte automatiskt visas i gränssnittet."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -169,7 +169,7 @@ msgstr "Fyll på likviditet"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "Fyll på V2-likviditet"
+msgstr "Fyll på likviditet"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "Anslut till en plånbok för att hitta pooler"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "Anslut till en plånbok för att visa din V2-likviditet."
+msgstr "Anslut till en plånbok för att visa din likviditet."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "Insättningstillgångar"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "Sätt in UNI-V2 LP-tokens"
+msgstr "Sätt in LP-tokens"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "Insatt likviditet:"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "Insatt {0} UNI-V2"
+msgstr "Insatt {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -702,7 +702,7 @@ msgstr "Dokument"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Don’t see one of your positions? <0>Import it.</0>"
-msgstr "Ser du inte en av dina v2-positioner? <0>Importera den.</0>"
+msgstr "Ser du inte en av dina positioner? <0>Importera den.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -877,7 +877,7 @@ msgstr "Importera pool"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "Importera V2-pool"
+msgstr "Importera pool"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

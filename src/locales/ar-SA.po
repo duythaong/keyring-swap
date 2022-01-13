@@ -169,7 +169,7 @@ msgstr "إضافة سيولة"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "إضافة سيولة V2"
+msgstr "إضافة سيولة"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "وصّل بمحفظة للعثور على المجموعات"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "وصّل بمحفظة لعرض سيولة V2 الخاصة بك."
+msgstr "وصّل بمحفظة لعرض سيولة  الخاصة بك."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "أصول الإيداع"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "إيداع رموز UNI-V2 LP"
+msgstr "إيداع رموز  LP"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "السيولة المودعة"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "تم ايداع {0} UNI-V2"
+msgstr "تم ايداع {0} "
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -702,7 +702,7 @@ msgstr "الوثائق"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Don’t see one of your positions? <0>Import it.</0>"
-msgstr "لا ترى أحد مراكز v2 الخاصة بك؟ <0>قم باستيراده.</0>"
+msgstr "لا ترى أحد مراكز  الخاصة بك؟ <0>قم باستيراده.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -877,7 +877,7 @@ msgstr "استيراد مجموعة"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "استيراد مجموعة V2"
+msgstr "استيراد مجموعة "
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

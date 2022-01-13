@@ -113,7 +113,7 @@ msgstr "<0> Συμβουλή:</0> Επιλέξτε μια ενέργεια κα�
 
 #: src/pages/PoolFinder/index.tsx
 msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
-msgstr "<0> Συμβουλή:</0> Χρησιμοποιήστε αυτό το εργαλείο για να βρείτε δεξαμενές της v2 που δεν εμφανίζονται αυτόματα στη διεπαφή."
+msgstr "<0> Συμβουλή:</0> Χρησιμοποιήστε αυτό το εργαλείο για να βρείτε δεξαμενές της που δεν εμφανίζονται αυτόματα στη διεπαφή."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -169,7 +169,7 @@ msgstr "Προσθήκη Ρευστότητας"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "Προσθήκη Ρευστότητας V2"
+msgstr "Προσθήκη Ρευστότητας"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "Συνδεθείτε σε ένα πορτοφόλι για να βρεί
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "Συνδεθείτε σε ένα πορτοφόλι για να δείτε τη ρευστότητα στη V2."
+msgstr "Συνδεθείτε σε ένα πορτοφόλι για να δείτε τη ρευστότητα στη."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "Κατάθεση περιουσιακών στοιχείων"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "Κατάθεση μάρκας UNI-V2 LP"
+msgstr "Κατάθεση μάρκας LP"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "Ρευστότητα που κατατέθηκε:"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "Κατατέθηκε {0} UNI-V2"
+msgstr "Κατατέθηκε {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -702,7 +702,7 @@ msgstr "Έγγραφα"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Don’t see one of your positions? <0>Import it.</0>"
-msgstr "Δεν βλέπετε μία από τις θέσεις σας στο v2; <0> Εισαγάγετε τη.</0>"
+msgstr "Δεν βλέπετε μία από τις θέσεις σας στο; <0> Εισαγάγετε τη.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -877,7 +877,7 @@ msgstr "Εισαγωγή Δεξαμενής"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "Εισαγωγή Δεξαμενής της V2"
+msgstr "Εισαγωγή Δεξαμενής της"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

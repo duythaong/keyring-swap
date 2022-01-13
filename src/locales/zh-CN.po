@@ -113,7 +113,7 @@ msgstr "<0>提示：</0>选择操作并描述您的提案。提案提交后不�
 
 #: src/pages/PoolFinder/index.tsx
 msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
-msgstr "<0>提示：</0>使用此工具可查找未自动出现在界面中的 v2 池。"
+msgstr "<0>提示：</0>使用此工具可查找未自动出现在界面中的 池。"
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -169,7 +169,7 @@ msgstr "添加流动性"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "添加 V2 流动性"
+msgstr "添加 流动性"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "连接到钱包以查找流动池"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "连接到钱包以查看您的 V2 流动资金。"
+msgstr "连接到钱包以查看您的 流动资金。"
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "存入资产"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "充入 UNI-V2 流动池代币"
+msgstr "充入 流动池代币"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "已充入的流动资金："
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "已充入 {0} UNI-V2 流动池代币"
+msgstr "已充入 {0} 流动池代币"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -877,7 +877,7 @@ msgstr "导入流动池"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "导入 V2 流动池"
+msgstr "导入 流动池"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

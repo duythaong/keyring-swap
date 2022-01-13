@@ -113,7 +113,7 @@ msgstr "<0> Порада:</0> Виберіть дію та опишіть сво
 
 #: src/pages/PoolFinder/index.tsx
 msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
-msgstr "<0>Порада:</0> Використовуйте цей інструмент для пошуку пулів v2, які не відображаються автоматично в інтерфейсі."
+msgstr "<0>Порада:</0> Використовуйте цей інструмент для пошуку пулів, які не відображаються автоматично в інтерфейсі."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -169,7 +169,7 @@ msgstr "Додати ліквідність"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "Додати ліквідність V2"
+msgstr "Додати ліквідність"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "Підключіться до гаманця, щоб знайти пул
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "Підключіться до гаманця, щоб переглянути свою ліквідність V2."
+msgstr "Підключіться до гаманця, щоб переглянути свою ліквідність."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "Депозитні активи"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "Токени для внесення на UNI-V2"
+msgstr "Токени для внесення на"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "Відкладена ліквідність:"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "Зараховано {0} UNI-V2"
+msgstr "Зараховано {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -702,7 +702,7 @@ msgstr "Документація"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Don’t see one of your positions? <0>Import it.</0>"
-msgstr "Не бачите жодної з ваших позицій v2? <0>Імпортуйте їх.</0>"
+msgstr "Не бачите жодної з ваших позицій? <0>Імпортуйте їх.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -877,7 +877,7 @@ msgstr "Імпортувати пул"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "Імпортувати пул V2"
+msgstr "Імпортувати пул"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

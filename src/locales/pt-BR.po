@@ -543,7 +543,7 @@ msgstr "Conectar-se a uma carteira para localizar lotes"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "Conectar-se a uma carteira para ver sua Liquidez V2."
+msgstr "Conectar-se a uma carteira para ver sua Liquidez."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "Ativos de depósito"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "Depositar tokens LP UNI-V2"
+msgstr "Depositar tokens LP"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "Liquidez depositada:"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "{0} UNI-V2 depositados"
+msgstr "{0} depositados"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -877,7 +877,7 @@ msgstr "Importar Lote"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "Importar Lote V2"
+msgstr "Importar Lote"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

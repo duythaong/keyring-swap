@@ -169,7 +169,7 @@ msgstr "流動性を追加"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "V2の流動性を追加"
+msgstr "の流動性を追加"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -650,7 +650,7 @@ msgstr "預け入れ資産"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "UNI-V2 LP トークンを預け入れる"
+msgstr "LP トークンを預け入れる"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "預け入れ流動性:"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "預け入れた {0} UNI-V2"
+msgstr "預け入れた {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"

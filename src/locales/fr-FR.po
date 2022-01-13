@@ -113,7 +113,7 @@ msgstr "<0>Conseil :</0> Sélectionnez une action et décrivez votre propositio
 
 #: src/pages/PoolFinder/index.tsx
 msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
-msgstr "<0>Conseil :</0> Utilisez cet outil pour rechercher les pools v2 qui n'apparaissent pas automatiquement dans l'interface."
+msgstr "<0>Conseil :</0> Utilisez cet outil pour rechercher les pools qui n'apparaissent pas automatiquement dans l'interface."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -169,7 +169,7 @@ msgstr "Ajouter de la liquidité"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "Ajouter de la liquidité V2"
+msgstr "Ajouter de la liquidité"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "Connectez-vous à un portefeuille pour trouver des pools"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "Connectez-vous à un portefeuille pour afficher vos liquidités V2."
+msgstr "Connectez-vous à un portefeuille pour afficher vos liquidités."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "Dépôt d'actifs"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "Déposer des jetons UNI-V2 LP"
+msgstr "Déposer des jetons LP"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "Dépôt de liquidité :"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "Dépôt de {0} UNI-V2"
+msgstr "Dépôt de {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -877,7 +877,7 @@ msgstr "Importer un pool"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "Importer le pool V2"
+msgstr "Importer le pool"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

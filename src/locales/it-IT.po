@@ -113,7 +113,7 @@ msgstr "<0>Suggerimento:</0> Seleziona un'azione e descrivi la tua proposta per 
 
 #: src/pages/PoolFinder/index.tsx
 msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
-msgstr "<0>Suggerimento:</0> Usa questo strumento per trovare i pool v2 che non vengono visualizzati automaticamente nell'interfaccia."
+msgstr "<0>Suggerimento:</0> Usa questo strumento per trovare i pool che non vengono visualizzati automaticamente nell'interfaccia."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -169,7 +169,7 @@ msgstr "Aggiungi Liquidità"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "Aggiungi Liquidità V2"
+msgstr "Aggiungi Liquidità"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "Connettiti a un portafoglio per trovare dei pool"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "Connettiti a un portafoglio per visualizzare la tua liquidità V2."
+msgstr "Connettiti a un portafoglio per visualizzare la tua liquidità."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "Attività di deposito"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "Token del deposito UNI-V2 LP"
+msgstr "Token del deposito LP"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "Liquidità depositata:"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "{0} UNI-V2 depositato"
+msgstr "{0} depositato"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -702,7 +702,7 @@ msgstr "Documenti"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Don’t see one of your positions? <0>Import it.</0>"
-msgstr "Non vedi una delle tue posizioni v2? <0>Importala.</0>"
+msgstr "Non vedi una delle tue posizioni? <0>Importala.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -877,7 +877,7 @@ msgstr "Importa Pool"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "Importa pool V2"
+msgstr "Importa pool"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

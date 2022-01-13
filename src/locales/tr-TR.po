@@ -113,7 +113,7 @@ msgstr "<0>İpucu:</0> Bir eylem seçin ve topluluk için teklifinizi açıklay�
 
 #: src/pages/PoolFinder/index.tsx
 msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
-msgstr "<0>İpucu:</0> Arayüzde otomatik olarak görünmeyen v2 havuzlarını bulmak için bu aracı kullanın."
+msgstr "<0>İpucu:</0> Arayüzde otomatik olarak görünmeyen havuzlarını bulmak için bu aracı kullanın."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -169,7 +169,7 @@ msgstr "Likidite Ekle"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "V2 Likidite Ekle"
+msgstr "Likidite Ekle"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "Havuzları bulmak için bir cüzdana bağlanın"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "V2 likiditenizi görüntülemek için bir cüzdana bağlanın."
+msgstr "likiditenizi görüntülemek için bir cüzdana bağlanın."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "Mevduat Varlıkları"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "UNI-V2 LP Jetonlarını yatırın"
+msgstr "LP Jetonlarını yatırın"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "Yatırılan likidite:"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "Yatırılan {0} UNI-V2"
+msgstr "Yatırılan {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -877,7 +877,7 @@ msgstr "Havuzu İçe Aktar"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "V2 Havuzunu İçe Aktar"
+msgstr "Havuzunu İçe Aktar"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

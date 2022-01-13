@@ -113,7 +113,7 @@ msgstr "<0>Kiat:</0> Pilih tindakan dan jelaskan proposal Anda untuk komunitas. 
 
 #: src/pages/PoolFinder/index.tsx
 msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
-msgstr "<0>Kiat:</0> Gunakan alat ini untuk menemukan pool v2 yang tidak otomatis muncul di antarmuka."
+msgstr "<0>Kiat:</0> Gunakan alat ini untuk menemukan pool yang tidak otomatis muncul di antarmuka."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -169,7 +169,7 @@ msgstr "Tambahkan Likuiditas"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "Tambahkan Likuiditas V2"
+msgstr "Tambahkan Likuiditas"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,7 +543,7 @@ msgstr "Hubungkan ke dompet untuk menemukan pool"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Connect to a wallet to view your liquidity."
-msgstr "Hubungkan ke dompet untuk melihat likuiditas V2 Anda."
+msgstr "Hubungkan ke dompet untuk melihat likuiditas Anda."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,7 +650,7 @@ msgstr "Setoran Aset"
 
 #: src/pages/Earn/Manage.tsx
 msgid "Deposit LP Tokens"
-msgstr "Setor Token LP UNI-V2"
+msgstr "Setor Token LP"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,7 +666,7 @@ msgstr "Likuiditas yang disetor:"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Deposited {0}"
-msgstr "Menyetor {0} UNI-V2"
+msgstr "Menyetor {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -702,7 +702,7 @@ msgstr "Docs"
 
 #: src/pages/MigrateV2/index.tsx
 msgid "Don’t see one of your positions? <0>Import it.</0>"
-msgstr "Tidak melihat salah satu posisi v2 Anda? <0> Impor.</0>"
+msgstr "Tidak melihat salah satu posisi Anda? <0> Impor.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -877,7 +877,7 @@ msgstr "Impor Pool"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "Impor Pool V2"
+msgstr "Impor Pool"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"
