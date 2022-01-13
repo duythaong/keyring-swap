@@ -112,8 +112,8 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0>提示：</0>選擇操作並描述您的提案。提案提交後不可修改，提交前請核對所有信息。投票期將立即開始，持續 7 天。若要提議自定義操作，請<1>閱讀文檔</1>。"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
-msgstr "<0>提示：</0>使用此工具可查找未自動出現在界面中的 v2 池。"
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
+msgstr "<0>提示：</0>使用此工具可查找未自動出現在界面中的 池。"
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -133,7 +133,7 @@ msgstr "提交提案所需的最低門檻為 UNI 總供應量的 0.25%"
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "關於"
+msgstr "關於Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "註入流動資金"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "註入 V2 流動資金"
+msgid "Add Liquidity"
+msgstr "註入 流動資金"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "連接到錢包以查找流動池"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "連接到錢包以查看您的 V2 流動資金。"
+msgid "Connect to a wallet to view your liquidity."
+msgstr "連接到錢包以查看您的 流動資金。"
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "存入資產"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "存入 UNI-V2 流動池代幣"
+msgid "Deposit LP Tokens"
+msgstr "存入 流動池代幣"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "已存入的流動資金："
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "已存入 {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "已存入 {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,7 +701,7 @@ msgid "Docs"
 msgstr "文檔"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
 msgstr "看不到您的一些 v2 流動資金嗎？<0>將它手動導入。</0>"
 
 #: src/components/vote/DelegateModal.tsx
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "導入流動池"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "導入 V2 流動池"
+msgid "Import Pool"
+msgstr "導入 流動池"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"
@@ -978,6 +978,7 @@ msgstr "淺色"
 
 #: src/components/claim/ClaimModal.tsx
 #: src/pages/Pool/PositionPage.tsx
+#: src/pages/Pool/index.tsx
 msgid "Liquidity"
 msgstr "流動資金"
 
@@ -1129,8 +1130,8 @@ msgid "New Position"
 msgstr "新倉位"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "No V2 Liquidity found."
-msgstr "找不到V2流動資金。"
+msgid "No Liquidity found."
+msgstr "找不到流動資金。"
 
 #: src/pages/Earn/index.tsx
 #: src/pages/Earn/index.tsx
@@ -1457,8 +1458,8 @@ msgid "Select a token"
 msgstr "選擇代幣"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "Select a token to find your v2 liquidity."
-msgstr "選擇代幣以查找您的 v2 流動資金。"
+msgid "Select a token to find your liquidity."
+msgstr "選擇代幣以查找您的 流動資金。"
 
 #: src/pages/CreateProposal/ProposalActionSelector.tsx
 msgid "Select an action"
@@ -1523,8 +1524,8 @@ msgid "Status"
 msgstr "狀態"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Step 1. Get UNI-V2 Liquidity tokens"
-msgstr "第 1 步：獲取 UNI-V2 流動池代幣"
+msgid "Step 1. Get Liquidity tokens"
+msgstr "第 1 步：獲取 流動池代幣"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Submit new proposal"
@@ -1808,12 +1809,12 @@ msgid "UNI {0}/{1} Burned"
 msgstr "UNI {0}/{1} 已銷毀"
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
-msgstr "需要 UNI-V2 LP 代幣。在您注入流動性到 {0}-{1} 池後，您就可以在此頁面上抵押您的流動性代幣。"
+msgid "LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
+msgstr "需要 LP 代幣。在您注入流動性到 {0}-{1} 池後，您就可以在此頁面上抵押您的流動性代幣。"
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 {0}-{1}"
-msgstr "UNI-V2 {0}-{1}"
+msgid "{0}-{1}"
+msgstr "{0}-{1}"
 
 #: src/components/earn/ClaimRewardModal.tsx
 #: src/components/earn/UnstakingModal.tsx
@@ -1953,8 +1954,8 @@ msgid "View UNI Analytics"
 msgstr "查看 UNI 代幣分析"
 
 #: src/pages/Pool/index.tsx
-msgid "View V2 Liquidity"
-msgstr "查看 V2 流動資金"
+msgid "View Liquidity"
+msgstr "查看 流動資金"
 
 #: src/components/PositionCard/index.tsx
 msgid "View accrued fees and analytics<0>↗</0>"
@@ -2083,12 +2084,12 @@ msgid "Withdraw deposited liquidity"
 msgstr "贖回註入的流動資金"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrawing {0} UNI-V2"
-msgstr "贖回 {0} UNI-V2 流動池代幣"
+msgid "Withdrawing {0}"
+msgstr "贖回 {0} 流動池代幣"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrew UNI-V2!"
-msgstr "已贖回 UNI-V2！"
+msgid "Withdrew!"
+msgstr "已贖回 ！"
 
 #: src/pages/Swap/index.tsx
 msgid "Wrap"
@@ -2173,8 +2174,8 @@ msgid "Your UNI Breakdown"
 msgstr "您的 UNI 代幣明細表"
 
 #: src/pages/Pool/v2.tsx
-msgid "Your V2 liquidity"
-msgstr "您的V2流動資金"
+msgid "Your liquidity"
+msgstr "您的流動資金"
 
 #: src/pages/Pool/index.tsx
 msgid "Your V3 liquidity positions will appear here."
@@ -2353,12 +2354,12 @@ msgid "{0} UNI / week"
 msgstr "{0} UNI /週"
 
 #: src/components/earn/StakingModal.tsx
-msgid "{0} UNI-V2"
-msgstr "{0} UNI-V2"
+msgid "{0} Bacoor"
+msgstr "{0} Bacoor"
 
 #: src/pages/Earn/Manage.tsx
-msgid "{0} UNI-V2 LP tokens available"
-msgstr "{0} UNI-V2 流動池代幣可用"
+msgid "{0} Bacoor LP tokens available"
+msgstr "{0} Bacoor 流動池代幣可用"
 
 #: src/components/vote/VoteModal.tsx
 msgid "{0} Votes"

@@ -112,8 +112,8 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Порада:</0> Виберіть дію та опишіть свою пропозицію для спільноти. Пропозицію не можна змінити після подання, тому, будь ласка, перевірте всю інформацію перед поданням. Період голосування розпочнеться негайно і триватиме 7 днів. Щоб запропонувати власну дію, <1> прочитайте документи</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
-msgstr "<0>Порада:</0> Використовуйте цей інструмент для пошуку пулів v2, які не відображаються автоматично в інтерфейсі."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
+msgstr "<0>Порада:</0> Використовуйте цей інструмент для пошуку пулів, які не відображаються автоматично в інтерфейсі."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -133,7 +133,7 @@ msgstr "Для подання пропозицій необхідний міні
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Загальна інформація"
+msgstr "інформація Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "Додати ліквідність"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "Додати ліквідність V2"
+msgid "Add Liquidity"
+msgstr "Додати ліквідність"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "Підключіться до гаманця, щоб знайти пули"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "Підключіться до гаманця, щоб переглянути свою ліквідність V2."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "Підключіться до гаманця, щоб переглянути свою ліквідність."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "Депозитні активи"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "Токени для внесення на UNI-V2"
+msgid "Deposit LP Tokens"
+msgstr "Токени для внесення на"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "Відкладена ліквідність:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "Зараховано {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "Зараховано {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,8 +701,8 @@ msgid "Docs"
 msgstr "Документація"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
-msgstr "Не бачите жодної з ваших позицій v2? <0>Імпортуйте їх.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
+msgstr "Не бачите жодної з ваших позицій? <0>Імпортуйте їх.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "Імпортувати пул"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "Імпортувати пул V2"
+msgid "Import Pool"
+msgstr "Імпортувати пул"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"
@@ -978,6 +978,7 @@ msgstr "Світла тема"
 
 #: src/components/claim/ClaimModal.tsx
 #: src/pages/Pool/PositionPage.tsx
+#: src/pages/Pool/index.tsx
 msgid "Liquidity"
 msgstr "Ліквідність"
 
@@ -1129,8 +1130,8 @@ msgid "New Position"
 msgstr "Нова позиція"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "No V2 Liquidity found."
-msgstr "Не знайдено ліквідності V2."
+msgid "No Liquidity found."
+msgstr "Не знайдено ліквідності."
 
 #: src/pages/Earn/index.tsx
 #: src/pages/Earn/index.tsx
@@ -1457,8 +1458,8 @@ msgid "Select a token"
 msgstr "Вибрати токен"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "Select a token to find your v2 liquidity."
-msgstr "Виберіть токен, щоб знайти свою ліквідність v2."
+msgid "Select a token to find your liquidity."
+msgstr "Виберіть токен, щоб знайти свою ліквідність."
 
 #: src/pages/CreateProposal/ProposalActionSelector.tsx
 msgid "Select an action"
@@ -1523,8 +1524,8 @@ msgid "Status"
 msgstr "Статус"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Step 1. Get UNI-V2 Liquidity tokens"
-msgstr "Крок 1. Отримайте токени ліквідності UNI-V2"
+msgid "Step 1. Get Liquidity tokens"
+msgstr "Крок 1. Отримайте токени ліквідності"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Submit new proposal"
@@ -1808,12 +1809,12 @@ msgid "UNI {0}/{1} Burned"
 msgstr "UNI {0}/{1} спалено"
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
-msgstr "Потрібні токени LP UNI-V2. Після того, як ви додали ліквідність до {0}-{1} ви можете поставити свої токени ліквідності на цю сторінку."
+msgid "LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
+msgstr "Потрібні токени LP. Після того, як ви додали ліквідність до {0}-{1} ви можете поставити свої токени ліквідності на цю сторінку."
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 {0}-{1}"
-msgstr "UNI-V2 {0}-{1}"
+msgid "{0}-{1}"
+msgstr "{0}-{1}"
 
 #: src/components/earn/ClaimRewardModal.tsx
 #: src/components/earn/UnstakingModal.tsx
@@ -1953,8 +1954,8 @@ msgid "View UNI Analytics"
 msgstr "Переглянути аналітику UNI"
 
 #: src/pages/Pool/index.tsx
-msgid "View V2 Liquidity"
-msgstr "Переглянути ліквідність V2"
+msgid "View Liquidity"
+msgstr "Переглянути ліквідність"
 
 #: src/components/PositionCard/index.tsx
 msgid "View accrued fees and analytics<0>↗</0>"
@@ -2083,12 +2084,12 @@ msgid "Withdraw deposited liquidity"
 msgstr "Зняти вкладену ліквідність"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrawing {0} UNI-V2"
-msgstr "Зняття {0} UNI-V2"
+msgid "Withdrawing {0}"
+msgstr "Зняття {0}"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrew UNI-V2!"
-msgstr "UNI-V2 знято!"
+msgid "Withdrew!"
+msgstr " знято!"
 
 #: src/pages/Swap/index.tsx
 msgid "Wrap"
@@ -2173,8 +2174,8 @@ msgid "Your UNI Breakdown"
 msgstr "Ваш розподіл UNI"
 
 #: src/pages/Pool/v2.tsx
-msgid "Your V2 liquidity"
-msgstr "Ваша ліквідність V2"
+msgid "Your liquidity"
+msgstr "Ваша ліквідність"
 
 #: src/pages/Pool/index.tsx
 msgid "Your V3 liquidity positions will appear here."
@@ -2353,12 +2354,12 @@ msgid "{0} UNI / week"
 msgstr "{0} UNI/тиждень"
 
 #: src/components/earn/StakingModal.tsx
-msgid "{0} UNI-V2"
-msgstr "{0} UNI-V2"
+msgid "{0} Bacoor"
+msgstr "{0} Bacoor"
 
 #: src/pages/Earn/Manage.tsx
-msgid "{0} UNI-V2 LP tokens available"
-msgstr "Доступно {0} токенів LP UNI-V2"
+msgid "{0} Bacoor LP tokens available"
+msgstr "Доступно {0} токенів LP Bacoor"
 
 #: src/components/vote/VoteModal.tsx
 msgid "{0} Votes"

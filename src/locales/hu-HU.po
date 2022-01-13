@@ -112,8 +112,8 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Tipp:</0> Válasszon ki egy műveletet, és írja le javaslatát a közösség számára. Az ajánlat benyújtása után nem módosítható, ezért a benyújtás előtt ellenőrizze az összes információt. A szavazási időszak azonnal megkezdődik és 7 napig tart. Egyéni művelet javaslatához <1> olvassa el a dokumentumokat</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
-msgstr "<0> Tipp:</0> Ezzel a poollal olyan v2 poolokat találhat, amelyek nem jelennek meg automatikusan a felületen."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
+msgstr "<0> Tipp:</0> Ezzel a poollal olyan poolokat találhat, amelyek nem jelennek meg automatikusan a felületen."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -133,7 +133,7 @@ msgstr "A pályázatok benyújtásához az UNI teljes kínálatának minimum 0,2
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Körülbelül"
+msgstr "Körülbelül Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "Adja hozzá a likviditást"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "Adja hozzá a V2 likviditást"
+msgid "Add Liquidity"
+msgstr "Adja hozzá a likviditást"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "Csatlakozzon egy pénztárcához a poolok megtalálásához"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "Csatlakozzon egy pénztárcához a V2 likviditás megtekintéséhez."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "Csatlakozzon egy pénztárcához a likviditás megtekintéséhez."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "Betéti eszközök"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "UNI-V2 LP tokenek letétbe helyezése"
+msgid "Deposit LP Tokens"
+msgstr " LP tokenek letétbe helyezése"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "Letétbe helyezett likviditás:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "Letétbe helyezett {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "Letétbe helyezett {0} "
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,8 +701,8 @@ msgid "Docs"
 msgstr "Dokumentumok"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
-msgstr "Nem látja az egyik v2 pozícióját? <0> Importálja.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
+msgstr "Nem látja az egyik pozícióját? <0> Importálja.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -877,8 +877,8 @@ msgid "Import Pool"
 msgstr "Import Pool"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "Import V2 Pool"
+msgid "Import Pool"
+msgstr "Import Pool"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"
@@ -979,6 +979,7 @@ msgstr "Fény téma"
 
 #: src/components/claim/ClaimModal.tsx
 #: src/pages/Pool/PositionPage.tsx
+#: src/pages/Pool/index.tsx
 msgid "Liquidity"
 msgstr "Likviditás"
 
@@ -1130,8 +1131,8 @@ msgid "New Position"
 msgstr "Új pozíció"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "No V2 Liquidity found."
-msgstr "V2 likviditás nem található."
+msgid "No Liquidity found."
+msgstr "likviditás nem található."
 
 #: src/pages/Earn/index.tsx
 #: src/pages/Earn/index.tsx
@@ -1458,8 +1459,8 @@ msgid "Select a token"
 msgstr "Token választása"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "Select a token to find your v2 liquidity."
-msgstr "Válasszon egy tokent a v2 likviditásának megkereséséhez."
+msgid "Select a token to find your liquidity."
+msgstr "Válasszon egy tokent a likviditásának megkereséséhez."
 
 #: src/pages/CreateProposal/ProposalActionSelector.tsx
 msgid "Select an action"
@@ -1524,8 +1525,8 @@ msgid "Status"
 msgstr "Állapot"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Step 1. Get UNI-V2 Liquidity tokens"
-msgstr "1. lépés: Szerezzen UNI-V2 likviditási tokeneket"
+msgid "Step 1. Get Liquidity tokens"
+msgstr "1. lépés: Szerezzen likviditási tokeneket"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Submit new proposal"
@@ -1809,12 +1810,12 @@ msgid "UNI {0}/{1} Burned"
 msgstr "UNI {0}/{1} Elégett"
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
-msgstr "UNI-V2 LP tokenek szükségesek. Miután hozzáadta a likviditást a {0}-{1} készlethez, ezen az oldalon elhelyezheti likviditási zsetonjait."
+msgid "LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
+msgstr "LP tokenek szükségesek. Miután hozzáadta a likviditást a {0}-{1} készlethez, ezen az oldalon elhelyezheti likviditási zsetonjait."
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 {0}-{1}"
-msgstr "UNI-V2 {0}-{1}"
+msgid "{0}-{1}"
+msgstr "{0}-{1}"
 
 #: src/components/earn/ClaimRewardModal.tsx
 #: src/components/earn/UnstakingModal.tsx
@@ -1954,8 +1955,8 @@ msgid "View UNI Analytics"
 msgstr "UNI analitika megtekintése"
 
 #: src/pages/Pool/index.tsx
-msgid "View V2 Liquidity"
-msgstr "View V2 Likviditás megtekintése"
+msgid "View Liquidity"
+msgstr "View Likviditás megtekintése"
 
 #: src/components/PositionCard/index.tsx
 msgid "View accrued fees and analytics<0>↗</0>"
@@ -2084,12 +2085,12 @@ msgid "Withdraw deposited liquidity"
 msgstr "A letétbe helyezett likviditás visszavonása"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrawing {0} UNI-V2"
-msgstr "{0} UNI-V2 visszavonása"
+msgid "Withdrawing {0}"
+msgstr "{0} visszavonása"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrew UNI-V2!"
-msgstr "Visszavonta az UNI-V2-t!"
+msgid "Withdrew!"
+msgstr "Visszavonta az!"
 
 #: src/pages/Swap/index.tsx
 msgid "Wrap"
@@ -2174,8 +2175,8 @@ msgid "Your UNI Breakdown"
 msgstr "Saját UNI lebontása"
 
 #: src/pages/Pool/v2.tsx
-msgid "Your V2 liquidity"
-msgstr "Saját V2 likviditása"
+msgid "Your liquidity"
+msgstr "Saját likviditása"
 
 #: src/pages/Pool/index.tsx
 msgid "Your V3 liquidity positions will appear here."
@@ -2354,12 +2355,12 @@ msgid "{0} UNI / week"
 msgstr "{0} UNI / hét"
 
 #: src/components/earn/StakingModal.tsx
-msgid "{0} UNI-V2"
-msgstr "{0} UNI-V2"
+msgid "{0} Bacoor"
+msgstr "{0} Bacoor"
 
 #: src/pages/Earn/Manage.tsx
-msgid "{0} UNI-V2 LP tokens available"
-msgstr "{0} UNI-V2 LP token érhető el"
+msgid "{0} Bacoor LP tokens available"
+msgstr "{0} Bacoor LP token érhető el"
 
 #: src/components/vote/VoteModal.tsx
 msgid "{0} Votes"

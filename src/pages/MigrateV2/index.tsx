@@ -135,7 +135,7 @@ export default function MigrateV2() {
           {!account ? (
             <LightCard padding="40px">
               <TYPE.body color={theme.text3} textAlign="center">
-                <Trans>Connect to a wallet to view your V2 liquidity.</Trans>
+                <Trans>Connect to a wallet to view your liquidity.</Trans>
               </TYPE.body>
             </LightCard>
           ) : v2IsLoading ? (
@@ -166,13 +166,13 @@ export default function MigrateV2() {
               })}
             </>
           ) : (
-            <EmptyState message={<Trans>No V2 Liquidity found.</Trans>} />
+            <EmptyState message={<Trans>No Liquidity found.</Trans>} />
           )}
 
           <AutoColumn justify={'center'} gap="md">
             <Text textAlign="center" fontSize={14} style={{ padding: '.5rem 0 .5rem 0' }}>
               <Trans>
-                Don’t see one of your v2 positions?{' '}
+                Don’t see one of your positions?{' '}
                 <StyledInternalLink id="import-pool-link" to={'/find?origin=/migrate/v2'}>
                   Import it.
                 </StyledInternalLink>

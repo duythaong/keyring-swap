@@ -89,7 +89,7 @@ export function FindPoolTabs({ origin }: { origin: string }) {
           <StyledArrowLeft />
         </HistoryLink>
         <ActiveText style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
-          <Trans>Import V2 Pool</Trans>
+          <Trans>Import Pool</Trans>
         </ActiveText>
       </RowBetween>
     </Tabs>

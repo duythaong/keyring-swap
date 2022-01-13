@@ -112,8 +112,8 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Tips:</0> Välj en åtgärd och beskriv ditt förslag för samhället. Förslaget kan inte ändras efter inlämning, så kontrollera all information innan du skickar in det. Röstperioden börjar omedelbart och pågår i sju dagar. För att föreslå en anpassad åtgärd, läs <1> dokumenten</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
-msgstr "<0>Tips:</0> Använd det här verktyget för att hitta v2-pooler som inte automatiskt visas i gränssnittet."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
+msgstr "<0>Tips:</0> Använd det här verktyget för att hitta pooler som inte automatiskt visas i gränssnittet."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -133,7 +133,7 @@ msgstr "En minimitröskel på 0,25% av det totala UNI-utbudet krävs för att sk
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Omkring"
+msgstr "Omkring Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "Fyll på likviditet"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "Fyll på V2-likviditet"
+msgid "Add Liquidity"
+msgstr "Fyll på likviditet"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "Anslut till en plånbok för att hitta pooler"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "Anslut till en plånbok för att visa din V2-likviditet."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "Anslut till en plånbok för att visa din likviditet."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "Insättningstillgångar"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "Sätt in UNI-V2 LP-tokens"
+msgid "Deposit LP Tokens"
+msgstr "Sätt in LP-tokens"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "Insatt likviditet:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "Insatt {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "Insatt {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,8 +701,8 @@ msgid "Docs"
 msgstr "Dokument"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
-msgstr "Ser du inte en av dina v2-positioner? <0>Importera den.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
+msgstr "Ser du inte en av dina positioner? <0>Importera den.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "Importera pool"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "Importera V2-pool"
+msgid "Import Pool"
+msgstr "Importera pool"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"
@@ -978,6 +978,7 @@ msgstr "Ljus tema"
 
 #: src/components/claim/ClaimModal.tsx
 #: src/pages/Pool/PositionPage.tsx
+#: src/pages/Pool/index.tsx
 msgid "Liquidity"
 msgstr "Likviditet"
 
@@ -1129,8 +1130,8 @@ msgid "New Position"
 msgstr "Ny position"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "No V2 Liquidity found."
-msgstr "Ingen V2-likviditet hittades."
+msgid "No Liquidity found."
+msgstr "Ingen likviditet hittades."
 
 #: src/pages/Earn/index.tsx
 #: src/pages/Earn/index.tsx
@@ -1457,8 +1458,8 @@ msgid "Select a token"
 msgstr "Välj en token"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "Select a token to find your v2 liquidity."
-msgstr "Välj en token för att hitta din v2-likviditet."
+msgid "Select a token to find your liquidity."
+msgstr "Välj en token för att hitta din likviditet."
 
 #: src/pages/CreateProposal/ProposalActionSelector.tsx
 msgid "Select an action"
@@ -1523,8 +1524,8 @@ msgid "Status"
 msgstr "Status"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Step 1. Get UNI-V2 Liquidity tokens"
-msgstr "Steg 1. Få UNI-V2 likviditetstokens"
+msgid "Step 1. Get Liquidity tokens"
+msgstr "Steg 1. Få likviditetstokens"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Submit new proposal"
@@ -1808,12 +1809,12 @@ msgid "UNI {0}/{1} Burned"
 msgstr "UNI {0}/{1} bränd"
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
-msgstr "UNI-V2 LP-tokens krävs. När du har lagt till likviditet till {0}-{1} poolen kan du satsa dina likviditetstoken på denna sida."
+msgid "LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
+msgstr "LP-tokens krävs. När du har lagt till likviditet till {0}-{1} poolen kan du satsa dina likviditetstoken på denna sida."
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 {0}-{1}"
-msgstr "UNI-V2 {0}-{1}"
+msgid "{0}-{1}"
+msgstr "{0}-{1}"
 
 #: src/components/earn/ClaimRewardModal.tsx
 #: src/components/earn/UnstakingModal.tsx
@@ -1953,8 +1954,8 @@ msgid "View UNI Analytics"
 msgstr "Visa UNI Analytics"
 
 #: src/pages/Pool/index.tsx
-msgid "View V2 Liquidity"
-msgstr "Visa V2-likviditet"
+msgid "View Liquidity"
+msgstr "Visa Likviditet"
 
 #: src/components/PositionCard/index.tsx
 msgid "View accrued fees and analytics<0>↗</0>"
@@ -2083,12 +2084,12 @@ msgid "Withdraw deposited liquidity"
 msgstr "Ta ut insatt likviditet"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrawing {0} UNI-V2"
-msgstr "Tar ut {0} UNI-V2"
+msgid "Withdrawing {0}"
+msgstr "Tar ut {0}"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrew UNI-V2!"
-msgstr "Tog ut UNI-V2!"
+msgid "Withdrew!"
+msgstr "Tog ut !"
 
 #: src/pages/Swap/index.tsx
 msgid "Wrap"
@@ -2173,8 +2174,8 @@ msgid "Your UNI Breakdown"
 msgstr "Din UNI-sammanställning"
 
 #: src/pages/Pool/v2.tsx
-msgid "Your V2 liquidity"
-msgstr "Din V2-likviditet"
+msgid "Your liquidity"
+msgstr "Din likviditet"
 
 #: src/pages/Pool/index.tsx
 msgid "Your V3 liquidity positions will appear here."
@@ -2353,12 +2354,12 @@ msgid "{0} UNI / week"
 msgstr "{0} UNI/vecka"
 
 #: src/components/earn/StakingModal.tsx
-msgid "{0} UNI-V2"
-msgstr "{0} UNI-V2"
+msgid "{0} Bacoor"
+msgstr "{0} Bacoor"
 
 #: src/pages/Earn/Manage.tsx
-msgid "{0} UNI-V2 LP tokens available"
-msgstr "{0} UNI-V2 LP-tokens tillgängliga"
+msgid "{0} Bacoor LP tokens available"
+msgstr "{0} Bacoor LP-tokens tillgängliga"
 
 #: src/components/vote/VoteModal.tsx
 msgid "{0} Votes"

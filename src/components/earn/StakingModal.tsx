@@ -225,7 +225,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
               <Trans>Depositing Liquidity</Trans>
             </TYPE.largeHeader>
             <TYPE.body fontSize={20}>
-              <Trans>{parsedAmount?.toSignificant(4)} UNI-V2</Trans>
+              <Trans>{parsedAmount?.toSignificant(4)} Bacoor</Trans>
             </TYPE.body>
           </AutoColumn>
         </LoadingView>
@@ -237,7 +237,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
               <Trans>Transaction Submitted</Trans>
             </TYPE.largeHeader>
             <TYPE.body fontSize={20}>
-              <Trans>Deposited {parsedAmount?.toSignificant(4)} UNI-V2</Trans>
+              <Trans>Deposited {parsedAmount?.toSignificant(4)}</Trans>
             </TYPE.body>
           </AutoColumn>
         </SubmittedView>

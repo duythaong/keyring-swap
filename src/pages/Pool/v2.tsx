@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import { Text } from 'rebass'
 import styled, { ThemeContext } from 'styled-components/macro'
 
+import cardBG from '../../assets/images/cardBG.jpg'
 import { ButtonOutlined, ButtonPrimary, ButtonSecondary } from '../../components/Button'
 import Card from '../../components/Card'
 import { AutoColumn } from '../../components/Column'
@@ -32,7 +33,7 @@ const PageWrapper = styled(AutoColumn)`
 `
 
 const VoteCard = styled(DataCard)`
-  background: radial-gradient(76.02% 75.41% at 1.84% 0%, #27ae60 0%, #000000 100%);
+  background: url(${cardBG});
   overflow: hidden;
 `
 
@@ -146,8 +147,8 @@ export default function Pool() {
       <PageWrapper>
         <SwapPoolTabs active={'pool'} />
         <VoteCard>
-          <CardBGImage />
-          <CardNoise />
+          {/* <CardBGImage /> */}
+          {/* <CardNoise /> */}
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween>
@@ -174,8 +175,8 @@ export default function Pool() {
               </ExternalLink>
             </AutoColumn>
           </CardSection>
-          <CardBGImage />
-          <CardNoise />
+          {/* <CardBGImage /> */}
+          {/* <CardNoise /> */}
         </VoteCard>
 
         {ON_L2 ? (
@@ -194,7 +195,7 @@ export default function Pool() {
               <TitleRow style={{ marginTop: '1rem' }} padding={'0'}>
                 <HideSmall>
                   <TYPE.mediumHeader style={{ marginTop: '0.5rem', justifySelf: 'flex-start' }}>
-                    <Trans>Your V2 liquidity</Trans>
+                    <Trans>Your liquidity</Trans>
                   </TYPE.mediumHeader>
                 </HideSmall>
                 <ButtonRow>
@@ -208,7 +209,7 @@ export default function Pool() {
                   </ResponsiveButtonPrimary>
                   <ResponsiveButtonPrimary id="join-pool-button" as={Link} to="/add/v2/ETH" padding="6px 8px">
                     <Text fontWeight={500} fontSize={16}>
-                      <Trans>Add V2 Liquidity</Trans>
+                      <Trans>Add Liquidity</Trans>
                     </Text>
                   </ResponsiveButtonPrimary>
                 </ButtonRow>
