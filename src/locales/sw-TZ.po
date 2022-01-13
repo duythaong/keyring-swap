@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0>Kidokezo:</0> Chagua kitendo na ueleze pendekezo lako kwa jamii. Pendekezo haliwezi kubadilishwa baada ya kuwasilisha, kwa hivyo tafadhali thibitisha habari zote kabla ya kuwasilisha. Kipindi cha kupiga kura kitaanza mara moja na kitadumu kwa siku 7. Kupendekeza kitendo maalum cha kwako, <1>soma maelezo</1>."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0> Kidokezo:</0> Tumia zana hii kupata shares ya v2 ambayo hayaonekani kiotomatiki kwenye muonekano wa nje."
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,7 +168,7 @@ msgid "Add Liquidity"
 msgstr "Ongeza Mtaji"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
+msgid "Add Liquidity"
 msgstr "Ongeza Mtaji wa V2"
 
 #: src/pages/PoolFinder/index.tsx

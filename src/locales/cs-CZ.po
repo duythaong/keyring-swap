@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Tip:</0> Vyberte akci a popište svůj návrh pro komunitu. Po odeslání nelze nabídku upravit, proto prosím před odesláním ověřte všechny informace. Hlasovací období začne okamžitě a bude trvat 7 dní. Chcete-li navrhnout vlastní akci, přečtěte si <1> dokumenty</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0> Tip:</0> Pomocí tohoto nástroje můžete najít fondy v2, které se v rozhraní nezobrazí automaticky."
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,7 +168,7 @@ msgid "Add Liquidity"
 msgstr "Přidat likviditu"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
+msgid "Add Liquidity"
 msgstr "Přidat likviditu V2"
 
 #: src/pages/PoolFinder/index.tsx

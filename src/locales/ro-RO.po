@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Sfat:</0> Selectați o acțiune și descrieți-vă propunerea pentru comunitate. Propunerea nu poate fi modificată după trimitere, deci vă rugăm să verificați toate informațiile înainte de a trimite. Perioada de votare va începe imediat și va dura 7 zile. Pentru a propune o acțiune personalizată, <1> citiți documentele</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0> Sfat:</0> Utilizați acest instrument pentru a găsi pool-uri v2 care nu apar automat în interfață."
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,7 +168,7 @@ msgid "Add Liquidity"
 msgstr "Adaugă lichiditate"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
+msgid "Add Liquidity"
 msgstr "Adaugă lichiditate V2"
 
 #: src/pages/PoolFinder/index.tsx

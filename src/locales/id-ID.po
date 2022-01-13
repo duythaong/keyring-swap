@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0>Kiat:</0> Pilih tindakan dan jelaskan proposal Anda untuk komunitas. Proposal tidak dapat diubah setelah dikirimkan, jadi harap verifikasi semua informasi sebelum dikirm. Periode pemungutan suara akan segera dimulai dan berlangsung selama 7 hari. Untuk mengusulkan tindakan khusus, <1>baca dokumen</1>."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0>Kiat:</0> Gunakan alat ini untuk menemukan pool v2 yang tidak otomatis muncul di antarmuka."
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,7 +168,7 @@ msgid "Add Liquidity"
 msgstr "Tambahkan Likuiditas"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
+msgid "Add Liquidity"
 msgstr "Tambahkan Likuiditas V2"
 
 #: src/pages/PoolFinder/index.tsx

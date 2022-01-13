@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0>Tipp:</0> Wählen Sie eine Aktion aus und beschreiben Sie Ihren Antrag für die Community. Der Antrag kann nach der Einreichung nicht mehr geändert werden. Überprüfen Sie daher alle Informationen vor dem Einreichen. Die Abstimmungsperiode beginnt sofort und dauert 7 Tage. Um eine benutzerdefinierte Aktion vorzuschlagen, <1>lesen Sie die Dokumentation</1>."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0>Tipp:</0> Verwenden Sie dieses Tool, um v2-Pools zu finden, die nicht automatisch in der Benutzeroberfläche angezeigt werden."
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,7 +168,7 @@ msgid "Add Liquidity"
 msgstr "Liquidität hinzufügen"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
+msgid "Add Liquidity"
 msgstr "V2 Liquidität hinzufügen"
 
 #: src/pages/PoolFinder/index.tsx

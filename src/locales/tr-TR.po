@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0>İpucu:</0> Bir eylem seçin ve topluluk için teklifinizi açıklayın. Teklif, gönderildikten sonra değiştirilemez, bu nedenle lütfen göndermeden önce tüm bilgileri doğrulayın. Oy verme süreci hemen başlayacak ve 7 gün sürecektir. Özel bir eylem önermek için <1>dokümanları okuyun</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0>İpucu:</0> Arayüzde otomatik olarak görünmeyen v2 havuzlarını bulmak için bu aracı kullanın."
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,7 +168,7 @@ msgid "Add Liquidity"
 msgstr "Likidite Ekle"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
+msgid "Add Liquidity"
 msgstr "V2 Likidite Ekle"
 
 #: src/pages/PoolFinder/index.tsx

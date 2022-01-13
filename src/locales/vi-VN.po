@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Mẹo:</0> Chọn một hành động và mô tả đề xuất của bạn cho cộng đồng. Đề xuất không thể được sửa đổi sau khi gửi, vì vậy vui lòng xác minh tất cả thông tin trước khi gửi. Thời gian bình chọn sẽ bắt đầu ngay lập tức và kéo dài trong 7 ngày. Để đề xuất một hành động tùy chỉnh, hãy <1> đọc tài liệu</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0> Mẹo:</0> Sử dụng công cụ này để tìm các nhóm v2 không tự động xuất hiện trong giao diện."
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,7 +168,7 @@ msgid "Add Liquidity"
 msgstr "Thêm thanh khoản"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
+msgid "Add Liquidity"
 msgstr "Thêm thanh khoản V2"
 
 #: src/pages/PoolFinder/index.tsx

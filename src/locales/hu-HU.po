@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Tipp:</0> Válasszon ki egy műveletet, és írja le javaslatát a közösség számára. Az ajánlat benyújtása után nem módosítható, ezért a benyújtás előtt ellenőrizze az összes információt. A szavazási időszak azonnal megkezdődik és 7 napig tart. Egyéni művelet javaslatához <1> olvassa el a dokumentumokat</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0> Tipp:</0> Ezzel a poollal olyan v2 poolokat találhat, amelyek nem jelennek meg automatikusan a felületen."
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,7 +168,7 @@ msgid "Add Liquidity"
 msgstr "Adja hozzá a likviditást"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
+msgid "Add Liquidity"
 msgstr "Adja hozzá a V2 likviditást"
 
 #: src/pages/PoolFinder/index.tsx

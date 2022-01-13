@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Συμβουλή:</0> Επιλέξτε μια ενέργεια και περιγράψτε την πρότασή σας για την κοινότητα. Η πρόταση δεν μπορεί να τροποποιηθεί μετά την υποβολή, επομένως επαληθεύστε όλες τις πληροφορίες πριν από την υποβολή. Η περίοδος ψηφοφορίας θα ξεκινήσει αμέσως και θα διαρκέσει 7 ημέρες. Για να προτείνετε μια προσαρμοσμένη ενέργεια, <1> διαβάστε τα έγγραφα</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0> Συμβουλή:</0> Χρησιμοποιήστε αυτό το εργαλείο για να βρείτε δεξαμενές της v2 που δεν εμφανίζονται αυτόματα στη διεπαφή."
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,7 +168,7 @@ msgid "Add Liquidity"
 msgstr "Προσθήκη Ρευστότητας"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
+msgid "Add Liquidity"
 msgstr "Προσθήκη Ρευστότητας V2"
 
 #: src/pages/PoolFinder/index.tsx

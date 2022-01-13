@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0>提示：</0>選擇操作並描述您的提案。提案提交後不可修改，提交前請核對所有信息。投票期將立即開始，持續 7 天。若要提議自定義操作，請<1>閱讀文檔</1>。"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0>提示：</0>使用此工具可查找未自動出現在界面中的 v2 池。"
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,7 +168,7 @@ msgid "Add Liquidity"
 msgstr "註入流動資金"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
+msgid "Add Liquidity"
 msgstr "註入 V2 流動資金"
 
 #: src/pages/PoolFinder/index.tsx

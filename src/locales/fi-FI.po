@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Vinkki:</0> Valitse toiminto ja kuvaa ehdotuksesi yhteisölle. Ehdotusta ei voi muuttaa lähettämisen jälkeen, joten tarkista kaikki tiedot ennen lähettämistä. Äänestyskausi alkaa välittömästi ja kestää 7 päivää. Voit ehdottaa mukautettua toimintoa <1> lukemalla asiakirjat</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0> Vinkki:</0> Käytä tätä työkalua etsiäksesi v2-pooleja, jotka eivät automaattisesti näy käyttöliittymässä."
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,7 +168,7 @@ msgid "Add Liquidity"
 msgstr "Lisää likviditeettiä"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
+msgid "Add Liquidity"
 msgstr "Lisää V2-likviditeettiä"
 
 #: src/pages/PoolFinder/index.tsx

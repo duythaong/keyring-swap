@@ -113,7 +113,7 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
         <LoadingView onDismiss={wrappedOndismiss}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.body fontSize={20}>
-              <Trans>Withdrawing {stakingInfo?.stakedAmount?.toSignificant(4)} UNI-V2</Trans>
+              <Trans>Withdrawing {stakingInfo?.stakedAmount?.toSignificant(4)}</Trans>
             </TYPE.body>
             <TYPE.body fontSize={20}>
               <Trans>Claiming {stakingInfo?.earnedAmount?.toSignificant(4)} UNI</Trans>

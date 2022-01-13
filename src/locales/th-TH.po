@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0>เคล็ดลับ:</0> เลือกการดำเนินการและอธิบายข้อเสนอของคุณสำหรับชุมชน ไม่สามารถแก้ไขข้อเสนอได้หลังจากส่ง ดังนั้นโปรดตรวจสอบข้อมูลทั้งหมดก่อนส่ง ระยะเวลาการลงคะแนนจะเริ่มทันทีและมีอายุ 7 วัน หากต้องการเสนอการดำเนินการที่กำหนดเอง <1>อ่านเอกสาร</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0>เคล็ดลับ:</0> ใช้เครื่องมือนี้เพื่อค้นหาพูล v2 ที่ไม่ปรากฏในอินเทอร์เฟซโดยอัตโนมัติ"
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,7 +168,7 @@ msgid "Add Liquidity"
 msgstr "เพิ่มสภาพคล่อง"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
+msgid "Add Liquidity"
 msgstr "เพิ่มสภาพคล่อง V2"
 
 #: src/pages/PoolFinder/index.tsx

@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0>ヒント：</0>アクションを選択し、コミュニティへの提案を記載してください。提案は提出後に変更できませんので、提出する前にすべての情報を確認してください。投票期間はすぐに始まり、7日間続きます。カスタムアクションを提案する場合、<1>ドキュメントをお読みください</1>。"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0>ヒント:</0> このツールを使用して、画面に自動表示されないV2のプールを見つけます。"
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,7 +168,7 @@ msgid "Add Liquidity"
 msgstr "流動性を追加"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
+msgid "Add Liquidity"
 msgstr "V2の流動性を追加"
 
 #: src/pages/PoolFinder/index.tsx
