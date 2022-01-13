@@ -169,7 +169,7 @@ msgstr "Додајте ликвидност"
 
 #: src/pages/Pool/v2.tsx
 msgid "Add Liquidity"
-msgstr "Додајте В2 ликвидност"
+msgstr "Додајте ликвидност"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -877,7 +877,7 @@ msgstr "Увоз фонда"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "Увоз V2 фонда"
+msgstr "Увоз фонда"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"
