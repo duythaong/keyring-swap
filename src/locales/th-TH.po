@@ -133,7 +133,7 @@ msgstr "เกณฑ์ขั้นต่ำ 0.25% ของอุปทาน U
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "เกี่ยวกับ"
+msgstr "เกี่ยวกับ Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"
@@ -1129,8 +1129,8 @@ msgid "New Position"
 msgstr "ตำแหน่งใหม่"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "No V2 Liquidity found."
-msgstr "ไม่พบสภาพคล่อง V2"
+msgid "No Liquidity found."
+msgstr "ไม่พบสภาพคล่อง"
 
 #: src/pages/Earn/index.tsx
 #: src/pages/Earn/index.tsx
@@ -1457,8 +1457,8 @@ msgid "Select a token"
 msgstr "เลือกโทเค็น"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "Select a token to find your v2 liquidity."
-msgstr "เลือกโทเค็นเพื่อค้นหาสภาพคล่อง v2 ของคุณ"
+msgid "Select a token to find your liquidity."
+msgstr "เลือกโทเค็นเพื่อค้นหาสภาพคล่อง ของคุณ"
 
 #: src/pages/CreateProposal/ProposalActionSelector.tsx
 msgid "Select an action"
@@ -1523,8 +1523,8 @@ msgid "Status"
 msgstr "สถานะ"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Step 1. Get UNI-V2 Liquidity tokens"
-msgstr "ขั้นตอนที่ 1 รับโทเค็นสภาพคล่อง UNI-V2"
+msgid "Step 1. Get Liquidity tokens"
+msgstr "ขั้นตอนที่ 1 รับโทเค็นสภาพคล่อง"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Submit new proposal"
@@ -1808,12 +1808,12 @@ msgid "UNI {0}/{1} Burned"
 msgstr "UNI {0}/{1} เผา"
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
-msgstr "ต้องใช้โทเค็น UNI-V2 LP เมื่อคุณเพิ่มสภาพคล่องให้กับกลุ่ม {0}-{1} คุณสามารถเดิมพันโทเค็นสภาพคล่องของคุณในหน้านี้"
+msgid "LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
+msgstr "ต้องใช้โทเค็น LP เมื่อคุณเพิ่มสภาพคล่องให้กับกลุ่ม {0}-{1} คุณสามารถเดิมพันโทเค็นสภาพคล่องของคุณในหน้านี้"
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 {0}-{1}"
-msgstr "UNI-V2 {0}-{1}"
+msgid "{0}-{1}"
+msgstr "{0}-{1}"
 
 #: src/components/earn/ClaimRewardModal.tsx
 #: src/components/earn/UnstakingModal.tsx
@@ -1953,8 +1953,8 @@ msgid "View UNI Analytics"
 msgstr "ดู UNI Analytics"
 
 #: src/pages/Pool/index.tsx
-msgid "View V2 Liquidity"
-msgstr "ดูสภาพคล่อง V2"
+msgid "View Liquidity"
+msgstr "ดูสภาพคล่อง"
 
 #: src/components/PositionCard/index.tsx
 msgid "View accrued fees and analytics<0>↗</0>"
@@ -2083,12 +2083,12 @@ msgid "Withdraw deposited liquidity"
 msgstr "ถอนเงินที่ฝากไว้"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrawing {0} UNI-V2"
-msgstr "ถอน {0} UNI-V2"
+msgid "Withdrawing {0}"
+msgstr "ถอน {0}"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrew UNI-V2!"
-msgstr "ถอนตัว UNI-V2!"
+msgid "Withdrew!"
+msgstr "ถอนตัว !"
 
 #: src/pages/Swap/index.tsx
 msgid "Wrap"
@@ -2173,8 +2173,8 @@ msgid "Your UNI Breakdown"
 msgstr "รายละเอียด UNI ของคุณ"
 
 #: src/pages/Pool/v2.tsx
-msgid "Your V2 liquidity"
-msgstr "สภาพคล่อง V2 ของคุณ"
+msgid "Your liquidity"
+msgstr "สภาพคล่อง ของคุณ"
 
 #: src/pages/Pool/index.tsx
 msgid "Your V3 liquidity positions will appear here."
@@ -2353,12 +2353,12 @@ msgid "{0} UNI / week"
 msgstr "{0} UNI / สัปดาห์"
 
 #: src/components/earn/StakingModal.tsx
-msgid "{0} UNI-V2"
-msgstr "{0} UNI-V2"
+msgid "{0} Bacoor"
+msgstr "{0} Bacoor"
 
 #: src/pages/Earn/Manage.tsx
-msgid "{0} UNI-V2 LP tokens available"
-msgstr "{0} โทเค็น LP UNI-V2 พร้อมใช้งาน"
+msgid "{0} Bacoor LP tokens available"
+msgstr "{0} โทเค็น LP Bacoor พร้อมใช้งาน"
 
 #: src/components/vote/VoteModal.tsx
 msgid "{0} Votes"

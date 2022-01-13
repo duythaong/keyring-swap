@@ -133,7 +133,7 @@ msgstr "제안서를 제출하려면 총 UNI 공급량의 최소 0.25 %가 필�
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "정보"
+msgstr "정보 Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"
@@ -1130,8 +1130,8 @@ msgid "New Position"
 msgstr "새로운 위치"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "No V2 Liquidity found."
-msgstr "V2 유동성이 없습니다."
+msgid "No Liquidity found."
+msgstr "유동성이 없습니다."
 
 #: src/pages/Earn/index.tsx
 #: src/pages/Earn/index.tsx
@@ -1458,8 +1458,8 @@ msgid "Select a token"
 msgstr "토큰 선택"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "Select a token to find your v2 liquidity."
-msgstr "v2 유동성을 찾으려면 토큰을 선택하십시오."
+msgid "Select a token to find your liquidity."
+msgstr "유동성을 찾으려면 토큰을 선택하십시오."
 
 #: src/pages/CreateProposal/ProposalActionSelector.tsx
 msgid "Select an action"
@@ -1524,8 +1524,8 @@ msgid "Status"
 msgstr "상태"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Step 1. Get UNI-V2 Liquidity tokens"
-msgstr "1 단계. UNI-V2 유동성 토큰 받기"
+msgid "Step 1. Get Liquidity tokens"
+msgstr "1 단계. 유동성 토큰 받기"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Submit new proposal"
@@ -1809,12 +1809,12 @@ msgid "UNI {0}/{1} Burned"
 msgstr "UNI {0}/{1} 버닝"
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
-msgstr "UNI-V2 LP 토큰이 필요합니다. 유동성을 {0}-{1}풀에 추가하면 이 페이지에 귀하의 유동성 토큰을 스테이크할 수 있습니다."
+msgid "LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
+msgstr "LP 토큰이 필요합니다. 유동성을 {0}-{1}풀에 추가하면 이 페이지에 귀하의 유동성 토큰을 스테이크할 수 있습니다."
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 {0}-{1}"
-msgstr "UNI-V2 {0}-{1}"
+msgid "{0}-{1}"
+msgstr "{0}-{1}"
 
 #: src/components/earn/ClaimRewardModal.tsx
 #: src/components/earn/UnstakingModal.tsx
@@ -1954,8 +1954,8 @@ msgid "View UNI Analytics"
 msgstr "UNI 분석보기"
 
 #: src/pages/Pool/index.tsx
-msgid "View V2 Liquidity"
-msgstr "V2 유동성보기"
+msgid "View Liquidity"
+msgstr "유동성보기"
 
 #: src/components/PositionCard/index.tsx
 msgid "View accrued fees and analytics<0>↗</0>"
@@ -2084,12 +2084,12 @@ msgid "Withdraw deposited liquidity"
 msgstr "예치된 유동성 인출"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrawing {0} UNI-V2"
-msgstr "{0} UNI-V2 인출"
+msgid "Withdrawing {0}"
+msgstr "{0} 인출"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrew UNI-V2!"
-msgstr "UNI-V2 인출!"
+msgid "Withdrew!"
+msgstr " 인출!"
 
 #: src/pages/Swap/index.tsx
 msgid "Wrap"
@@ -2174,8 +2174,8 @@ msgid "Your UNI Breakdown"
 msgstr "UNI 고장"
 
 #: src/pages/Pool/v2.tsx
-msgid "Your V2 liquidity"
-msgstr "V2 유동성"
+msgid "Your liquidity"
+msgstr "유동성"
 
 #: src/pages/Pool/index.tsx
 msgid "Your V3 liquidity positions will appear here."
@@ -2354,12 +2354,12 @@ msgid "{0} UNI / week"
 msgstr "{0} UNI / 주"
 
 #: src/components/earn/StakingModal.tsx
-msgid "{0} UNI-V2"
-msgstr "{0} UNI-V2"
+msgid "{0} Bacoor"
+msgstr "{0} Bacoor"
 
 #: src/pages/Earn/Manage.tsx
-msgid "{0} UNI-V2 LP tokens available"
-msgstr "{0} UNI-V2 LP 토큰 사용 가능"
+msgid "{0} Bacoor LP tokens available"
+msgstr "{0} Bacoor LP 토큰 사용 가능"
 
 #: src/components/vote/VoteModal.tsx
 msgid "{0} Votes"

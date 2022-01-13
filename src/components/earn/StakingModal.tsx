@@ -225,7 +225,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
               <Trans>Depositing Liquidity</Trans>
             </TYPE.largeHeader>
             <TYPE.body fontSize={20}>
-              <Trans>{parsedAmount?.toSignificant(4)} UNI-V2</Trans>
+              <Trans>{parsedAmount?.toSignificant(4)} Bacoor</Trans>
             </TYPE.body>
           </AutoColumn>
         </LoadingView>

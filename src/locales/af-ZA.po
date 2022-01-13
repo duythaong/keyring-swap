@@ -133,7 +133,7 @@ msgstr "'N Minimum drempel van 0,25% van die totale UNI-aanbod is nodig om voors
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Oor"
+msgstr "Oor Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"
@@ -1129,8 +1129,8 @@ msgid "New Position"
 msgstr "Nuwe posisie"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "No V2 Liquidity found."
-msgstr "Geen V2-likiditeit gevind nie."
+msgid "No Liquidity found."
+msgstr "Geen likiditeit gevind nie."
 
 #: src/pages/Earn/index.tsx
 #: src/pages/Earn/index.tsx
@@ -1457,8 +1457,8 @@ msgid "Select a token"
 msgstr "Kies 'n teken"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "Select a token to find your v2 liquidity."
-msgstr "Kies 'n teken om u v2-likiditeit te vind."
+msgid "Select a token to find your liquidity."
+msgstr "Kies 'n teken om u likiditeit te vind."
 
 #: src/pages/CreateProposal/ProposalActionSelector.tsx
 msgid "Select an action"
@@ -1523,8 +1523,8 @@ msgid "Status"
 msgstr "Status"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Step 1. Get UNI-V2 Liquidity tokens"
-msgstr "Stap 1. Kry UNI-V2 likiditeitstekens"
+msgid "Step 1. Get Liquidity tokens"
+msgstr "Stap 1. Kry likiditeitstekens"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Submit new proposal"
@@ -1808,12 +1808,12 @@ msgid "UNI {0}/{1} Burned"
 msgstr "UNI {0}/{1} Verbrand"
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
-msgstr "UNI-V2 LP-tekens word vereis. Nadat u likiditeit by die {0}-{1} poel gevoeg het, kan u u likiditeitsteken op hierdie bladsy insit."
+msgid "LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
+msgstr "LP-tekens word vereis. Nadat u likiditeit by die {0}-{1} poel gevoeg het, kan u u likiditeitsteken op hierdie bladsy insit."
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 {0}-{1}"
-msgstr "UNI-V2 {0}-{1}"
+msgid "{0}-{1}"
+msgstr "{0}-{1}"
 
 #: src/components/earn/ClaimRewardModal.tsx
 #: src/components/earn/UnstakingModal.tsx
@@ -1953,8 +1953,8 @@ msgid "View UNI Analytics"
 msgstr "Kyk na UNI Analytics"
 
 #: src/pages/Pool/index.tsx
-msgid "View V2 Liquidity"
-msgstr "Kyk na V2 Likiditeit"
+msgid "View Liquidity"
+msgstr "Kyk na Likiditeit"
 
 #: src/components/PositionCard/index.tsx
 msgid "View accrued fees and analytics<0>↗</0>"
@@ -2083,12 +2083,12 @@ msgid "Withdraw deposited liquidity"
 msgstr "Onttrek gedeponeerde likiditeit"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrawing {0} UNI-V2"
-msgstr "Onttrek {0} UNI-V2"
+msgid "Withdrawing {0}"
+msgstr "Onttrek {0}"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrew UNI-V2!"
-msgstr "UNI-V2 onttrek!"
+msgid "Withdrew!"
+msgstr "Onttrek!"
 
 #: src/pages/Swap/index.tsx
 msgid "Wrap"
@@ -2173,8 +2173,8 @@ msgid "Your UNI Breakdown"
 msgstr "U UNI-uiteensetting"
 
 #: src/pages/Pool/v2.tsx
-msgid "Your V2 liquidity"
-msgstr "U V2-likiditeit"
+msgid "Your liquidity"
+msgstr "U likiditeit"
 
 #: src/pages/Pool/index.tsx
 msgid "Your V3 liquidity positions will appear here."
@@ -2353,12 +2353,12 @@ msgid "{0} UNI / week"
 msgstr "{0} UNI / week"
 
 #: src/components/earn/StakingModal.tsx
-msgid "{0} UNI-V2"
-msgstr "{0} UNI-V2"
+msgid "{0} Bacoor"
+msgstr "{0} Bacoor"
 
 #: src/pages/Earn/Manage.tsx
-msgid "{0} UNI-V2 LP tokens available"
-msgstr "{0} UNI-V2 LP tekens beskikbaar"
+msgid "{0} Bacoor LP tokens available"
+msgstr "{0} Bacoor LP tekens beskikbaar"
 
 #: src/components/vote/VoteModal.tsx
 msgid "{0} Votes"

@@ -128,7 +128,7 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
               <Trans>Transaction Submitted</Trans>
             </TYPE.largeHeader>
             <TYPE.body fontSize={20}>
-              <Trans>Withdrew UNI-V2!</Trans>
+              <Trans>Withdrew!</Trans>
             </TYPE.body>
             <TYPE.body fontSize={20}>
               <Trans>Claimed UNI!</Trans>
