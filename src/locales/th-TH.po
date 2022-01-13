@@ -112,8 +112,8 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0>เคล็ดลับ:</0> เลือกการดำเนินการและอธิบายข้อเสนอของคุณสำหรับชุมชน ไม่สามารถแก้ไขข้อเสนอได้หลังจากส่ง ดังนั้นโปรดตรวจสอบข้อมูลทั้งหมดก่อนส่ง ระยะเวลาการลงคะแนนจะเริ่มทันทีและมีอายุ 7 วัน หากต้องการเสนอการดำเนินการที่กำหนดเอง <1>อ่านเอกสาร</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
-msgstr "<0>เคล็ดลับ:</0> ใช้เครื่องมือนี้เพื่อค้นหาพูล v2 ที่ไม่ปรากฏในอินเทอร์เฟซโดยอัตโนมัติ"
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
+msgstr "<0>เคล็ดลับ:</0> ใช้เครื่องมือนี้เพื่อค้นหาพูล ที่ไม่ปรากฏในอินเทอร์เฟซโดยอัตโนมัติ"
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "เพิ่มสภาพคล่อง"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "เพิ่มสภาพคล่อง V2"
+msgid "Add Liquidity"
+msgstr "เพิ่มสภาพคล่อง"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "เชื่อมต่อกับกระเป๋าเงินเพื่อค้นหาพูล"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "เชื่อมต่อกับกระเป๋าเงินเพื่อดูสภาพคล่อง V2 ของคุณ"
+msgid "Connect to a wallet to view your liquidity."
+msgstr "เชื่อมต่อกับกระเป๋าเงินเพื่อดูสภาพคล่อง ของคุณ"
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "ฝากทรัพย์สิน"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "ฝากโทเค็น LP ของ UNI-V2"
+msgid "Deposit LP Tokens"
+msgstr "ฝากโทเค็น LP ของ"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "สภาพคล่องเงินฝาก:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "ฝาก {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "ฝาก {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,7 +701,7 @@ msgid "Docs"
 msgstr "เอกสาร"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
 msgstr "ไม่เห็นหนึ่งในตำแหน่ง v2 ของคุณใช่หรือไม่ <0>นำเข้า.</0>"
 
 #: src/components/vote/DelegateModal.tsx
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "นำเข้าพูล"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "นำเข้า V2 Pool"
+msgid "Import Pool"
+msgstr "นำเข้า Pool"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> نصيحة:</0> حدد إجراء ووصف اقتراحك للمجتمع. لا يمكن تعديل العرض بعد التقديم ، لذا يرجى التحقق من جميع المعلومات قبل التقديم. ستبدأ فترة التصويت على الفور وتستمر لمدة 7 أيام. لاقتراح إجراء مخصص ، <1> اقرأ المستندات</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0> نصيحة:</0> استخدم هذه الأداة للبحث عن مجموعات v2 التي لا تظهر تلقائيًا في الواجهة."
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "إضافة سيولة"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "إضافة سيولة V2"
+msgid "Add Liquidity"
+msgstr "إضافة سيولة"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "وصّل بمحفظة للعثور على المجموعات"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "وصّل بمحفظة لعرض سيولة V2 الخاصة بك."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "وصّل بمحفظة لعرض سيولة  الخاصة بك."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "أصول الإيداع"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "إيداع رموز UNI-V2 LP"
+msgid "Deposit LP Tokens"
+msgstr "إيداع رموز  LP"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "السيولة المودعة"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "تم ايداع {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "تم ايداع {0} "
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,8 +701,8 @@ msgid "Docs"
 msgstr "الوثائق"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
-msgstr "لا ترى أحد مراكز v2 الخاصة بك؟ <0>قم باستيراده.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
+msgstr "لا ترى أحد مراكز  الخاصة بك؟ <0>قم باستيراده.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "استيراد مجموعة"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "استيراد مجموعة V2"
+msgid "Import Pool"
+msgstr "استيراد مجموعة "
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

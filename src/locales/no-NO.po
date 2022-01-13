@@ -112,8 +112,8 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Tips:</0> Velg en handling og beskriv forslaget ditt for samfunnet. Forslaget kan ikke endres etter innsending, så verifiser all informasjon før du sender det. Valgperioden begynner umiddelbart og varer i 7 dager. For å foreslå en tilpasset handling, les <1> dokumentene</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
-msgstr "<0> Tips:</0> Bruk dette verktøyet til å finne v2-potter som ikke automatisk vises i grensesnittet."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
+msgstr "<0> Tips:</0> Bruk dette verktøyet til å finne potter som ikke automatisk vises i grensesnittet."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "Legg til likviditet"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "Legg til V2-likviditet"
+msgid "Add Liquidity"
+msgstr "Legg til likviditet"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "Koble til en lommebok for å finne potter"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "Koble til en lommebok for å se V2-likviditeten."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "Koble til en lommebok for å se likviditeten."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "Innskuddsmidler"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "Sett inn UNI-V2 LP-polletter"
+msgid "Deposit LP Tokens"
+msgstr "Sett inn LP-polletter"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "Innskutt likviditet:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "Innskutt {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "Innskutt {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,8 +701,8 @@ msgid "Docs"
 msgstr "Dokumenter"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
-msgstr "Ser du ikke en av dine v2-posisjoner? <0>Importer den.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
+msgstr "Ser du ikke en av dine posisjoner? <0>Importer den.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "Importer pott"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "Importer V2-pott"
+msgid "Import Pool"
+msgstr "Importer pott"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

@@ -112,8 +112,8 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Подсказка:</0> выберите действие и опишите свое предложение для сообщества. Предложение невозможно изменить после подачи, поэтому, пожалуйста, проверьте всю информацию перед отправкой. Период голосования начнется немедленно и продлится 7 дней. Чтобы предложить собственное действие, <1> прочтите документацию</1>."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
-msgstr "<0> Подсказка:</0> Используйте этот инструмент для поиска пулов в V2, которые не отображаются автоматически в интерфейсе."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
+msgstr "<0> Подсказка:</0> Используйте этот инструмент для поиска пулов в, которые не отображаются автоматически в интерфейсе."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "Добавить ликвидность"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "Добавить ликвидность в V2"
+msgid "Add Liquidity"
+msgstr "Добавить ликвидность в"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "Подключите кошелёк, чтобы найти пулы"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "Подключите кошелёк, чтобы просмотреть вашу ликвидность в V2."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "Подключите кошелёк, чтобы просмотреть вашу ликвидность в."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "Внести активы"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "Внести LP-токены UNI-V2"
+msgid "Deposit LP Tokens"
+msgstr "Внести LP-токены"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "Внесённая ликвидность:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "Внесено {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "Внесено {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,7 +701,7 @@ msgid "Docs"
 msgstr "Документация"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
 msgstr "Не видите какую-то из ваших позиций в V2? <0>Импортируйте её.</0>"
 
 #: src/components/vote/DelegateModal.tsx
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "Импортировать пул"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "Импортировать пул из V2"
+msgid "Import Pool"
+msgstr "Импортировать пул из"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

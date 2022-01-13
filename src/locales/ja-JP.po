@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0>ヒント：</0>アクションを選択し、コミュニティへの提案を記載してください。提案は提出後に変更できませんので、提出する前にすべての情報を確認してください。投票期間はすぐに始まり、7日間続きます。カスタムアクションを提案する場合、<1>ドキュメントをお読みください</1>。"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0>ヒント:</0> このツールを使用して、画面に自動表示されないV2のプールを見つけます。"
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "流動性を追加"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "V2の流動性を追加"
+msgid "Add Liquidity"
+msgstr "の流動性を追加"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,7 +542,7 @@ msgid "Connect to a wallet to find pools"
 msgstr "プールを見つけるにはウォレットに接続してください"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
+msgid "Connect to a wallet to view your liquidity."
 msgstr "ウォレットに接続してV2の流動性を確認します。"
 
 #: src/pages/Pool/v2.tsx
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "預け入れ資産"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "UNI-V2 LP トークンを預け入れる"
+msgid "Deposit LP Tokens"
+msgstr "LP トークンを預け入れる"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "預け入れ流動性:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "預け入れた {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "預け入れた {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,7 +701,7 @@ msgid "Docs"
 msgstr "資料"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
 msgstr "V2の流動性が表示されない場合、該当のトークンを<0>インポート</0>してください"
 
 #: src/components/vote/DelegateModal.tsx
@@ -876,7 +876,7 @@ msgid "Import Pool"
 msgstr "プールをインポート"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
+msgid "Import Pool"
 msgstr "V2プールのインポート"
 
 #: src/components/SearchModal/ImportList.tsx

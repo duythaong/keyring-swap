@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Consell:</0> Seleccioneu una acció i descriviu la vostra proposta per a la comunitat. La proposta no es pot modificar després de l’enviament, així que comproveu tota la informació abans d’enviar-la. El període de votació començarà immediatament i durarà 7 dies. Per proposar una acció personalitzada, <1> llegiu els documents</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0>Consell:</0> Utilitzeu aquesta eina per trobar grups de v2 que no apareixen automàticament a la interfície."
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "Afegiu liquiditat"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "Afegiu liquiditat V2"
+msgid "Add Liquidity"
+msgstr "Afegiu liquiditat"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "Connecteu-vos a una cartera per trobar piscines"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "Connecteu-vos a una cartera per veure la vostra liquiditat V2."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "Connecteu-vos a una cartera per veure la vostra liquiditat."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "Actius de dipòsit"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "Dipositeu fitxes LP UNI-V2"
+msgid "Deposit LP Tokens"
+msgstr "Dipositeu fitxes LP"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "Liquiditat dipositada:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "Dipositat {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "Dipositat {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,8 +701,8 @@ msgid "Docs"
 msgstr "Documents"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
-msgstr "No veieu cap de les vostres posicions v2? <0> Importeu-la.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
+msgstr "No veieu cap de les vostres posicions? <0> Importeu-la.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "Importa el grup"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "Importa l'agrupació V2"
+msgid "Import Pool"
+msgstr "Importa l'agrupació"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

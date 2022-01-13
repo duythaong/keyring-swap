@@ -112,8 +112,8 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0>Komentar:</0> Izberite dejanje in za skupnost opišite svojo pobudo. Po oddaji pobude ni mogoče več spreminjati, zato pred oddajo preverite vse podatke. Glasovalno obdobje se začne takoj in traja 7 dni. Če želite predlagati dejanje po meri, <1>preberite dokumentacijo</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
-msgstr "<0>Komentar:</0> S tem orodjem poiščite sklade V2, ki se v vmesniku ne prikažejo samodejno."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
+msgstr "<0>Komentar:</0> S tem orodjem poiščite sklade, ki se v vmesniku ne prikažejo samodejno."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "Dodaj likvidnost"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "Dodaj likvidnost V2"
+msgid "Add Liquidity"
+msgstr "Dodaj likvidnost"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "Če želite poiskati sklade, povežite denarnico"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "Če si želite ogledati svojo likvidnost V2, povežite denarnico."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "Če si želite ogledati svojo likvidnost, povežite denarnico."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "Sredstva za polog"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "Naloži likvidnostne žetone UNI-V2"
+msgid "Deposit LP Tokens"
+msgstr "Naloži likvidnostne žetone"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "Položena likvidnost:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "Položenih {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "Položenih {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,7 +701,7 @@ msgid "Docs"
 msgstr "Dokumentacija"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
 msgstr "Ne vidite katerega od svojih pologov V2? <0>Uvozite ga.</0>"
 
 #: src/components/vote/DelegateModal.tsx
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "Uvozi sklad"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "Uvozi V2-sklad"
+msgid "Import Pool"
+msgstr "Uvozi sklad"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

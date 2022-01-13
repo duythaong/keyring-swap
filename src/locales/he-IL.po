@@ -112,8 +112,8 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> טיפ:</0> בחר פעולה ותיאר את ההצעה שלך לקהילה. לא ניתן לשנות את ההצעה לאחר הגשתה, לכן אנא בדוק את כל המידע לפני הגשתה. תקופת ההצבעה תחל מיידית ותמשך 7 ימים. כדי להציע פעולה מותאמת אישית, <1> קרא את המסמכים</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
-msgstr "<0> טיפ:</0> השתמש בכלי זה כדי למצוא מאגרי v2 שלא מופיעים אוטומטית בממשק."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
+msgstr "<0> טיפ:</0> השתמש בכלי זה כדי למצוא מאגרי  שלא מופיעים אוטומטית בממשק."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "הוסף נזילות"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "הוסף נזילות V2"
+msgid "Add Liquidity"
+msgstr "הוסף נזילות "
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "התחבר לארנק כדי למצוא בריכות"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "התחבר לארנק כדי להציג את נזילות V2 שלך."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "התחבר לארנק כדי להציג את נזילות  שלך."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "נכסי הפקדה"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "הפקדת אסימוני LP של UNI-V2"
+msgid "Deposit LP Tokens"
+msgstr "הפקדת אסימוני LP של "
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "נזילות שהופקדה:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "הופקד {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "הופקד {0} "
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,8 +701,8 @@ msgid "Docs"
 msgstr "מסמכים"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
-msgstr "אינך רואה את אחת מעמדות ה- v2 שלך? <0> יבא אותו.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
+msgstr "אינך רואה את אחת מעמדות ה-  שלך? <0> יבא אותו.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "יְיבוּא בריכה"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "יְיבוּא בריכת V2"
+msgid "Import Pool"
+msgstr "יְיבוּא בריכת "
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

@@ -112,8 +112,8 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> 팁 :</0> 조치를 선택하고 커뮤니티에 대한 제안을 설명하십시오. 제안서는 제출 후 수정할 수 없으므로 제출하기 전에 모든 정보를 확인하십시오. 투표 기간은 즉시 시작되어 7 일 동안 지속됩니다. 사용자 지정 작업을 제안하려면 <1> 문서 읽기</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
-msgstr "<0> 팁 :</0> 이 도구를 사용하여 인터페이스에 자동으로 표시되지 않는 v2 풀을 찾습니다."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
+msgstr "<0> 팁 :</0> 이 도구를 사용하여 인터페이스에 자동으로 표시되지 않는 풀을 찾습니다."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "유동성 추가"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "V2 유동성 추가"
+msgid "Add Liquidity"
+msgstr "유동성 추가"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -543,8 +543,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "지갑에 연결하여 풀 찾기"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "V2 유동성을 보려면 지갑에 연결하십시오."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "유동성을 보려면 지갑에 연결하십시오."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -650,8 +650,8 @@ msgid "Deposit Assets"
 msgstr "예금 자산"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "UNI-V2 LP 토큰 예치"
+msgid "Deposit LP Tokens"
+msgstr "LP 토큰 예치"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -666,8 +666,8 @@ msgid "Deposited liquidity:"
 msgstr "예금 유동성 :"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "{0} UNI-V2 입금"
+msgid "Deposited {0}"
+msgstr "{0} 입금"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -702,7 +702,7 @@ msgid "Docs"
 msgstr "문서"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
 msgstr "v2 포지션 중 하나가 보이지 않습니까? <0>가져 오십시오.</0>"
 
 #: src/components/vote/DelegateModal.tsx
@@ -877,8 +877,8 @@ msgid "Import Pool"
 msgstr "풀 가져 오기"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "V2 풀 가져 오기"
+msgid "Import Pool"
+msgstr "풀 가져 오기"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

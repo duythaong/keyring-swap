@@ -112,8 +112,8 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0>Kidokezo:</0> Chagua kitendo na ueleze pendekezo lako kwa jamii. Pendekezo haliwezi kubadilishwa baada ya kuwasilisha, kwa hivyo tafadhali thibitisha habari zote kabla ya kuwasilisha. Kipindi cha kupiga kura kitaanza mara moja na kitadumu kwa siku 7. Kupendekeza kitendo maalum cha kwako, <1>soma maelezo</1>."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
-msgstr "<0> Kidokezo:</0> Tumia zana hii kupata shares ya v2 ambayo hayaonekani kiotomatiki kwenye muonekano wa nje."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
+msgstr "<0> Kidokezo:</0> Tumia zana hii kupata shares ya ambayo hayaonekani kiotomatiki kwenye muonekano wa nje."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "Ongeza Mtaji"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "Ongeza Mtaji wa V2"
+msgid "Add Liquidity"
+msgstr "Ongeza Mtaji wa"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "Unganisha kwenye mkoba kupata mabwawa"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "Unganisha kwenye mkoba ili uone ukwasi wako wa V2."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "Unganisha kwenye mkoba ili uone ukwasi wako wa."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "Mali ya Amana"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "Amana UNI-V2 LP Ishara"
+msgid "Deposit LP Tokens"
+msgstr "Amana LP Ishara"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "Ukiritimba uliowekwa:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "Iliyowekwa {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "Iliyowekwa {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,7 +701,7 @@ msgid "Docs"
 msgstr "Hati"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
 msgstr "Je! Huoni moja ya nafasi zako za v2? <0> Ingiza.</0>"
 
 #: src/components/vote/DelegateModal.tsx
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "Bwawa la kuagiza"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "Ingiza Bwawa la V2"
+msgid "Import Pool"
+msgstr "Ingiza Bwawa la"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

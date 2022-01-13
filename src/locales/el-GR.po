@@ -112,8 +112,8 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Συμβουλή:</0> Επιλέξτε μια ενέργεια και περιγράψτε την πρότασή σας για την κοινότητα. Η πρόταση δεν μπορεί να τροποποιηθεί μετά την υποβολή, επομένως επαληθεύστε όλες τις πληροφορίες πριν από την υποβολή. Η περίοδος ψηφοφορίας θα ξεκινήσει αμέσως και θα διαρκέσει 7 ημέρες. Για να προτείνετε μια προσαρμοσμένη ενέργεια, <1> διαβάστε τα έγγραφα</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
-msgstr "<0> Συμβουλή:</0> Χρησιμοποιήστε αυτό το εργαλείο για να βρείτε δεξαμενές της v2 που δεν εμφανίζονται αυτόματα στη διεπαφή."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
+msgstr "<0> Συμβουλή:</0> Χρησιμοποιήστε αυτό το εργαλείο για να βρείτε δεξαμενές της που δεν εμφανίζονται αυτόματα στη διεπαφή."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "Προσθήκη Ρευστότητας"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "Προσθήκη Ρευστότητας V2"
+msgid "Add Liquidity"
+msgstr "Προσθήκη Ρευστότητας"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "Συνδεθείτε σε ένα πορτοφόλι για να βρείτε δεξαμενές"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "Συνδεθείτε σε ένα πορτοφόλι για να δείτε τη ρευστότητα στη V2."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "Συνδεθείτε σε ένα πορτοφόλι για να δείτε τη ρευστότητα στη."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "Κατάθεση περιουσιακών στοιχείων"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "Κατάθεση μάρκας UNI-V2 LP"
+msgid "Deposit LP Tokens"
+msgstr "Κατάθεση μάρκας LP"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "Ρευστότητα που κατατέθηκε:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "Κατατέθηκε {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "Κατατέθηκε {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,8 +701,8 @@ msgid "Docs"
 msgstr "Έγγραφα"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
-msgstr "Δεν βλέπετε μία από τις θέσεις σας στο v2; <0> Εισαγάγετε τη.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
+msgstr "Δεν βλέπετε μία από τις θέσεις σας στο; <0> Εισαγάγετε τη.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "Εισαγωγή Δεξαμενής"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "Εισαγωγή Δεξαμενής της V2"
+msgid "Import Pool"
+msgstr "Εισαγωγή Δεξαμενής της"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"

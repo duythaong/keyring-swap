@@ -112,8 +112,8 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0>Kiat:</0> Pilih tindakan dan jelaskan proposal Anda untuk komunitas. Proposal tidak dapat diubah setelah dikirimkan, jadi harap verifikasi semua informasi sebelum dikirm. Periode pemungutan suara akan segera dimulai dan berlangsung selama 7 hari. Untuk mengusulkan tindakan khusus, <1>baca dokumen</1>."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
-msgstr "<0>Kiat:</0> Gunakan alat ini untuk menemukan pool v2 yang tidak otomatis muncul di antarmuka."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
+msgstr "<0>Kiat:</0> Gunakan alat ini untuk menemukan pool yang tidak otomatis muncul di antarmuka."
 
 #: src/pages/AddLiquidityV2/index.tsx
 msgid "<0>Tip:</0> When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time."
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "Tambahkan Likuiditas"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "Tambahkan Likuiditas V2"
+msgid "Add Liquidity"
+msgstr "Tambahkan Likuiditas"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "Hubungkan ke dompet untuk menemukan pool"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "Hubungkan ke dompet untuk melihat likuiditas V2 Anda."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "Hubungkan ke dompet untuk melihat likuiditas Anda."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,8 +649,8 @@ msgid "Deposit Assets"
 msgstr "Setoran Aset"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
-msgstr "Setor Token LP UNI-V2"
+msgid "Deposit LP Tokens"
+msgstr "Setor Token LP"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Deposit liquidity"
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "Likuiditas yang disetor:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "Menyetor {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "Menyetor {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,8 +701,8 @@ msgid "Docs"
 msgstr "Docs"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
-msgstr "Tidak melihat salah satu posisi v2 Anda? <0> Impor.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
+msgstr "Tidak melihat salah satu posisi Anda? <0> Impor.</0>"
 
 #: src/components/vote/DelegateModal.tsx
 msgid "Earned UNI tokens represent voting shares in Uniswap governance."
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "Impor Pool"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "Impor Pool V2"
+msgid "Import Pool"
+msgstr "Impor Pool"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"
