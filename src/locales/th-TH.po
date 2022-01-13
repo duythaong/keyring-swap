@@ -133,7 +133,7 @@ msgstr "เกณฑ์ขั้นต่ำ 0.25% ของอุปทาน U
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "เกี่ยวกับ"
+msgstr "เกี่ยวกับ Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

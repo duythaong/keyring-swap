@@ -133,7 +133,7 @@ msgstr "הגשת הצעות נדרשת רף מינימלי של 0.25% מסך ה�
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "אודות"
+msgstr "KeyringSwapאודות"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

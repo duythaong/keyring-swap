@@ -133,7 +133,7 @@ msgstr "Для внесения предложений требуется мин
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "О протоколе"
+msgstr "О протоколе Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

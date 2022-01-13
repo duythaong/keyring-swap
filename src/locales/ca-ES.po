@@ -133,7 +133,7 @@ msgstr "Per presentar les propostes es requereix un llindar mínim del 0,25% del
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Sobre"
+msgstr "Sobre Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

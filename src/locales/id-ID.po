@@ -133,7 +133,7 @@ msgstr "Memerlukan minimal 0,25% dari total pasokan UNI untuk mengirimkan propos
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Tentang"
+msgstr "Tentang Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

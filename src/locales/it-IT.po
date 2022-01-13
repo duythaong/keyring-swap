@@ -133,7 +133,7 @@ msgstr "Per la presentazione delle proposte è richiesta una soglia minima dello
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Informazioni"
+msgstr "Keyring Swap Informazioni"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

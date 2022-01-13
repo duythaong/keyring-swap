@@ -133,7 +133,7 @@ msgstr "A pályázatok benyújtásához az UNI teljes kínálatának minimum 0,2
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Körülbelül"
+msgstr "Körülbelül Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

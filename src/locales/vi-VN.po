@@ -133,7 +133,7 @@ msgstr "Yêu cầu ngưỡng tối thiểu 0,25% tổng nguồn cung cấp UNI �
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Giới thiệu"
+msgstr "Giới thiệu về Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

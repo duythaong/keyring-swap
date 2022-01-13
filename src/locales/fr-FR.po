@@ -133,7 +133,7 @@ msgstr "Un seuil minimum de 0,25% de l'offre totale d'UNI est requis pour soumet
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "À propos"
+msgstr "À propos Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

@@ -133,7 +133,7 @@ msgstr "Minimalny próg 0,25% całkowitej podaży UNI jest wymagany do składani
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "O programie"
+msgstr "O programie Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

@@ -133,7 +133,7 @@ msgstr "مطلوب حد أدنى قدره 0.25٪ من إجمالي إمداد UN
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "حول"
+msgstr "حول Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"
