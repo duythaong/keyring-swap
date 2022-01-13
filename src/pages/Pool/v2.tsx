@@ -146,8 +146,8 @@ export default function Pool() {
       <PageWrapper>
         <SwapPoolTabs active={'pool'} />
         <VoteCard>
-          <CardBGImage />
-          <CardNoise />
+          {/* <CardBGImage /> */}
+          {/* <CardNoise /> */}
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween>
@@ -174,8 +174,8 @@ export default function Pool() {
               </ExternalLink>
             </AutoColumn>
           </CardSection>
-          <CardBGImage />
-          <CardNoise />
+          {/* <CardBGImage />
+          <CardNoise /> */}
         </VoteCard>
 
         {ON_L2 ? (
