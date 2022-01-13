@@ -542,7 +542,7 @@ msgid "Connect to a wallet to find pools"
 msgstr "Hubungkan ke dompet untuk menemukan pool"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
+msgid "Connect to a wallet to view your liquidity."
 msgstr "Hubungkan ke dompet untuk melihat likuiditas V2 Anda."
 
 #: src/pages/Pool/v2.tsx
@@ -649,7 +649,7 @@ msgid "Deposit Assets"
 msgstr "Setoran Aset"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
+msgid "Deposit LP Tokens"
 msgstr "Setor Token LP UNI-V2"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
@@ -665,7 +665,7 @@ msgid "Deposited liquidity:"
 msgstr "Likuiditas yang disetor:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
+msgid "Deposited {0}"
 msgstr "Menyetor {0} UNI-V2"
 
 #: src/components/earn/StakingModal.tsx
@@ -701,7 +701,7 @@ msgid "Docs"
 msgstr "Docs"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
 msgstr "Tidak melihat salah satu posisi v2 Anda? <0> Impor.</0>"
 
 #: src/components/vote/DelegateModal.tsx
@@ -876,7 +876,7 @@ msgid "Import Pool"
 msgstr "Impor Pool"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
+msgid "Import Pool"
 msgstr "Impor Pool V2"
 
 #: src/components/SearchModal/ImportList.tsx

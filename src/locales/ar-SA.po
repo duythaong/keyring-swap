@@ -542,7 +542,7 @@ msgid "Connect to a wallet to find pools"
 msgstr "وصّل بمحفظة للعثور على المجموعات"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
+msgid "Connect to a wallet to view your liquidity."
 msgstr "وصّل بمحفظة لعرض سيولة V2 الخاصة بك."
 
 #: src/pages/Pool/v2.tsx
@@ -649,7 +649,7 @@ msgid "Deposit Assets"
 msgstr "أصول الإيداع"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
+msgid "Deposit LP Tokens"
 msgstr "إيداع رموز UNI-V2 LP"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
@@ -665,7 +665,7 @@ msgid "Deposited liquidity:"
 msgstr "السيولة المودعة"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
+msgid "Deposited {0}"
 msgstr "تم ايداع {0} UNI-V2"
 
 #: src/components/earn/StakingModal.tsx
@@ -701,7 +701,7 @@ msgid "Docs"
 msgstr "الوثائق"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
 msgstr "لا ترى أحد مراكز v2 الخاصة بك؟ <0>قم باستيراده.</0>"
 
 #: src/components/vote/DelegateModal.tsx
@@ -876,7 +876,7 @@ msgid "Import Pool"
 msgstr "استيراد مجموعة"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
+msgid "Import Pool"
 msgstr "استيراد مجموعة V2"
 
 #: src/components/SearchModal/ImportList.tsx

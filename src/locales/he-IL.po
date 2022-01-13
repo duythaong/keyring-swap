@@ -542,7 +542,7 @@ msgid "Connect to a wallet to find pools"
 msgstr "התחבר לארנק כדי למצוא בריכות"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
+msgid "Connect to a wallet to view your liquidity."
 msgstr "התחבר לארנק כדי להציג את נזילות V2 שלך."
 
 #: src/pages/Pool/v2.tsx
@@ -649,7 +649,7 @@ msgid "Deposit Assets"
 msgstr "נכסי הפקדה"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
+msgid "Deposit LP Tokens"
 msgstr "הפקדת אסימוני LP של UNI-V2"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
@@ -665,7 +665,7 @@ msgid "Deposited liquidity:"
 msgstr "נזילות שהופקדה:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
+msgid "Deposited {0}"
 msgstr "הופקד {0} UNI-V2"
 
 #: src/components/earn/StakingModal.tsx
@@ -701,7 +701,7 @@ msgid "Docs"
 msgstr "מסמכים"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
 msgstr "אינך רואה את אחת מעמדות ה- v2 שלך? <0> יבא אותו.</0>"
 
 #: src/components/vote/DelegateModal.tsx
@@ -876,7 +876,7 @@ msgid "Import Pool"
 msgstr "יְיבוּא בריכה"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
+msgid "Import Pool"
 msgstr "יְיבוּא בריכת V2"
 
 #: src/components/SearchModal/ImportList.tsx

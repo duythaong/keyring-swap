@@ -343,7 +343,7 @@ export default function Manage({
                 {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? (
                   <Trans>Deposit</Trans>
                 ) : (
-                  <Trans>Deposit Bacoor LP Tokens</Trans>
+                  <Trans>Deposit LP Tokens</Trans>
                 )}
               </ButtonPrimary>
             )}

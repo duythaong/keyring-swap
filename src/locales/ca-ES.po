@@ -542,7 +542,7 @@ msgid "Connect to a wallet to find pools"
 msgstr "Connecteu-vos a una cartera per trobar piscines"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
+msgid "Connect to a wallet to view your liquidity."
 msgstr "Connecteu-vos a una cartera per veure la vostra liquiditat V2."
 
 #: src/pages/Pool/v2.tsx
@@ -649,7 +649,7 @@ msgid "Deposit Assets"
 msgstr "Actius de dipòsit"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
+msgid "Deposit LP Tokens"
 msgstr "Dipositeu fitxes LP UNI-V2"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
@@ -665,7 +665,7 @@ msgid "Deposited liquidity:"
 msgstr "Liquiditat dipositada:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
+msgid "Deposited {0}"
 msgstr "Dipositat {0} UNI-V2"
 
 #: src/components/earn/StakingModal.tsx
@@ -701,7 +701,7 @@ msgid "Docs"
 msgstr "Documents"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
 msgstr "No veieu cap de les vostres posicions v2? <0> Importeu-la.</0>"
 
 #: src/components/vote/DelegateModal.tsx
@@ -876,7 +876,7 @@ msgid "Import Pool"
 msgstr "Importa el grup"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
+msgid "Import Pool"
 msgstr "Importa l'agrupació V2"
 
 #: src/components/SearchModal/ImportList.tsx

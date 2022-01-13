@@ -543,7 +543,7 @@ msgid "Connect to a wallet to find pools"
 msgstr "지갑에 연결하여 풀 찾기"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
+msgid "Connect to a wallet to view your liquidity."
 msgstr "V2 유동성을 보려면 지갑에 연결하십시오."
 
 #: src/pages/Pool/v2.tsx
@@ -650,7 +650,7 @@ msgid "Deposit Assets"
 msgstr "예금 자산"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
+msgid "Deposit LP Tokens"
 msgstr "UNI-V2 LP 토큰 예치"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
@@ -666,7 +666,7 @@ msgid "Deposited liquidity:"
 msgstr "예금 유동성 :"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
+msgid "Deposited {0}"
 msgstr "{0} UNI-V2 입금"
 
 #: src/components/earn/StakingModal.tsx
@@ -702,7 +702,7 @@ msgid "Docs"
 msgstr "문서"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
 msgstr "v2 포지션 중 하나가 보이지 않습니까? <0>가져 오십시오.</0>"
 
 #: src/components/vote/DelegateModal.tsx
@@ -877,7 +877,7 @@ msgid "Import Pool"
 msgstr "풀 가져 오기"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
+msgid "Import Pool"
 msgstr "V2 풀 가져 오기"
 
 #: src/components/SearchModal/ImportList.tsx
