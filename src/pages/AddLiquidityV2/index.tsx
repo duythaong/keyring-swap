@@ -324,7 +324,6 @@ export default function AddLiquidity({
   const isCreate = history.location.pathname.includes('/create')
 
   const addIsUnsupported = useIsSwapUnsupported(currencies?.CURRENCY_A, currencies?.CURRENCY_B)
-
   return (
     <>
       <AppBody>

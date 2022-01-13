@@ -877,7 +877,7 @@ msgstr "プールをインポート"
 
 #: src/components/NavigationTabs/index.tsx
 msgid "Import Pool"
-msgstr "V2プールのインポート"
+msgstr "プールのインポート"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"
