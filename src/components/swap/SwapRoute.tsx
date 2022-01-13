@@ -45,11 +45,13 @@ export default memo(function SwapRoute({
             <div style={{ width: '30px', height: '24px' }} />
           </LoadingRows>
         ) : (
-          <Badge>
-            <TYPE.black fontSize={12}>
-              {getTradeVersion(trade) === Version.v2 ? <Trans>V2</Trans> : <Trans>V3</Trans>}
-            </TYPE.black>
-          </Badge>
+          <>
+            {/* <Badge>
+              <TYPE.black fontSize={12}>
+                {getTradeVersion(trade) === Version.v2 ? <Trans>V2</Trans> : <Trans>V3</Trans>}
+              </TYPE.black>
+            </Badge> */}
+          </>
         )}
       </RowBetween>
       <Separator />
