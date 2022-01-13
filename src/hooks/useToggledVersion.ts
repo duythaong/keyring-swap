@@ -14,7 +14,7 @@ export default function useToggledVersion(): Version | undefined {
     case 'v2':
       return Version.v2
     case 'v3':
-      return Version.v3
+      return Version.v2
     default:
       return undefined
   }

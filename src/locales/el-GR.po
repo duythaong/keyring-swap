@@ -978,6 +978,7 @@ msgstr "Ελαφρύ θέμα"
 
 #: src/components/claim/ClaimModal.tsx
 #: src/pages/Pool/PositionPage.tsx
+#: src/pages/Pool/index.tsx
 msgid "Liquidity"
 msgstr "Ρευστότητα"
 
@@ -1129,8 +1130,8 @@ msgid "New Position"
 msgstr "Νέα Θέση"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "No V2 Liquidity found."
-msgstr "Δεν βρέθηκε ρευστότητα V2."
+msgid "No Liquidity found."
+msgstr "Δεν βρέθηκε ρευστότητα."
 
 #: src/pages/Earn/index.tsx
 #: src/pages/Earn/index.tsx
@@ -1457,8 +1458,8 @@ msgid "Select a token"
 msgstr "Επιλέξτε μία μάρκα"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "Select a token to find your v2 liquidity."
-msgstr "Επιλέξτε μια μάρκα για να βρείτε τη ρευστότητά σας στη v2."
+msgid "Select a token to find your liquidity."
+msgstr "Επιλέξτε μια μάρκα για να βρείτε τη ρευστότητά σας στη."
 
 #: src/pages/CreateProposal/ProposalActionSelector.tsx
 msgid "Select an action"
@@ -1523,8 +1524,8 @@ msgid "Status"
 msgstr "Κατάσταση"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Step 1. Get UNI-V2 Liquidity tokens"
-msgstr "Βήμα 1. Πάρτε τα διακριτικά ρευστότητας UNI-V2"
+msgid "Step 1. Get Liquidity tokens"
+msgstr "Βήμα 1. Πάρτε τα διακριτικά ρευστότητας"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Submit new proposal"
@@ -1808,12 +1809,12 @@ msgid "UNI {0}/{1} Burned"
 msgstr "UNI {0}/{1} \"Κάηκαν\""
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
-msgstr "Απαιτούνται μάρκες UNI-V2 παρόχου ρευστότητας (LP). Μόλις έχετε προσθέσει ρευστότητα στη {0}-{1} δεξαμενή μπορείτε να ποντάρετε τις μάρκες ρευστότητας σας σε αυτή τη σελίδα."
+msgid "LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
+msgstr "Απαιτούνται μάρκες παρόχου ρευστότητας (LP). Μόλις έχετε προσθέσει ρευστότητα στη {0}-{1} δεξαμενή μπορείτε να ποντάρετε τις μάρκες ρευστότητας σας σε αυτή τη σελίδα."
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 {0}-{1}"
-msgstr "UNI-V2 {0}-{1}"
+msgid "{0}-{1}"
+msgstr "{0}-{1}"
 
 #: src/components/earn/ClaimRewardModal.tsx
 #: src/components/earn/UnstakingModal.tsx
@@ -1953,8 +1954,8 @@ msgid "View UNI Analytics"
 msgstr "Προβολή Αναλυτικής UNI"
 
 #: src/pages/Pool/index.tsx
-msgid "View V2 Liquidity"
-msgstr "Προβολή Ρευστότητας V2"
+msgid "View Liquidity"
+msgstr "Προβολή Ρευστότητας"
 
 #: src/components/PositionCard/index.tsx
 msgid "View accrued fees and analytics<0>↗</0>"
@@ -2083,12 +2084,12 @@ msgid "Withdraw deposited liquidity"
 msgstr "Ανάληψη κατατεθειμένης ρευστότητας"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrawing {0} UNI-V2"
-msgstr "Ανάληψη {0} UNI-V2"
+msgid "Withdrawing {0}"
+msgstr "Ανάληψη {0}"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrew UNI-V2!"
-msgstr "Πραγματοποιήθηκε ανάληψη UNI-V2!"
+msgid "Withdrew!"
+msgstr "Πραγματοποιήθηκε ανάληψη!"
 
 #: src/pages/Swap/index.tsx
 msgid "Wrap"
@@ -2173,8 +2174,8 @@ msgid "Your UNI Breakdown"
 msgstr "Κατανομή UNI Σας"
 
 #: src/pages/Pool/v2.tsx
-msgid "Your V2 liquidity"
-msgstr "Η ρευστότητα V2 σας"
+msgid "Your liquidity"
+msgstr "Η ρευστότητα σας"
 
 #: src/pages/Pool/index.tsx
 msgid "Your V3 liquidity positions will appear here."
@@ -2353,12 +2354,12 @@ msgid "{0} UNI / week"
 msgstr "{0} UNI / εβδομάδα"
 
 #: src/components/earn/StakingModal.tsx
-msgid "{0} UNI-V2"
-msgstr "{0} UNI-V2"
+msgid "{0} Bacoor"
+msgstr "{0} Bacoor"
 
 #: src/pages/Earn/Manage.tsx
-msgid "{0} UNI-V2 LP tokens available"
-msgstr "{0} διαθέσιμες μάρκες UNI-V2 LP"
+msgid "{0} Bacoor LP tokens available"
+msgstr "{0} διαθέσιμες μάρκες Bacoor LP"
 
 #: src/components/vote/VoteModal.tsx
 msgid "{0} Votes"
