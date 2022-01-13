@@ -133,7 +133,7 @@ msgstr "Um limite mínimo de 0,25% do fornecimento total da UNI é necessário p
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "SOBRE"
+msgstr "Sobre Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

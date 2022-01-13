@@ -133,7 +133,7 @@ msgstr "Απαιτείται ελάχιστο όριο 0,25% της συνολι
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Σχετικά με εμάς"
+msgstr "Σχετικά Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

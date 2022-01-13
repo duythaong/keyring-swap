@@ -133,7 +133,7 @@ msgstr "Een minimumdrempel van 0,25% van het totale UNI-aanbod is vereist om voo
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Over"
+msgstr "Over Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

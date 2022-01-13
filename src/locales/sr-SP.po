@@ -133,7 +133,7 @@ msgstr "За подношење предлога потребан је мини�
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "О"
+msgstr "О Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

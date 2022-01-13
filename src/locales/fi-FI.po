@@ -133,7 +133,7 @@ msgstr "Ehdotusten jättämiseen vaaditaan vähintään 0,25 prosentin kynnysarv
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Tietoa"
+msgstr "Tietoa Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

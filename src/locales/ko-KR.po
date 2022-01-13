@@ -133,7 +133,7 @@ msgstr "제안서를 제출하려면 총 UNI 공급량의 최소 0.25 %가 필�
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "정보"
+msgstr "정보 Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

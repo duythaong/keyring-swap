@@ -133,7 +133,7 @@ msgstr "Teklifleri sunmak için toplam UNI arzının minimum %0,25'i gereklidir"
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Hakkında"
+msgstr "Hakkında Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

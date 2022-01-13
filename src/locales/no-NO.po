@@ -133,7 +133,7 @@ msgstr "En minimumsterskel på 0,25% av den totale UNI-forsyningen kreves for å
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Om"
+msgstr "Om Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

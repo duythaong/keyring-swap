@@ -133,7 +133,7 @@ msgstr "En minimitröskel på 0,25% av det totala UNI-utbudet krävs för att sk
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Omkring"
+msgstr "Omkring Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

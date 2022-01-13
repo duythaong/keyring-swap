@@ -133,7 +133,7 @@ msgstr "提交提案所需的最低门槛为 UNI 总供应量的 0.25%"
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "关于"
+msgstr "关于KeyringSwap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

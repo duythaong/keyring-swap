@@ -133,7 +133,7 @@ msgstr "Pentru depunerea propunerilor este necesar un prag minim de 0,25% din to
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Despre"
+msgstr "Despre Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

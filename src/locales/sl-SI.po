@@ -133,7 +133,7 @@ msgstr "Za predložitev predlogov potrebujete vsaj 0,25 % celotne zaloge UNI."
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "O Uniswapu"
+msgstr "O Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

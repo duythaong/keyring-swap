@@ -133,7 +133,7 @@ msgstr "K podání návrhů je nutná minimální hranice 0,25% z celkové nabí
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "O aplikaci"
+msgstr "O aplikaci Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"

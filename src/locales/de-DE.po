@@ -133,7 +133,7 @@ msgstr "Für das Einreichen von Anträgen ist eine Mindestschwelle von 0,25% des
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "Über"
+msgstr "Über Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"
