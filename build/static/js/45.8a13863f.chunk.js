@@ -1,0 +1,2 @@
+(this["webpackJsonp@uniswap/interface"]=this["webpackJsonp@uniswap/interface"]||[]).push([[45],{600:function(a,i,s){"use strict";s.r(i),i.default=s.p+"static/media/da-DK.13f6bf59.po"}}]);
+//# sourceMappingURL=45.8a13863f.chunk.js.map
