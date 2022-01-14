@@ -97,7 +97,7 @@ msgstr "<0/> Stemmer"
 
 #: src/pages/Pool/v2.tsx
 msgid "<0>Account analytics and accrued fees</0><1> ↗ </1>"
-msgstr "<0>Konto-analyser og påløpte avgifter</0><1> :up-″: </1>"
+msgstr "<0>Konto-analyser og påløpte avgifter</0><1> ↗ </1>"
 
 #: src/pages/AddLiquidity/index.tsx
 msgid "<0>Current Price:</0><1><2/></1><3>{0} per {1}</3>"
