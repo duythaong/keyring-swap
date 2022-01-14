@@ -112,7 +112,7 @@ msgid "<0>Tip:</0> Select an action and describe your proposal for the community
 msgstr "<0> Tip:</0> Vyberte akci a popište svůj návrh pro komunitu. Po odeslání nelze nabídku upravit, proto prosím před odesláním ověřte všechny informace. Hlasovací období začne okamžitě a bude trvat 7 dní. Chcete-li navrhnout vlastní akci, přečtěte si <1> dokumenty</1> ."
 
 #: src/pages/PoolFinder/index.tsx
-msgid "<0>Tip:</0> Use this tool to find v2 pools that don't automatically appear in the interface."
+msgid "<0>Tip:</0> Use this tool to find pools that don't automatically appear in the interface."
 msgstr "<0> Tip:</0> Pomocí tohoto nástroje můžete najít fondy v2, které se v rozhraní nezobrazí automaticky."
 
 #: src/pages/AddLiquidityV2/index.tsx
@@ -133,7 +133,7 @@ msgstr "K podání návrhů je nutná minimální hranice 0,25% z celkové nabí
 
 #: src/components/Menu/index.tsx
 msgid "About Keyring Swap"
-msgstr "O aplikaci"
+msgstr "O aplikaci Keyring Swap"
 
 #: src/components/swap/SwapModalHeader.tsx
 msgid "Accept"
@@ -168,8 +168,8 @@ msgid "Add Liquidity"
 msgstr "Přidat likviditu"
 
 #: src/pages/Pool/v2.tsx
-msgid "Add V2 Liquidity"
-msgstr "Přidat likviditu V2"
+msgid "Add Liquidity"
+msgstr "Přidat likviditu"
 
 #: src/pages/PoolFinder/index.tsx
 msgid "Add liquidity."
@@ -542,8 +542,8 @@ msgid "Connect to a wallet to find pools"
 msgstr "Chcete-li vyhledat fondy, připojte se k peněžence"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Connect to a wallet to view your V2 liquidity."
-msgstr "Chcete-li si zobrazit svou likviditu V2, připojte se k peněžence."
+msgid "Connect to a wallet to view your liquidity."
+msgstr "Chcete-li si zobrazit svou likviditu, připojte se k peněžence."
 
 #: src/pages/Pool/v2.tsx
 msgid "Connect to a wallet to view your liquidity."
@@ -649,7 +649,7 @@ msgid "Deposit Assets"
 msgstr "Vklad majetku"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Deposit UNI-V2 LP Tokens"
+msgid "Deposit LP Tokens"
 msgstr "Uložit žetony UNI-V2 LP"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
@@ -665,8 +665,8 @@ msgid "Deposited liquidity:"
 msgstr "Uložená likvidita:"
 
 #: src/components/earn/StakingModal.tsx
-msgid "Deposited {0} UNI-V2"
-msgstr "Uloženo {0} UNI-V2"
+msgid "Deposited {0}"
+msgstr "Uloženo {0}"
 
 #: src/components/earn/StakingModal.tsx
 msgid "Depositing Liquidity"
@@ -701,7 +701,7 @@ msgid "Docs"
 msgstr "Dokumenty"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
+msgid "Don’t see one of your positions? <0>Import it.</0>"
 msgstr "Nevidíte některou ze svých pozic v2? <0>Importujte ji.</0>"
 
 #: src/components/vote/DelegateModal.tsx
@@ -876,8 +876,8 @@ msgid "Import Pool"
 msgstr "Importovat fond"
 
 #: src/components/NavigationTabs/index.tsx
-msgid "Import V2 Pool"
-msgstr "Importovat fond V2"
+msgid "Import Pool"
+msgstr "Importovat fond"
 
 #: src/components/SearchModal/ImportList.tsx
 msgid "Import at your own risk"
@@ -978,6 +978,7 @@ msgstr "Lehké téma"
 
 #: src/components/claim/ClaimModal.tsx
 #: src/pages/Pool/PositionPage.tsx
+#: src/pages/Pool/index.tsx
 msgid "Liquidity"
 msgstr "Likvidita"
 
@@ -1129,8 +1130,8 @@ msgid "New Position"
 msgstr "Nová pozice"
 
 #: src/pages/MigrateV2/index.tsx
-msgid "No V2 Liquidity found."
-msgstr "Nebyla nalezena likvidita V2."
+msgid "No Liquidity found."
+msgstr "Nebyla nalezena likvidita."
 
 #: src/pages/Earn/index.tsx
 #: src/pages/Earn/index.tsx
@@ -1457,8 +1458,8 @@ msgid "Select a token"
 msgstr "Vyberte žeton"
 
 #: src/pages/PoolFinder/index.tsx
-msgid "Select a token to find your v2 liquidity."
-msgstr "Chcete-li najít svou likviditu v2, vyberte žeton."
+msgid "Select a token to find your liquidity."
+msgstr "Chcete-li najít svou likviditu, vyberte žeton."
 
 #: src/pages/CreateProposal/ProposalActionSelector.tsx
 msgid "Select an action"
@@ -1523,8 +1524,8 @@ msgid "Status"
 msgstr "Postavení"
 
 #: src/pages/Earn/Manage.tsx
-msgid "Step 1. Get UNI-V2 Liquidity tokens"
-msgstr "Krok 1. Získejte žetony likvidity UNI-V2"
+msgid "Step 1. Get Liquidity tokens"
+msgstr "Krok 1. Získejte žetony likvidity"
 
 #: src/components/AccountDetails/TransactionSummary.tsx
 msgid "Submit new proposal"
@@ -1808,12 +1809,12 @@ msgid "UNI {0}/{1} Burned"
 msgstr "UNI {0}/{1} vypáleno"
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
-msgstr "Žetony UNI-V2 LP jsou povinné. Až přidáte likviditu do fondu {0}-{1}, můžete na této stránce uložit své žetony likvidity."
+msgid "LP tokens are required. Once you've added liquidity to the {0}-{1} pool you can stake your liquidity tokens on this page."
+msgstr "Žetony LP jsou povinné. Až přidáte likviditu do fondu {0}-{1}, můžete na této stránce uložit své žetony likvidity."
 
 #: src/pages/Earn/Manage.tsx
-msgid "UNI-V2 {0}-{1}"
-msgstr "UNI-V2 {0}-{1}"
+msgid "{0}-{1}"
+msgstr "{0}-{1}"
 
 #: src/components/earn/ClaimRewardModal.tsx
 #: src/components/earn/UnstakingModal.tsx
@@ -1953,8 +1954,8 @@ msgid "View UNI Analytics"
 msgstr "Zobrazit UNI Analytics"
 
 #: src/pages/Pool/index.tsx
-msgid "View V2 Liquidity"
-msgstr "Zobrazit likviditu V2"
+msgid "View Liquidity"
+msgstr "Zobrazit likviditu"
 
 #: src/components/PositionCard/index.tsx
 msgid "View accrued fees and analytics<0>↗</0>"
@@ -2083,12 +2084,12 @@ msgid "Withdraw deposited liquidity"
 msgstr "Vybrat uloženou likviditu"
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrawing {0} UNI-V2"
-msgstr "Výběr {0} UNI-V2"
+msgid "Withdrawing {0}"
+msgstr "Výběr {0} "
 
 #: src/components/earn/UnstakingModal.tsx
-msgid "Withdrew UNI-V2!"
-msgstr "UNI-V2 vybráno!"
+msgid "Withdrew!"
+msgstr " vybráno!"
 
 #: src/pages/Swap/index.tsx
 msgid "Wrap"
@@ -2173,8 +2174,8 @@ msgid "Your UNI Breakdown"
 msgstr "Váš rozpis UNI"
 
 #: src/pages/Pool/v2.tsx
-msgid "Your V2 liquidity"
-msgstr "Vaše likvidita V2"
+msgid "Your liquidity"
+msgstr "Vaše likvidita"
 
 #: src/pages/Pool/index.tsx
 msgid "Your V3 liquidity positions will appear here."
@@ -2353,12 +2354,12 @@ msgid "{0} UNI / week"
 msgstr "{0} UNI / týden"
 
 #: src/components/earn/StakingModal.tsx
-msgid "{0} UNI-V2"
-msgstr "{0} UNI-V2"
+msgid "{0} Bacoor"
+msgstr "{0} Bacoor"
 
 #: src/pages/Earn/Manage.tsx
-msgid "{0} UNI-V2 LP tokens available"
-msgstr "{0} dostupných žetonů UNI-V2 LP"
+msgid "{0} Bacoor LP tokens available"
+msgstr "{0} dostupných žetonů Bacoor LP"
 
 #: src/components/vote/VoteModal.tsx
 msgid "{0} Votes"

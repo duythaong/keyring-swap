@@ -40,7 +40,7 @@ export const getTokenLogoURL = (
     SupportedChainId.POLYGON_MAINET,
   ]
   if (networksWithUrls.includes(chainId)) {
-    return `https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/${networkName}/assets/${address}/logo.png`
+    return `https://raw.githubusercontent.com/thaobacoor/assets/master/blockchains/${networkName}/assets/${address}/logo.png`
   }
 }
 

@@ -88,7 +88,7 @@ export default function PoolFinder() {
         {!account ? (
           <Trans>Connect to a wallet to find pools</Trans>
         ) : (
-          <Trans>Select a token to find your v2 liquidity.</Trans>
+          <Trans>Select a token to find your liquidity.</Trans>
         )}
       </Text>
     </LightCard>
@@ -103,7 +103,7 @@ export default function PoolFinder() {
             <AutoColumn gap="10px">
               <TYPE.link fontWeight={400} color={'primaryText1'}>
                 <Trans>
-                  <b>Tip:</b> Use this tool to find v2 pools that don&apos;t automatically appear in the interface.
+                  <b>Tip:</b> Use this tool to find pools that don&apos;t automatically appear in the interface.
                 </Trans>
               </TYPE.link>
             </AutoColumn>
@@ -177,7 +177,7 @@ export default function PoolFinder() {
                     <Text textAlign="center">
                       <Trans>You don’t have liquidity in this pool yet.</Trans>
                     </Text>
-                    <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
+                    <StyledInternalLink to={`/add/v2/${currencyId(currency0)}/${currencyId(currency1)}`}>
                       <Text textAlign="center">
                         <Trans>Add liquidity.</Trans>
                       </Text>
@@ -191,7 +191,7 @@ export default function PoolFinder() {
                   <Text textAlign="center">
                     <Trans>No pool found.</Trans>
                   </Text>
-                  <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
+                  <StyledInternalLink to={`/add/v2/${currencyId(currency0)}/${currencyId(currency1)}`}>
                     <Trans>Create pool.</Trans>
                   </StyledInternalLink>
                 </AutoColumn>
