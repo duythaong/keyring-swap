@@ -11,7 +11,7 @@ import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/wrappedTokenInfo'
 import Logo from '../Logo'
 
-type Network = 'ethereum' | 'arbitrum' | 'optimism' | 'polygon'
+type Network = 'ethereum' | 'arbitrum' | 'optimism' | 'polygon' | 'mumbai'
 
 function chainIdToNetworkName(networkId: SupportedChainId): Network {
   switch (networkId) {
@@ -23,6 +23,8 @@ function chainIdToNetworkName(networkId: SupportedChainId): Network {
       return 'optimism'
     case SupportedChainId.POLYGON_MAINET:
       return 'polygon'
+    case SupportedChainId.POLYGON_TESTNET:
+      return 'mumbai'
     default:
       return 'ethereum'
   }
@@ -38,6 +40,7 @@ export const getTokenLogoURL = (
     SupportedChainId.MAINNET,
     SupportedChainId.OPTIMISM,
     SupportedChainId.POLYGON_MAINET,
+    SupportedChainId.POLYGON_TESTNET,
   ]
   if (networksWithUrls.includes(chainId)) {
     return `https://raw.githubusercontent.com/thaobacoor/assets/master/blockchains/${networkName}/assets/${address}/logo.png`
