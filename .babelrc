@@ -1,0 +1,30 @@
+{
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "root": [
+                    "./src"
+                ],
+                "alias": {
+                    "common": "./common",
+                    "controller": "./controller",
+                    "static": "./static",
+                    "assets": "./assets",
+                    "pages": "./pages"
+                }
+            }
+        ],
+        [
+            "@babel/plugin-transform-arrow-functions"
+        ],
+        "@babel/plugin-syntax-dynamic-import"
+    ],
+    "env": {
+        "production": {
+            "plugins": [
+                "transform-remove-console"
+            ]
+        }
+    }
+}
