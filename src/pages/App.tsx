@@ -92,6 +92,8 @@ export default function App() {
   //   }
   // }, [chainIdWeb3])
 
+  // console.log('process.env.REACT_APP_STATE', process.env.REACT_APP_STATE)
+
   return (
     <ErrorBoundary>
       <Route component={GoogleAnalyticsReporter} />
