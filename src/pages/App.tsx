@@ -7,6 +7,7 @@ import { getDataLocal } from 'common/function'
 import Routes from 'common/routes'
 import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
 import Loading from 'pages/Components/Loading'
+import BaseContainer from 'pages/Container'
 import React from 'react'
 import { Route } from 'react-router-dom'
 import store from 'state'
@@ -149,18 +150,20 @@ class MyComponent extends React.Component<{}, { isLoading: boolean }> {
               <Loading />
             </div>
           ) : (
-            <AppWrapper>
-              <HeaderWrapper>
-                <Header />
-              </HeaderWrapper>
-              <BodyWrapper>
-                <Popups />
-                <Polling />
-                <TopLevelModals />
-                <Routes />
-                <Marginer />
-              </BodyWrapper>
-            </AppWrapper>
+            <BaseContainer>
+              <AppWrapper>
+                <HeaderWrapper>
+                  <Header />
+                </HeaderWrapper>
+                <BodyWrapper>
+                  <Popups />
+                  <Polling />
+                  <TopLevelModals />
+                  <Routes />
+                  <Marginer />
+                </BodyWrapper>
+              </AppWrapper>
+            </BaseContainer>
           )}
         </Web3ReactManager>
       </ErrorBoundary>

@@ -1,0 +1,21 @@
+.layout-container {
+    .base-content {
+        .base-container {
+            @media screen and (min-width: 769px) {
+                min-height: calc(100vh - 142px);
+            }
+        }
+    }
+    // &:not(:first-child) {
+    //     .base-content {
+    //         .base-container {
+    //             padding-bottom: 80px;
+                // @media screen and (min-width: 769px) {
+                //     padding-bottom: 80px;
+                // }
+    //         }
+    //     }
+    // }
+}
+
+
