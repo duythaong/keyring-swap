@@ -11,8 +11,5 @@ const internetReduxSlice = createSlice({
   },
 })
 const { setInternet } = internetReduxSlice.actions
-const internetRedux = internetReduxSlice.reducer
-const reduxPageData = { internetRedux }
-
+export const internetRedux = internetReduxSlice.reducer
 export const actionsPageData = { setInternet }
-export default reduxPageData

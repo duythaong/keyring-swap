@@ -34,7 +34,5 @@ const connectionMethodSlice = createSlice({
 })
 
 const { setConnectionMethod } = connectionMethodSlice.actions
-const connectionMethodRedux = connectionMethodSlice.reducer
-const reduxStorageData = { connectionMethodRedux }
+export const connectionMethodRedux = connectionMethodSlice.reducer
 export const actionsStorageData = { setConnectionMethod }
-export default reduxStorageData

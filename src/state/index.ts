@@ -12,18 +12,20 @@ import logs from './logs/slice'
 import mint from './mint/reducer'
 import mintV3 from './mint/v3/reducer'
 import multicall from './multicall/reducer'
-import reduxReducer from './Redux/reducers'
+import actions from './Redux/actions'
+import { internetRedux } from './Redux/slices/pageSlices'
+import { connectionMethodRedux } from './Redux/slices/storageSlices'
 import { routingApi } from './routing/slice'
 import swap from './swap/reducer'
 import transactions from './transactions/reducer'
 import user from './user/reducer'
-
 const PERSISTED_KEYS: string[] = ['user', 'transactions', 'lists']
 const reducers = {
-  ...reduxReducer,
+  transactions,
   application,
   user,
-  transactions,
+  internetRedux,
+  connectionMethodRedux,
   swap,
   mint,
   mintV3,
