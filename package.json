@@ -172,13 +172,12 @@
     "test:e2e": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run --record'",
     "bundle": "microbundle --tsconfig tsconfig.lib.json src/lib/index.tsx --format esm,cjs",
     "cosmos": "open http://localhost:5000 && cross-env FAST_REFRESH=false cosmos",
-    "build:staging": "env-cmd -f .env.staging yarn run build",
-    "build:development": "env-cmd -f .env.development yarn run build",
-    "build:production": "env-cmd -f .env.production yarn run build",
+    "build:staging": "env-cmd -f .env.staging set \"CI=false\" && yarn run build",
+    "build:development": "env-cmd -f .env.development  set \"CI=false\" && yarn run build",
+    "build:production": "env-cmd -f .env.production set \"CI=false\" && yarn run build",
     "start:development": "env-cmd -f .env.development yarn run start",
     "start:staging": "env-cmd -f .env.staging yarn run start",
     "start:production": "env-cmd -f .env.production yarn run start"
-
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -202,6 +201,7 @@
     "antd": "^4.18.8",
     "env-cmd": "^10.1.0",
     "node-sass": "^6.0.1",
+    "redux": "^4.1.2",
     "sass": "^1.49.8"
   }
 }
