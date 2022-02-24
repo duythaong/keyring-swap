@@ -1,10 +1,16 @@
+import { message, notification } from 'antd'
+import { KEY_STORE } from 'common/constants'
+import { getDataLocal } from 'common/function'
 import Routes from 'common/routes'
 import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
-import { useActiveWeb3React } from 'hooks/web3'
-import { useEffect } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Route, Switch } from 'react-router-dom'
+import store from 'state'
 import { updateChainId } from 'state/application/reducer'
 import { useAppDispatch, useAppSelector } from 'state/hooks'
+import storageActions from 'state/Redux/actions'
+import init from 'state/Redux/lib/initState'
+import { checkLocalStoreToRedux } from 'state/Redux/lib/reducerConfig'
 import styled from 'styled-components/macro'
 
 import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
@@ -57,45 +63,106 @@ function TopLevelModals() {
   return <AddressClaimModal isOpen={open} onDismiss={toggle} />
 }
 
-export default function App() {
-  // const dispatch = useAppDispatch()
-  // const { chainId: chainIdWeb3 } = useActiveWeb3React()
-  // const { ethereum } = window
-  // useEffect(() => {
-  //   const changeChainIdRedux = () => {
-  //     console.log('====================================')
-  //     console.log('chainIdWeb3aaaaa', chainIdWeb3)
-  //     console.log('====================================')
-  //     dispatch(updateChainId({ chainId: chainIdWeb3 ? chainIdWeb3 ?? null : null }))
-  //   }
+// export default function App() {
+//   return (
+//     <ErrorBoundary>
+//       <Route component={GoogleAnalyticsReporter} />
+//       <Route component={DarkModeQueryParamReader} />
+//       <Route component={ApeModeQueryParamReader} />
+//       <Web3ReactManager>
+//         <AppWrapper>
+//           <HeaderWrapper>
+//             <Header />
+//           </HeaderWrapper>
+//           <BodyWrapper>
+//             <Popups />
+//             <Polling />
+//             <TopLevelModals />
+//             <Routes />
+//             <Marginer />
+//           </BodyWrapper>
+//         </AppWrapper>
+//       </Web3ReactManager>
+//     </ErrorBoundary>
+//   )
+// }
+// eslint-disable-next-line @typescript-eslint/ban-types
+class MyComponent extends React.Component<{}, { isLoading: boolean }> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      isLoading: true,
+    }
+  }
+  async componentDidMount() {
+    message.config({
+      top: window.innerHeight / 2,
+    })
+    notification.config({
+      placement: 'topRight',
+    })
+    try {
+      if (process.env.MAINTENANCE_MODE === 'true') {
+        this.setState({
+          isLoading: false,
+        })
+        return
+      }
+      const storageRedux = [
+        {
+          key: KEY_STORE.SET_CONNECTION_METHOD,
+          action: storageActions.setConnectionMethod,
+          init: init.connectionMethod,
+        },
+      ]
 
-  //   if (ethereum && ethereum.on) {
-  //     ethereum.on('chainChanged', changeChainIdRedux)
-  //     // ethereum.on('networkChanged', changeChainIdRedux)
-  //   }
-  // }, [chainIdWeb3])
+      const promiseArr = storageRedux.map((item) => {
+        checkLocalStoreToRedux(store, item.key, item.action, item.init)
+      })
+      await Promise.all(promiseArr)
+      // in the case reload page: need to wait for detect connection method already in use before showing page
+      const initDataPromiseArr: any[] = []
+      if (getDataLocal(KEY_STORE.SET_SETTING)) {
+        Promise.all(initDataPromiseArr)
+      } else {
+        // if user access the fisrt time and don't have data in local store
+        await Promise.all(initDataPromiseArr)
+      }
+    } finally {
+      this.setState({
+        isLoading: false,
+      })
+    }
+  }
 
-  // console.log('process.env.REACT_APP_STATE', process.env.REACT_APP_STATE)
-
-  return (
-    <ErrorBoundary>
-      <Route component={GoogleAnalyticsReporter} />
-      <Route component={DarkModeQueryParamReader} />
-      <Route component={ApeModeQueryParamReader} />
-      <Web3ReactManager>
-        <AppWrapper>
-          <HeaderWrapper>
-            <Header />
-          </HeaderWrapper>
-          <BodyWrapper>
-            <Popups />
-            <Polling />
-            <TopLevelModals />
-            <Routes />
-            <Marginer />
-          </BodyWrapper>
-        </AppWrapper>
-      </Web3ReactManager>
-    </ErrorBoundary>
-  )
+  render() {
+    const { isLoading } = this.state
+    return (
+      <ErrorBoundary>
+        <Route component={GoogleAnalyticsReporter} />
+        <Route component={DarkModeQueryParamReader} />
+        <Route component={ApeModeQueryParamReader} />
+        <Web3ReactManager>
+          {isLoading ? (
+            <div className="loading-container">{/* <Loading /> */}</div>
+          ) : (
+            <AppWrapper>
+              <HeaderWrapper>
+                <Header />
+              </HeaderWrapper>
+              <BodyWrapper>
+                <Popups />
+                <Polling />
+                <TopLevelModals />
+                <Routes />
+                <Marginer />
+              </BodyWrapper>
+            </AppWrapper>
+          )}
+        </Web3ReactManager>
+      </ErrorBoundary>
+    )
+  }
 }
+
+export default MyComponent
