@@ -1,13 +1,15 @@
+import './Style/override.less'
+import './Style/global.scss'
+
 import { message, notification } from 'antd'
 import { KEY_STORE } from 'common/constants'
 import { getDataLocal } from 'common/function'
 import Routes from 'common/routes'
 import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
-import React, { Component, Fragment } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import Loading from 'pages/Components/Loading'
+import React from 'react'
+import { Route } from 'react-router-dom'
 import store from 'state'
-import { updateChainId } from 'state/application/reducer'
-import { useAppDispatch, useAppSelector } from 'state/hooks'
 import storageActions from 'state/Redux/actions'
 import init from 'state/Redux/lib/initState'
 import { checkLocalStoreToRedux } from 'state/Redux/lib/reducerConfig'
@@ -23,7 +25,6 @@ import Web3ReactManager from '../components/Web3ReactManager'
 import { useModalOpen, useToggleModal } from '../state/application/hooks'
 import { ApplicationModal } from '../state/application/reducer'
 import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
-
 const AppWrapper = styled.div`
   display: flex;
   flex-flow: column;
@@ -139,12 +140,14 @@ class MyComponent extends React.Component<{}, { isLoading: boolean }> {
     const { isLoading } = this.state
     return (
       <ErrorBoundary>
-        <Route component={GoogleAnalyticsReporter} />
-        <Route component={DarkModeQueryParamReader} />
-        <Route component={ApeModeQueryParamReader} />
+        {/* <Route component={GoogleAnalyticsReporter} /> */}
+        {/* <Route component={DarkModeQueryParamReader} /> */}
+        {/* <Route component={ApeModeQueryParamReader} /> */}
         <Web3ReactManager>
           {isLoading ? (
-            <div className="loading-container">{/* <Loading /> */}</div>
+            <div className="loading-container">
+              <Loading />
+            </div>
           ) : (
             <AppWrapper>
               <HeaderWrapper>
