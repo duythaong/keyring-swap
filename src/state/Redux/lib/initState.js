@@ -1,7 +1,7 @@
 import { METAMASK_INFO } from 'common/constants'
 
 var initState = {
-  lang: '',
+  lang: 'en',
   userData: null,
   userInfo: null,
   hubSetting: null,

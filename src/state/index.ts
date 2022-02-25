@@ -12,9 +12,8 @@ import logs from './logs/slice'
 import mint from './mint/reducer'
 import mintV3 from './mint/v3/reducer'
 import multicall from './multicall/reducer'
-import actions from './Redux/actions'
 import { internetRedux } from './Redux/slices/pageSlices'
-import { connectionMethodRedux } from './Redux/slices/storageSlices'
+import { connectionMethodRedux, locale } from './Redux/slices/storageSlices'
 import { routingApi } from './routing/slice'
 import swap from './swap/reducer'
 import transactions from './transactions/reducer'
@@ -24,6 +23,7 @@ const reducers = {
   transactions,
   application,
   user,
+  locale,
   internetRedux,
   connectionMethodRedux,
   swap,

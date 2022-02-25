@@ -6,6 +6,7 @@ import { KEY_STORE } from 'common/constants'
 import { getDataLocal } from 'common/function'
 import Routes from 'common/routes'
 import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
+import ReduxConnectIntl from 'pages/Components/Languages'
 import Loading from 'pages/Components/Loading'
 import BaseContainer from 'pages/Container'
 import React from 'react'
@@ -116,6 +117,11 @@ class MyComponent extends React.Component<{}, { isLoading: boolean }> {
           action: storageActions.setConnectionMethod,
           init: init.connectionMethod,
         },
+        {
+          key: KEY_STORE.SET_LOCALE,
+          action: storageActions.setLocale,
+          init: init.lang,
+        },
       ]
 
       const promiseArr = storageRedux.map((item) => {
@@ -150,20 +156,22 @@ class MyComponent extends React.Component<{}, { isLoading: boolean }> {
               <Loading />
             </div>
           ) : (
-            <BaseContainer>
-              <AppWrapper>
-                <HeaderWrapper>
-                  <Header />
-                </HeaderWrapper>
-                <BodyWrapper>
-                  <Popups />
-                  <Polling />
-                  <TopLevelModals />
-                  <Routes />
-                  <Marginer />
-                </BodyWrapper>
-              </AppWrapper>
-            </BaseContainer>
+            <ReduxConnectIntl>
+              <BaseContainer>
+                <AppWrapper>
+                  <HeaderWrapper>
+                    <Header />
+                  </HeaderWrapper>
+                  <BodyWrapper>
+                    <Popups />
+                    <Polling />
+                    <TopLevelModals />
+                    <Routes />
+                    <Marginer />
+                  </BodyWrapper>
+                </AppWrapper>
+              </BaseContainer>
+            </ReduxConnectIntl>
           )}
         </Web3ReactManager>
       </ErrorBoundary>

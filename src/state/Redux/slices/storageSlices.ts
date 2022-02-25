@@ -33,6 +33,29 @@ const connectionMethodSlice = createSlice({
   },
 })
 
+const localeMethodSlice = createSlice({
+  name: 'localeRedux',
+  initialState: localeEN,
+  reducers: {
+    setLocale(state, action) {
+      saveDataLocal(KEY_STORE.SET_LOCALE, action.payload)
+      switch (action.payload) {
+        case 'en':
+          return localeEN
+        case 'ja':
+          return localeJA
+        case 'cn':
+          return localeCN
+        default:
+          return localeEN
+      }
+    },
+  },
+})
+
 const { setConnectionMethod } = connectionMethodSlice.actions
 export const connectionMethodRedux = connectionMethodSlice.reducer
-export const actionsStorageData = { setConnectionMethod }
+
+const { setLocale } = localeMethodSlice.actions
+export const locale = localeMethodSlice.reducer
+export const actionsStorageData = { setConnectionMethod, setLocale }
