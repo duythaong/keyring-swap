@@ -7,6 +7,7 @@ import ConnectModal from 'pages/Components/ConnectModal'
 import MyModal from 'pages/Components/MyModal'
 import React, { useEffect, useRef, useState } from 'react'
 import Media from 'react-media'
+import { useWalletModalToggle } from 'state/application/hooks'
 import { useAppDispatch, useAppSelector } from 'state/hooks'
 import actions from 'state/Redux/actions'
 const HomeScreen = () => {
@@ -30,6 +31,7 @@ const HomeScreen = () => {
   const onChangeLanguage = () => {
     dispatch(actions.setLocale('en'))
   }
+  const toggleNWSModal = useWalletModalToggle()
 
   const closeModal = () => {
     myModal.current && myModal.current.closeModal()
@@ -46,9 +48,9 @@ const HomeScreen = () => {
     // myModal.current.openModal(<ConnectModal closeModal={closeModal} />, {
     //   modalWidth: 576,
     // })
-    myModal.current.openModal(<Example closeModal={closeModal} />, {
-      modalWidth: 576,
-    })
+    // myModal.current.openModal(<Example closeModal={closeModal} />, {
+    //   modalWidth: 576,
+    // })
   }
 
   const renderMobile = () => {
@@ -60,7 +62,7 @@ const HomeScreen = () => {
         <Button className="btn-connect-app" onClick={onChangeLanguage}>
           <span>{'Change language'}</span>
         </Button>
-        <Button className="btn-connect-app MT40" onClick={onConnectModal}>
+        <Button className="btn-connect-app MT40" onClick={toggleNWSModal}>
           <span>{messages.connectApp.connectTo}</span>
         </Button>
       </div>
