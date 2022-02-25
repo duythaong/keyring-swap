@@ -54,8 +54,7 @@ const localeMethodSlice = createSlice({
 })
 
 const { setConnectionMethod } = connectionMethodSlice.actions
-export const connectionMethodRedux = connectionMethodSlice.reducer
-
 const { setLocale } = localeMethodSlice.actions
+export const connectionMethodRedux = connectionMethodSlice.reducer
 export const locale = localeMethodSlice.reducer
 export const actionsStorageData = { setConnectionMethod, setLocale }
