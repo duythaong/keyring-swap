@@ -199,6 +199,8 @@
     ]
   },
   "dependencies": {
+    "@ant-design/compatible": "^1.1.0",
+    "@ant-design/icons": "^4.7.0",
     "antd": "^4.18.8",
     "env-cmd": "^10.1.0",
     "node-sass": "^6.0.1",

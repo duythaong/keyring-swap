@@ -1,6 +1,7 @@
 import './style.scss'
 
 import { Modal } from 'antd'
+import closeIcon from 'assets/Image/Icon/close.svg'
 import { images } from 'config/images'
 import React from 'react'
 class MyModal extends React.Component {

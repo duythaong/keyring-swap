@@ -3,7 +3,7 @@ import './style.scss'
 
 import { Button, Col, Row } from 'antd'
 import { scrollTop } from 'common/function'
-import { images } from 'config/images'
+import ConnectModal from 'pages/Components/ConnectModal'
 import MyModal from 'pages/Components/MyModal'
 import React, { useEffect, useRef, useState } from 'react'
 import Media from 'react-media'
@@ -28,12 +28,32 @@ const HomeScreen = () => {
     }).click()
   }
   const onChangeLanguage = () => {
-    alert('SSS')
-    dispatch(actions.setLocale('ja'))
+    dispatch(actions.setLocale('en'))
   }
 
-  const onConnectModal = () => {}
+  const closeModal = () => {
+    myModal.current && myModal.current.closeModal()
+  }
+  const Example = () => {
+    return (
+      <div className="notice-modal-container">
+        <p className="title">{'AAA'}</p>
+      </div>
+    )
+  }
 
+  const onConnectModal = () => {
+    // myModal.current.openModal(<ConnectModal closeModal={closeModal} />, {
+    //   modalWidth: 576,
+    // })
+    myModal.current.openModal(<Example closeModal={closeModal} />, {
+      modalWidth: 576,
+    })
+  }
+
+  const renderMobile = () => {
+    return <div className="home-container-mobile"></div>
+  }
   const renderDesktop = () => {
     return (
       <div className="home-container">
@@ -46,11 +66,6 @@ const HomeScreen = () => {
       </div>
     )
   }
-
-  const renderMobile = () => {
-    return <div className="home-container-mobile"></div>
-  }
-
   return (
     <>
       <Media query="(min-width: 769px)" render={() => renderDesktop()} />

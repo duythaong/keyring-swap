@@ -1,4 +1,4 @@
-import './Style/override.less'
+import './Style/override.scss'
 import './Style/global.scss'
 
 import { message, notification } from 'antd'
