@@ -16,7 +16,6 @@ export enum SupportedChainId {
   ARBITRUM_RINKEBY = 421611,
   OPTIMISM = 10,
   OPTIMISTIC_KOVAN = 69,
-
   BSC_MAINNET = 56,
 
   POLYGON_MAINET = 137,

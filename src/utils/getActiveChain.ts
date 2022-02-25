@@ -2,6 +2,7 @@ import { SupportedChainId } from '../constants/chains'
 
 export function getActiveChainBaseOnUrl(): number {
   const subdomain = window.location.host.split('.')[1] ? window.location.host.split('.')[0] : false
+  // const subdomain = 'swap-bsc'
   switch (subdomain) {
     case 'swap-eth':
       return SupportedChainId.MAINNET
