@@ -5,6 +5,8 @@ import { useWeb3React } from '@web3-react/core'
 import { Button, Col, Row } from 'antd'
 import { scrollTop } from 'common/function'
 import MetaMaskServices from 'controller/Metamask'
+import { signPersonalMessage } from 'controller/WalletConnect'
+import { useActiveWeb3React } from 'hooks/web3'
 import ConnectModal from 'pages/Components/ConnectModal'
 import MyModal from 'pages/Components/MyModal'
 import React, { useEffect, useRef, useState } from 'react'
@@ -18,7 +20,7 @@ const HomeScreen = () => {
   const [disableQR, setDisableQR] = useState(false)
   const dispatch = useAppDispatch()
   const locales = useAppSelector((state) => state.locale)
-  const { active, account, library, connector, activate, deactivate } = useWeb3React()
+  const { active, account, library, connector, activate, deactivate } = useActiveWeb3React()
   // console.log('locale', locales)
   const { messages } = locales
   useEffect(() => {
@@ -26,19 +28,22 @@ const HomeScreen = () => {
   }, [])
 
   useEffect(() => {
-    // console.log('active', active)
-    // console.log('account', account)
-    // console.log('library', library)
-    // console.log('connector', connector)
-    // console.log('activate', activate)
-    // console.log('deactivate', deactivate)
-    // async function activate() {
-    //   if (active) {
-    //     let res = await MetaMaskServices.signPersonalMessage(account, 'MISSSAKE')
-    //     console.log('res', res)
-    //   }
-    // }
-    // activate()
+    console.log('active', active)
+    console.log('account', account)
+    console.log('library', library)
+    console.log('connector', connector)
+    console.log('activate', activate)
+    console.log('deactivate', deactivate)
+    async function activate() {
+      // if (active && account != null) {
+      //   // let res = await MetaMaskServices.signPersonalMessage(account, 'MISSSAKE')
+      //   // console.log('res', res)
+      //   console.log('ress')
+      //   let res = await signPersonalMessage('MISSSAKE', connector, account, active, deactivate)
+      //   console.log('res', res)
+      // }
+    }
+    activate()
   }, [active, account, library, connector, activate, deactivate])
 
   const openInNewTab = (href) => {
