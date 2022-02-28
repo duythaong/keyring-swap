@@ -20,7 +20,7 @@ import styled from 'styled-components/macro'
 import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
 import AddressClaimModal from '../components/claim/AddressClaimModal'
 import ErrorBoundary from '../components/ErrorBoundary'
-import Header from '../components/Header'
+// import Header from '../components/Header'
 import Polling from '../components/Header/Polling'
 import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
@@ -159,9 +159,9 @@ class MyComponent extends React.Component<{}, { isLoading: boolean }> {
             <ReduxConnectIntl>
               <BaseContainer>
                 <AppWrapper>
-                  <HeaderWrapper>
+                  {/* <HeaderWrapper>
                     <Header />
-                  </HeaderWrapper>
+                  </HeaderWrapper> */}
                   <BodyWrapper>
                     <Popups />
                     <Polling />

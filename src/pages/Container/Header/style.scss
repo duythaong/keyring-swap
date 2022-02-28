@@ -1,0 +1,94 @@
+@use "sass:map";
+@import "pages/Style/variable.scss";
+
+.header-container {
+	width: 100%;
+	padding: 0 !important;
+	user-select: none;
+	background: transparent !important;
+	position: relative;
+	z-index: 100;
+	&.ant-layout-header {
+		height: 80px;
+	}
+
+	.link{
+		text-transform: uppercase;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		line-height: 21px;
+		color: #000;
+		cursor: pointer;
+		&.selected{
+			color: #B42033;
+		}
+		&:hover{
+			color: #B42033;
+		}
+	}
+
+		.wrapper {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 60px;
+			@media screen and (min-width: 769px) {
+				height: 80px;
+			}
+			.left-side{
+
+			}
+			.right-side {
+				display: flex;
+				align-items: center;
+			}
+		
+			.btn-signin {
+				font-size: 15px;
+				font-weight: 600;
+				height: 35px;
+				border-color: #FFF;
+				background: rgba(233, 51, 36, 0.1);
+				border-radius: 10px;
+				color: #E93324;
+				padding: 2px 10px;
+				display: flex;
+				align-items: center;
+				line-height: 14px;
+				transition: 0.3s all;
+				&:hover {
+					background: rgba(233, 51, 36, 0.4);
+				}
+			}
+		}
+}
+
+.header-container-mobile{
+	width: 100%;
+	padding: 0 !important;
+	user-select: none;
+	position: relative;
+	z-index: 100;
+	&.ant-layout-header {
+		height: 50px;
+	}
+		.wrapper {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 50px;
+			background-color: #B42033;
+			.left-side{
+				.logo{
+					width: 50px;
+					height: 42px;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: cover;
+					cursor: pointer;
+					margin-bottom: 0;
+				}
+			}
+		}
+}

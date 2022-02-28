@@ -17,13 +17,13 @@ import Notice from 'pages/Components/Notice'
 import React, { PureComponent, useMemo } from 'react'
 import { isMobile } from 'react-device-detect'
 import { connect } from 'react-redux'
-import { useLocation } from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
+import { useLocation, withRouter } from 'react-router-dom'
 import actions from 'state/Redux/actions'
 import { isTransactionRecent, useAllTransactions } from 'state/transactions/hooks'
+
 // import logo from '../../static/logo192.png'
 // import Footer from './Footer'
-// import Header from './Header'
+import Header from './Header'
 const { Content } = Layout
 
 const WalletModalRender = () => {
@@ -101,7 +101,7 @@ class BaseContainer extends PureComponent {
     const isAccountScreen = false
     return (
       <Layout style={isAccountScreen ? { background: '#B42033' } : null}>
-        {/* <Header /> */}
+        <Header />
         <Layout
           className="layout-container"
           style={
