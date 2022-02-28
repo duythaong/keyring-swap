@@ -26,19 +26,19 @@ const HomeScreen = () => {
   }, [])
 
   useEffect(() => {
-    console.log('active', active)
-    console.log('account', account)
-    console.log('library', library)
-    console.log('connector', connector)
-    console.log('activate', activate)
-    console.log('deactivate', deactivate)
-    async function activate() {
-      if (active) {
-        let res = await MetaMaskServices.signPersonalMessage(account, 'MISSSAKE')
-        console.log('res', res)
-      }
-    }
-    activate()
+    // console.log('active', active)
+    // console.log('account', account)
+    // console.log('library', library)
+    // console.log('connector', connector)
+    // console.log('activate', activate)
+    // console.log('deactivate', deactivate)
+    // async function activate() {
+    //   if (active) {
+    //     let res = await MetaMaskServices.signPersonalMessage(account, 'MISSSAKE')
+    //     console.log('res', res)
+    //   }
+    // }
+    // activate()
   }, [active, account, library, connector, activate, deactivate])
 
   const openInNewTab = (href) => {
@@ -54,13 +54,6 @@ const HomeScreen = () => {
 
   const closeModal = () => {
     myModal.current && myModal.current.closeModal()
-  }
-  const Example = () => {
-    return (
-      <div className="notice-modal-container">
-        <p className="title">{'AAA'}</p>
-      </div>
-    )
   }
 
   const onConnectModal = () => {
