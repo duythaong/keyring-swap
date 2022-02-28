@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import './style.scss'
 
+import { useWeb3React } from '@web3-react/core'
 import { Button, Col, Row } from 'antd'
 import { scrollTop } from 'common/function'
+import MetaMaskServices from 'controller/Metamask'
 import ConnectModal from 'pages/Components/ConnectModal'
 import MyModal from 'pages/Components/MyModal'
 import React, { useEffect, useRef, useState } from 'react'
@@ -16,11 +18,28 @@ const HomeScreen = () => {
   const [disableQR, setDisableQR] = useState(false)
   const dispatch = useAppDispatch()
   const locales = useAppSelector((state) => state.locale)
-  console.log('locale', locales)
+  const { active, account, library, connector, activate, deactivate } = useWeb3React()
+  // console.log('locale', locales)
   const { messages } = locales
   useEffect(() => {
     scrollTop && scrollTop()
   }, [])
+
+  useEffect(() => {
+    console.log('active', active)
+    console.log('account', account)
+    console.log('library', library)
+    console.log('connector', connector)
+    console.log('activate', activate)
+    console.log('deactivate', deactivate)
+    async function activate() {
+      if (active) {
+        let res = await MetaMaskServices.signPersonalMessage(account, 'MISSSAKE')
+        console.log('res', res)
+      }
+    }
+    activate()
+  }, [active, account, library, connector, activate, deactivate])
 
   const openInNewTab = (href) => {
     Object.assign(document.createElement('a'), {
