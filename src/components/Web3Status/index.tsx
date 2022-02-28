@@ -221,28 +221,29 @@ function Web3StatusInner() {
 }
 
 export default function Web3Status() {
-  const { active } = useWeb3React()
-  const { account } = useActiveWeb3React()
-  const contextNetwork = useWeb3React(NetworkContextName)
+  // Move to base container class
+  // const { active } = useWeb3React()
+  // const { account } = useActiveWeb3React()
+  // const contextNetwork = useWeb3React(NetworkContextName)
 
-  const { ENSName } = useENSName(account ?? undefined)
+  // const { ENSName } = useENSName(account ?? undefined)
 
-  const allTransactions = useAllTransactions()
+  // const allTransactions = useAllTransactions()
 
-  const sortedRecentTransactions = useMemo(() => {
-    const txs = Object.values(allTransactions)
-    return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
-  }, [allTransactions])
+  // const sortedRecentTransactions = useMemo(() => {
+  //   const txs = Object.values(allTransactions)
+  //   return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
+  // }, [allTransactions])
 
-  const pending = sortedRecentTransactions.filter((tx) => !tx.receipt).map((tx) => tx.hash)
-  const confirmed = sortedRecentTransactions.filter((tx) => tx.receipt).map((tx) => tx.hash)
+  // const pending = sortedRecentTransactions.filter((tx) => !tx.receipt).map((tx) => tx.hash)
+  // const confirmed = sortedRecentTransactions.filter((tx) => tx.receipt).map((tx) => tx.hash)
 
   return (
     <>
       <Web3StatusInner />
-      {(contextNetwork.active || active) && (
+      {/* {(contextNetwork.active || active) && (
         <WalletModal ENSName={ENSName ?? undefined} pendingTransactions={pending} confirmedTransactions={confirmed} />
-      )}
+      )} */}
     </>
   )
 }
