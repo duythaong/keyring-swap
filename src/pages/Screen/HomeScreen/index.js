@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import './style.scss'
 
@@ -5,7 +6,7 @@ import { useWeb3React } from '@web3-react/core'
 import { Button, Col, Row } from 'antd'
 import { scrollTop } from 'common/function'
 import MetaMaskServices from 'controller/Metamask'
-import { signPersonalMessage } from 'controller/WalletConnect'
+import { demoSend, getETHBalance, getNonce, signPersonalMessage } from 'controller/WalletConnect'
 import { useActiveWeb3React } from 'hooks/web3'
 import ConnectModal from 'pages/Components/ConnectModal'
 import MyModal from 'pages/Components/MyModal'
@@ -20,7 +21,7 @@ const HomeScreen = () => {
   const [disableQR, setDisableQR] = useState(false)
   const dispatch = useAppDispatch()
   const locales = useAppSelector((state) => state.locale)
-  const { active, account, library, connector, activate, deactivate } = useActiveWeb3React()
+  const { active, account, library, connector, activate, deactivate, chainId } = useActiveWeb3React()
   // console.log('locale', locales)
   const { messages } = locales
   useEffect(() => {
@@ -42,6 +43,16 @@ const HomeScreen = () => {
       //   let res = await signPersonalMessage('MISSSAKE', connector, account, active, deactivate)
       //   console.log('res', res)
       // }
+      // if (active && account != null) {
+      //   console.log('res1111')
+      //   // let balance = await getETHBalance(library, account)
+      //   let nonce = await getNonce(library, account)
+      //   console.log('nonce', nonce)
+      //   // console.log('balance', balance.toString())
+      // }
+      if (active && account != null) {
+        // demoSend(library, chainId, '0x57EF6F871888e2d294470A0061292675F6dC309c')
+      }
     }
     activate()
   }, [active, account, library, connector, activate, deactivate])
