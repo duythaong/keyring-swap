@@ -6,7 +6,7 @@ export function getActiveChainBaseOnUrl(): number {
     : window.location.host.split('.')[1]
     ? window.location.host.split('.')[0]
     : false
-  console.log('process.env.REACT_APP_SWAP_KEY', process.env.REACT_APP_SWAP_KEY)
+  // console.log('process.env.REACT_APP_SWAP_KEY', process.env.REACT_APP_SWAP_KEY)
   switch (subdomain) {
     case 'swap-eth':
       return SupportedChainId.KOVAN
