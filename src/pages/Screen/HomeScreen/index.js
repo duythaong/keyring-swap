@@ -29,12 +29,12 @@ const HomeScreen = () => {
   }, [])
 
   useEffect(() => {
-    console.log('active', active)
-    console.log('account', account)
-    console.log('library', library)
-    console.log('connector', connector)
-    console.log('activate', activate)
-    console.log('deactivate', deactivate)
+    // console.log('active', active)
+    // console.log('account', account)
+    // console.log('library', library)
+    // console.log('connector', connector)
+    // console.log('activate', activate)
+    // console.log('deactivate', deactivate)
     async function activate() {
       // if (active && account != null) {
       //   // let res = await MetaMaskServices.signPersonalMessage(account, 'MISSSAKE')

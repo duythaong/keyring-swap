@@ -8,7 +8,7 @@ export default function GlobalHook() {
     if (active && account != null) {
       console.log('to do call update')
     }
-  }, [chainId, library, active, account])
+  }, [chainId, library, active, account, connector])
 
   return null
 }

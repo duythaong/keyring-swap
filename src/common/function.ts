@@ -23,3 +23,14 @@ export const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 }
+
+export const detectImageUrl = (url: string) => {
+  // if (!url || url === '') return ''
+  // const setting = ReduxService.getSettingRedux()
+  // if (url?.startsWith('https://ipfs')) {
+  //   return encodeURI(url)
+  // } else {
+  //   return encodeURI(setting?.others?.IPFS_IMAGE_DOMAIN + url)
+  // }
+  return url
+}
