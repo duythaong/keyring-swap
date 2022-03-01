@@ -3,7 +3,6 @@
 import { hexlify } from '@ethersproject/bytes'
 import { toUtf8Bytes } from '@ethersproject/strings'
 import converter from 'hex2dec'
-import { calculateGasMargin } from 'utils/calculateGasMargin'
 export const signPersonalMessage = async (message, library, connector, account, active) => {
   if (!active) {
     // kill SessionManager
@@ -82,4 +81,17 @@ export const trackingTxs = async (library, hash, callback, receipt) => {
   } else {
     callback && callback(receipt)
   }
+}
+
+export const signCustomMessage = (library, account, message) => {
+  return library
+    .getSigner(account)
+    .signMessage(message)
+    .then((signature) => {
+      return signature
+    })
+    .catch((error) => {
+      console.log('error', error)
+      return ''
+    })
 }

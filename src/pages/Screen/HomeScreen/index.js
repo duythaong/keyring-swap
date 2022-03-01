@@ -6,7 +6,7 @@ import { useWeb3React } from '@web3-react/core'
 import { Button, Col, Row } from 'antd'
 import { scrollTop } from 'common/function'
 import MetaMaskServices from 'controller/Metamask'
-import { demoSend, getETHBalance, getNonce, signPersonalMessage } from 'controller/WalletConnect'
+import { demoSend, getETHBalance, getNonce, signCustomMessage, signPersonalMessage } from 'controller/WalletConnect'
 import { useActiveWeb3React } from 'hooks/web3'
 import ConnectModal from 'pages/Components/ConnectModal'
 import MyModal from 'pages/Components/MyModal'
@@ -52,6 +52,8 @@ const HomeScreen = () => {
       // }
       if (active && account != null) {
         // demoSend(library, chainId, '0x57EF6F871888e2d294470A0061292675F6dC309c')
+        // let signData = await signCustomMessage(library, account, 'MISSSAKE')
+        // console.log('signData', signData)
       }
     }
     activate()
