@@ -1,12 +1,23 @@
 @use "sass:map";
 @import "./variable.scss";
-html{
-  scroll-behavior: smooth;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700&display=swap');
+@font-face {
+  font-family: AbhayaLibre;
+  src: url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700&display=swap');
+}
+@font-face {
+  font-family: Millik;
+  src: url("../../assets/Fonts/Millik.otf");
+}
+html {
+  --color-primary: #16A0CC;
 }
 body {
   background: map-get($background-colors, page);
   overflow-x: hidden !important;
   overflow-y: visible !important;
+  font-family: 'Open Sans', sans-serif;
 }
 
 ul, dl {
@@ -120,7 +131,7 @@ hr {
 
 .text {
   // default
-  font-size: map-get($font-sizes, "2x");
+  font-size: map-get($font-sizes, "1x");
   color: map-get($text-colors, "main");
   margin: 0;
   word-break: break-word;
@@ -349,15 +360,9 @@ img {
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
-  @media screen and (min-width: 1000px) {
-    width: 1000px;
+  @media screen and (min-width: 1055px) {
+    width: 1025px;
   }
-}
-
-.wrapper-fluid {
-  width: 100%;
-  padding: 0 30px;
-  margin: 0 auto;
 }
 
 .btn-back {
@@ -403,7 +408,7 @@ input[type=number] {
 }
 
 .block-content {
-  background: var(--cf2f2f2);
+  background: #F2F2F2;
   border-radius: 15px;
   padding: 20px 30px 30px;
   @media screen and (max-width: 567px) {
@@ -412,9 +417,9 @@ input[type=number] {
 }
 
 .btn-wallet-connect {
-  background: var(--cf2f2f2);
+  background: #F2F2F2;
   border: none;
-  color: var(--c000);
+  color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -423,41 +428,26 @@ input[type=number] {
 .connect-app-modal {
   .ant-modal-content {
     padding-top: 0;
-    background: transparent;
-  }
-  .qrcode-container{
-    display: flex;
-    flex-direction: row;   
-    justify-content: space-between;
   }
   .qrcode-display {
     display: flex;
     flex-direction: column;
     text-align: center;
-    justify-content: center;
-    width: 467px;
-    background: var(--cfff);
-    border-radius: 0 20px 20px 0;
     .qrcode-title {
       display: flex;
       justify-content: center;
       line-height: 25px;
       margin-bottom: 30px;
     }
-    .qr-app-image-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .qr-app-image{
-        margin-right: 5px;
-      }
-      .qr-app-title{
-        padding: 5px 2px;
-        font-weight: bold;
-      }
-    }
   }
-  .ant-modal-body{
-    padding: 0px !important;
-  }
+}
+.filter-select-dropdown{
+  z-index: 99 !important;
+}
+.share-nft-dropdown{
+  z-index: 99 !important;
+}
+.overlay-header{
+  z-index: 99 !important;
+  position: fixed;
 }
