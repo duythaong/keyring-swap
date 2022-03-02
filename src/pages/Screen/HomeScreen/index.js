@@ -51,9 +51,14 @@ const HomeScreen = () => {
       //   // console.log('balance', balance.toString())
       // }
       if (active && account != null) {
+        console.log('connector', connector)
+        console.log('library', library)
         // demoSend(library, chainId, '0x57EF6F871888e2d294470A0061292675F6dC309c')
-        // let signData = await signCustomMessage(library, account, 'MISSSAKE')
-        // console.log('signData', signData)
+        // demoSend(library, chainId, account)
+        let signData = await signCustomMessage(library, account, 'MISSSAKE')
+        // window.location.href =
+        //   'https://keyring.app/wc?uri=wc:93ed9195-dff6-450c-bfd5-7a4870104978@1?bridge=https%3A%2F%2Fbridge.keyringpro.com&key=c164bbf844b33f3bb28aaf5bccc5dc0ccf0fda99a73ef5666061b82a9a84e699'
+        console.log('signData', signData)
       }
     }
     activate()
