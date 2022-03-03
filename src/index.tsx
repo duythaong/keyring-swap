@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import '@reach/dialog/styles.css'
 import 'inter-ui'
 import 'polyfills'
 import 'components/analytics'
 
 import { createWeb3ReactRoot, Web3ReactProvider } from '@web3-react/core'
+import GlobalHook from 'hooks/globalHook'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
@@ -24,7 +26,6 @@ import UserUpdater from './state/user/updater'
 import ThemeProvider, { ThemedGlobalStyle } from './theme'
 import RadialGradientByChainUpdater from './theme/RadialGradientByChainUpdater'
 import getLibrary from './utils/getLibrary'
-
 const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName)
 
 if (!!window.ethereum) {
@@ -41,6 +42,7 @@ function Updaters() {
       <TransactionUpdater />
       <MulticallUpdater />
       <LogsUpdater />
+      <GlobalHook />
     </>
   )
 }

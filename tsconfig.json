@@ -4,6 +4,12 @@
     "jsx": "react-jsx",
     "baseUrl": "src"
   },
-  "exclude": ["node_modules", "cypress"],
-  "include": ["src/**/*"]
+  "exclude": [
+    "node_modules",
+    "cypress"
+  ],
+  "include": [
+    "src/**/*",
+    "src/**/**/*"
+  ]
 }

@@ -12,29 +12,33 @@ import logs from './logs/slice'
 import mint from './mint/reducer'
 import mintV3 from './mint/v3/reducer'
 import multicall from './multicall/reducer'
+import { internetRedux } from './Redux/slices/pageSlices'
+import { connectionMethodRedux, locale } from './Redux/slices/storageSlices'
 import { routingApi } from './routing/slice'
 import swap from './swap/reducer'
 import transactions from './transactions/reducer'
 import user from './user/reducer'
-
 const PERSISTED_KEYS: string[] = ['user', 'transactions', 'lists']
-
+const reducers = {
+  transactions,
+  application,
+  user,
+  locale,
+  internetRedux,
+  connectionMethodRedux,
+  swap,
+  mint,
+  mintV3,
+  burn,
+  burnV3,
+  multicall,
+  lists,
+  logs,
+  [dataApi.reducerPath]: dataApi.reducer,
+  [routingApi.reducerPath]: routingApi.reducer,
+}
 const store = configureStore({
-  reducer: {
-    application,
-    user,
-    transactions,
-    swap,
-    mint,
-    mintV3,
-    burn,
-    burnV3,
-    multicall,
-    lists,
-    logs,
-    [dataApi.reducerPath]: dataApi.reducer,
-    [routingApi.reducerPath]: routingApi.reducer,
-  },
+  reducer: reducers,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ thunk: true })
       .concat(dataApi.middleware)
@@ -44,7 +48,6 @@ const store = configureStore({
 })
 
 store.dispatch(updateVersion())
-
 setupListeners(store.dispatch)
 
 export default store

@@ -1,0 +1,434 @@
+// @import '~antd/dist/antd.less';
+@import '~antd/dist/antd.css';
+
+@primary-color: #16a0cc;
+@font-size-base: 13px;
+@border-radius-base: 0px;
+body {
+  font-size: 13px;
+  color: #333;
+}
+.ant-form-item-label {
+  > label {
+    // height: auto;
+    color: #828282;
+    &.ant-form-item-required {
+      &::before {
+        content: initial;
+        margin: 0;
+      }
+    }
+    &::after {
+      content: "";
+    }
+  }
+}
+.ant-layout {
+  background: #fff;
+}
+.ant-btn {
+  height: 40px;
+  padding: 4px 19px;
+  background: #fff;
+  border-color: #828282;
+  border-width: 2px;
+  color: #828282;
+  min-width: unset !important;
+  &:disabled {
+    opacity: 0.5;
+  }
+  @media screen and (max-width: 567px) {
+    height: 40px;
+  }
+}
+.ant-btn-primary {
+  background: #b42033;
+  border: none;
+  color: #fff;
+  &:disabled {
+    opacity: 0.5;
+    border: none;
+    color: #fff;
+    background: #b42033;
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+      border: none;
+      color: #fff;
+      background: #b42033;
+    }
+  }
+  &:hover,
+  &:focus {
+    background: #bd783b;
+    border: none;
+    color: #fff;
+  }
+}
+.ant-btn-danger {
+  background: #eb5757;
+  border-color: #eb5757;
+  color: #fff;
+  &:hover,
+  &:focus {
+    background: #ea7b7b;
+    border-color: #ea7b7b;
+    color: #fff;
+  }
+  &:disabled {
+    background: rgba(235, 87, 87, 0.5);
+    border-color: transparent;
+    &:hover,
+    &:focus {
+      background: rgba(235, 87, 87, 0.5);
+      border-color: transparent;
+      color: #fff;
+    }
+  }
+}
+.ant-btn-warning {
+  background: #f2c94c;
+  border-color: #f2c94c;
+  color: #fff;
+  &:hover,
+  &:focus {
+    background: #f9d875;
+    border-color: #f9d875;
+    color: #fff;
+  }
+}
+.ant-btn-text {
+  background: transparent;
+  border-color: transparent;
+  color: #000;
+  &:hover,
+  &:focus {
+    background: transparent;
+    border-color: transparent;
+    color: #000;
+  }
+}
+.ant-big-btn {
+  height: 50px;
+  border-radius: 8px;
+  margin-right: 15px;
+  @media screen and (min-width: 320px) {
+    min-width: 113px;
+    &:last-child {
+      margin-right: 0 !important;
+    }
+  }
+  @media screen and (min-width: 375px) {
+    min-width: 141px;
+  }
+  @media screen and (min-width: 414px) {
+    min-width: 161px;
+  }
+}
+.ant-long-btn {
+  min-width: 220px;
+  height: 50px;
+  border-radius: 8px;
+  margin-right: 15px;
+  @media screen and (min-width: 320px) {
+    font-size: 14px !important;
+    min-width: 96px;
+    padding: 4px;
+    margin-right: 5px !important;
+    &:nth-child(2) {
+      margin-right: 0 !important;
+    }
+  }
+  @media screen and (min-width: 375px) {
+    font-size: 14px !important;
+    min-width: 130px;
+    padding: 4px 15px;
+    margin-right: 10px !important;
+    &:nth-child(2) {
+      margin-right: 0 !important;
+    }
+  }
+  @media screen and (min-width: 414px) {
+    min-width: 140px;
+    padding: 4px 15px;
+    margin-right: 10px !important;
+    &:nth-child(2) {
+      margin-right: 0 !important;
+    }
+  }
+  @media screen and (min-width: 568px) {
+    min-width: 220px;
+    padding: 4px 19px;
+    font-size: 16px !important;
+  }
+}
+.ant-modal-content {
+  border-radius: 15px;
+  padding-top: 0px;
+}
+.ant-modal {
+  @media (max-width: 767px) {
+    max-width: calc(90vw);
+  }
+}
+.ant-notification {
+  width: auto !important;
+  margin-right: 16px;
+  .ant-notification-notice {
+    padding: 12px 24px;
+  }
+  .notification-class {
+    max-width: 500px;
+    background: #fffef0;
+    border: 1px solid rgba(242, 201, 76, 0.3);
+    box-sizing: border-box;
+    text-align: center;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    border-radius: 10px;
+    .ant-notification-notice-message {
+      font-size: 16px;
+      // line-height: 16px;
+      color: #000;
+      margin: 0;
+      .text {
+        font-size: 16px;
+      }
+    }
+    .ant-notification-notice-close {
+      color: #000;
+      top: 14px;
+    }
+    .ant-notification-notice-with-icon {
+      .ant-notification-notice-icon {
+        position: relative;
+        margin-right: 4px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+.ant-input-suffix {
+  display: flex;
+  align-items: center;
+}
+.ant-input-affix-wrapper {
+  padding: 6px 11px 4px;
+}
+.ant-upload {
+  .ant-btn {
+    border-radius: 6px;
+    background: transparent;
+    border: 1px dashed #bdbdbd;
+    height: 40px;
+    padding: 10px 15px;
+    &:hover {
+      border-color: #eb5266;
+    }
+  }
+}
+.ant-input {
+  padding: 13px 20px 10px;
+  font-size: 16px;
+  color: #333;
+}
+.ant-form-item-explain {
+  padding-top: 3px;
+  text-align: left;
+}
+.ant-modal-body {
+  padding: 30px;
+  text-align: center;
+}
+.ant-modal-footer-btn {
+  text-align: right;
+  .ant-btn {
+    height: 70px;
+    border-radius: 10px 0px 8px 0px;
+    padding: 10px 30px;
+    border: none;
+  }
+}
+
+.ant-menu {
+  background: transparent;
+}
+
+.ant-menu-horizontal,
+.ant-menu-vertical {
+  border: none;
+  line-height: initial;
+  > .ant-menu-item {
+    border: none;
+    padding: 0 15px;
+    a {
+      color: #fff;
+    }
+    &:hover {
+      border: none;
+    }
+    .selected {
+      color: var(--color-primary);
+    }
+  }
+}
+.ant-menu-vertical {
+  > .ant-menu-item {
+    .selected {
+      color: #000;
+    }
+  }
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background: transparent;
+}
+.ant-menu-inline,
+.ant-menu-vertical,
+.ant-menu-vertical-left {
+  border-right: none;
+}
+.ant-menu-item-selected {
+  color: initial;
+}
+.ant-tabs-bar {
+  border-color: rgba(242, 201, 76, 0.3);
+}
+.ant-tabs-ink-bar {
+  height: 5px;
+  z-index: 0;
+}
+body {
+  height: auto !important;
+}
+.ant-tabs-nav {
+  .ant-tabs-tab {
+    font-weight: 500;
+  }
+}
+.ant-radio {
+  vertical-align: middle;
+}
+.ant-radio-wrapper {
+  &.ant-radio-wrapper-disabled {
+    color: #828282;
+  }
+}
+.ant-btn > .anticon + span,
+.ant-btn > span + .anticon {
+  margin-left: 5px;
+}
+.ant-drawer-close {
+  color: #000;
+}
+.ant-select,
+.ant-select-dropdown {
+  color: #000;
+}
+.ant-select-single:not(.ant-select-customize-input) {
+  .ant-select-selector {
+    box-sizing: border-box;
+    border-radius: 6px;
+    height: 40px;
+    .ant-select-selection-search-input {
+      height: 38px;
+    }
+    .ant-select-selection-item {
+      line-height: 38px;
+    }
+  }
+}
+.ant-pagination-prev,
+.ant-pagination-next,
+.ant-pagination-item {
+  margin: 0 0 8px 8px;
+}
+.ant-dropdown {
+  background: #000a1d;
+  border: 1px solid #09283f;
+}
+.ant-dropdown-menu {
+  padding: 0;
+  background: transparent;
+  .ant-dropdown-menu-item {
+    padding: 10px 15px;
+    color: #fff;
+    &:hover {
+      color: var(--color-primary);
+      background: transparent;
+    }
+  }
+}
+.ant-drawer-bottom {
+  .ant-drawer-content {
+    border-radius: 20px 20px 0 0;
+  }
+}
+.ant-form-item-control-input {
+  min-height: auto;
+}
+
+.walletconnect-qrcode__base,
+.ant-modal-mask,
+.ant-drawer-mask {
+  background: rgba(0, 10, 29, 0.5) !important;
+}
+
+.ant-popover-arrow {
+  display: none !important;
+}
+
+.ant-btn-disabled,
+.ant-btn.disabled,
+.ant-btn[disabled],
+.ant-btn-disabled:hover,
+.ant-btn.disabled:hover,
+.ant-btn[disabled]:hover,
+.ant-btn-disabled:focus,
+.ant-btn.disabled:focus,
+.ant-btn[disabled]:focus,
+.ant-btn-disabled:active,
+.ant-btn.disabled:active,
+.ant-btn[disabled]:active,
+.ant-btn-disabled.active,
+.ant-btn.disabled.active,
+.ant-btn[disabled].active {
+  color: inherit;
+  background-color: inherit;
+  border-color: inherit;
+  text-shadow: inherit;
+  box-shadow: inherit;
+}
+.ant-drawer-header {
+  border: none;
+  padding-bottom: 0;
+  padding-top: 20px;
+}
+.ant-drawer-header-title {
+  flex-direction: row-reverse;
+}
+.ant-drawer-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+.ant-drawer-close {
+  margin-right: -10px;
+}
+
+.ant-drawer-body {
+  padding: 20px !important;
+}
+.ant-message {
+  height: 100vh !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.ant-message-notice {
+  .ant-message-notice-content {
+    border-radius: 10px !important;
+    z-index: 9999;
+  }
+}

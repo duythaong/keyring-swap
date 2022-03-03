@@ -1,0 +1,51 @@
+$background-image: (
+  "gradient": linear-gradient(90deg, #EA5165 0%, #EF8E87 100%)
+);
+
+$background-colors: (
+  "page": #FFF,
+  "main": #F2F2F2,
+  "bg-1": #F2C94C,
+  "bg-2": #bdc3d7,
+  "bg-3": rgba(255, 255, 255, 0.15),
+  "bg-5": #e5e5e5,
+  "bg-6": #fff,
+  "bg-7": #000,
+  "bg-8": #2F80ED,
+  "bg-9": #4C8FC4
+);
+
+$text-colors: (
+  "main": #000000,
+  "color-1": #F2994A,
+  "color-2": #EB5757,
+  "color-3": #4F4F4F,
+  "color-4": #828282,
+  "color-5": #FFFFFF,
+  "color-6": #6AB658,
+  "color-7": #FFFEF0,
+  "color-8": #9B51E0,
+  "color-9": #00A0E9
+);
+
+$font-sizes: (
+  "xs": 10px,
+  "sm": 12px,
+  "1x": 13px,
+  "1xs": 15px,
+  "2x": 16px,
+  "3x": 18px,
+  "4x": 20px,
+  "4md": 24px,
+  "4sm": 28px,
+  "5x": 30px,
+  "6x": 36px,
+  "7x": 42px,
+  "8x": 48px
+);
+
+$border-colors: (
+  "main": rgba(242, 201, 76, 0.3),
+  "border-1": #eb5266,
+  "border-2": #333333,
+);

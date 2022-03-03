@@ -16,8 +16,8 @@ export enum SupportedChainId {
   ARBITRUM_RINKEBY = 421611,
   OPTIMISM = 10,
   OPTIMISTIC_KOVAN = 69,
-
   BSC_MAINNET = 56,
+  BSC_TESTNET = 97,
 
   POLYGON_MAINET = 137,
   POLYGON_TESTNET = 80001,
@@ -36,6 +36,7 @@ export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = [
   SupportedChainId.OPTIMISTIC_KOVAN,
 
   SupportedChainId.BSC_MAINNET,
+  SupportedChainId.BSC_TESTNET,
 
   SupportedChainId.POLYGON_MAINET,
   SupportedChainId.POLYGON_TESTNET,
@@ -48,6 +49,7 @@ export const L1_CHAIN_IDS = [
   SupportedChainId.GOERLI,
   SupportedChainId.KOVAN,
   SupportedChainId.BSC_MAINNET,
+  SupportedChainId.BSC_TESTNET,
   SupportedChainId.POLYGON_MAINET,
   SupportedChainId.POLYGON_TESTNET,
 ] as const
@@ -178,6 +180,15 @@ export const CHAIN_INFO: ChainInfo = {
     logoUrl: binanceLogoUrl,
     nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
     rpcUrls: ['https://bsc-dataseed1.ninicoin.io'],
+  },
+  [SupportedChainId.BSC_TESTNET]: {
+    docs: 'https://docs.uniswap.org/',
+    explorer: 'https://testnet.bscscan.com/',
+    infoLink: 'https://info-swap.web.app',
+    label: 'BSC',
+    logoUrl: binanceLogoUrl,
+    nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
+    rpcUrls: ['https://data-seed-prebsc-2-s3.binance.org:8545'],
   },
   [SupportedChainId.POLYGON_MAINET]: {
     docs: 'https://docs.uniswap.org/',
