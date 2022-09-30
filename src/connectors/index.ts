@@ -32,7 +32,7 @@ const NETWORK_URLS = {
   [SupportedChainId.ARBITRUM_ONE]: `https://arbitrum-mainnet.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_RINKEBY]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.POLYGON_MAINET]: `https://polygon-rpc.com/`,
-  [SupportedChainId.POLYGON_TESTNET]: `https://rpc-mumbai.matic.today`,
+  [SupportedChainId.POLYGON_TESTNET]: `https://rpc-mumbai.maticvigil.com`,
   [SupportedChainId.BSC_MAINNET]: `https://bsc-dataseed1.ninicoin.io`,
 }
 
